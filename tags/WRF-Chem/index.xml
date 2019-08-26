@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WRF-Chem on Dreambooker</title>
+    <link>https://dreambooker.site/tags/WRF-Chem/</link>
+    <description>Recent content in WRF-Chem on Dreambooker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 13 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dreambooker.site/tags/WRF-Chem/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installing libraries and automating WRF-Chem</title>
+      <link>https://dreambooker.site/2018/12/13/Installing-libraries-and-automating-WRF-Chem/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2018/12/13/Installing-libraries-and-automating-WRF-Chem/</guid>
+      <description>&lt;h2 id=&#34;backgroud&#34;&gt;Backgroud&lt;/h2&gt;
+
+&lt;p&gt;NETCDF version (&lt;code&gt;netcdf/4.5.0/02-CF-17-par&lt;/code&gt;) on &lt;a href=&#34;https://en.wikipedia.org/wiki/Tianhe-2&#34;&gt;TH-2&lt;/a&gt; seems something wrong. This results in error when  &lt;strong&gt;NETCDF4&lt;/strong&gt; of WRF-Chem enabled (NETCDF4=1). So, I decide to compile &lt;code&gt;NETCDF&lt;/code&gt; on my own.&lt;/p&gt;
+
+&lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
+
+&lt;p&gt;According to NetCDF&amp;rsquo;s &lt;a href=&#34;https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html&#34;&gt;instruction &lt;/a&gt;, we need &lt;a href=&#34;http://www.zlib.net/&#34;&gt;zlib&lt;/a&gt; and &lt;a href=&#34;https://www.hdfgroup.org/downloads/&#34;&gt;hdf5&lt;/a&gt; first. For zlib, I use the version &lt;code&gt;zlib/1.2.11-icc17&lt;/code&gt; originally compiled by TH-2.&lt;/p&gt;
+
+&lt;h3 id=&#34;hdf5&#34;&gt;HDF5&lt;/h3&gt;
+
+&lt;p&gt;The newest version is &lt;strong&gt;1.10.4&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ./configure --prefix=/HOME/nuist_chenq_2/WORKSPACE/xin/software/hdf5-1.10.4 --enable-fortran --enable-static-exec
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But, I got this error:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Speedup WRF-Chem</title>
+      <link>https://dreambooker.site/2018/12/02/Speedup-WRF-Chem/</link>
+      <pubDate>Sun, 02 Dec 2018 20:58:10 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2018/12/02/Speedup-WRF-Chem/</guid>
+      <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+
+&lt;p&gt;This is my partial namelist of WRF-Chem:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;amp;time_control
+ run_days                           = 147,    
+&amp;amp;domains
+ time_step                          = 72,
+ time_step_fract_num                = 0,
+ time_step_fract_den                = 1,
+ max_dom                            = 1,
+ e_we                               = 430,
+ e_sn                               = 345,
+ e_vert                             = 40,
+ dx                                 = 12000,
+ dy                                 = 12000,
+ p_top_requested                    = 10000,
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I used &lt;code&gt;384&lt;/code&gt; cores to run it and I found the speed of &lt;code&gt;calculation&lt;/code&gt; and &lt;code&gt;writing&lt;/code&gt; is &lt;strong&gt;~5.45 seconds/step&lt;/strong&gt;, &lt;strong&gt;~54.5 s/wrfout_file&lt;/strong&gt; and &lt;strong&gt;~210 s/wrfrst_file&lt;/strong&gt;. The terrible one is the speed of &lt;strong&gt;I/O  tasks&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Set decayed tracer for WRF</title>
+      <link>https://dreambooker.site/2018/07/31/Set-decayed-tracer-for-WRF/</link>
+      <pubDate>Tue, 31 Jul 2018 10:09:31 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2018/07/31/Set-decayed-tracer-for-WRF/</guid>
+      <description>&lt;p&gt;Because tracer_opt in WRF-Chem support more functions than WRF, we plan to clone and edit it for WRF (which is much quickier than WRF-Chem).&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Copy &lt;code&gt;/chem/module_input_tracer_data.F&lt;/code&gt; and &lt;code&gt;chem/module_input_tracer.F&lt;/code&gt; into &lt;code&gt;/WRFV3/phys&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;After compile, I get an error about &lt;code&gt;TRACER_TEST1 not found&lt;/code&gt;. It&amp;rsquo;s related to &lt;code&gt;module_state_description.F&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;module_state_description.F : ../Registry/$(REGISTRY)
+                     ( cd .. ; tools/registry $(ARCHFLAGS) $(ENVCOMPDEFS) -DNEW_BDYS Registry/$(REGISTRY) ) ;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Registry/Registry.EM_COMMON&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>Initializing the WRF model with ERA5</title>
+      <link>https://dreambooker.site/2018/04/20/Initializing-the-WRF-model-with-ERA5/</link>
+      <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2018/04/20/Initializing-the-WRF-model-with-ERA5/</guid>
+      <description>&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://valcap74.blogspot.com/2017/10/how-to-run-wrf-model-driven-by-era5-on.html?showComment=1524140953190#c5741939636532233503&#34;&gt;How to run the WRF model using ERA5 (on model levels) as initial and boundary conditions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://software.ecmwf.int/wiki/display/OIFSUF/Grib+to+Netcdf+conversion&#34;&gt;Grib to Netcdf conversion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://conorsweeneyucd.blogspot.com/2015/01/download-era-interim-data.html&#34;&gt;Download ERA-Interim data&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;summarization&#34;&gt;Summarization&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Download&lt;/li&gt;
+&lt;li&gt;Preprocess&lt;/li&gt;
+&lt;li&gt;Automation&lt;/li&gt;
+&lt;li&gt;Geogrid&lt;/li&gt;
+&lt;li&gt;Ungrib&lt;/li&gt;
+&lt;li&gt;Produce additional intermediate files&lt;/li&gt;
+&lt;li&gt;Metgrid&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>BEHR_OMINO2 Guide for non_Berkeley</title>
+      <link>https://dreambooker.site/2018/03/11/BEHR_OMINO2-Guide-for-non_Berkeley/</link>
+      <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2018/03/11/BEHR_OMINO2-Guide-for-non_Berkeley/</guid>
+      <description>&lt;h1 id=&#34;behr-omino2-guide-for-non-berkeley&#34;&gt;BEHR_OMINO2 Guide for non_Berkeley&lt;/h1&gt;
+
+&lt;h2 id=&#34;clone-behr-core-https-github-com-cohenberkeleylab-behr-core-git-and-other-repositories&#34;&gt;Clone &lt;a href=&#34;https://github.com/CohenBerkeleyLab/BEHR-core.git&#34;&gt;BEHR_Core&lt;/a&gt; and other repositories&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir BEHR
+cd BEHR
+git clone https://github.com/CohenBerkeleyLab/BEHR-core.git
+cd BEHR-core
+./setup.sh # if you want to use develop branch, add --develop
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Initializing the WRF model with ECMWF ERA-Interim reanalysis</title>
+      <link>https://dreambooker.site/2017/12/20/Initializing-the-WRF-model-with-ECMWF-ERA-Interim-reanalysis/</link>
+      <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2017/12/20/Initializing-the-WRF-model-with-ECMWF-ERA-Interim-reanalysis/</guid>
+      <description>&lt;h2 id=&#34;summarization&#34;&gt;Summarization&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;To summarise, you need three separate data files from the reanalysis data:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Pressure level data (or model levels)&lt;/li&gt;
+&lt;li&gt;Surface variable data&lt;/li&gt;
+&lt;li&gt;Fixed data.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>WRF-Chem (MOZCART) and WRF_tips</title>
+      <link>https://dreambooker.site/2017/12/10/WRF-Chem-MOZCART-and-WRF_tips/</link>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2017/12/10/WRF-Chem-MOZCART-and-WRF_tips/</guid>
+      <description>&lt;h1 id=&#34;wps&#34;&gt;WPS&lt;/h1&gt;
+
+&lt;h2 id=&#34;namelist&#34;&gt;namelist&lt;/h2&gt;
+
+&lt;h3 id=&#34;i-parent-start-and-j-parent-start&#34;&gt;i_parent_start and j_parent_start&lt;/h3&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to compile WRF-Chem</title>
+      <link>https://dreambooker.site/2017/10/02/How-to-compile-WRF-Chem/</link>
+      <pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2017/10/02/How-to-compile-WRF-Chem/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;This is the basic one about WRF-Chem. You can check &lt;a href=&#34;https://dreambooker.site/2018/12/07/Installing-libraries-and-automating-WRF-Chem/&#34;&gt;this one&lt;/a&gt; for more information.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;requirements&#34;&gt;Requirements&lt;/h1&gt;
+
+&lt;h2 id=&#34;flex-2-5-3&#34;&gt;flex(2.5.3)&lt;/h2&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

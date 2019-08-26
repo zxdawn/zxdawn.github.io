@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hugo on </title>
+    <title>hugo on Dreambooker</title>
     <link>https://dreambooker.site/tags/hugo/</link>
-    <description>Recent content in hugo on </description>
+    <description>Recent content in hugo on Dreambooker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Sat, 17 Aug 2019 00:00:00 +0000</lastBuildDate>
@@ -13,10 +13,10 @@
     
     <item>
       <title>Hugo&#43;Staticman&#43;Travis</title>
-      <link>https://dreambooker.site/2019/08/17/hugo-staticman-travis/</link>
+      <link>https://dreambooker.site/2019/08/17/Hugo-Staticman-Travis/</link>
       <pubDate>Sat, 17 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://dreambooker.site/2019/08/17/hugo-staticman-travis/</guid>
+      <guid>https://dreambooker.site/2019/08/17/Hugo-Staticman-Travis/</guid>
       <description>&lt;p&gt;This blog post documents the setup of deploying Hugo with Travis CI to the GitHub Pages.&lt;/p&gt;
 
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;

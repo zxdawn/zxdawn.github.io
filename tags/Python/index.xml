@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Dreambooker</title>
+    <link>https://dreambooker.site/tags/Python/</link>
+    <description>Recent content in Python on Dreambooker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 22 Nov 2018 13:19:33 +0000</lastBuildDate>
+    
+	<atom:link href="https://dreambooker.site/tags/Python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Controlling the exam with Python</title>
+      <link>https://dreambooker.site/2018/11/22/Controlling-the-exam-with-Python/</link>
+      <pubDate>Thu, 22 Nov 2018 13:19:33 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2018/11/22/Controlling-the-exam-with-Python/</guid>
+      <description>&lt;h2 id=&#34;predicaments&#34;&gt;Predicaments&lt;/h2&gt;
+
+&lt;p&gt;We&amp;rsquo;re asked to learn a library about safety.&lt;/p&gt;
+
+&lt;p&gt;However, if the duration is greater than 5 minutes (~300 seconds), we need to click &lt;code&gt;agree&lt;/code&gt; to let the timing continue. So, when we finish the learning progress, we&amp;rsquo;ll click &lt;strong&gt;6*&lt;sup&gt;60&lt;/sup&gt;&amp;frasl;&lt;sub&gt;5&lt;/sub&gt; = 72&lt;/strong&gt; times &amp;hellip;&amp;hellip;..&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Trick of binned_statistic_2d</title>
+      <link>https://dreambooker.site/2018/11/22/Trick-of-binned_statistic_2d/</link>
+      <pubDate>Thu, 22 Nov 2018 09:11:07 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2018/11/22/Trick-of-binned_statistic_2d/</guid>
+      <description>&lt;h2 id=&#34;official-example&#34;&gt;Official example&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; from scipy import stats
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Calculate the counts with explicit bin-edges:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; x = [0.1, 0.1, 0.1, 0.6]
+&amp;gt;&amp;gt;&amp;gt; y = [2.1, 2.6, 2.1, 2.1]
+&amp;gt;&amp;gt;&amp;gt; binx = [0.0, 0.5, 1.0]
+&amp;gt;&amp;gt;&amp;gt; biny = [2.0, 2.5, 3.0]
+&amp;gt;&amp;gt;&amp;gt; ret = stats.binned_statistic_2d(x, y, None, &#39;count&#39;, bins=[binx,biny])
+&amp;gt;&amp;gt;&amp;gt; ret.statistic
+array([[ 2.,  1.],
+       [ 1.,  0.]])
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Set up personal Anaconda mirror</title>
+      <link>https://dreambooker.site/2018/11/16/Set-up-personal-Anaconda-mirror/</link>
+      <pubDate>Fri, 16 Nov 2018 10:13:08 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2018/11/16/Set-up-personal-Anaconda-mirror/</guid>
+      <description>&lt;h2 id=&#34;predicaments&#34;&gt;Predicaments&lt;/h2&gt;
+
+&lt;p&gt;If you encounter any problems as follows, you should try to set up a personal Python(Anaconda) mirror:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Deploy a python environment on servers that have no access to the Internet;&lt;/li&gt;
+&lt;li&gt;Deploy a python environment which can be used directly by other users on the server;&lt;/li&gt;
+&lt;li&gt;Internet speed or connection to cloud mirror is slow.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+
+&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;Just install Anaconda according to this &lt;a href=&#34;https://conda.io/docs/user-guide/install/index.html&#34;&gt;guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Of course, you can download Anaconda installer archive from &lt;a href=&#34;https://repo.continuum.io/pkgs/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;download-mirror&#34;&gt;Download(mirror)&lt;/h3&gt;
+
+&lt;p&gt;You can use &lt;code&gt;wget&lt;/code&gt; to mirror the packages from &lt;a href=&#34;https://repo.continuum.io/pkgs/&#34;&gt;official Anaconda websites&lt;/a&gt; or other mirror websites (&lt;a href=&#34;https://mirrors.tuna.tsinghua.edu.cn/anaconda/&#34;&gt;TUNA&lt;/a&gt; and &lt;a href=&#34;https://mirrors.ustc.edu.cn/anaconda&#34;&gt;USTC&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;If your server is located in China, I recommend the later one.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll take the later one as example.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Trick of pcolormesh</title>
+      <link>https://dreambooker.site/2018/10/31/Trick-of-pcolormesh/</link>
+      <pubDate>Wed, 31 Oct 2018 10:40:24 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2018/10/31/Trick-of-pcolormesh/</guid>
+      <description>&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://alex.seeholzer.de/2014/05/fun-with-matplotlib-pcolormesh-getting-data-to-display-in-the-right-position/&#34;&gt;http://alex.seeholzer.de/2014/05/fun-with-matplotlib-pcolormesh-getting-data-to-display-in-the-right-position/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

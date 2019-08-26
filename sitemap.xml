@@ -24,7 +24,7 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/about/projects/contributions/rm2pdf/</loc>
+    <loc>https://dreambooker.site/about/projects/contributions/rM2PDF/</loc>
     <priority>0.8</priority>
   </url>
   
@@ -39,19 +39,19 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/</loc>
-    <lastmod>2019-08-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://dreambooker.site/categories/</loc>
     <lastmod>2019-08-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2019/08/17/hugo-staticman-travis/</loc>
+    <loc>https://dreambooker.site/</loc>
+    <lastmod>2019-08-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/2019/08/17/Hugo-Staticman-Travis/</loc>
     <lastmod>2019-08-17T00:00:00+00:00</lastmod>
   </url>
   
@@ -98,7 +98,7 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/life/</loc>
+    <loc>https://dreambooker.site/tags/Life/</loc>
     <lastmod>2019-03-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -115,13 +115,13 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/conference/</loc>
+    <loc>https://dreambooker.site/tags/Conference/</loc>
     <lastmod>2019-01-23T19:35:31+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2019/01/23/egu2019-%E7%AD%BE%E8%AF%81visa%E7%AF%87/</loc>
+    <loc>https://dreambooker.site/2019/01/23/EGU2019-%E7%AD%BE%E8%AF%81VISA%E7%AF%87/</loc>
     <lastmod>2019-01-23T19:35:31+00:00</lastmod>
   </url>
   
@@ -131,7 +131,7 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/dream/</loc>
+    <loc>https://dreambooker.site/tags/Dream/</loc>
     <lastmod>2019-01-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -147,24 +147,24 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/12/13/installing-libraries-and-automating-wrf-chem/</loc>
+    <loc>https://dreambooker.site/2018/12/13/Installing-libraries-and-automating-WRF-Chem/</loc>
     <lastmod>2018-12-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/wrf-chem/</loc>
+    <loc>https://dreambooker.site/tags/WRF-Chem/</loc>
     <lastmod>2018-12-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/linux/</loc>
+    <loc>https://dreambooker.site/tags/Linux/</loc>
     <lastmod>2018-12-05T13:22:09+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/12/05/tricks-of-th-2-vpn/</loc>
+    <loc>https://dreambooker.site/2018/12/05/Tricks-of-TH-2-VPN/</loc>
     <lastmod>2018-12-05T13:22:09+00:00</lastmod>
   </url>
   
@@ -174,7 +174,7 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/12/02/speedup-wrf-chem/</loc>
+    <loc>https://dreambooker.site/2018/12/02/Speedup-WRF-Chem/</loc>
     <lastmod>2018-12-02T20:58:10+00:00</lastmod>
   </url>
   
@@ -184,33 +184,33 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/11/22/controlling-the-exam-with-python/</loc>
+    <loc>https://dreambooker.site/2018/11/22/Controlling-the-exam-with-Python/</loc>
     <lastmod>2018-11-22T13:19:33+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/python/</loc>
+    <loc>https://dreambooker.site/tags/Python/</loc>
     <lastmod>2018-11-22T13:19:33+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/11/22/trick-of-binned_statistic_2d/</loc>
+    <loc>https://dreambooker.site/2018/11/22/Trick-of-binned_statistic_2d/</loc>
     <lastmod>2018-11-22T09:11:07+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/11/18/send-e-mail-when-file-modified/</loc>
+    <loc>https://dreambooker.site/2018/11/18/Send-e-mail-when-file-modified/</loc>
     <lastmod>2018-11-18T22:00:48+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/11/16/set-up-personal-anaconda-mirror/</loc>
+    <loc>https://dreambooker.site/2018/11/16/Set-up-personal-Anaconda-mirror/</loc>
     <lastmod>2018-11-16T10:13:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/10/31/trick-of-pcolormesh/</loc>
+    <loc>https://dreambooker.site/2018/10/31/Trick-of-pcolormesh/</loc>
     <lastmod>2018-10-31T10:40:24+00:00</lastmod>
   </url>
   
@@ -235,17 +235,17 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/09/10/create-raid-5/</loc>
+    <loc>https://dreambooker.site/2018/09/10/Create-RAID-5/</loc>
     <lastmod>2018-09-10T09:25:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/09/05/quotes-of-detachment/</loc>
+    <loc>https://dreambooker.site/2018/09/05/Quotes-of-Detachment/</loc>
     <lastmod>2018-09-05T14:45:24+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/09/04/mount-ntfs-and-start-nfs/</loc>
+    <loc>https://dreambooker.site/2018/09/04/Mount-ntfs-and-start-nfs/</loc>
     <lastmod>2018-09-04T15:01:00+00:00</lastmod>
   </url>
   
@@ -255,23 +255,23 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/latex/</loc>
+    <loc>https://dreambooker.site/tags/LaTeX/</loc>
     <lastmod>2018-09-03T14:18:51+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/09/03/set-a-dark-theme-in-texstudio/</loc>
+    <loc>https://dreambooker.site/2018/09/03/Set-a-dark-theme-in-Texstudio/</loc>
     <lastmod>2018-09-03T14:18:51+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/07/31/set-decayed-tracer-for-wrf/</loc>
+    <loc>https://dreambooker.site/2018/07/31/Set-decayed-tracer-for-WRF/</loc>
     <lastmod>2018-07-31T10:09:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/07/11/the-cycle-of-download-and-move/</loc>
+    <loc>https://dreambooker.site/2018/07/11/The-cycle-of-download-and-move/</loc>
     <lastmod>2018-07-11T09:27:50+00:00</lastmod>
   </url>
   
@@ -281,18 +281,18 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/git/</loc>
+    <loc>https://dreambooker.site/tags/Git/</loc>
     <lastmod>2018-06-28T11:57:14+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/06/28/install-git-and-oh-my-zsh-without-root/</loc>
+    <loc>https://dreambooker.site/2018/06/28/Install-git-and-oh-my-zsh-without-root/</loc>
     <lastmod>2018-06-28T11:57:14+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/06/15/enable-auto-login-and-auto-networking-in-debian-9/</loc>
+    <loc>https://dreambooker.site/2018/06/15/Enable-auto-login-and-auto-networking-in-Debian-9/</loc>
     <lastmod>2018-06-15T10:42:48+00:00</lastmod>
   </url>
   
@@ -307,12 +307,12 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/05/18/migrate-blog-to-githubhttps-and-add-continuous-integration/</loc>
+    <loc>https://dreambooker.site/2018/05/18/Migrate-blog-to-GithubHTTPS-and-add-continuous-integration/</loc>
     <lastmod>2018-05-18T17:38:12+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/travis-ci/</loc>
+    <loc>https://dreambooker.site/tags/Travis-CI/</loc>
     <lastmod>2018-05-18T17:38:12+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -329,24 +329,24 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/cmder/</loc>
+    <loc>https://dreambooker.site/tags/Cmder/</loc>
     <lastmod>2018-05-05T15:21:53+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/05/05/running-win10-debian-zsh-in-cmder/</loc>
+    <loc>https://dreambooker.site/2018/05/05/Running-Win10-Debian-Zsh-in-Cmder/</loc>
     <lastmod>2018-05-05T15:21:53+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/windows/</loc>
+    <loc>https://dreambooker.site/tags/Windows/</loc>
     <lastmod>2018-05-05T15:21:53+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/hpc/</loc>
+    <loc>https://dreambooker.site/tags/HPC/</loc>
     <lastmod>2018-04-29T21:20:50+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -372,29 +372,29 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/era5/</loc>
+    <loc>https://dreambooker.site/tags/ERA5/</loc>
     <lastmod>2018-04-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/04/20/initializing-the-wrf-model-with-era5/</loc>
+    <loc>https://dreambooker.site/2018/04/20/Initializing-the-WRF-model-with-ERA5/</loc>
     <lastmod>2018-04-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/behr/</loc>
+    <loc>https://dreambooker.site/tags/BEHR/</loc>
     <lastmod>2018-03-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/03/11/behr_omino2-guide-for-non_berkeley/</loc>
+    <loc>https://dreambooker.site/2018/03/11/BEHR_OMINO2-Guide-for-non_Berkeley/</loc>
     <lastmod>2018-03-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/omi/</loc>
+    <loc>https://dreambooker.site/tags/OMI/</loc>
     <lastmod>2018-03-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -410,39 +410,39 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/remarkable/</loc>
+    <loc>https://dreambooker.site/tags/Remarkable/</loc>
     <lastmod>2018-01-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2018/01/18/remarkable-connecting-to-a-hotspot-which-supports-circumvention/</loc>
+    <loc>https://dreambooker.site/2018/01/18/Remarkable-Connecting-to-a-hotspot-which-supports-circumvention/</loc>
     <lastmod>2018-01-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/era/</loc>
+    <loc>https://dreambooker.site/tags/ERA/</loc>
     <lastmod>2017-12-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</loc>
+    <loc>https://dreambooker.site/2017/12/20/Initializing-the-WRF-model-with-ECMWF-ERA-Interim-reanalysis/</loc>
     <lastmod>2017-12-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2017/12/10/wrf-chem-mozcart-and-wrf_tips/</loc>
+    <loc>https://dreambooker.site/2017/12/10/WRF-Chem-MOZCART-and-WRF_tips/</loc>
     <lastmod>2017-12-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2017/10/02/how-to-compile-wrf-chem/</loc>
+    <loc>https://dreambooker.site/2017/10/02/How-to-compile-WRF-Chem/</loc>
     <lastmod>2017-10-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2017/10/02/how-to-set-up-hexo/</loc>
+    <loc>https://dreambooker.site/2017/10/02/How-to-set-up-Hexo/</loc>
     <lastmod>2017-10-02T00:00:00+00:00</lastmod>
   </url>
   
@@ -482,7 +482,7 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/2016/07/29/slate/</loc>
+    <loc>https://dreambooker.site/2016/07/29/Slate/</loc>
     <lastmod>2016-07-29T00:00:00+00:00</lastmod>
   </url>
   
