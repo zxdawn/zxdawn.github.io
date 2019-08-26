@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WRF-Chem on </title>
-    <link>https://zxdawn.github.io/tags/wrf-chem/</link>
+    <link>https://dreambooker.site/tags/wrf-chem/</link>
     <description>Recent content in WRF-Chem on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Thu, 13 Dec 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://zxdawn.github.io/tags/wrf-chem/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dreambooker.site/tags/wrf-chem/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Installing libraries and automating WRF-Chem</title>
-      <link>https://zxdawn.github.io/2018/12/13/installing-libraries-and-automating-wrf-chem/</link>
+      <link>https://dreambooker.site/2018/12/13/installing-libraries-and-automating-wrf-chem/</link>
       <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/12/13/installing-libraries-and-automating-wrf-chem/</guid>
+      <guid>https://dreambooker.site/2018/12/13/installing-libraries-and-automating-wrf-chem/</guid>
       <description>&lt;h2 id=&#34;backgroud&#34;&gt;Backgroud&lt;/h2&gt;
 
 &lt;p&gt;NETCDF version (&lt;code&gt;netcdf/4.5.0/02-CF-17-par&lt;/code&gt;) on &lt;a href=&#34;https://en.wikipedia.org/wiki/Tianhe-2&#34;&gt;TH-2&lt;/a&gt; seems something wrong. This results in error when  &lt;strong&gt;NETCDF4&lt;/strong&gt; of WRF-Chem enabled (NETCDF4=1). So, I decide to compile &lt;code&gt;NETCDF&lt;/code&gt; on my own.&lt;/p&gt;
@@ -37,10 +37,10 @@
     
     <item>
       <title>Speedup WRF-Chem</title>
-      <link>https://zxdawn.github.io/2018/12/02/speedup-wrf-chem/</link>
+      <link>https://dreambooker.site/2018/12/02/speedup-wrf-chem/</link>
       <pubDate>Sun, 02 Dec 2018 20:58:10 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/12/02/speedup-wrf-chem/</guid>
+      <guid>https://dreambooker.site/2018/12/02/speedup-wrf-chem/</guid>
       <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
 
 &lt;p&gt;This is my partial namelist of WRF-Chem:&lt;/p&gt;
@@ -65,10 +65,10 @@
     
     <item>
       <title>Set decayed tracer for WRF</title>
-      <link>https://zxdawn.github.io/2018/07/31/set-decayed-tracer-for-wrf/</link>
+      <link>https://dreambooker.site/2018/07/31/set-decayed-tracer-for-wrf/</link>
       <pubDate>Tue, 31 Jul 2018 10:09:31 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/07/31/set-decayed-tracer-for-wrf/</guid>
+      <guid>https://dreambooker.site/2018/07/31/set-decayed-tracer-for-wrf/</guid>
       <description>&lt;p&gt;Because tracer_opt in WRF-Chem support more functions than WRF, we plan to clone and edit it for WRF (which is much quickier than WRF-Chem).&lt;/p&gt;
 
 &lt;ol&gt;
@@ -85,10 +85,10 @@
     
     <item>
       <title>Initializing the WRF model with ERA5</title>
-      <link>https://zxdawn.github.io/2018/04/20/initializing-the-wrf-model-with-era5/</link>
+      <link>https://dreambooker.site/2018/04/20/initializing-the-wrf-model-with-era5/</link>
       <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/04/20/initializing-the-wrf-model-with-era5/</guid>
+      <guid>https://dreambooker.site/2018/04/20/initializing-the-wrf-model-with-era5/</guid>
       <description>&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 
 &lt;ol&gt;
@@ -112,10 +112,10 @@
     
     <item>
       <title>BEHR_OMINO2 Guide for non_Berkeley</title>
-      <link>https://zxdawn.github.io/2018/03/11/behr_omino2-guide-for-non_berkeley/</link>
+      <link>https://dreambooker.site/2018/03/11/behr_omino2-guide-for-non_berkeley/</link>
       <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/03/11/behr_omino2-guide-for-non_berkeley/</guid>
+      <guid>https://dreambooker.site/2018/03/11/behr_omino2-guide-for-non_berkeley/</guid>
       <description>&lt;h1 id=&#34;behr-omino2-guide-for-non-berkeley&#34;&gt;BEHR_OMINO2 Guide for non_Berkeley&lt;/h1&gt;
 
 &lt;h2 id=&#34;clone-behr-core-https-github-com-cohenberkeleylab-behr-core-git-and-other-repositories&#34;&gt;Clone &lt;a href=&#34;https://github.com/CohenBerkeleyLab/BEHR-core.git&#34;&gt;BEHR_Core&lt;/a&gt; and other repositories&lt;/h2&gt;
@@ -130,10 +130,10 @@ cd BEHR-core
     
     <item>
       <title>Initializing the WRF model with ECMWF ERA-Interim reanalysis</title>
-      <link>https://zxdawn.github.io/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</link>
+      <link>https://dreambooker.site/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</link>
       <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</guid>
+      <guid>https://dreambooker.site/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</guid>
       <description>&lt;h2 id=&#34;summarization&#34;&gt;Summarization&lt;/h2&gt;
 
 &lt;blockquote&gt;
@@ -149,10 +149,10 @@ cd BEHR-core
     
     <item>
       <title>WRF-Chem (MOZCART) and WRF_tips</title>
-      <link>https://zxdawn.github.io/2017/12/10/wrf-chem-mozcart-and-wrf_tips/</link>
+      <link>https://dreambooker.site/2017/12/10/wrf-chem-mozcart-and-wrf_tips/</link>
       <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2017/12/10/wrf-chem-mozcart-and-wrf_tips/</guid>
+      <guid>https://dreambooker.site/2017/12/10/wrf-chem-mozcart-and-wrf_tips/</guid>
       <description>&lt;h1 id=&#34;wps&#34;&gt;WPS&lt;/h1&gt;
 
 &lt;h2 id=&#34;namelist&#34;&gt;namelist&lt;/h2&gt;
@@ -162,10 +162,10 @@ cd BEHR-core
     
     <item>
       <title>How to compile WRF-Chem</title>
-      <link>https://zxdawn.github.io/2017/10/02/how-to-compile-wrf-chem/</link>
+      <link>https://dreambooker.site/2017/10/02/how-to-compile-wrf-chem/</link>
       <pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2017/10/02/how-to-compile-wrf-chem/</guid>
+      <guid>https://dreambooker.site/2017/10/02/how-to-compile-wrf-chem/</guid>
       <description>&lt;p&gt;&lt;strong&gt;This is the basic one about WRF-Chem. You can check &lt;a href=&#34;https://dreambooker.site/2018/12/07/Installing-libraries-and-automating-WRF-Chem/&#34;&gt;this one&lt;/a&gt; for more information.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;requirements&#34;&gt;Requirements&lt;/h1&gt;

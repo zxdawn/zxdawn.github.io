@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>web on </title>
-    <link>https://zxdawn.github.io/tags/web/</link>
+    <link>https://dreambooker.site/tags/web/</link>
     <description>Recent content in web on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Sat, 17 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://zxdawn.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dreambooker.site/tags/web/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hugo&#43;Staticman&#43;Travis</title>
-      <link>https://zxdawn.github.io/2019/08/17/hugo-staticman-travis/</link>
+      <link>https://dreambooker.site/2019/08/17/hugo-staticman-travis/</link>
       <pubDate>Sat, 17 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2019/08/17/hugo-staticman-travis/</guid>
+      <guid>https://dreambooker.site/2019/08/17/hugo-staticman-travis/</guid>
       <description>&lt;p&gt;This blog post documents the setup of deploying Hugo with Travis CI to the GitHub Pages.&lt;/p&gt;
 
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
@@ -30,10 +30,10 @@
     
     <item>
       <title>Remarkable - Connecting to a hotspot which supports circumvention</title>
-      <link>https://zxdawn.github.io/2018/01/18/remarkable-connecting-to-a-hotspot-which-supports-circumvention/</link>
+      <link>https://dreambooker.site/2018/01/18/remarkable-connecting-to-a-hotspot-which-supports-circumvention/</link>
       <pubDate>Thu, 18 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/01/18/remarkable-connecting-to-a-hotspot-which-supports-circumvention/</guid>
+      <guid>https://dreambooker.site/2018/01/18/remarkable-connecting-to-a-hotspot-which-supports-circumvention/</guid>
       <description>&lt;h2 id=&#34;set-up-vpn&#34;&gt;Set up VPN&lt;/h2&gt;</description>
     </item>
     

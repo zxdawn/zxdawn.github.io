@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on </title>
-    <link>https://zxdawn.github.io/tags/git/</link>
+    <link>https://dreambooker.site/tags/git/</link>
     <description>Recent content in Git on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Thu, 28 Jun 2018 11:57:14 +0000</lastBuildDate>
     
-	<atom:link href="https://zxdawn.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dreambooker.site/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Install git and oh-my-zsh without root</title>
-      <link>https://zxdawn.github.io/2018/06/28/install-git-and-oh-my-zsh-without-root/</link>
+      <link>https://dreambooker.site/2018/06/28/install-git-and-oh-my-zsh-without-root/</link>
       <pubDate>Thu, 28 Jun 2018 11:57:14 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/06/28/install-git-and-oh-my-zsh-without-root/</guid>
+      <guid>https://dreambooker.site/2018/06/28/install-git-and-oh-my-zsh-without-root/</guid>
       <description>&lt;h1 id=&#34;git&#34;&gt;Git&lt;/h1&gt;
 
 &lt;p&gt;Check &lt;code&gt;Installing from Source&lt;/code&gt; part of the &lt;a href=&#34;https://git-scm.com/book/en/v2/Getting-Started-Installing-Git&#34;&gt;guide&lt;/a&gt;.&lt;/p&gt;

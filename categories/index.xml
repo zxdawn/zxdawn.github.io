@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on </title>
-    <link>https://zxdawn.github.io/categories/</link>
+    <link>https://dreambooker.site/categories/</link>
     <description>Recent content in Categories on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Sat, 17 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://zxdawn.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dreambooker.site/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>sci-tech</title>
-      <link>https://zxdawn.github.io/categories/sci-tech/</link>
+      <link>https://dreambooker.site/categories/sci-tech/</link>
       <pubDate>Sat, 17 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/categories/sci-tech/</guid>
+      <guid>https://dreambooker.site/categories/sci-tech/</guid>
       <description></description>
     </item>
     
     <item>
       <title>essay</title>
-      <link>https://zxdawn.github.io/categories/essay/</link>
+      <link>https://dreambooker.site/categories/essay/</link>
       <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/categories/essay/</guid>
+      <guid>https://dreambooker.site/categories/essay/</guid>
       <description></description>
     </item>
     

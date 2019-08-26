@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ERA on </title>
-    <link>https://zxdawn.github.io/tags/era/</link>
+    <link>https://dreambooker.site/tags/era/</link>
     <description>Recent content in ERA on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Wed, 20 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://zxdawn.github.io/tags/era/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dreambooker.site/tags/era/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Initializing the WRF model with ECMWF ERA-Interim reanalysis</title>
-      <link>https://zxdawn.github.io/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</link>
+      <link>https://dreambooker.site/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</link>
       <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</guid>
+      <guid>https://dreambooker.site/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</guid>
       <description>&lt;h2 id=&#34;summarization&#34;&gt;Summarization&lt;/h2&gt;
 
 &lt;blockquote&gt;

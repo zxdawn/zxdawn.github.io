@@ -2,75 +2,75 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <link>https://zxdawn.github.io/</link>
+    <link>https://dreambooker.site/</link>
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Sat, 17 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://zxdawn.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dreambooker.site/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Estimates of Lightning NOx Production based on High Resolution OMI NO2 Retrievals over the Continental US</title>
-      <link>https://zxdawn.github.io/about/publications/presentations/ppt01/</link>
+      <link>https://dreambooker.site/about/publications/presentations/ppt01/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/about/publications/presentations/ppt01/</guid>
+      <guid>https://dreambooker.site/about/publications/presentations/ppt01/</guid>
       <description></description>
     </item>
     
     <item>
       <title>BEHR_LNOx</title>
-      <link>https://zxdawn.github.io/about/projects/contributions/behr_lnox/</link>
+      <link>https://dreambooker.site/about/projects/contributions/behr_lnox/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/about/projects/contributions/behr_lnox/</guid>
+      <guid>https://dreambooker.site/about/projects/contributions/behr_lnox/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Satpy</title>
-      <link>https://zxdawn.github.io/about/projects/contributions/satpy_agri/</link>
+      <link>https://dreambooker.site/about/projects/contributions/satpy_agri/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/about/projects/contributions/satpy_agri/</guid>
+      <guid>https://dreambooker.site/about/projects/contributions/satpy_agri/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Pyspectral</title>
-      <link>https://zxdawn.github.io/about/projects/contributions/pyspectral/</link>
+      <link>https://dreambooker.site/about/projects/contributions/pyspectral/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/about/projects/contributions/pyspectral/</guid>
+      <guid>https://dreambooker.site/about/projects/contributions/pyspectral/</guid>
       <description></description>
     </item>
     
     <item>
       <title>rM2PDF</title>
-      <link>https://zxdawn.github.io/about/projects/contributions/rm2pdf/</link>
+      <link>https://dreambooker.site/about/projects/contributions/rm2pdf/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/about/projects/contributions/rm2pdf/</guid>
+      <guid>https://dreambooker.site/about/projects/contributions/rm2pdf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HPC website</title>
-      <link>https://zxdawn.github.io/about/projects/contributions/hpc/</link>
+      <link>https://dreambooker.site/about/projects/contributions/hpc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/about/projects/contributions/hpc/</guid>
+      <guid>https://dreambooker.site/about/projects/contributions/hpc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hugo&#43;Staticman&#43;Travis</title>
-      <link>https://zxdawn.github.io/2019/08/17/hugo-staticman-travis/</link>
+      <link>https://dreambooker.site/2019/08/17/hugo-staticman-travis/</link>
       <pubDate>Sat, 17 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2019/08/17/hugo-staticman-travis/</guid>
+      <guid>https://dreambooker.site/2019/08/17/hugo-staticman-travis/</guid>
       <description>&lt;p&gt;This blog post documents the setup of deploying Hugo with Travis CI to the GitHub Pages.&lt;/p&gt;
 
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
@@ -84,19 +84,19 @@
     
     <item>
       <title>困局</title>
-      <link>https://zxdawn.github.io/2019/03/19/%E5%9B%B0%E5%B1%80/</link>
+      <link>https://dreambooker.site/2019/03/19/%E5%9B%B0%E5%B1%80/</link>
       <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2019/03/19/%E5%9B%B0%E5%B1%80/</guid>
+      <guid>https://dreambooker.site/2019/03/19/%E5%9B%B0%E5%B1%80/</guid>
       <description>局里局外 所见皆人造 破碎一地 穷追亦难舍</description>
     </item>
     
     <item>
       <title>EGU2019 签证(VISA)篇</title>
-      <link>https://zxdawn.github.io/2019/01/23/egu2019-%E7%AD%BE%E8%AF%81visa%E7%AF%87/</link>
+      <link>https://dreambooker.site/2019/01/23/egu2019-%E7%AD%BE%E8%AF%81visa%E7%AF%87/</link>
       <pubDate>Wed, 23 Jan 2019 19:35:31 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2019/01/23/egu2019-%E7%AD%BE%E8%AF%81visa%E7%AF%87/</guid>
+      <guid>https://dreambooker.site/2019/01/23/egu2019-%E7%AD%BE%E8%AF%81visa%E7%AF%87/</guid>
       <description>&lt;h2 id=&#34;website&#34;&gt;Website&lt;/h2&gt;
 
 &lt;p&gt;All materials are listed on the website of the Austrian Visa Application Centre in China: &lt;a href=&#34;http://www.austriavisa-china.com/index.html&#34;&gt;English&lt;/a&gt; and &lt;a href=&#34;http://www.austriavisa-china.com/chinese/index.html&#34;&gt;Chinese&lt;/a&gt; version.&lt;/p&gt;
@@ -116,37 +116,37 @@
     
     <item>
       <title>平地之下</title>
-      <link>https://zxdawn.github.io/2019/01/13/%E5%B9%B3%E5%9C%B0%E4%B9%8B%E4%B8%8B/</link>
+      <link>https://dreambooker.site/2019/01/13/%E5%B9%B3%E5%9C%B0%E4%B9%8B%E4%B8%8B/</link>
       <pubDate>Sun, 13 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2019/01/13/%E5%B9%B3%E5%9C%B0%E4%B9%8B%E4%B8%8B/</guid>
+      <guid>https://dreambooker.site/2019/01/13/%E5%B9%B3%E5%9C%B0%E4%B9%8B%E4%B8%8B/</guid>
       <description>尸体之上建废墟 废墟之上造城市 纵现尸首 视之若无 腐烂之味 闻之又散 坍塌 暴露 风化 尸体之下藏宫殿 宫殿之下藏尸体 层层堆叠 无底之洞 洞中 时而鲜花盛开 时而鲜血淋漓 五味杂陈 皆由味觉</description>
     </item>
     
     <item>
       <title>时空之曲</title>
-      <link>https://zxdawn.github.io/2019/01/03/%E6%97%B6%E7%A9%BA%E4%B9%8B%E6%9B%B2/</link>
+      <link>https://dreambooker.site/2019/01/03/%E6%97%B6%E7%A9%BA%E4%B9%8B%E6%9B%B2/</link>
       <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2019/01/03/%E6%97%B6%E7%A9%BA%E4%B9%8B%E6%9B%B2/</guid>
+      <guid>https://dreambooker.site/2019/01/03/%E6%97%B6%E7%A9%BA%E4%B9%8B%E6%9B%B2/</guid>
       <description>时空坍塌之际 畅游于漩涡 见世间所不得见 一举一动 若译为音符 则成循环之曲 其调未知 似为古谣</description>
     </item>
     
     <item>
       <title>维度</title>
-      <link>https://zxdawn.github.io/2018/12/15/%E7%BB%B4%E5%BA%A6/</link>
+      <link>https://dreambooker.site/2018/12/15/%E7%BB%B4%E5%BA%A6/</link>
       <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/12/15/%E7%BB%B4%E5%BA%A6/</guid>
+      <guid>https://dreambooker.site/2018/12/15/%E7%BB%B4%E5%BA%A6/</guid>
       <description>若时间算一维度 则在该维度 世人皆可 穿梭自由 且不为外知 甚 不为己知</description>
     </item>
     
     <item>
       <title>Installing libraries and automating WRF-Chem</title>
-      <link>https://zxdawn.github.io/2018/12/13/installing-libraries-and-automating-wrf-chem/</link>
+      <link>https://dreambooker.site/2018/12/13/installing-libraries-and-automating-wrf-chem/</link>
       <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/12/13/installing-libraries-and-automating-wrf-chem/</guid>
+      <guid>https://dreambooker.site/2018/12/13/installing-libraries-and-automating-wrf-chem/</guid>
       <description>&lt;h2 id=&#34;backgroud&#34;&gt;Backgroud&lt;/h2&gt;
 
 &lt;p&gt;NETCDF version (&lt;code&gt;netcdf/4.5.0/02-CF-17-par&lt;/code&gt;) on &lt;a href=&#34;https://en.wikipedia.org/wiki/Tianhe-2&#34;&gt;TH-2&lt;/a&gt; seems something wrong. This results in error when  &lt;strong&gt;NETCDF4&lt;/strong&gt; of WRF-Chem enabled (NETCDF4=1). So, I decide to compile &lt;code&gt;NETCDF&lt;/code&gt; on my own.&lt;/p&gt;
@@ -167,10 +167,10 @@
     
     <item>
       <title>Tricks of TH-2 VPN</title>
-      <link>https://zxdawn.github.io/2018/12/05/tricks-of-th-2-vpn/</link>
+      <link>https://dreambooker.site/2018/12/05/tricks-of-th-2-vpn/</link>
       <pubDate>Wed, 05 Dec 2018 13:22:09 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/12/05/tricks-of-th-2-vpn/</guid>
+      <guid>https://dreambooker.site/2018/12/05/tricks-of-th-2-vpn/</guid>
       <description>&lt;h2 id=&#34;install-vpnc&#34;&gt;Install vpnc&lt;/h2&gt;
 
 &lt;h3 id=&#34;link&#34;&gt;Link&lt;/h3&gt;
@@ -192,19 +192,19 @@ Xauth password vpn_password
     
     <item>
       <title>养料</title>
-      <link>https://zxdawn.github.io/2018/12/03/%E5%85%BB%E6%96%99/</link>
+      <link>https://dreambooker.site/2018/12/03/%E5%85%BB%E6%96%99/</link>
       <pubDate>Mon, 03 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/12/03/%E5%85%BB%E6%96%99/</guid>
+      <guid>https://dreambooker.site/2018/12/03/%E5%85%BB%E6%96%99/</guid>
       <description>将麻乱的神经 弃于幽暗乡间 任其滋长 与土相融 竟生出纯白之花</description>
     </item>
     
     <item>
       <title>Speedup WRF-Chem</title>
-      <link>https://zxdawn.github.io/2018/12/02/speedup-wrf-chem/</link>
+      <link>https://dreambooker.site/2018/12/02/speedup-wrf-chem/</link>
       <pubDate>Sun, 02 Dec 2018 20:58:10 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/12/02/speedup-wrf-chem/</guid>
+      <guid>https://dreambooker.site/2018/12/02/speedup-wrf-chem/</guid>
       <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
 
 &lt;p&gt;This is my partial namelist of WRF-Chem:&lt;/p&gt;
@@ -229,19 +229,19 @@ Xauth password vpn_password
     
     <item>
       <title>临界</title>
-      <link>https://zxdawn.github.io/2018/11/23/%E4%B8%B4%E7%95%8C/</link>
+      <link>https://dreambooker.site/2018/11/23/%E4%B8%B4%E7%95%8C/</link>
       <pubDate>Fri, 23 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/11/23/%E4%B8%B4%E7%95%8C/</guid>
+      <guid>https://dreambooker.site/2018/11/23/%E4%B8%B4%E7%95%8C/</guid>
       <description>登远方高地 一面荒芜 一面青葱 不知 风从何来 雨归何处</description>
     </item>
     
     <item>
       <title>Controlling the exam with Python</title>
-      <link>https://zxdawn.github.io/2018/11/22/controlling-the-exam-with-python/</link>
+      <link>https://dreambooker.site/2018/11/22/controlling-the-exam-with-python/</link>
       <pubDate>Thu, 22 Nov 2018 13:19:33 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/11/22/controlling-the-exam-with-python/</guid>
+      <guid>https://dreambooker.site/2018/11/22/controlling-the-exam-with-python/</guid>
       <description>&lt;h2 id=&#34;predicaments&#34;&gt;Predicaments&lt;/h2&gt;
 
 &lt;p&gt;We&amp;rsquo;re asked to learn a library about safety.&lt;/p&gt;
@@ -251,10 +251,10 @@ Xauth password vpn_password
     
     <item>
       <title>Trick of binned_statistic_2d</title>
-      <link>https://zxdawn.github.io/2018/11/22/trick-of-binned_statistic_2d/</link>
+      <link>https://dreambooker.site/2018/11/22/trick-of-binned_statistic_2d/</link>
       <pubDate>Thu, 22 Nov 2018 09:11:07 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/11/22/trick-of-binned_statistic_2d/</guid>
+      <guid>https://dreambooker.site/2018/11/22/trick-of-binned_statistic_2d/</guid>
       <description>&lt;h2 id=&#34;official-example&#34;&gt;Official example&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; from scipy import stats
@@ -275,10 +275,10 @@ array([[ 2.,  1.],
     
     <item>
       <title>Send e-mail when file modified</title>
-      <link>https://zxdawn.github.io/2018/11/18/send-e-mail-when-file-modified/</link>
+      <link>https://dreambooker.site/2018/11/18/send-e-mail-when-file-modified/</link>
       <pubDate>Sun, 18 Nov 2018 22:00:48 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/11/18/send-e-mail-when-file-modified/</guid>
+      <guid>https://dreambooker.site/2018/11/18/send-e-mail-when-file-modified/</guid>
       <description>&lt;h2 id=&#34;mailx&#34;&gt;mailx&lt;/h2&gt;
 
 &lt;p&gt;Download &lt;code&gt;mailx&lt;/code&gt;  (&lt;a href=&#34;https://software.opensuse.org/package/mailx&#34;&gt;openSUSE&lt;/a&gt; is the distribution of my server) and install it.&lt;/p&gt;
@@ -299,10 +299,10 @@ set smtp-auth=login
     
     <item>
       <title>Set up personal Anaconda mirror</title>
-      <link>https://zxdawn.github.io/2018/11/16/set-up-personal-anaconda-mirror/</link>
+      <link>https://dreambooker.site/2018/11/16/set-up-personal-anaconda-mirror/</link>
       <pubDate>Fri, 16 Nov 2018 10:13:08 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/11/16/set-up-personal-anaconda-mirror/</guid>
+      <guid>https://dreambooker.site/2018/11/16/set-up-personal-anaconda-mirror/</guid>
       <description>&lt;h2 id=&#34;predicaments&#34;&gt;Predicaments&lt;/h2&gt;
 
 &lt;p&gt;If you encounter any problems as follows, you should try to set up a personal Python(Anaconda) mirror:&lt;/p&gt;
@@ -332,10 +332,10 @@ set smtp-auth=login
     
     <item>
       <title>Trick of pcolormesh</title>
-      <link>https://zxdawn.github.io/2018/10/31/trick-of-pcolormesh/</link>
+      <link>https://dreambooker.site/2018/10/31/trick-of-pcolormesh/</link>
       <pubDate>Wed, 31 Oct 2018 10:40:24 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/10/31/trick-of-pcolormesh/</guid>
+      <guid>https://dreambooker.site/2018/10/31/trick-of-pcolormesh/</guid>
       <description>&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://alex.seeholzer.de/2014/05/fun-with-matplotlib-pcolormesh-getting-data-to-display-in-the-right-position/&#34;&gt;http://alex.seeholzer.de/2014/05/fun-with-matplotlib-pcolormesh-getting-data-to-display-in-the-right-position/&lt;/a&gt;&lt;/p&gt;
@@ -345,46 +345,46 @@ set smtp-auth=login
     
     <item>
       <title>万千之思</title>
-      <link>https://zxdawn.github.io/2018/10/11/%E4%B8%87%E5%8D%83%E4%B9%8B%E6%80%9D/</link>
+      <link>https://dreambooker.site/2018/10/11/%E4%B8%87%E5%8D%83%E4%B9%8B%E6%80%9D/</link>
       <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/10/11/%E4%B8%87%E5%8D%83%E4%B9%8B%E6%80%9D/</guid>
+      <guid>https://dreambooker.site/2018/10/11/%E4%B8%87%E5%8D%83%E4%B9%8B%E6%80%9D/</guid>
       <description>&lt;p&gt;此梦，体悟心中，怖，惘，怅，豁，悦，茫，屈，震，清。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>境地</title>
-      <link>https://zxdawn.github.io/2018/09/30/%E5%A2%83%E5%9C%B0/</link>
+      <link>https://dreambooker.site/2018/09/30/%E5%A2%83%E5%9C%B0/</link>
       <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/09/30/%E5%A2%83%E5%9C%B0/</guid>
+      <guid>https://dreambooker.site/2018/09/30/%E5%A2%83%E5%9C%B0/</guid>
       <description>境地之见， 唯相通者方可领会。 春日之花 若诉与 冬天之树， 恐如融化之雪， 物是形非。</description>
     </item>
     
     <item>
       <title>兴奋</title>
-      <link>https://zxdawn.github.io/2018/09/29/%E5%85%B4%E5%A5%8B/</link>
+      <link>https://dreambooker.site/2018/09/29/%E5%85%B4%E5%A5%8B/</link>
       <pubDate>Sat, 29 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/09/29/%E5%85%B4%E5%A5%8B/</guid>
+      <guid>https://dreambooker.site/2018/09/29/%E5%85%B4%E5%A5%8B/</guid>
       <description>兴奋， 这种按捺不住的喜悦， 应为简单纯粹: 半夜， 期待着 明日的皑雪， 守盼着 来年的新物。</description>
     </item>
     
     <item>
       <title>纽扣</title>
-      <link>https://zxdawn.github.io/2018/09/28/%E7%BA%BD%E6%89%A3/</link>
+      <link>https://dreambooker.site/2018/09/28/%E7%BA%BD%E6%89%A3/</link>
       <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/09/28/%E7%BA%BD%E6%89%A3/</guid>
+      <guid>https://dreambooker.site/2018/09/28/%E7%BA%BD%E6%89%A3/</guid>
       <description>纽扣 并非只是维系 亦可联结，创造 而一切的本质，重心 应为原本的衣物</description>
     </item>
     
     <item>
       <title>Create RAID 5</title>
-      <link>https://zxdawn.github.io/2018/09/10/create-raid-5/</link>
+      <link>https://dreambooker.site/2018/09/10/create-raid-5/</link>
       <pubDate>Mon, 10 Sep 2018 09:25:21 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/09/10/create-raid-5/</guid>
+      <guid>https://dreambooker.site/2018/09/10/create-raid-5/</guid>
       <description>&lt;p&gt;Reference: &lt;a href=&#34;https://www.tecmint.com/create-raid-5-in-linux/&#34;&gt;https://www.tecmint.com/create-raid-5-in-linux/&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;install-mdadm-and-verify-drives&#34;&gt;Install mdadm and verify drives&lt;/h2&gt;
@@ -421,10 +421,10 @@ mdadm: No md superblock detected on /dev/sdh.
     
     <item>
       <title>Quotes of Detachment</title>
-      <link>https://zxdawn.github.io/2018/09/05/quotes-of-detachment/</link>
+      <link>https://dreambooker.site/2018/09/05/quotes-of-detachment/</link>
       <pubDate>Wed, 05 Sep 2018 14:45:24 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/09/05/quotes-of-detachment/</guid>
+      <guid>https://dreambooker.site/2018/09/05/quotes-of-detachment/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Albert Camus&lt;/strong&gt;: And never have I felt so deeply at one and the same time so detached from myself and so present in the world.&lt;/p&gt;
 
 &lt;h2 id=&#34;quotes&#34;&gt;Quotes:&lt;/h2&gt;
@@ -438,10 +438,10 @@ mdadm: No md superblock detected on /dev/sdh.
     
     <item>
       <title>Mount ntfs and start nfs</title>
-      <link>https://zxdawn.github.io/2018/09/04/mount-ntfs-and-start-nfs/</link>
+      <link>https://dreambooker.site/2018/09/04/mount-ntfs-and-start-nfs/</link>
       <pubDate>Tue, 04 Sep 2018 15:01:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/09/04/mount-ntfs-and-start-nfs/</guid>
+      <guid>https://dreambooker.site/2018/09/04/mount-ntfs-and-start-nfs/</guid>
       <description>&lt;h2 id=&#34;mount-and-start-nfs&#34;&gt;Mount and start NFS&lt;/h2&gt;
 
 &lt;p&gt;If the type of disk is ntfs, you need to install &lt;code&gt;ntfs-3g&lt;/code&gt;.&lt;/p&gt;
@@ -456,10 +456,10 @@ service nfsserver start
     
     <item>
       <title>小记三则</title>
-      <link>https://zxdawn.github.io/2018/09/03/%E5%B0%8F%E8%AE%B0%E4%B8%89%E5%88%99/</link>
+      <link>https://dreambooker.site/2018/09/03/%E5%B0%8F%E8%AE%B0%E4%B8%89%E5%88%99/</link>
       <pubDate>Mon, 03 Sep 2018 14:19:40 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/09/03/%E5%B0%8F%E8%AE%B0%E4%B8%89%E5%88%99/</guid>
+      <guid>https://dreambooker.site/2018/09/03/%E5%B0%8F%E8%AE%B0%E4%B8%89%E5%88%99/</guid>
       <description>&lt;h1 id=&#34;孤&#34;&gt;孤&lt;/h1&gt;
 
 &lt;p&gt;当世事俱灰&lt;/p&gt;
@@ -475,10 +475,10 @@ service nfsserver start
     
     <item>
       <title>Set a dark theme in Texstudio</title>
-      <link>https://zxdawn.github.io/2018/09/03/set-a-dark-theme-in-texstudio/</link>
+      <link>https://dreambooker.site/2018/09/03/set-a-dark-theme-in-texstudio/</link>
       <pubDate>Mon, 03 Sep 2018 14:18:51 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/09/03/set-a-dark-theme-in-texstudio/</guid>
+      <guid>https://dreambooker.site/2018/09/03/set-a-dark-theme-in-texstudio/</guid>
       <description>&lt;p&gt;Reference: &lt;a href=&#34;https://tex.stackexchange.com/questions/108315/how-can-i-set-a-dark-theme-in-texstudio&#34;&gt;https://tex.stackexchange.com/questions/108315/how-can-i-set-a-dark-theme-in-texstudio&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Original:&lt;/strong&gt;&lt;/p&gt;
@@ -494,10 +494,10 @@ service nfsserver start
     
     <item>
       <title>Set decayed tracer for WRF</title>
-      <link>https://zxdawn.github.io/2018/07/31/set-decayed-tracer-for-wrf/</link>
+      <link>https://dreambooker.site/2018/07/31/set-decayed-tracer-for-wrf/</link>
       <pubDate>Tue, 31 Jul 2018 10:09:31 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/07/31/set-decayed-tracer-for-wrf/</guid>
+      <guid>https://dreambooker.site/2018/07/31/set-decayed-tracer-for-wrf/</guid>
       <description>&lt;p&gt;Because tracer_opt in WRF-Chem support more functions than WRF, we plan to clone and edit it for WRF (which is much quickier than WRF-Chem).&lt;/p&gt;
 
 &lt;ol&gt;
@@ -514,28 +514,28 @@ service nfsserver start
     
     <item>
       <title>The cycle of download and move</title>
-      <link>https://zxdawn.github.io/2018/07/11/the-cycle-of-download-and-move/</link>
+      <link>https://dreambooker.site/2018/07/11/the-cycle-of-download-and-move/</link>
       <pubDate>Wed, 11 Jul 2018 09:27:50 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/07/11/the-cycle-of-download-and-move/</guid>
+      <guid>https://dreambooker.site/2018/07/11/the-cycle-of-download-and-move/</guid>
       <description>Download files on node_1 and move all of them to node_2 at intervals.</description>
     </item>
     
     <item>
       <title>迷失</title>
-      <link>https://zxdawn.github.io/2018/07/08/%E8%BF%B7%E5%A4%B1/</link>
+      <link>https://dreambooker.site/2018/07/08/%E8%BF%B7%E5%A4%B1/</link>
       <pubDate>Sun, 08 Jul 2018 23:16:20 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/07/08/%E8%BF%B7%E5%A4%B1/</guid>
+      <guid>https://dreambooker.site/2018/07/08/%E8%BF%B7%E5%A4%B1/</guid>
       <description>临海村落，电闪雷鸣，雨落地而为火，似冥币之火。 憧憧电光，见一人影，原为村民。 老人欲携吾至海边，岸有一舟，舟长且窄，仅容两人。 舟行数时，但见两岛。 远观可容一族，近览仅容己身。</description>
     </item>
     
     <item>
       <title>Install git and oh-my-zsh without root</title>
-      <link>https://zxdawn.github.io/2018/06/28/install-git-and-oh-my-zsh-without-root/</link>
+      <link>https://dreambooker.site/2018/06/28/install-git-and-oh-my-zsh-without-root/</link>
       <pubDate>Thu, 28 Jun 2018 11:57:14 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/06/28/install-git-and-oh-my-zsh-without-root/</guid>
+      <guid>https://dreambooker.site/2018/06/28/install-git-and-oh-my-zsh-without-root/</guid>
       <description>&lt;h1 id=&#34;git&#34;&gt;Git&lt;/h1&gt;
 
 &lt;p&gt;Check &lt;code&gt;Installing from Source&lt;/code&gt; part of the &lt;a href=&#34;https://git-scm.com/book/en/v2/Getting-Started-Installing-Git&#34;&gt;guide&lt;/a&gt;.&lt;/p&gt;
@@ -564,10 +564,10 @@ $ make install CURLDIR=/public/home/zhangxin/softwares/curl
     
     <item>
       <title>Enable auto-login and auto-networking in Debian 9</title>
-      <link>https://zxdawn.github.io/2018/06/15/enable-auto-login-and-auto-networking-in-debian-9/</link>
+      <link>https://dreambooker.site/2018/06/15/enable-auto-login-and-auto-networking-in-debian-9/</link>
       <pubDate>Fri, 15 Jun 2018 10:42:48 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/06/15/enable-auto-login-and-auto-networking-in-debian-9/</guid>
+      <guid>https://dreambooker.site/2018/06/15/enable-auto-login-and-auto-networking-in-debian-9/</guid>
       <description>&lt;h1 id=&#34;auto-login&#34;&gt;Auto-login&lt;/h1&gt;
 
 &lt;p&gt;&lt;code&gt;sudo nano /usr/share/lightdm/lightdm.conf.d/01_debian.conf&lt;/code&gt;&lt;/p&gt;
@@ -588,28 +588,28 @@ autologin-user-timeout=0
     
     <item>
       <title>酒醒</title>
-      <link>https://zxdawn.github.io/2018/06/06/%E9%85%92%E9%86%92/</link>
+      <link>https://dreambooker.site/2018/06/06/%E9%85%92%E9%86%92/</link>
       <pubDate>Wed, 06 Jun 2018 23:56:26 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/06/06/%E9%85%92%E9%86%92/</guid>
+      <guid>https://dreambooker.site/2018/06/06/%E9%85%92%E9%86%92/</guid>
       <description>酒若适量，可达清醒之效。 有如一潭死水，扩展，激荡， 放浪形骸，然不越潭水之界。 比之烂醉如泥，一味消愁，而后昏醒， 此种酒醒，可达细微之角，可至无人或群拥之境。 酒醒，并非如烟散去，乃驾雾直上，悟死民难悟之理。 恍然之间，云开雾散，觉世事难觉之形。</description>
     </item>
     
     <item>
       <title>淹没</title>
-      <link>https://zxdawn.github.io/2018/05/20/%E6%B7%B9%E6%B2%A1/</link>
+      <link>https://dreambooker.site/2018/05/20/%E6%B7%B9%E6%B2%A1/</link>
       <pubDate>Sun, 20 May 2018 08:33:15 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/05/20/%E6%B7%B9%E6%B2%A1/</guid>
+      <guid>https://dreambooker.site/2018/05/20/%E6%B7%B9%E6%B2%A1/</guid>
       <description>乡间小道，可容一车之距。 缓缓驾车，鸟鸣风静。 不知何由，欲坠湖中，似清净之地，似虚无之境。 水愈深，嘘噏愈易。 寻无名之声，唯见清白。</description>
     </item>
     
     <item>
       <title>Migrate blog to Github(HTTPS) and add continuous integration</title>
-      <link>https://zxdawn.github.io/2018/05/18/migrate-blog-to-githubhttps-and-add-continuous-integration/</link>
+      <link>https://dreambooker.site/2018/05/18/migrate-blog-to-githubhttps-and-add-continuous-integration/</link>
       <pubDate>Fri, 18 May 2018 17:38:12 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/05/18/migrate-blog-to-githubhttps-and-add-continuous-integration/</guid>
+      <guid>https://dreambooker.site/2018/05/18/migrate-blog-to-githubhttps-and-add-continuous-integration/</guid>
       <description>&lt;h1 id=&#34;reference&#34;&gt;Reference&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://molunerfinn.com/hexo-travisci-https/#%E6%8C%81%E4%B9%85%E5%8C%96%E6%9E%84%E5%BB%BA&#34;&gt;MARKSZのBlog&lt;/a&gt;&lt;/p&gt;
@@ -633,19 +633,19 @@ autologin-user-timeout=0
     
     <item>
       <title>梦二则</title>
-      <link>https://zxdawn.github.io/2018/05/10/%E6%A2%A6%E4%BA%8C%E5%88%99/</link>
+      <link>https://dreambooker.site/2018/05/10/%E6%A2%A6%E4%BA%8C%E5%88%99/</link>
       <pubDate>Thu, 10 May 2018 16:27:54 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/05/10/%E6%A2%A6%E4%BA%8C%E5%88%99/</guid>
+      <guid>https://dreambooker.site/2018/05/10/%E6%A2%A6%E4%BA%8C%E5%88%99/</guid>
       <description>一 池塘卧一虫，好友纵身而跃，岂料虫张大口，断其一腿。 好友似变一人，断虫头，去虫尾，语出一言: 将头骨熬汤，即可痊愈。 言讫，晕厥在地。 别无他法，遂熬汤喂之。 不知何法，竟安康如初。 二 地铁口遇爱因斯坦，问其年龄，答:150，前路尚长，漫漫而行。</description>
     </item>
     
     <item>
       <title>Running Win10 Debian Zsh in Cmder</title>
-      <link>https://zxdawn.github.io/2018/05/05/running-win10-debian-zsh-in-cmder/</link>
+      <link>https://dreambooker.site/2018/05/05/running-win10-debian-zsh-in-cmder/</link>
       <pubDate>Sat, 05 May 2018 15:21:53 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/05/05/running-win10-debian-zsh-in-cmder/</guid>
+      <guid>https://dreambooker.site/2018/05/05/running-win10-debian-zsh-in-cmder/</guid>
       <description>&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://gingter.org/2016/11/16/running-windows-10-ubuntu-bash-in-cmder/&#34;&gt;Running Windows 10 Ubuntu Bash in Cmder&lt;/a&gt;&lt;/p&gt;
@@ -675,10 +675,10 @@ autologin-user-timeout=0
     
     <item>
       <title>ssh内网穿透</title>
-      <link>https://zxdawn.github.io/2018/04/29/ssh%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
+      <link>https://dreambooker.site/2018/04/29/ssh%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
       <pubDate>Sun, 29 Apr 2018 21:20:50 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/04/29/ssh%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
+      <guid>https://dreambooker.site/2018/04/29/ssh%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
       <description>&lt;p&gt;机房电脑，通过远程端口映射，使得VPS：2222 映射到机房电脑：22：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;ssh -N -f -R 2222:127.0.0.1:22 root@vpsIP
@@ -699,37 +699,37 @@ autologin-user-timeout=0
     
     <item>
       <title>鲲鹏难辨</title>
-      <link>https://zxdawn.github.io/2018/04/27/%E9%B2%B2%E9%B9%8F%E9%9A%BE%E8%BE%A8/</link>
+      <link>https://dreambooker.site/2018/04/27/%E9%B2%B2%E9%B9%8F%E9%9A%BE%E8%BE%A8/</link>
       <pubDate>Fri, 27 Apr 2018 08:58:52 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/04/27/%E9%B2%B2%E9%B9%8F%E9%9A%BE%E8%BE%A8/</guid>
+      <guid>https://dreambooker.site/2018/04/27/%E9%B2%B2%E9%B9%8F%E9%9A%BE%E8%BE%A8/</guid>
       <description>众人伫于水坝之上，水中似有鬼影，遂开闸泄之。 待闸启，一鱼如鲲，破闸而出，遮天蔽日，水亦从之，飞去。 梦醒方知，此乃鹏也。</description>
     </item>
     
     <item>
       <title>幻影</title>
-      <link>https://zxdawn.github.io/2018/04/21/%E5%B9%BB%E5%BD%B1/</link>
+      <link>https://dreambooker.site/2018/04/21/%E5%B9%BB%E5%BD%B1/</link>
       <pubDate>Sat, 21 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/04/21/%E5%B9%BB%E5%BD%B1/</guid>
+      <guid>https://dreambooker.site/2018/04/21/%E5%B9%BB%E5%BD%B1/</guid>
       <description>脑海里总有那么个地方 时而为幽径花园 时而为静寂森林 时而为天际海洋 纵然无法永存其中 徜徉足矣</description>
     </item>
     
     <item>
       <title>角度</title>
-      <link>https://zxdawn.github.io/2018/04/21/%E8%A7%92%E5%BA%A6/</link>
+      <link>https://dreambooker.site/2018/04/21/%E8%A7%92%E5%BA%A6/</link>
       <pubDate>Sat, 21 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/04/21/%E8%A7%92%E5%BA%A6/</guid>
+      <guid>https://dreambooker.site/2018/04/21/%E8%A7%92%E5%BA%A6/</guid>
       <description>当看待世间的角度，习惯于长曝光。 那些动影，那些零碎，那些非常人，都被滤去，忽略。 也许这样更加纯净，也许这样更加复杂，也许这才是社会的本质：理应洁简处，偏爱复杂；理应繁冗处，偏爱飘忽。 错过了人，错失了景，错别了时光。</description>
     </item>
     
     <item>
       <title>Initializing the WRF model with ERA5</title>
-      <link>https://zxdawn.github.io/2018/04/20/initializing-the-wrf-model-with-era5/</link>
+      <link>https://dreambooker.site/2018/04/20/initializing-the-wrf-model-with-era5/</link>
       <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/04/20/initializing-the-wrf-model-with-era5/</guid>
+      <guid>https://dreambooker.site/2018/04/20/initializing-the-wrf-model-with-era5/</guid>
       <description>&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 
 &lt;ol&gt;
@@ -753,10 +753,10 @@ autologin-user-timeout=0
     
     <item>
       <title>BEHR_OMINO2 Guide for non_Berkeley</title>
-      <link>https://zxdawn.github.io/2018/03/11/behr_omino2-guide-for-non_berkeley/</link>
+      <link>https://dreambooker.site/2018/03/11/behr_omino2-guide-for-non_berkeley/</link>
       <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/03/11/behr_omino2-guide-for-non_berkeley/</guid>
+      <guid>https://dreambooker.site/2018/03/11/behr_omino2-guide-for-non_berkeley/</guid>
       <description>&lt;h1 id=&#34;behr-omino2-guide-for-non-berkeley&#34;&gt;BEHR_OMINO2 Guide for non_Berkeley&lt;/h1&gt;
 
 &lt;h2 id=&#34;clone-behr-core-https-github-com-cohenberkeleylab-behr-core-git-and-other-repositories&#34;&gt;Clone &lt;a href=&#34;https://github.com/CohenBerkeleyLab/BEHR-core.git&#34;&gt;BEHR_Core&lt;/a&gt; and other repositories&lt;/h2&gt;
@@ -771,28 +771,28 @@ cd BEHR-core
     
     <item>
       <title>众生</title>
-      <link>https://zxdawn.github.io/2018/01/29/%E4%BC%97%E7%94%9F/</link>
+      <link>https://dreambooker.site/2018/01/29/%E4%BC%97%E7%94%9F/</link>
       <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/01/29/%E4%BC%97%E7%94%9F/</guid>
+      <guid>https://dreambooker.site/2018/01/29/%E4%BC%97%E7%94%9F/</guid>
       <description>众生如雪，生而无暇，飘忽千里， 或落群山，或息幽谷，终成水。 万物如水，逝而无影，悠然一刹， 或乘薄雾，或驾深云，始为雪。</description>
     </item>
     
     <item>
       <title>Remarkable - Connecting to a hotspot which supports circumvention</title>
-      <link>https://zxdawn.github.io/2018/01/18/remarkable-connecting-to-a-hotspot-which-supports-circumvention/</link>
+      <link>https://dreambooker.site/2018/01/18/remarkable-connecting-to-a-hotspot-which-supports-circumvention/</link>
       <pubDate>Thu, 18 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/01/18/remarkable-connecting-to-a-hotspot-which-supports-circumvention/</guid>
+      <guid>https://dreambooker.site/2018/01/18/remarkable-connecting-to-a-hotspot-which-supports-circumvention/</guid>
       <description>&lt;h2 id=&#34;set-up-vpn&#34;&gt;Set up VPN&lt;/h2&gt;</description>
     </item>
     
     <item>
       <title>Initializing the WRF model with ECMWF ERA-Interim reanalysis</title>
-      <link>https://zxdawn.github.io/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</link>
+      <link>https://dreambooker.site/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</link>
       <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</guid>
+      <guid>https://dreambooker.site/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</guid>
       <description>&lt;h2 id=&#34;summarization&#34;&gt;Summarization&lt;/h2&gt;
 
 &lt;blockquote&gt;
@@ -808,10 +808,10 @@ cd BEHR-core
     
     <item>
       <title>WRF-Chem (MOZCART) and WRF_tips</title>
-      <link>https://zxdawn.github.io/2017/12/10/wrf-chem-mozcart-and-wrf_tips/</link>
+      <link>https://dreambooker.site/2017/12/10/wrf-chem-mozcart-and-wrf_tips/</link>
       <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2017/12/10/wrf-chem-mozcart-and-wrf_tips/</guid>
+      <guid>https://dreambooker.site/2017/12/10/wrf-chem-mozcart-and-wrf_tips/</guid>
       <description>&lt;h1 id=&#34;wps&#34;&gt;WPS&lt;/h1&gt;
 
 &lt;h2 id=&#34;namelist&#34;&gt;namelist&lt;/h2&gt;
@@ -821,10 +821,10 @@ cd BEHR-core
     
     <item>
       <title>How to compile WRF-Chem</title>
-      <link>https://zxdawn.github.io/2017/10/02/how-to-compile-wrf-chem/</link>
+      <link>https://dreambooker.site/2017/10/02/how-to-compile-wrf-chem/</link>
       <pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2017/10/02/how-to-compile-wrf-chem/</guid>
+      <guid>https://dreambooker.site/2017/10/02/how-to-compile-wrf-chem/</guid>
       <description>&lt;p&gt;&lt;strong&gt;This is the basic one about WRF-Chem. You can check &lt;a href=&#34;https://dreambooker.site/2018/12/07/Installing-libraries-and-automating-WRF-Chem/&#34;&gt;this one&lt;/a&gt; for more information.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;requirements&#34;&gt;Requirements&lt;/h1&gt;
@@ -834,28 +834,28 @@ cd BEHR-core
     
     <item>
       <title>How to set up Hexo</title>
-      <link>https://zxdawn.github.io/2017/10/02/how-to-set-up-hexo/</link>
+      <link>https://dreambooker.site/2017/10/02/how-to-set-up-hexo/</link>
       <pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2017/10/02/how-to-set-up-hexo/</guid>
+      <guid>https://dreambooker.site/2017/10/02/how-to-set-up-hexo/</guid>
       <description>&lt;h2 id=&#34;install-node-js-and-npm-on-my-local-linux-computer&#34;&gt;Install &lt;strong&gt;Node.js and npm&lt;/strong&gt; on my local Linux computer:&lt;/h2&gt;</description>
     </item>
     
     <item>
       <title>石</title>
-      <link>https://zxdawn.github.io/2017/08/20/%E7%9F%B3/</link>
+      <link>https://dreambooker.site/2017/08/20/%E7%9F%B3/</link>
       <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2017/08/20/%E7%9F%B3/</guid>
+      <guid>https://dreambooker.site/2017/08/20/%E7%9F%B3/</guid>
       <description>山洞之外数里，见一石，其形似骨。 如欲取之，一尺之石，竟重千斤。 翌日，此石了无踪迹。 何人，何时，不得而知。</description>
     </item>
     
     <item>
       <title>药</title>
-      <link>https://zxdawn.github.io/2017/08/15/%E8%8D%AF/</link>
+      <link>https://dreambooker.site/2017/08/15/%E8%8D%AF/</link>
       <pubDate>Tue, 15 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2017/08/15/%E8%8D%AF/</guid>
+      <guid>https://dreambooker.site/2017/08/15/%E8%8D%AF/</guid>
       <description>&lt;h2 id=&#34;药因&#34;&gt;药因&lt;/h2&gt;
 
 &lt;p&gt;有一奇药，疗效上等，为两药共合之作。两药代名：一曰“艹”，一曰“约”。&lt;/p&gt;
@@ -869,55 +869,55 @@ cd BEHR-core
     
     <item>
       <title>朝圣之巅</title>
-      <link>https://zxdawn.github.io/2017/07/29/%E6%9C%9D%E5%9C%A3%E4%B9%8B%E5%B7%85/</link>
+      <link>https://dreambooker.site/2017/07/29/%E6%9C%9D%E5%9C%A3%E4%B9%8B%E5%B7%85/</link>
       <pubDate>Sat, 29 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2017/07/29/%E6%9C%9D%E5%9C%A3%E4%B9%8B%E5%B7%85/</guid>
+      <guid>https://dreambooker.site/2017/07/29/%E6%9C%9D%E5%9C%A3%E4%B9%8B%E5%B7%85/</guid>
       <description>日照金山，朝圣之巅 雾锁神山之时，朝圣者或坐或立于山脚之下。 待日出，雾气渐薄，日照金山。 岁小者，如离弦之箭，岁大者，如离箭之弦，朝圣之路人影憧憧。 天之飞鸟不得尽，遮蔽之隙直透丝。 梦中见此，口出一诗，皆由心生。醒来只记此景，也无心再作，寥寥几笔，当日后之唤。</description>
     </item>
     
     <item>
       <title>血月</title>
-      <link>https://zxdawn.github.io/2017/07/17/%E8%A1%80%E6%9C%88/</link>
+      <link>https://dreambooker.site/2017/07/17/%E8%A1%80%E6%9C%88/</link>
       <pubDate>Mon, 17 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2017/07/17/%E8%A1%80%E6%9C%88/</guid>
+      <guid>https://dreambooker.site/2017/07/17/%E8%A1%80%E6%9C%88/</guid>
       <description>神山之上，行人寥寥，日色渐消，云层笼罩。 明月忽见，起伏变幻，小如虚洞，大如天穹， 其表血色，皆为水晶。纵使千笔，难以摹状。 待破碎迷离，电闪雷鸣，风雨大作，似一缺口。</description>
     </item>
     
     <item>
       <title>追星</title>
-      <link>https://zxdawn.github.io/2017/04/03/%E8%BF%BD%E6%98%9F/</link>
+      <link>https://dreambooker.site/2017/04/03/%E8%BF%BD%E6%98%9F/</link>
       <pubDate>Mon, 03 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2017/04/03/%E8%BF%BD%E6%98%9F/</guid>
+      <guid>https://dreambooker.site/2017/04/03/%E8%BF%BD%E6%98%9F/</guid>
       <description>面一残垣，垣后有一山，藏于云雾，如梦如幻。 但见一人，息于其上。吾欲至山脚，终不可得。 待日落之后，山隐宇现，众星扑朔。 忽见一星，状似地球，伸手可得。 乃于后取众星于册中。 而垣内，两三猿人，拾木建屋，吾亦助之，一日乃逝。</description>
     </item>
     
     <item>
       <title>归</title>
-      <link>https://zxdawn.github.io/2017/01/20/%E5%BD%92/</link>
+      <link>https://dreambooker.site/2017/01/20/%E5%BD%92/</link>
       <pubDate>Fri, 20 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2017/01/20/%E5%BD%92/</guid>
+      <guid>https://dreambooker.site/2017/01/20/%E5%BD%92/</guid>
       <description>忽如一夜半头白，海天一色浪纹起。 但见一云如仙女，吞云吐雾海螺声。</description>
     </item>
     
     <item>
       <title>旧梦</title>
-      <link>https://zxdawn.github.io/2016/10/24/%E6%97%A7%E6%A2%A6/</link>
+      <link>https://dreambooker.site/2016/10/24/%E6%97%A7%E6%A2%A6/</link>
       <pubDate>Mon, 24 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2016/10/24/%E6%97%A7%E6%A2%A6/</guid>
+      <guid>https://dreambooker.site/2016/10/24/%E6%97%A7%E6%A2%A6/</guid>
       <description>盈盈飘飘 未至梦乡 两三旧事 绕吾身旁 往日迷梦 今朝轻扬 惚惚恍恍 悠悠荡荡</description>
     </item>
     
     <item>
       <title>Slate</title>
-      <link>https://zxdawn.github.io/2016/07/29/slate/</link>
+      <link>https://dreambooker.site/2016/07/29/slate/</link>
       <pubDate>Fri, 29 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2016/07/29/slate/</guid>
+      <guid>https://dreambooker.site/2016/07/29/slate/</guid>
       <description>&lt;p&gt;午睡醒来脑海里只有slate一词，所以以此为题。&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -935,10 +935,10 @@ cd BEHR-core
     
     <item>
       <title>巨溪</title>
-      <link>https://zxdawn.github.io/2016/07/20/%E5%B7%A8%E6%BA%AA/</link>
+      <link>https://dreambooker.site/2016/07/20/%E5%B7%A8%E6%BA%AA/</link>
       <pubDate>Wed, 20 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2016/07/20/%E5%B7%A8%E6%BA%AA/</guid>
+      <guid>https://dreambooker.site/2016/07/20/%E5%B7%A8%E6%BA%AA/</guid>
       <description>&lt;p&gt;天气阴，今日英语四六级考试。&lt;/p&gt;
 
 &lt;p&gt;10点考试，9.20出发。&lt;/p&gt;
@@ -950,37 +950,37 @@ cd BEHR-core
     
     <item>
       <title>乌云</title>
-      <link>https://zxdawn.github.io/2016/07/15/%E4%B9%8C%E4%BA%91/</link>
+      <link>https://dreambooker.site/2016/07/15/%E4%B9%8C%E4%BA%91/</link>
       <pubDate>Fri, 15 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2016/07/15/%E4%B9%8C%E4%BA%91/</guid>
+      <guid>https://dreambooker.site/2016/07/15/%E4%B9%8C%E4%BA%91/</guid>
       <description>窗外狂风大作，乌云密布。 只见室内晾衣架随乌云浮起，趁势去拽晾衣架。 谁知，牢牢悬在空中。 众人合力才将晾衣架挪动几寸，而乌云也随之一颤。</description>
     </item>
     
     <item>
       <title>重叠时空</title>
-      <link>https://zxdawn.github.io/2016/05/27/%E9%87%8D%E5%8F%A0%E6%97%B6%E7%A9%BA/</link>
+      <link>https://dreambooker.site/2016/05/27/%E9%87%8D%E5%8F%A0%E6%97%B6%E7%A9%BA/</link>
       <pubDate>Fri, 27 May 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2016/05/27/%E9%87%8D%E5%8F%A0%E6%97%B6%E7%A9%BA/</guid>
+      <guid>https://dreambooker.site/2016/05/27/%E9%87%8D%E5%8F%A0%E6%97%B6%E7%A9%BA/</guid>
       <description>如果有一个黑色空间 将类似的事物吸收 那么过去和现在的我 是融为一体 还是不复存在</description>
     </item>
     
     <item>
       <title>雪树</title>
-      <link>https://zxdawn.github.io/2016/05/22/%E9%9B%AA%E6%A0%91/</link>
+      <link>https://dreambooker.site/2016/05/22/%E9%9B%AA%E6%A0%91/</link>
       <pubDate>Sun, 22 May 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2016/05/22/%E9%9B%AA%E6%A0%91/</guid>
+      <guid>https://dreambooker.site/2016/05/22/%E9%9B%AA%E6%A0%91/</guid>
       <description>于大树之后，望见半空悬另一巨树。 远方大雪纷飞，巨树之下根系繁茂。 天放晴，雪、树合为玻璃球状，于烈日之下自成风景。</description>
     </item>
     
     <item>
       <title>棕色小熊</title>
-      <link>https://zxdawn.github.io/2016/05/02/%E6%A3%95%E8%89%B2%E5%B0%8F%E7%86%8A/</link>
+      <link>https://dreambooker.site/2016/05/02/%E6%A3%95%E8%89%B2%E5%B0%8F%E7%86%8A/</link>
       <pubDate>Mon, 02 May 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2016/05/02/%E6%A3%95%E8%89%B2%E5%B0%8F%E7%86%8A/</guid>
+      <guid>https://dreambooker.site/2016/05/02/%E6%A3%95%E8%89%B2%E5%B0%8F%E7%86%8A/</guid>
       <description>&lt;p&gt;在去实验室的那条小道上，有许多动物被秘密的关押着，但从未见过。&lt;/p&gt;
 
 &lt;p&gt;做完实验已至深夜，低头匆匆赶路时，发现路边有个小动物蜷缩在那里。&lt;/p&gt;
@@ -994,19 +994,19 @@ cd BEHR-core
     
     <item>
       <title>花</title>
-      <link>https://zxdawn.github.io/2016/04/17/%E8%8A%B1/</link>
+      <link>https://dreambooker.site/2016/04/17/%E8%8A%B1/</link>
       <pubDate>Sun, 17 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2016/04/17/%E8%8A%B1/</guid>
+      <guid>https://dreambooker.site/2016/04/17/%E8%8A%B1/</guid>
       <description>一种花，可柱形，可锥形，化为蜘蛛。</description>
     </item>
     
     <item>
       <title>浊泪</title>
-      <link>https://zxdawn.github.io/2016/03/23/%E6%B5%8A%E6%B3%AA/</link>
+      <link>https://dreambooker.site/2016/03/23/%E6%B5%8A%E6%B3%AA/</link>
       <pubDate>Wed, 23 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2016/03/23/%E6%B5%8A%E6%B3%AA/</guid>
+      <guid>https://dreambooker.site/2016/03/23/%E6%B5%8A%E6%B3%AA/</guid>
       <description>零零散散的人，在屋檐下做着自己的事。 我在看一本泛黄的书，是关于梦的。 书上说道:人类所有的发明创造皆源于梦(现实中的潜梦，睡眠中的深梦)。 我竟看着看着，落下了眼泪。 小屋旁的水龙头，用它的清水，带走了我的浊珠。</description>
     </item>
     

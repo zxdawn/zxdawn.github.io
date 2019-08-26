@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on </title>
-    <link>https://zxdawn.github.io/tags/python/</link>
+    <link>https://dreambooker.site/tags/python/</link>
     <description>Recent content in Python on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Thu, 22 Nov 2018 13:19:33 +0000</lastBuildDate>
     
-	<atom:link href="https://zxdawn.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dreambooker.site/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Controlling the exam with Python</title>
-      <link>https://zxdawn.github.io/2018/11/22/controlling-the-exam-with-python/</link>
+      <link>https://dreambooker.site/2018/11/22/controlling-the-exam-with-python/</link>
       <pubDate>Thu, 22 Nov 2018 13:19:33 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/11/22/controlling-the-exam-with-python/</guid>
+      <guid>https://dreambooker.site/2018/11/22/controlling-the-exam-with-python/</guid>
       <description>&lt;h2 id=&#34;predicaments&#34;&gt;Predicaments&lt;/h2&gt;
 
 &lt;p&gt;We&amp;rsquo;re asked to learn a library about safety.&lt;/p&gt;
@@ -26,10 +26,10 @@
     
     <item>
       <title>Trick of binned_statistic_2d</title>
-      <link>https://zxdawn.github.io/2018/11/22/trick-of-binned_statistic_2d/</link>
+      <link>https://dreambooker.site/2018/11/22/trick-of-binned_statistic_2d/</link>
       <pubDate>Thu, 22 Nov 2018 09:11:07 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/11/22/trick-of-binned_statistic_2d/</guid>
+      <guid>https://dreambooker.site/2018/11/22/trick-of-binned_statistic_2d/</guid>
       <description>&lt;h2 id=&#34;official-example&#34;&gt;Official example&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; from scipy import stats
@@ -50,10 +50,10 @@ array([[ 2.,  1.],
     
     <item>
       <title>Set up personal Anaconda mirror</title>
-      <link>https://zxdawn.github.io/2018/11/16/set-up-personal-anaconda-mirror/</link>
+      <link>https://dreambooker.site/2018/11/16/set-up-personal-anaconda-mirror/</link>
       <pubDate>Fri, 16 Nov 2018 10:13:08 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/11/16/set-up-personal-anaconda-mirror/</guid>
+      <guid>https://dreambooker.site/2018/11/16/set-up-personal-anaconda-mirror/</guid>
       <description>&lt;h2 id=&#34;predicaments&#34;&gt;Predicaments&lt;/h2&gt;
 
 &lt;p&gt;If you encounter any problems as follows, you should try to set up a personal Python(Anaconda) mirror:&lt;/p&gt;
@@ -83,10 +83,10 @@ array([[ 2.,  1.],
     
     <item>
       <title>Trick of pcolormesh</title>
-      <link>https://zxdawn.github.io/2018/10/31/trick-of-pcolormesh/</link>
+      <link>https://dreambooker.site/2018/10/31/trick-of-pcolormesh/</link>
       <pubDate>Wed, 31 Oct 2018 10:40:24 +0000</pubDate>
       
-      <guid>https://zxdawn.github.io/2018/10/31/trick-of-pcolormesh/</guid>
+      <guid>https://dreambooker.site/2018/10/31/trick-of-pcolormesh/</guid>
       <description>&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://alex.seeholzer.de/2014/05/fun-with-matplotlib-pcolormesh-getting-data-to-display-in-the-right-position/&#34;&gt;http://alex.seeholzer.de/2014/05/fun-with-matplotlib-pcolormesh-getting-data-to-display-in-the-right-position/&lt;/a&gt;&lt;/p&gt;
