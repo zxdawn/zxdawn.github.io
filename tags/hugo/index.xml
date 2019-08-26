@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on </title>
+    <title>hugo on </title>
     <link>https://zxdawn.github.io/tags/hugo/</link>
-    <description>Recent content in Hugo on </description>
+    <description>Recent content in hugo on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Sat, 17 Aug 2019 00:00:00 +0000</lastBuildDate>
@@ -17,7 +17,15 @@
       <pubDate>Sat, 17 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://zxdawn.github.io/2019/08/17/hugo-staticman-travis/</guid>
-      <description>&lt;p&gt;This blog post documents the setup of deploying Hugo with Travis CI to the GitHub Pages.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This blog post documents the setup of deploying Hugo with Travis CI to the GitHub Pages.&lt;/p&gt;
+
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/&#34;&gt;GitHub&lt;/a&gt; account;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://travis-ci.org/&#34;&gt;Travis CI&lt;/a&gt; account (login with GitHub account);&lt;/li&gt;
+&lt;li&gt;Installing &lt;a href=&#34;https://git-scm.com/book/en/v2/Getting-Started-Installing-Git&#34;&gt;git&lt;/a&gt;, &lt;a href=&#34;https://gohugo.io/getting-started/installing/&#34;&gt;hugo&lt;/a&gt; on your local system&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
   </channel>

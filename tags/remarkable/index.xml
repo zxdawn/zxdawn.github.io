@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Remarkable on </title>
+    <link>https://zxdawn.github.io/tags/remarkable/</link>
+    <description>Recent content in Remarkable on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 18 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://zxdawn.github.io/tags/remarkable/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Remarkable - Connecting to a hotspot which supports circumvention</title>
+      <link>https://zxdawn.github.io/2018/01/18/remarkable-connecting-to-a-hotspot-which-supports-circumvention/</link>
+      <pubDate>Thu, 18 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/01/18/remarkable-connecting-to-a-hotspot-which-supports-circumvention/</guid>
+      <description>&lt;h2 id=&#34;set-up-vpn&#34;&gt;Set up VPN&lt;/h2&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

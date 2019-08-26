@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sci Tech on </title>
+    <title>sci-tech on </title>
     <link>https://zxdawn.github.io/categories/sci-tech/</link>
-    <description>Recent content in Sci Tech on </description>
+    <description>Recent content in sci-tech on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Sat, 17 Aug 2019 00:00:00 +0000</lastBuildDate>
@@ -17,7 +17,553 @@
       <pubDate>Sat, 17 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://zxdawn.github.io/2019/08/17/hugo-staticman-travis/</guid>
-      <description>&lt;p&gt;This blog post documents the setup of deploying Hugo with Travis CI to the GitHub Pages.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This blog post documents the setup of deploying Hugo with Travis CI to the GitHub Pages.&lt;/p&gt;
+
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/&#34;&gt;GitHub&lt;/a&gt; account;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://travis-ci.org/&#34;&gt;Travis CI&lt;/a&gt; account (login with GitHub account);&lt;/li&gt;
+&lt;li&gt;Installing &lt;a href=&#34;https://git-scm.com/book/en/v2/Getting-Started-Installing-Git&#34;&gt;git&lt;/a&gt;, &lt;a href=&#34;https://gohugo.io/getting-started/installing/&#34;&gt;hugo&lt;/a&gt; on your local system&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Installing libraries and automating WRF-Chem</title>
+      <link>https://zxdawn.github.io/2018/12/13/installing-libraries-and-automating-wrf-chem/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/12/13/installing-libraries-and-automating-wrf-chem/</guid>
+      <description>&lt;h2 id=&#34;backgroud&#34;&gt;Backgroud&lt;/h2&gt;
+
+&lt;p&gt;NETCDF version (&lt;code&gt;netcdf/4.5.0/02-CF-17-par&lt;/code&gt;) on &lt;a href=&#34;https://en.wikipedia.org/wiki/Tianhe-2&#34;&gt;TH-2&lt;/a&gt; seems something wrong. This results in error when  &lt;strong&gt;NETCDF4&lt;/strong&gt; of WRF-Chem enabled (NETCDF4=1). So, I decide to compile &lt;code&gt;NETCDF&lt;/code&gt; on my own.&lt;/p&gt;
+
+&lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
+
+&lt;p&gt;According to NetCDF&amp;rsquo;s &lt;a href=&#34;https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html&#34;&gt;instruction &lt;/a&gt;, we need &lt;a href=&#34;http://www.zlib.net/&#34;&gt;zlib&lt;/a&gt; and &lt;a href=&#34;https://www.hdfgroup.org/downloads/&#34;&gt;hdf5&lt;/a&gt; first. For zlib, I use the version &lt;code&gt;zlib/1.2.11-icc17&lt;/code&gt; originally compiled by TH-2.&lt;/p&gt;
+
+&lt;h3 id=&#34;hdf5&#34;&gt;HDF5&lt;/h3&gt;
+
+&lt;p&gt;The newest version is &lt;strong&gt;1.10.4&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ./configure --prefix=/HOME/nuist_chenq_2/WORKSPACE/xin/software/hdf5-1.10.4 --enable-fortran --enable-static-exec
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But, I got this error:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tricks of TH-2 VPN</title>
+      <link>https://zxdawn.github.io/2018/12/05/tricks-of-th-2-vpn/</link>
+      <pubDate>Wed, 05 Dec 2018 13:22:09 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/12/05/tricks-of-th-2-vpn/</guid>
+      <description>&lt;h2 id=&#34;install-vpnc&#34;&gt;Install vpnc&lt;/h2&gt;
+
+&lt;h3 id=&#34;link&#34;&gt;Link&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://pkgs.org/download/vpnc&#34;&gt;https://pkgs.org/download/vpnc&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;edit-vpnc-config-file&#34;&gt;Edit vpnc config file&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;/etc/vpnc/default.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;IPSec gateway vpn2.nscc-gz.cn
+IPSec ID VPN
+IPSec secret gzcszx@123
+#IKE Authmode hybrid
+Xauth username vpn_username
+Xauth password vpn_password
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Speedup WRF-Chem</title>
+      <link>https://zxdawn.github.io/2018/12/02/speedup-wrf-chem/</link>
+      <pubDate>Sun, 02 Dec 2018 20:58:10 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/12/02/speedup-wrf-chem/</guid>
+      <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+
+&lt;p&gt;This is my partial namelist of WRF-Chem:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;amp;time_control
+ run_days                           = 147,    
+&amp;amp;domains
+ time_step                          = 72,
+ time_step_fract_num                = 0,
+ time_step_fract_den                = 1,
+ max_dom                            = 1,
+ e_we                               = 430,
+ e_sn                               = 345,
+ e_vert                             = 40,
+ dx                                 = 12000,
+ dy                                 = 12000,
+ p_top_requested                    = 10000,
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I used &lt;code&gt;384&lt;/code&gt; cores to run it and I found the speed of &lt;code&gt;calculation&lt;/code&gt; and &lt;code&gt;writing&lt;/code&gt; is &lt;strong&gt;~5.45 seconds/step&lt;/strong&gt;, &lt;strong&gt;~54.5 s/wrfout_file&lt;/strong&gt; and &lt;strong&gt;~210 s/wrfrst_file&lt;/strong&gt;. The terrible one is the speed of &lt;strong&gt;I/O  tasks&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Controlling the exam with Python</title>
+      <link>https://zxdawn.github.io/2018/11/22/controlling-the-exam-with-python/</link>
+      <pubDate>Thu, 22 Nov 2018 13:19:33 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/11/22/controlling-the-exam-with-python/</guid>
+      <description>&lt;h2 id=&#34;predicaments&#34;&gt;Predicaments&lt;/h2&gt;
+
+&lt;p&gt;We&amp;rsquo;re asked to learn a library about safety.&lt;/p&gt;
+
+&lt;p&gt;However, if the duration is greater than 5 minutes (~300 seconds), we need to click &lt;code&gt;agree&lt;/code&gt; to let the timing continue. So, when we finish the learning progress, we&amp;rsquo;ll click &lt;strong&gt;6*&lt;sup&gt;60&lt;/sup&gt;&amp;frasl;&lt;sub&gt;5&lt;/sub&gt; = 72&lt;/strong&gt; times &amp;hellip;&amp;hellip;..&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Trick of binned_statistic_2d</title>
+      <link>https://zxdawn.github.io/2018/11/22/trick-of-binned_statistic_2d/</link>
+      <pubDate>Thu, 22 Nov 2018 09:11:07 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/11/22/trick-of-binned_statistic_2d/</guid>
+      <description>&lt;h2 id=&#34;official-example&#34;&gt;Official example&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; from scipy import stats
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Calculate the counts with explicit bin-edges:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; x = [0.1, 0.1, 0.1, 0.6]
+&amp;gt;&amp;gt;&amp;gt; y = [2.1, 2.6, 2.1, 2.1]
+&amp;gt;&amp;gt;&amp;gt; binx = [0.0, 0.5, 1.0]
+&amp;gt;&amp;gt;&amp;gt; biny = [2.0, 2.5, 3.0]
+&amp;gt;&amp;gt;&amp;gt; ret = stats.binned_statistic_2d(x, y, None, &#39;count&#39;, bins=[binx,biny])
+&amp;gt;&amp;gt;&amp;gt; ret.statistic
+array([[ 2.,  1.],
+       [ 1.,  0.]])
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Send e-mail when file modified</title>
+      <link>https://zxdawn.github.io/2018/11/18/send-e-mail-when-file-modified/</link>
+      <pubDate>Sun, 18 Nov 2018 22:00:48 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/11/18/send-e-mail-when-file-modified/</guid>
+      <description>&lt;h2 id=&#34;mailx&#34;&gt;mailx&lt;/h2&gt;
+
+&lt;p&gt;Download &lt;code&gt;mailx&lt;/code&gt;  (&lt;a href=&#34;https://software.opensuse.org/package/mailx&#34;&gt;openSUSE&lt;/a&gt; is the distribution of my server) and install it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ make PREFIX=/public/home/zhangxin/softwares/mailx SYSCONFDIR=/public/home/zhangxin/softwares/mailx/etc
+$ make install UCBINSTALL=/usr/bin/install PREFIX=/public/home/zhangxin/softwares/mailx SYSCONFDIR=/public/home/zhangxin/softwares/mailx/etc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Get your authorization code and edit &lt;code&gt;mailx/etc/nail.rc&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;set from=&amp;quot;363910399@qq.com&amp;quot;
+set smtp=smtp.qq.com
+set smtp-auth-user=&amp;quot;363910399@qq.com&amp;quot;
+set smtp-auth-password=&amp;quot;authorization_code&amp;quot;
+set smtp-auth=login
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Set up personal Anaconda mirror</title>
+      <link>https://zxdawn.github.io/2018/11/16/set-up-personal-anaconda-mirror/</link>
+      <pubDate>Fri, 16 Nov 2018 10:13:08 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/11/16/set-up-personal-anaconda-mirror/</guid>
+      <description>&lt;h2 id=&#34;predicaments&#34;&gt;Predicaments&lt;/h2&gt;
+
+&lt;p&gt;If you encounter any problems as follows, you should try to set up a personal Python(Anaconda) mirror:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Deploy a python environment on servers that have no access to the Internet;&lt;/li&gt;
+&lt;li&gt;Deploy a python environment which can be used directly by other users on the server;&lt;/li&gt;
+&lt;li&gt;Internet speed or connection to cloud mirror is slow.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+
+&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;Just install Anaconda according to this &lt;a href=&#34;https://conda.io/docs/user-guide/install/index.html&#34;&gt;guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Of course, you can download Anaconda installer archive from &lt;a href=&#34;https://repo.continuum.io/pkgs/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;download-mirror&#34;&gt;Download(mirror)&lt;/h3&gt;
+
+&lt;p&gt;You can use &lt;code&gt;wget&lt;/code&gt; to mirror the packages from &lt;a href=&#34;https://repo.continuum.io/pkgs/&#34;&gt;official Anaconda websites&lt;/a&gt; or other mirror websites (&lt;a href=&#34;https://mirrors.tuna.tsinghua.edu.cn/anaconda/&#34;&gt;TUNA&lt;/a&gt; and &lt;a href=&#34;https://mirrors.ustc.edu.cn/anaconda&#34;&gt;USTC&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;If your server is located in China, I recommend the later one.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll take the later one as example.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Trick of pcolormesh</title>
+      <link>https://zxdawn.github.io/2018/10/31/trick-of-pcolormesh/</link>
+      <pubDate>Wed, 31 Oct 2018 10:40:24 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/10/31/trick-of-pcolormesh/</guid>
+      <description>&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://alex.seeholzer.de/2014/05/fun-with-matplotlib-pcolormesh-getting-data-to-display-in-the-right-position/&#34;&gt;http://alex.seeholzer.de/2014/05/fun-with-matplotlib-pcolormesh-getting-data-to-display-in-the-right-position/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
+      <title>Create RAID 5</title>
+      <link>https://zxdawn.github.io/2018/09/10/create-raid-5/</link>
+      <pubDate>Mon, 10 Sep 2018 09:25:21 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/09/10/create-raid-5/</guid>
+      <description>&lt;p&gt;Reference: &lt;a href=&#34;https://www.tecmint.com/create-raid-5-in-linux/&#34;&gt;https://www.tecmint.com/create-raid-5-in-linux/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;install-mdadm-and-verify-drives&#34;&gt;Install mdadm and verify drives&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;yum install mdadm&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;mdadm -E /dev/sd[b-h]&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mdadm: No md superblock detected on /dev/sdc.
+
+mdadm: No md superblock detected on /dev/sdb.
+
+mdadm: No md superblock detected on /dev/sdd.
+
+mdadm: No md superblock detected on /dev/sde.
+
+mdadm: No md superblock detected on /dev/sdf.
+
+mdadm: No md superblock detected on /dev/sdg.
+
+mdadm: No md superblock detected on /dev/sdh.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;partitioning-the-disks-for-raid&#34;&gt;Partitioning the Disks for RAID&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Actually this is optional. If you want to partition first, you should make sure you&amp;rsquo;re using gpt or others which support larger than 2T.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h5 id=&#34;create-dev-sdb-partition&#34;&gt;Create /dev/sdb Partition&lt;/h5&gt;
+
+&lt;p&gt;Please follow the below instructions to create partition on &lt;strong&gt;/dev/sdb&lt;/strong&gt; drive.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;fdisk /dev/sdb&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Mount ntfs and start nfs</title>
+      <link>https://zxdawn.github.io/2018/09/04/mount-ntfs-and-start-nfs/</link>
+      <pubDate>Tue, 04 Sep 2018 15:01:00 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/09/04/mount-ntfs-and-start-nfs/</guid>
+      <description>&lt;h2 id=&#34;mount-and-start-nfs&#34;&gt;Mount and start NFS&lt;/h2&gt;
+
+&lt;p&gt;If the type of disk is ntfs, you need to install &lt;code&gt;ntfs-3g&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mount -t ntfs-3g /dev/??? /new_dir
+#start the nfs server service.
+service nfsserver start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;exporting-directories-on-the-server&#34;&gt;Exporting Directories on the Server&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
+      <title>Set a dark theme in Texstudio</title>
+      <link>https://zxdawn.github.io/2018/09/03/set-a-dark-theme-in-texstudio/</link>
+      <pubDate>Mon, 03 Sep 2018 14:18:51 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/09/03/set-a-dark-theme-in-texstudio/</guid>
+      <description>&lt;p&gt;Reference: &lt;a href=&#34;https://tex.stackexchange.com/questions/108315/how-can-i-set-a-dark-theme-in-texstudio&#34;&gt;https://tex.stackexchange.com/questions/108315/how-can-i-set-a-dark-theme-in-texstudio&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Original:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ox58se1xg.bkt.clouddn.com/Texstudio/texstudio_original.png&#34; alt=&#34;original&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dark:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ox58se1xg.bkt.clouddn.com/Texstudio/texstudio_dark.png&#34; alt=&#34;Dark&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Steps:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Set decayed tracer for WRF</title>
+      <link>https://zxdawn.github.io/2018/07/31/set-decayed-tracer-for-wrf/</link>
+      <pubDate>Tue, 31 Jul 2018 10:09:31 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/07/31/set-decayed-tracer-for-wrf/</guid>
+      <description>&lt;p&gt;Because tracer_opt in WRF-Chem support more functions than WRF, we plan to clone and edit it for WRF (which is much quickier than WRF-Chem).&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Copy &lt;code&gt;/chem/module_input_tracer_data.F&lt;/code&gt; and &lt;code&gt;chem/module_input_tracer.F&lt;/code&gt; into &lt;code&gt;/WRFV3/phys&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;After compile, I get an error about &lt;code&gt;TRACER_TEST1 not found&lt;/code&gt;. It&amp;rsquo;s related to &lt;code&gt;module_state_description.F&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;module_state_description.F : ../Registry/$(REGISTRY)
+                     ( cd .. ; tools/registry $(ARCHFLAGS) $(ENVCOMPDEFS) -DNEW_BDYS Registry/$(REGISTRY) ) ;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Registry/Registry.EM_COMMON&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>The cycle of download and move</title>
+      <link>https://zxdawn.github.io/2018/07/11/the-cycle-of-download-and-move/</link>
+      <pubDate>Wed, 11 Jul 2018 09:27:50 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/07/11/the-cycle-of-download-and-move/</guid>
+      <description>Download files on node_1 and move all of them to node_2 at intervals.</description>
+    </item>
+    
+    <item>
+      <title>Install git and oh-my-zsh without root</title>
+      <link>https://zxdawn.github.io/2018/06/28/install-git-and-oh-my-zsh-without-root/</link>
+      <pubDate>Thu, 28 Jun 2018 11:57:14 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/06/28/install-git-and-oh-my-zsh-without-root/</guid>
+      <description>&lt;h1 id=&#34;git&#34;&gt;Git&lt;/h1&gt;
+
+&lt;p&gt;Check &lt;code&gt;Installing from Source&lt;/code&gt; part of the &lt;a href=&#34;https://git-scm.com/book/en/v2/Getting-Started-Installing-Git&#34;&gt;guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;What  I do is a little different from it:&lt;/p&gt;
+
+&lt;h2 id=&#34;curl&#34;&gt;Curl&lt;/h2&gt;
+
+&lt;p&gt;Since &lt;code&gt;git&lt;/code&gt; depend on &lt;code&gt;curl&lt;/code&gt;, I installed &lt;code&gt;curl&lt;/code&gt; from source according to this &lt;a href=&#34;https://curl.haxx.se/docs/install.html&#34;&gt;guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;git-1&#34;&gt;Git&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;# Download git and uncompress
+$ tar -zxf git-2.18.0.tar.gz
+$ cd git-2.18.0
+$ make configure
+
+# Define CURLDIR=/public/home/zhangxin/softwares/curl if your curl header and library files are # in /public/home/zhangxin/softwares/curl/include and /public/home/zhangxin/softwares/curl/lib # directories.
+$ ./configure CURLDIR=/public/home/zhangxin/softwares/curl --prefix=/public/home/zhangxin/softwares/git
+
+# Since we don&#39;t need docs actually, just &#39;make&#39;.
+$ make CURLDIR=/public/home/zhangxin/softwares/curl
+$ make install CURLDIR=/public/home/zhangxin/softwares/curl
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Enable auto-login and auto-networking in Debian 9</title>
+      <link>https://zxdawn.github.io/2018/06/15/enable-auto-login-and-auto-networking-in-debian-9/</link>
+      <pubDate>Fri, 15 Jun 2018 10:42:48 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/06/15/enable-auto-login-and-auto-networking-in-debian-9/</guid>
+      <description>&lt;h1 id=&#34;auto-login&#34;&gt;Auto-login&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;sudo nano /usr/share/lightdm/lightdm.conf.d/01_debian.conf&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Add these lines below&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[SeatDefaults]
+autologin-user=username
+autologin-user-timeout=0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;auto-networking&#34;&gt;Auto-networking&lt;/h1&gt;
+
+&lt;h2 id=&#34;python-script&#34;&gt;Python script&lt;/h2&gt;
+
+&lt;p&gt;This is the example (&lt;a href=&#34;https://blog.csdn.net/shenhuaifeng/article/details/78333851&#34;&gt;python实现校园网自动登录&lt;/a&gt;):&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Migrate blog to Github(HTTPS) and add continuous integration</title>
+      <link>https://zxdawn.github.io/2018/05/18/migrate-blog-to-githubhttps-and-add-continuous-integration/</link>
+      <pubDate>Fri, 18 May 2018 17:38:12 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/05/18/migrate-blog-to-githubhttps-and-add-continuous-integration/</guid>
+      <description>&lt;h1 id=&#34;reference&#34;&gt;Reference&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://molunerfinn.com/hexo-travisci-https/#%E6%8C%81%E4%B9%85%E5%8C%96%E6%9E%84%E5%BB%BA&#34;&gt;MARKSZのBlog&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;continuous-integration&#34;&gt;Continuous integration&lt;/h1&gt;
+
+&lt;h2 id=&#34;set-travis-ci-account-and-token&#34;&gt;Set Travis-CI account and Token&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Sign up &lt;a href=&#34;https://travis-ci.org/&#34;&gt;Travis-CI&lt;/a&gt; and sync your Git-hub account:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ox58se1xg.bkt.clouddn.com/integration/Travis-CI_sign_up.png&#34; alt=&#34;Sign_up&#34; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Choose your *github.io:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ox58se1xg.bkt.clouddn.com/integration/repo.png&#34; alt=&#34;repo&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Running Win10 Debian Zsh in Cmder</title>
+      <link>https://zxdawn.github.io/2018/05/05/running-win10-debian-zsh-in-cmder/</link>
+      <pubDate>Sat, 05 May 2018 15:21:53 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/05/05/running-win10-debian-zsh-in-cmder/</guid>
+      <description>&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gingter.org/2016/11/16/running-windows-10-ubuntu-bash-in-cmder/&#34;&gt;Running Windows 10 Ubuntu Bash in Cmder&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/&#34;&gt;How to Install and Use the Linux Bash Shell on Windows 10&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Bash on Debian on Windows enabled&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Cmder.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If you don’t have that, you can simply follow these instructions:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://msdn.microsoft.com/de-de/commandline/wsl/install_guide&#34;&gt;Install Bash On Ubuntu on Windows&lt;/a&gt; (the same way to install Debian)&lt;/p&gt;
+
+&lt;p&gt;Download and unzip &lt;a href=&#34;http://cmder.net/&#34;&gt;Cmder&lt;/a&gt; to a convenient place on your disk. Then start &lt;em&gt;Cmder.exe&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gingter.org/2016/08/17/install-and-run-zsh-on-windows/&#34;&gt;Install (Oh-my-) Zsh on Bash on Ubuntu on Windows&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&#34;set-up-zsh-in-cmder&#34;&gt;Set up Zsh in Cmder&lt;/h1&gt;</description>
+    </item>
+    
+    <item>
+      <title>ssh内网穿透</title>
+      <link>https://zxdawn.github.io/2018/04/29/ssh%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
+      <pubDate>Sun, 29 Apr 2018 21:20:50 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/04/29/ssh%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
+      <description>&lt;p&gt;机房电脑，通过远程端口映射，使得VPS：2222 映射到机房电脑：22：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ssh -N -f -R 2222:127.0.0.1:22 root@vpsIP
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;VPS则可以ssh到机房电脑:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ssh -p 2222 username@localhost
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;用ssh代理来浏览内网:&lt;/p&gt;
+
+&lt;p&gt;在校外电脑上，通过本地端口映射，使得校外电脑：2222 映射到VPS: 2222&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ssh -N -f -L 2222:127.0.0.1:2222 root@vpsIP
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Initializing the WRF model with ERA5</title>
+      <link>https://zxdawn.github.io/2018/04/20/initializing-the-wrf-model-with-era5/</link>
+      <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/04/20/initializing-the-wrf-model-with-era5/</guid>
+      <description>&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://valcap74.blogspot.com/2017/10/how-to-run-wrf-model-driven-by-era5-on.html?showComment=1524140953190#c5741939636532233503&#34;&gt;How to run the WRF model using ERA5 (on model levels) as initial and boundary conditions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://software.ecmwf.int/wiki/display/OIFSUF/Grib+to+Netcdf+conversion&#34;&gt;Grib to Netcdf conversion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://conorsweeneyucd.blogspot.com/2015/01/download-era-interim-data.html&#34;&gt;Download ERA-Interim data&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;summarization&#34;&gt;Summarization&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Download&lt;/li&gt;
+&lt;li&gt;Preprocess&lt;/li&gt;
+&lt;li&gt;Automation&lt;/li&gt;
+&lt;li&gt;Geogrid&lt;/li&gt;
+&lt;li&gt;Ungrib&lt;/li&gt;
+&lt;li&gt;Produce additional intermediate files&lt;/li&gt;
+&lt;li&gt;Metgrid&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>BEHR_OMINO2 Guide for non_Berkeley</title>
+      <link>https://zxdawn.github.io/2018/03/11/behr_omino2-guide-for-non_berkeley/</link>
+      <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/03/11/behr_omino2-guide-for-non_berkeley/</guid>
+      <description>&lt;h1 id=&#34;behr-omino2-guide-for-non-berkeley&#34;&gt;BEHR_OMINO2 Guide for non_Berkeley&lt;/h1&gt;
+
+&lt;h2 id=&#34;clone-behr-core-https-github-com-cohenberkeleylab-behr-core-git-and-other-repositories&#34;&gt;Clone &lt;a href=&#34;https://github.com/CohenBerkeleyLab/BEHR-core.git&#34;&gt;BEHR_Core&lt;/a&gt; and other repositories&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir BEHR
+cd BEHR
+git clone https://github.com/CohenBerkeleyLab/BEHR-core.git
+cd BEHR-core
+./setup.sh # if you want to use develop branch, add --develop
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Remarkable - Connecting to a hotspot which supports circumvention</title>
+      <link>https://zxdawn.github.io/2018/01/18/remarkable-connecting-to-a-hotspot-which-supports-circumvention/</link>
+      <pubDate>Thu, 18 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2018/01/18/remarkable-connecting-to-a-hotspot-which-supports-circumvention/</guid>
+      <description>&lt;h2 id=&#34;set-up-vpn&#34;&gt;Set up VPN&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
+      <title>Initializing the WRF model with ECMWF ERA-Interim reanalysis</title>
+      <link>https://zxdawn.github.io/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</link>
+      <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</guid>
+      <description>&lt;h2 id=&#34;summarization&#34;&gt;Summarization&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;To summarise, you need three separate data files from the reanalysis data:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Pressure level data (or model levels)&lt;/li&gt;
+&lt;li&gt;Surface variable data&lt;/li&gt;
+&lt;li&gt;Fixed data.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>WRF-Chem (MOZCART) and WRF_tips</title>
+      <link>https://zxdawn.github.io/2017/12/10/wrf-chem-mozcart-and-wrf_tips/</link>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2017/12/10/wrf-chem-mozcart-and-wrf_tips/</guid>
+      <description>&lt;h1 id=&#34;wps&#34;&gt;WPS&lt;/h1&gt;
+
+&lt;h2 id=&#34;namelist&#34;&gt;namelist&lt;/h2&gt;
+
+&lt;h3 id=&#34;i-parent-start-and-j-parent-start&#34;&gt;i_parent_start and j_parent_start&lt;/h3&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to compile WRF-Chem</title>
+      <link>https://zxdawn.github.io/2017/10/02/how-to-compile-wrf-chem/</link>
+      <pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2017/10/02/how-to-compile-wrf-chem/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;This is the basic one about WRF-Chem. You can check &lt;a href=&#34;https://dreambooker.site/2018/12/07/Installing-libraries-and-automating-WRF-Chem/&#34;&gt;this one&lt;/a&gt; for more information.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;requirements&#34;&gt;Requirements&lt;/h1&gt;
+
+&lt;h2 id=&#34;flex-2-5-3&#34;&gt;flex(2.5.3)&lt;/h2&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to set up Hexo</title>
+      <link>https://zxdawn.github.io/2017/10/02/how-to-set-up-hexo/</link>
+      <pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://zxdawn.github.io/2017/10/02/how-to-set-up-hexo/</guid>
+      <description>&lt;h2 id=&#34;install-node-js-and-npm-on-my-local-linux-computer&#34;&gt;Install &lt;strong&gt;Node.js and npm&lt;/strong&gt; on my local Linux computer:&lt;/h2&gt;</description>
     </item>
     
   </channel>
