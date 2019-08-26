@@ -119,7 +119,7 @@ essay                     = ":year/:month/:day/:slug/"
   username = "zxdawn"
   repository = "zxdawn.github.io"
   branch = "source"
-  notifications = false
+  notifications = true
 
 [[params.handles]]
     name = "GitHub"
