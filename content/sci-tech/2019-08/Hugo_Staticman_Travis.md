@@ -6,17 +6,18 @@ categories: ["sci-tech"]
 img: "/images/sci-tech/2019-08/Hugo_Staticman_Travis_4.png"
 draft: false
 toc: true
+summary: "Deploying Hugo with Travis CI and Staticman to the GitHub Pages"
 ---
 
 This blog post documents the setup of deploying Hugo with Travis CI to the GitHub Pages.
-
-<!--more-->
 
 ## Prerequisites
 
 - [GitHub](https://github.com/) account;
 - [Travis CI](https://travis-ci.org/) account (login with GitHub account);
 - Installing [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [hugo](https://gohugo.io/getting-started/installing/) on your local system
+
+<!--more-->
 
 ## Create Basic Site
 
