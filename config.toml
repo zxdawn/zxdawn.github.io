@@ -1,4 +1,4 @@
-baseURL                    = "https://dreambooker.site/"
+baseURL                    = "https://zxdawn.github.io/"
 builddrafts                = false
 languageCode               = "zh-Hans"
 canonifyurls               = true
