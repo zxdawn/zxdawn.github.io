@@ -10,7 +10,9 @@ hasCJKLanguage             = true
 summaryLength              = 200
 Paginate                   = 5
 
-#theme                      = "AllinOne"
+title                      = "Dreambooker"
+pygmentsuseclasses         = true
+disablePathToLower         = true
 theme                      = ["AllinOne", "resume"]
 
 [outputs]
@@ -22,11 +24,6 @@ taxonomy = [ "HTML", "RSS"]
 baseName = "index"
 mediaType = "text/html"
 isHTML = true
-
-title                      = "Dreambooker"
-
-pygmentsuseclasses         = true
-disablePathToLower         = true 
 
 [permalinks]
 sci-tech                 = ":year/:month/:day/:slug/"
