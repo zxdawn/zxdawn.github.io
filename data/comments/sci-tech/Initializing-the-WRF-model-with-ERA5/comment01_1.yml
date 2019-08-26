@@ -1,0 +1,12 @@
+_id: 60838657-468d-4432-8f5a-d489a6d1a182
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: 98efd4f4-030f-494a-b880-e0c5f387bc3d
+botpot: ''
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "Thank you for your report!\n\n
+      1. Because surf_press_name is `PSFC` in `mo_wrfchem_lib.f90` file which is needed by MOZART mechanism. If you just use WRF, you don't have to convert it.\n\n
+      2. For the problem of difference, it looks strange!\n\n
+      Could you send the figure (which compare both variables) or the file just containing these variable (you can use ncks to extract it)?\n\n
+      My email address: xinzhang1215@gmail.com."
+date: 2018-12-06T07:52:00Z

@@ -1,0 +1,18 @@
+_id: 149f4eac-3820-49dd-b6fe-cd04dc7be2ba
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: 149f4eac-3820-49dd-b6fe-cd04dc7be2ba
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "Actually, you can add these lines:
+      <pre><code>
+      ========================================\r\n
+      # Typically from ECMWF model-level data and used by calc_ecmwf_p.exe\r\n
+      # Not needed by WRF\r\n
+      name=LOGSFP\r\n
+      output=no\r\n
+      interp_option=four_pt\r\n
+      ========================================
+      </code></pre>
+      This is the link of issue mentioned on GitHub:
+      https://github.com/wrf-model/WPS/issues/115"
+date: 2018-12-06T07:30:00Z

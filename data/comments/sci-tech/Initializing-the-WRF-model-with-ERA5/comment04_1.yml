@@ -1,0 +1,9 @@
+_id: 37ac3190-eb10-4bec-92b3-2947c0e98902
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: 46267831-93ef-4baf-b1b7-0949cac933b4
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "That's usually related to the loss of surface level data.\n\n
+      I can't reproduce the error as yours.\n\n
+      Please check your data (**both level and sfc**) again."
+date: 2019-06-19T04:48:00Z

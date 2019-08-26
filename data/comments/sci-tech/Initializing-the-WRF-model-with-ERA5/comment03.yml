@@ -1,0 +1,12 @@
+_id: 7d69c671-089a-47e3-ab9d-e76bf3979c14
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+name: lacstorm
+email: 
+body: "Hi, thanks for sharing.\r\n\r\n
+      When I download the model level data, the requests always failed after a long time (say 80 hours) of queue.\r\n\r\n
+      While it's ok when i download pressure level data or sfc data.\r\n\r\n
+      Is there any possibility that you know the reason?\r\n\r\n
+      Besides if I use the pressure level data, I should follow the same steps as you mentioned before or i need to do something else?\r\n\r\n
+      Hope for you reply."
+date: 2019-06-14T10:50:00Z

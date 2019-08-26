@@ -1,0 +1,10 @@
+_id: 35e0a330-be73-434d-8fa5-fa692b833d1a
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+name: Peter
+email: 
+body: "Hi,\n\n
+      I've successfully used these instructions when the download was from the ECMWF API, but now that the data is on Copernicus, the Copernicus API will only give me the model-level data in GRIB2 format.\n\n
+      This causes an error when running ungrib, as the Vtable you've given is only for GRIB1 format.\n\n
+      Anyone else having this issue? Is it an easy modification for the Vtable?"
+date: 2019-07-18T10:15:00Z
