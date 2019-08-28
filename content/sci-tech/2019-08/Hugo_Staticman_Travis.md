@@ -357,6 +357,8 @@ $ git push
 
 ## Staticman
 
+### Method 1
+
 Add `staticman.yml` under root directory and add `@staticmanlab` to the collaborator on github:
 
 ![variable](/images/sci-tech/2019-08/Hugo_Staticman_Travis_3.png)
@@ -367,9 +369,24 @@ https://staticman3.herokuapp.com/v3/connect/github/zxdawn2/zxdawn2.github.io/
 
 You will see `OK!` on that page.
 
+### Method 2 (recommend)
+
+Please check this [tutorial](https://yasoob.me/posts/running_staticman_on_static_hugo_blog_with_nested_comments/) about setting up your own staticman instance.
+
+Then, you can [add notifications using Mailgun](https://yasoob.me/posts/staticman_comment_notifications_mailgun/).
+
+## Version control
+
+| Version | Action                                   | Time       |
+| ------- | ---------------------------------------- | ---------- |
+| 1.0     | Init                                     | 2019-08-07 |
+| 1.1     | Add the part of setting up own staticman | 2019-08-28 |
+
 ## Reference
 
 1. [Using Hugo and Travis CI To Deploy Blog To Github Pages Automatically](https://axdlog.com/2018/using-hugo-and-travis-ci-to-deploy-blog-to-github-pages-automatically/)
 2. [Hugo on GitHub Pages with Travis CI](https://www.sidorenko.io/post/2018/12/hugo-on-github-pages-with-travis-ci/)
 3. [Hugo + Staticman](https://networkhobo.com/2017/12/30/hugo-staticman-nested-replies-and-e-mail-notifications/)
 4. [Threaded comments for Hugo with Staticman v3](https://jameskiefer.com/posts/threaded-comments-for-hugo-with-staticman-v3/)
+5. [Running Staticman on Hugo Blog With Nested Comments](https://yasoob.me/posts/running_staticman_on_static_hugo_blog_with_nested_comments/)
+6. [Staticman Comment Notifications Setup Using Mailgun](https://yasoob.me/posts/staticman_comment_notifications_mailgun/)
