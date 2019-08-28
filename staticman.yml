@@ -41,7 +41,7 @@ comments:
   moderation: true
 
   # Name of the site. Used in notification emails.
-  # name: "jameskiefer.com" # TODO: Change this to match your site
+  name: "dreambooker.site" # TODO: Change this to match your site
 
   # (*) REQUIRED
   #
@@ -88,7 +88,17 @@ comments:
     # reCaptcha secret
     #secret: ""
 
-  # notifications:
-  #   enabled: true
-  #   apiKey: "oVW/+nlEz/dmJb6ql+C0uuaVnMF1NDUFxiOhvpcNHG1GAPnIWM3A6tsoOFKrYQMbOSSctPkwoSkhCoVDUYoRfEz19YgXpAhc8O5nyW9QE/42Drz1p1poJJqwcseimgVsDieBk5dEx57Zd6tSRafJm2WGpHTN2utDXzvssklqQCe9r1wHGe7pQmLqwRJoACN6ZqSWDGF49W8aQpm5Wqxj4tFv6/Gb9AxWoY4+rv8kel0KUdWhdi2oLI1gOfe7tNdb7gCJpGuYuG0gxKntViYYEkZ9/bWi+qfHknH4Cc3E3XGZXswL8wPVxXtZ1hf5yki9uQd6qkuwh0/Y8i0MFj7wrA=="
-  #   domain: "Dl5FIiiZcYk+zOxo4MweBOXU4n0+rlcz9382csOOCqThR9DM7eHGXrszNGLBY819Fcb1olq5aUnrQ6bsnloSdrNyQ0p/kwkOhw3oS6y4pZRCLXmcYI4/MiXG6F4kuS5tuDfQzIlol7UHU9KFmYoPGRV7DbnFoLtd0nfzItW4rVQuaeFvnSaRqy5Ds/otaozJLyy3VSdzCFsxylc5LdNOJl3gL2+XqT3MoKwHZOVW4ExIXm/LsL5MCuIwoyE2E4tVRRUmf5tQOsm1AGZNxxD2ONw+E4aESma+IsCxYAVM4qcaXMXGgppRXZiU85OQu5eNBJIiK6SDSwpaJvkO8xyx4A=="
+  # Notification settings. When enabled, users can choose to receive notifications
+  # via email when someone adds a reply or a new comment. This requires an account
+  # with Mailgun, which you can get for free at http://mailgun.com.
+  notifications:
+    # Enable notifications
+    enabled: true 
+    # (!) ENCRYPTED
+    #
+    # Mailgun API key
+    apiKey: "cW55UJyvVrZxXI/+ohI9afqOKZRz286CNlPxzUr/vFFtDrBc2dt2JpKfd3bsNCd1RvvdlGxDL4+zn259dFXTNl6pfy2qHCN2ygl308PMVhhElx4V0DSlIkqNhTyim4XdOlLp4Cm4UjwUV2BXbu2B1k6VlQdk0+rZp2YZ9MsSSVx2jLf07Mui2IhwgW6TuqmCb0Pn9iOgsJoqJQa3m/2OqkGvb38ExWIcaHIG16TR3Ddupgl/orSCz603z+cgtlYu2dpKuLphhflKk6suGlKXdQufNPHf698treMa2RXmxsaJ49xZnrHm8b9ApuBXUVzwCRz1vexVXB13oTXbznL7Yw=="
+    # (!) ENCRYPTED
+    #
+    # Mailgun domain (encrypted)
+    domain: "nNlg5pUsjaJAdeoSgAOM09yrWYdroxY9cI9cf22B94yQLlbBJPIyvOw9uTidS7be3CAcPytFlWoHHpRF8JPmIxdrkNDUXVfHqDPJHjOTPJbrktZlA0CDReN1anhPmoyGmoqQ4lNuQ02oGavD8Ldx8mEoDB6Abhbquiuqcww8cE+dKVwzOy8EymoIqnatRsZ/DI1NEYn3Ly/zhp/+mi34FX80ruCPkb6ILdsXAc1PqUjTYelqGIR8gnLapQHVKAXHv4s1bwOhWDu1Vr1pD8s55KucwS4JN3BfrBOJKni0glxKDweR1du2+CwZ1T7cVX0jZb6igsQEA2W3DFrUbgBCSg=="
