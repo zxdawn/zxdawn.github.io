@@ -5,7 +5,7 @@
 comments:
   # (*) REQUIRED
   #
-  name: "Dreambooker"
+  # name: "Dreambooker"
   # Names of the fields the form is allowed to submit. If a field that is
   # not here is part of the request, an error will be thrown.
   allowedFields: ["name", "email", "body", "reply_to"]
@@ -88,7 +88,7 @@ comments:
     # reCaptcha secret
     #secret: ""
 
-  notifications:
-    enabled: true
-    apiKey: "oVW/+nlEz/dmJb6ql+C0uuaVnMF1NDUFxiOhvpcNHG1GAPnIWM3A6tsoOFKrYQMbOSSctPkwoSkhCoVDUYoRfEz19YgXpAhc8O5nyW9QE/42Drz1p1poJJqwcseimgVsDieBk5dEx57Zd6tSRafJm2WGpHTN2utDXzvssklqQCe9r1wHGe7pQmLqwRJoACN6ZqSWDGF49W8aQpm5Wqxj4tFv6/Gb9AxWoY4+rv8kel0KUdWhdi2oLI1gOfe7tNdb7gCJpGuYuG0gxKntViYYEkZ9/bWi+qfHknH4Cc3E3XGZXswL8wPVxXtZ1hf5yki9uQd6qkuwh0/Y8i0MFj7wrA=="
-    domain: "Dl5FIiiZcYk+zOxo4MweBOXU4n0+rlcz9382csOOCqThR9DM7eHGXrszNGLBY819Fcb1olq5aUnrQ6bsnloSdrNyQ0p/kwkOhw3oS6y4pZRCLXmcYI4/MiXG6F4kuS5tuDfQzIlol7UHU9KFmYoPGRV7DbnFoLtd0nfzItW4rVQuaeFvnSaRqy5Ds/otaozJLyy3VSdzCFsxylc5LdNOJl3gL2+XqT3MoKwHZOVW4ExIXm/LsL5MCuIwoyE2E4tVRRUmf5tQOsm1AGZNxxD2ONw+E4aESma+IsCxYAVM4qcaXMXGgppRXZiU85OQu5eNBJIiK6SDSwpaJvkO8xyx4A=="
+  # notifications:
+  #   enabled: true
+  #   apiKey: "oVW/+nlEz/dmJb6ql+C0uuaVnMF1NDUFxiOhvpcNHG1GAPnIWM3A6tsoOFKrYQMbOSSctPkwoSkhCoVDUYoRfEz19YgXpAhc8O5nyW9QE/42Drz1p1poJJqwcseimgVsDieBk5dEx57Zd6tSRafJm2WGpHTN2utDXzvssklqQCe9r1wHGe7pQmLqwRJoACN6ZqSWDGF49W8aQpm5Wqxj4tFv6/Gb9AxWoY4+rv8kel0KUdWhdi2oLI1gOfe7tNdb7gCJpGuYuG0gxKntViYYEkZ9/bWi+qfHknH4Cc3E3XGZXswL8wPVxXtZ1hf5yki9uQd6qkuwh0/Y8i0MFj7wrA=="
+  #   domain: "Dl5FIiiZcYk+zOxo4MweBOXU4n0+rlcz9382csOOCqThR9DM7eHGXrszNGLBY819Fcb1olq5aUnrQ6bsnloSdrNyQ0p/kwkOhw3oS6y4pZRCLXmcYI4/MiXG6F4kuS5tuDfQzIlol7UHU9KFmYoPGRV7DbnFoLtd0nfzItW4rVQuaeFvnSaRqy5Ds/otaozJLyy3VSdzCFsxylc5LdNOJl3gL2+XqT3MoKwHZOVW4ExIXm/LsL5MCuIwoyE2E4tVRRUmf5tQOsm1AGZNxxD2ONw+E4aESma+IsCxYAVM4qcaXMXGgppRXZiU85OQu5eNBJIiK6SDSwpaJvkO8xyx4A=="
