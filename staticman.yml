@@ -63,14 +63,14 @@ comments:
   # Notification settings. When enabled, users can choose to receive notifications
   # via email when someone adds a reply or a new comment. This requires an account
   # with Mailgun, which you can get for free at http://mailgun.com.
-  notifications:
-    # Enable notifications
-    enabled: true 
-    # (!) ENCRYPTED
-    #
-    # Mailgun API key
-    apikey: "Q+CTt43yc3etbHg1laM2NRRRnwJiuvGhm8qmI8RRrlepNxTaHF6/ucygcpHPcT97yQdcC6rswiF3rU74XCVIDZos7Rdzy8GDfh5lrrDsQ2VNJ7JBzMkUgRYmQsjkdDZgJojqpaGphKi5HogHp7BE9K6uSwkOcOWqcP8j2dcMAJ+RVH2rEaFYxHNcuDtGp93X4wlpuEgWfqAAYTUjaZ3W8xWTJpwe3DOoAtp7gwvKliPyOsmR95Jm4KMg7/u/z4pfDUvaBRBRgnlr9/PAuCTA0mPNQpasVimjPLJvkJfefRjgpKyu/aE9nUU39Rp8xtk8oSDfOeHmAEAUtr/SMfvJ2g=="
-    # (!) ENCRYPTED
-    #
-    # Mailgun domain (encrypted)
-    domain: "ajO4Ak305Pq1Auu2ToU2jSth70U2M6wcQi+LH6pX9oULj+fiQvhMuWE4TFGxqC2/gCTfAGNb9Egj3RFabN3Vg/dSXux6lwULXUfzUviMADcCaB8CeJ+zgLPOBXyGmj7+Do6y2yZQFMp3zTu2GSL1ftHoFe9cS2t/hHNkAMmriHdAzTXYu9D8cXw91WWoQej+36yh6JKam6X5bXnEauMVE/uToHxUO3kS9mjgNx+TSZ4Owc7CwazsZBwWRxm+xkCxUenxofTltgDIQrks7MQJhSbndEFCnUAzPaieqrRV4zSQlXB5tMBlz8YQbvMotezANRGLYS70aTKa+HAZXBxuJA=="
+  # notifications:
+  #   # Enable notifications
+  #   enabled: true 
+  #   # (!) ENCRYPTED
+  #   #
+  #   # Mailgun API key
+  #   apikey: "Q+CTt43yc3etbHg1laM2NRRRnwJiuvGhm8qmI8RRrlepNxTaHF6/ucygcpHPcT97yQdcC6rswiF3rU74XCVIDZos7Rdzy8GDfh5lrrDsQ2VNJ7JBzMkUgRYmQsjkdDZgJojqpaGphKi5HogHp7BE9K6uSwkOcOWqcP8j2dcMAJ+RVH2rEaFYxHNcuDtGp93X4wlpuEgWfqAAYTUjaZ3W8xWTJpwe3DOoAtp7gwvKliPyOsmR95Jm4KMg7/u/z4pfDUvaBRBRgnlr9/PAuCTA0mPNQpasVimjPLJvkJfefRjgpKyu/aE9nUU39Rp8xtk8oSDfOeHmAEAUtr/SMfvJ2g=="
+  #   # (!) ENCRYPTED
+  #   #
+  #   # Mailgun domain (encrypted)
+  #   domain: "ajO4Ak305Pq1Auu2ToU2jSth70U2M6wcQi+LH6pX9oULj+fiQvhMuWE4TFGxqC2/gCTfAGNb9Egj3RFabN3Vg/dSXux6lwULXUfzUviMADcCaB8CeJ+zgLPOBXyGmj7+Do6y2yZQFMp3zTu2GSL1ftHoFe9cS2t/hHNkAMmriHdAzTXYu9D8cXw91WWoQej+36yh6JKam6X5bXnEauMVE/uToHxUO3kS9mjgNx+TSZ4Owc7CwazsZBwWRxm+xkCxUenxofTltgDIQrks7MQJhSbndEFCnUAzPaieqrRV4zSQlXB5tMBlz8YQbvMotezANRGLYS70aTKa+HAZXBxuJA=="
