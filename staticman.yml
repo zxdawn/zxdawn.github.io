@@ -55,22 +55,22 @@ comments:
   # an error will be thrown.
   requiredFields: ["name", "body"]
 
+  # Notification settings. When enabled, users can choose to receive notifications
+  # via email when someone adds a reply or a new comment. This requires an account
+  # with Mailgun, which you can get for free at http://mailgun.com.
+  notifications:
+    # Enable notifications
+    enabled: true 
+    # (!) ENCRYPTED
+    #
+    # Mailgun API key
+    apikey: "L+YWcagHChYeXNAoo4FfGowImk3vffKqSV1JCQahWxehBZYvCU4blH5aK7WxL9FKnfBzkOpZAErWWqOJlTjxaF1dY2iSvhUhD4WunZMdgTOfZUrGNiE/Ev9xGaR432HHsOLn4pf9zkCF4qDbdR5A24t5pJsi4PC0TX2GyXjkyRDQAqkt91F5w/LknXRI0f7zbP3O8cxJnX5BrN+H5MiQaF+LZLYA6qy1Wi8/PKm2ZhYiLHHOUuXq0yRU1YEp3iXy/UDWIcUedNnnL3pGuJYxNCwsrr4A9lERiqDRT9RmOR+6SlanygLmlkRRR6y74x7T4j48KKLn5AC5gBw4P2yHDg=="
+    # (!) ENCRYPTED
+    #
+    # Mailgun domain (encrypted)
+    domain: "EaD+MUdSifQARd9Q6rg+MA5/tGRUdIKM15nwk0d5fWZlsdsIGHt01Ceplu5gxFCk1Gsq//oquZ2d/16xbwC/hG6ncRsiFca3xdkasmamiwwL3ibl1eVd1EaLxSYHQKDkCi4ta5VcER1CjFrz7shEQrU+B6lOnbcBSWDnunmIwb1cyNxpTcRQ+pmPQV7//hpNDYwu+Nih32rx5gSGmIMaoqJSAgfm0g/IUqvf+mvF7JSNHbIeY6xnnwod8sxG/nA3v3X/P97OZuM28/PFMEKSXbt3mBgks+KFunW765Sxppr7slfZHWBEqSBwU98BOT/oBggK5w4yjZHT6ag/jM9S+w=="
+
   # List of transformations to apply to any of the fields supplied. Keys are
   # the name of the field and values are possible transformation types.
   transforms:
     email: md5
-
-  # Notification settings. When enabled, users can choose to receive notifications
-  # via email when someone adds a reply or a new comment. This requires an account
-  # with Mailgun, which you can get for free at http://mailgun.com.
-  # notifications:
-  #   # Enable notifications
-  #   enabled: true 
-  #   # (!) ENCRYPTED
-  #   #
-  #   # Mailgun API key
-  #   apikey: "Q+CTt43yc3etbHg1laM2NRRRnwJiuvGhm8qmI8RRrlepNxTaHF6/ucygcpHPcT97yQdcC6rswiF3rU74XCVIDZos7Rdzy8GDfh5lrrDsQ2VNJ7JBzMkUgRYmQsjkdDZgJojqpaGphKi5HogHp7BE9K6uSwkOcOWqcP8j2dcMAJ+RVH2rEaFYxHNcuDtGp93X4wlpuEgWfqAAYTUjaZ3W8xWTJpwe3DOoAtp7gwvKliPyOsmR95Jm4KMg7/u/z4pfDUvaBRBRgnlr9/PAuCTA0mPNQpasVimjPLJvkJfefRjgpKyu/aE9nUU39Rp8xtk8oSDfOeHmAEAUtr/SMfvJ2g=="
-  #   # (!) ENCRYPTED
-  #   #
-  #   # Mailgun domain (encrypted)
-  #   domain: "ajO4Ak305Pq1Auu2ToU2jSth70U2M6wcQi+LH6pX9oULj+fiQvhMuWE4TFGxqC2/gCTfAGNb9Egj3RFabN3Vg/dSXux6lwULXUfzUviMADcCaB8CeJ+zgLPOBXyGmj7+Do6y2yZQFMp3zTu2GSL1ftHoFe9cS2t/hHNkAMmriHdAzTXYu9D8cXw91WWoQej+36yh6JKam6X5bXnEauMVE/uToHxUO3kS9mjgNx+TSZ4Owc7CwazsZBwWRxm+xkCxUenxofTltgDIQrks7MQJhSbndEFCnUAzPaieqrRV4zSQlXB5tMBlz8YQbvMotezANRGLYS70aTKa+HAZXBxuJA=="
