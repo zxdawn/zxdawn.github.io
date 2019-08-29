@@ -16,24 +16,23 @@ disablePathToLower         = true
 theme                      = ["AllinOne", "resume"]
 
 [outputs]
-home = [ "HTML", "RSS", "JSON" ]
-section = [ "HTML", "RSS"]
-taxonomy = [ "HTML", "RSS"]
+  home = [ "HTML", "RSS", "JSON" ]
+  section = [ "HTML", "RSS"]
+  taxonomy = [ "HTML", "RSS"]
 
 [outputFormats.resume]
-baseName = "index"
-mediaType = "text/html"
-isHTML = true
+  baseName = "index"
+  mediaType = "text/html"
+  isHTML = true
 
 [permalinks]
-sci-tech                 = ":year/:month/:day/:slug/"
-essay                     = ":year/:month/:day/:slug/"
+  sci-tech                 = ":year/:month/:day/:slug/"
+  essay                     = ":year/:month/:day/:slug/"
 
 [taxonomies]
   tag                      = "tags"
   series                   = "series"
   category                 = "categories"
-
 
 [menu]
   [[menu.main]]
@@ -41,12 +40,6 @@ essay                     = ":year/:month/:day/:slug/"
     weight                 = 1
     identifier             = "sci-tech"
     url                    = "sci-tech/"
-
-  #[[menu.main]]
-   # name                   = "Blog"
-   # weight                 = 3
-   # identifier             = "blog"
-   # url                    = "blog/"
 
   [[menu.main]]
     name                   = "Essay"
