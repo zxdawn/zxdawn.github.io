@@ -10,7 +10,7 @@ comments:
 
   # When allowedOrigins is defined, only requests sent from one of the domains
   # listed will be accepted.
-  # allowedOrigins: ["zxdawn.github.io","dreambooker.site"] # TODO: Add your domains
+  allowedOrigins: ["zxdawn.github.io","dreambooker.site"] # TODO: Add your domains
 
   # (*) REQUIRED
   #
