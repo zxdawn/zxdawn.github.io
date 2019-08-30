@@ -9,7 +9,13 @@ img: "/images/sci-tech/2018-01/remarkable.jpg"
 summary: "Some tips for using Remarkable in China"
 ---
 
-## Set up VPN
+## Method 1
+
+Using [VPN Hotspot](https://play.google.com/store/apps/details?id=be.mygod.vpnhotspot) to share the VPN you set on your Android phone.
+
+## Method 2
+
+### Set up VPN
 
 <!--more-->
 
@@ -21,7 +27,7 @@ summary: "Some tips for using Remarkable in China"
 
    ![SSTAP_1](/images/sci-tech/2018-01/SSTAP_1.png)
 
-## Turn your Windows laptop into a WiFI Hot Spot
+### Turn your Windows laptop into a WiFI Hot Spot
 
 1. press the Windows logo key + R and type "cmd".
 
@@ -46,13 +52,13 @@ summary: "Some tips for using Remarkable in China"
 
    ![sharing](/images/sci-tech/2018-01/sharing.png)
 
-## Connect you Remarkable to a Wi-Fi network
+### Connect you Remarkable to a Wi-Fi network
 
 1. Connect to Wi-Fi by choosing the network you want to connect to, and enter a password if required. The lock icon indicates that a password is required to connect to the Wi-Fi network.
 2. The device will say “Connecting to ---” when your device is connecting to the selected network.
 3. When you are successfully connected a white dot will appear next to the Wi-Fi name, as well as the text “Connected to …”. The signal strength is indicated by the icon next to the Wi-Fi name.
 
-## Check for update
+### Check for update
 
 These are introductions from Remarkable:
 
