@@ -55,9 +55,9 @@ theme                      = ["AllinOne", "resume"]
 
 [params]
   faviconfile              = "img/logo.jpg"
-  avatar                   = "img/me.jpg"             # path to image in static dir e.g img/avatar.png (do not use in the same time as gravatar)
+  avatar                   = "img/me.jpg"
   author                   = "Xin Zhang"
-  description              = ["Life is a dream,", "Dream is a life."]           # appears in the site header when set to a non-empty string
+  description              = ["Life is a dream,", "Dream is a life."]
   welcome_head             = "Hello, Dreambooker!"
   welcome_word             = "~ Chase your dream ~"
 
