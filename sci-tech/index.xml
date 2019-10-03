@@ -496,7 +496,19 @@ autologin-user-timeout=0
       <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://dreambooker.site/2018/04/20/Initializing-the-WRF-model-with-ERA5/</guid>
-      <description>&lt;h2 id=&#34;summarization&#34;&gt;Summarization&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;note&#34;&gt;Note&lt;/h2&gt;
+
+&lt;p&gt;This is the tutorial of using WRF with &lt;strong&gt;ERA5 model level&lt;/strong&gt; (138 vertical levels) data.&lt;/p&gt;
+
+&lt;p&gt;If you prefer &lt;strong&gt;pressure level&lt;/strong&gt; (38 vertical levels), please check another &lt;a href=&#34;https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/&#34;&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I recommend the pressure level data, because the download speed is much faster.&lt;/p&gt;
+
+&lt;p&gt;The disadvantage is the &lt;strong&gt;region&lt;/strong&gt; (only supports the whole world) and &lt;strong&gt;resolution&lt;/strong&gt; (less vertical level, same horizontal resolution).&lt;/p&gt;
+
+&lt;p&gt;If you don’t have cdsapi, please check this official &lt;a href=&#34;https://cds.climate.copernicus.eu/api-how-to&#34;&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;summarization&#34;&gt;Summarization&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Download&lt;/li&gt;
