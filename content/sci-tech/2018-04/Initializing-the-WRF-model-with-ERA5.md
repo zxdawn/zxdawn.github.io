@@ -6,14 +6,8 @@ categories: ["sci-tech"]
 draft: false
 toc: true
 img: "/images/sci-tech/2017-12/ECMWF.png"
-summary: "Downloading ERA5 by Python and initialize WRF model"
+summary: "Downloading ERA5 model level data by Python and initialize WRF model"
 ---
-
-## References
-
-1. [How to run the WRF model using ERA5 (on model levels) as initial and boundary conditions](https://valcap74.blogspot.com/2017/10/how-to-run-wrf-model-driven-by-era5-on.html?showComment=1524140953190#c5741939636532233503)
-2. [Grib to Netcdf conversion](https://software.ecmwf.int/wiki/display/OIFSUF/Grib+to+Netcdf+conversion)
-3. [Download ERA-Interim data](http://conorsweeneyucd.blogspot.com/2015/01/download-era-interim-data.html)
 
 ## Summarization
 
@@ -451,6 +445,12 @@ $ rename nc_tmp nc *.nc_tmp
 
 You should use surface pressure directly from surface level for MOZART in WRF-Chem.
 
+## References
+
+1. [How to run the WRF model using ERA5 (on model levels) as initial and boundary conditions](https://valcap74.blogspot.com/2017/10/how-to-run-wrf-model-driven-by-era5-on.html?showComment=1524140953190#c5741939636532233503)
+2. [Grib to Netcdf conversion](https://software.ecmwf.int/wiki/display/OIFSUF/Grib+to+Netcdf+conversion)
+3. [Download ERA-Interim data](http://conorsweeneyucd.blogspot.com/2015/01/download-era-interim-data.html)
+
 ## Version control
 
 | Version | Action                                                       | Time       |
@@ -458,4 +458,3 @@ You should use surface pressure directly from surface level for MOZART in WRF-Ch
 | 1.0     | Init                                                         | 2018-04-20 |
 | 1.1     | ERA5 are accessed via the Climate Data Store (CDS) infrastructure. Update download scripts. | 2019-04-16 |
 | 1.2     | Update Vtable                                                | 2019-08-22 |
-
