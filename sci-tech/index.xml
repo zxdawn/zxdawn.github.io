@@ -6,10 +6,19 @@
     <description>Recent content in Sci-teches on Dreambooker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sat, 17 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dreambooker.site/sci-tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Initializing the WRF model with ERA5 (pressure level)</title>
+      <link>https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/</link>
+      <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/</guid>
+      <description>Downloading ERA5 pressure level data by Python and initialize WRF model</description>
+    </item>
     
     <item>
       <title>Hugo&#43;Staticman&#43;Travis</title>
@@ -487,15 +496,7 @@ autologin-user-timeout=0
       <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://dreambooker.site/2018/04/20/Initializing-the-WRF-model-with-ERA5/</guid>
-      <description>&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://valcap74.blogspot.com/2017/10/how-to-run-wrf-model-driven-by-era5-on.html?showComment=1524140953190#c5741939636532233503&#34;&gt;How to run the WRF model using ERA5 (on model levels) as initial and boundary conditions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://software.ecmwf.int/wiki/display/OIFSUF/Grib+to+Netcdf+conversion&#34;&gt;Grib to Netcdf conversion&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://conorsweeneyucd.blogspot.com/2015/01/download-era-interim-data.html&#34;&gt;Download ERA-Interim data&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;summarization&#34;&gt;Summarization&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;summarization&#34;&gt;Summarization&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Download&lt;/li&gt;

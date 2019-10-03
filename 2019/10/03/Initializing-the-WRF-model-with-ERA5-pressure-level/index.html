@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
+  <meta name="author" content="Xin Zhang">
+  <meta name="description" content="Downloading ERA5 pressure level data by Python and initialize WRF model">
+  
+  <meta property="og:title" content="Initializing the WRF model with ERA5 (pressure level)" />
+<meta property="og:description" content="Downloading ERA5 pressure level data by Python and initialize WRF model" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/" />
+<meta property="article:published_time" content="2019-10-03T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-10-03T00:00:00&#43;00:00"/>
+
+
+  <title>
+  
+       Initializing the WRF model with ERA5 (pressure level) | Dreambooker 
+  
+  </title>
+
+  <link rel="canonical" href="https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/">
+
+  
+  
+
+  
+  <link href="https://dreambooker.site/css/vendors-extensions/fontawesome/all.min.css" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600">
+  <link href="https://dreambooker.site/css/font.css" rel="stylesheet"> 
+    
+  
+  <link href="https://dreambooker.site/css/vendors/bootstrap4/bootstrap.min.css" rel="stylesheet">
+  <link href="https://dreambooker.site/css/vendors-extensions/mdb/mdb.min.css" rel="stylesheet"> 
+  <link href="https://dreambooker.site/css/vendors/mdb/style.min.css" rel="stylesheet"> 
+  <link href="https://dreambooker.site/css/main.css" rel="stylesheet">
+
+
+  
+  <link rel="shortcut icon"
+  
+      href="https://dreambooker.site/img/logo.jpg"
+  
+  >
+
+
+  
+  
+
+  <style type="text/css">
+      @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+  </style>
+
+
+  
+  
+  
+
+  
+    
+    <link rel="stylesheet" href="https://dreambooker.site/css/vendors/highlight/github-gist.css">
+  
+
+</head>
+
+  <body class="bg-light" data-spy="scroll" data-target="#page-scrollspy" data-offset="90">
+  
+    
+    
+
+    
+      
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      
+      
+
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item ">
+            <a class="nav-link" href="https://dreambooker.site/">Home</a>
+          </li>
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://dreambooker.site/sci-tech/" >Sci-Tech  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://dreambooker.site/essay/" >Essay  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://dreambooker.site/about/" >About  </a>
+            </li>
+          
+          
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  
+ 
+      
+ 
+
+
+
+
+
+
+<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel" style="height: 18rem;" >  
+
+  
+  
+  
+
+  
+  <div class="carousel-inner" role="listbox">
+    
+      
+
+        
+        <div class="carousel-item active">
+          <div class="view" style="background-image: url('https://dreambooker.site/img/header-slides/0_sunset.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+              
+              
+              
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+      
+
+        
+        <div class="carousel-item">
+          <div class="view" style="background-image: url('https://dreambooker.site/img/header-slides//1_lightning.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+      
+
+        
+        <div class="carousel-item">
+          <div class="view" style="background-image: url('https://dreambooker.site/img/header-slides//2_china.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+      
+
+        
+        <div class="carousel-item">
+          <div class="view" style="background-image: url('https://dreambooker.site/img/header-slides//3_sunset.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+
+  
+  </div>
+  
+
+  
+  <div class="carousel-content text-center white-text wow fadeIn">
+    <div class="row mx-0 headfont mt-3 pt-4">
+      
+      <div class="col-12 col-sm-5 align-middle">
+        <a href="https://dreambooker.site/">
+          
+            <img class="pull-right avatar avatar-md" src="https://dreambooker.site/img/me.jpg" alt="" >
+          
+        </a>
+      </div>
+      
+      <div class="col-12 col-sm-7 text-left pl-2">
+        <a href="https://dreambooker.site/">
+          <h1 class="mb-2 h1" style="font-weight: 300;" >
+            <strong>Dreambooker</strong>
+          </h1>
+        </a>
+        
+
+             
+        <div class="mt-2" style="font-size: 1rem; color: white;">
+            
+              <a href="//github.com/zxdawn" target="_blank" rel="noopener"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>    
+            
+            
+
+            
+
+            
+
+            
+                <a href="//twitter.com/zhangxin_dawn" target="_blank" rel="noopener"><i class="fab fa-twitter pr-1" aria-hidden="true"></i></a>
+            
+
+            
+                <a href="//instagram.com/zhangxin_dawn/" target="_blank" rel="noopener"><i class="fab fa-instagram pr-1" aria-hidden="true"></i></a>
+            
+    
+            
+    
+        
+            
+                <a href="mailto:xinzhang1215@gmail.com"><i class="far fa-envelope-open pr-1" aria-hidden="true"></i></a>
+            
+    
+            
+
+            
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  
+
+</div>
+  
+    
+
+    
+
+  
+  <main class="container">
+    
+    <div class="row">
+
+      
+
+      
+      <div class="col-md-10">
+      
+
+        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
+
+          <div class="post-header text-center" >
+  <ul class="post-meta li-x">
+    
+      
+        <li><a href="https://dreambooker.site/categories/sci-tech"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> sci-tech </a></li>
+      
+    
+    
+  </ul>
+
+  <div class="px-4 post-heading">Initializing the WRF model with ERA5 (pressure level)</div>
+
+  <ul class="post-meta li-x mt-1">
+    
+      <li>Oct 3, 2019</li>
+    
+
+    
+      <li class="middot"></li>
+      <li>2 minutes read</li>
+    
+    
+      <li class="middot"></li>
+      <li><span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> page view</span></li>
+    
+  </ul>
+  
+    <div class="view">
+      <img src="https://dreambooker.site/images/sci-tech/2017-12/ECMWF.png" />
+    </div>
+  
+
+</div>
+
+
+          <div class="post-content markdown">
+            
+
+<h2 id="note">Note</h2>
+
+<p>This is the tutorial of using WRF with <strong>ERA5 pressure level</strong> (38 vertical levels) data.</p>
+
+<p>If you prefer <strong>model level</strong> (138 vertical  levels), please check another <a href="https://dreambooker.site/2018/04/20/Initializing-the-WRF-model-with-ERA5">tutorial</a>.</p>
+
+<p>I recommend the pressure level data, because the download speed is much faster.</p>
+
+<p>The disadvantage is the <strong>region</strong> (only supports the whole world) and <strong>resolution</strong> (less vertical level, same horizontal resolution).</p>
+
+<p>If you don&rsquo;t have cdsapi, please check this official <a href="https://cds.climate.copernicus.eu/api-how-to">tutorial</a>.</p>
+
+<h2 id="required-fields">Required Fields</h2>
+
+<blockquote>
+<p>WRF requires a number of fields as input.</p>
+
+<ul>
+<li><p>3D Data (e.g. data on pressure levels)</p>
+
+<ul>
+<li>Temperature</li>
+<li>U and V components of Wind</li>
+<li>Geopotential Height</li>
+<li>Relative Humidity
+(<em>the code can calculate RH if Specific Humidity is available;this is controlled in the Vtable</em>)</li>
+</ul></li>
+
+<li><p>2D Data</p>
+
+<ul>
+<li>Surface Pressure</li>
+<li>Mean Sea Level Pressure</li>
+<li>Skin Temperature/SST</li>
+<li>2-meter Temperature</li>
+<li>2-meter Relative or Specific Humidity</li>
+<li>10-meter U and V components of wind</li>
+<li>Soil data (temperature and moisture) and soil height</li>
+</ul></li>
+</ul>
+
+<p>If any masked field is ingested, then a <strong>LANDSEA</strong> field is recommended</p>
+
+<p>Water equivalent snow depth (<strong>SNOW</strong>) is a nice field to have, but not required.</p>
+
+<p><strong>SEAICE</strong> is good to have for a high latitude winter case, but it is not required.</p>
+</blockquote>
+
+<h3 id="single-level-data-getera5-sl-py">Single level data (GetERA5-sl.py)</h3>
+
+<pre><code>import cdsapi
+
+c = cdsapi.Client()
+
+c.retrieve(
+    'reanalysis-era5-single-levels',
+    {
+        'product_type':'reanalysis',
+        'format':'grib',
+        'variable':[
+            '10m_u_component_of_wind','10m_v_component_of_wind','2m_dewpoint_temperature',
+            '2m_temperature','land_sea_mask','mean_sea_level_pressure',
+            'sea_ice_cover','sea_surface_temperature','skin_temperature',
+            'snow_depth','soil_temperature_level_1','soil_temperature_level_2',
+            'soil_temperature_level_3','soil_temperature_level_4','surface_pressure',
+            'volumetric_soil_water_layer_1','volumetric_soil_water_layer_2','volumetric_soil_water_layer_3',
+            'volumetric_soil_water_layer_4'
+        ],
+        'date':'DATE1/DATE2',
+        'time':[
+            '00:00','01:00','02:00',
+            '03:00','04:00','05:00',
+            '06:00','07:00','08:00',
+            '09:00','10:00','11:00',
+            '12:00'
+        ]
+    },
+    'ERA5-DATE1-DATE2-sl.grib')
+</code></pre>
+
+<h3 id="pressure-level-data-getera5-pl-py">Pressure level data (GetERA5-pl.py)</h3>
+
+<pre><code>import cdsapi
+
+c = cdsapi.Client()
+
+c.retrieve(
+    'reanalysis-era5-pressure-levels',
+    {
+        'product_type':'reanalysis',
+        'format':'grib',
+        'pressure_level':[
+            '1','2','3',
+            '5','7','10',
+            '20','30','50',
+            '70','100','125',
+            '150','175','200',
+            '225','250','300',
+            '350','400','450',
+            '500','550','600',
+            '650','700','750',
+            '775','800','825',
+            '850','875','900',
+            '925','950','975',
+            '1000'
+        ],
+        'date':'DATE1/DATE2',
+        'time':[
+            '00:00','01:00','02:00',
+            '03:00','04:00','05:00',
+            '06:00','07:00','08:00',
+            '09:00','10:00','11:00',
+            '12:00'
+        ],
+        'variable':[
+            'geopotential','relative_humidity','specific_humidity',
+            'temperature','u_component_of_wind','v_component_of_wind'
+        ]
+    },
+    'ERA5-DATE1-DATE2-pl.grib')
+</code></pre>
+
+<h2 id="automation-script-download">Automation script (Download)</h2>
+
+<p>You can automate the script rather than change elements one by one.</p>
+
+<pre><code>#!/bin/bash -l
+
+CODEDIR=/nuist/u/home/yinyan/xin/scratch/data/ERA5/code
+DATADIR=/nuist/u/home/yinyan/xin/scratch/data/ERA5/data
+
+# Set your python environment
+export PATH=~/xin/work/anaconda3/bin:$PATH
+source activate root
+cd $CODEDIR
+
+DATE1=20170419
+DATE2=20170420
+YY1=`echo $DATE1 | cut -c1-4`
+MM1=`echo $DATE1 | cut -c5-6`
+DD1=`echo $DATE1 | cut -c7-8`
+YY2=`echo $DATE2 | cut -c1-4`
+MM2=`echo $DATE2 | cut -c5-6`
+DD2=`echo $DATE2 | cut -c7-8`
+
+sed -e &quot;s/DATE1/${DATE1}/g;s/DATE2/${DATE2}/g;s/Nort/${Nort}/g;s/West/${West}/g;s/Sout/${Sout}/g;s/East/${East}/g;&quot; GetERA5-sl.py &gt; GetERA5-${DATE1}-${DATE2}-sl.py
+
+python GetERA5-${DATE1}-${DATE2}-sl.py
+
+sed -e &quot;s/DATE1/${DATE1}/g;s/DATE2/${DATE2}/g;s/Nort/${Nort}/g;s/West/${West}/g;s/Sout/${Sout}/g;s/East/${East}/g;&quot; GetERA5-pl.py &gt; GetERA5-${DATE1}-${DATE2}-pl.py
+
+python GetERA5-${DATE1}-${DATE2}-pl.py
+
+mkdir -p ${DATADIR}/$YY1
+
+mv ERA5-${DATE1}-${DATE2}-sl.grib ERA5-${DATE1}-${DATE2}-pl.grib ${DATADIR}/$YY1/
+
+
+exit 0
+</code></pre>
+
+<h2 id="geogrid">geogrid</h2>
+
+<p>Run geogrid.exe as usual.</p>
+
+<p>If you&rsquo;re not familiar with WRF, please check the <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Basics/index.php">online tutorial</a> in detail.</p>
+
+<h2 id="ungrib">ungrib</h2>
+
+<p>Run ungrib.exe by using the <code>Vtable.ERA-interim.pl</code> table:</p>
+
+<pre><code>$ ln -s ./ungrib/Variable_Tables/Vtable.ERA-interim.pl Vtable
+</code></pre>
+
+<h2 id="metgrid">metgrid</h2>
+
+<p>Run metgrid.exe as usual.</p>
+
+<h2 id="references">References</h2>
+
+<ol>
+<li><a href="https://valcap74.blogspot.com/2017/10/how-to-run-wrf-model-driven-by-era5-on.html?showComment=1524140953190#c5741939636532233503">How to run the WRF model using ERA5 (on model levels) as initial and boundary conditions</a></li>
+<li><a href="https://software.ecmwf.int/wiki/display/OIFSUF/Grib+to+Netcdf+conversion">Grib to Netcdf conversion</a></li>
+<li><a href="http://conorsweeneyucd.blogspot.com/2015/01/download-era-interim-data.html">Download ERA-Interim data</a></li>
+<li><a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Basics/UNGRIB/ungrib_req_fields.php">UNGRIB: Required Fields</a></li>
+</ol>
+
+<h2 id="version-control">Version control</h2>
+
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Action</th>
+<th>Time</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1.0</td>
+<td>Init</td>
+<td>2019-10-03</td>
+</tr>
+</tbody>
+</table>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+            
+              <div class="mb-5">
+                
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://dreambooker.site/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="https://dreambooker.site/tags/ERA5" role="button">ERA5 </a></li>
+      
+    
+      <li><a href="https://dreambooker.site/tags/WRF-Chem" role="button">WRF-Chem </a></li>
+      
+    
+  </div>
+</div>
+              </div>
+            
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+                <a href=https://dreambooker.site/2019/08/17/Hugo-Staticman-Travis/ class="post-meta">Previous
+                  <div class="pt-2 pb-5 d-flex">
+                    <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                    <span>Hugo&#43;Staticman&#43;Travis</span>
+                  </div>
+                </a>
+              
+            </div>
+            
+            <div class="col-md-6 text-right" >
+              
+            </div>
+          </div>
+
+          
+        <section id="comments">
+  <hr/>
+  
+  
+
+  
+
+  
+  
+
+  
+<div id="comment-form">
+  <h3 id="comment-form-header">Say something</h3>
+  <form method="POST" action="https://dreambooker-staticman.herokuapp.com/v2/entry/zxdawn/zxdawn.github.io/source/comments">
+    <input type="hidden" name="options[redirect]" value="https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/#comment-submitted">
+    <input type="hidden" name="options[redirectError]" value="https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/#comment-error">
+    <input type="hidden" name="options[slug]" value="Initializing_the_WRF_model-with_ERA5_pressure_level">
+    <input type="hidden" name="options[section]" value="sci-tech">
+    <input type="hidden" name="options[origin]" value="https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/">
+    <input type="hidden" name="options[parent]" value="Initializing_the_WRF_model-with_ERA5_pressure_level">
+    <input type="hidden" name="fields[reply_to]" value="">
+    <input type="address" name="fields[botpot]" placeholder="botpot (do not fill!)" style="display:none">
+    
+
+    <fieldset>
+      <input name="fields[name]" type="text" placeholder="Your name">
+    </fieldset>
+
+    <fieldset>
+      <input name="fields[email]" type="email" placeholder="Your email address">
+    </fieldset>
+
+    <fieldset>
+      <textarea name="fields[body]" placeholder="You can use Markdown syntax" rows="10"></textarea>
+    </fieldset>
+
+    
+    <fieldset>
+      <div class="notify-me">
+        <input type="checkbox" id="comment-form-reply" name="options[subscribe]" value="email">
+        <label for="comment-form-reply">Send me an email when someone comments on this post.</label>
+      </div>
+    </fieldset>
+    
+
+    <fieldset>
+      
+
+      <input type="submit" value="Submit" id="submit-button" class="right">
+      <input type="reset" value="Reset" class="right">
+    </fieldset>
+
+  </form>
+</div>
+
+
+
+<div id="comment-submitted" class="dialog">
+  <h3>Thank you</h3>
+  <p>Your comment has been submitted and will be published once it has been approved.</p>
+  
+    <p><a href="https://github.com/zxdawn/zxdawn.github.io/pulls">Click here</a> to see the pull request you generated.</p>
+  
+</div>
+
+<div id="comment-error" class="dialog">
+  <h3>OOPS!</h3>
+  <p>Your comment has not been submitted. Please <a href="https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/">go back</a> and try again. Thank You!</p>
+  <p>If this error persists, please open an issue by <a href="https://github.com/zxdawn/zxdawn.github.io/issues"> clicking here</a>.</p>
+</div>
+</section>
+        </div>
+        
+
+      </div>
+      
+
+      
+	
+	
+	
+	
+		
+		
+		
+	
+
+		
+		<div class="col-md-2 pl-0">
+
+			
+			<div id="page-scrollspy" class="toc-nav">
+				
+				<ul class="nav nav-pills ml-0">
+					
+					<li class="nav-item pb-3 text-center">
+						<span class="font-weight-bold mb-2">- CATALOG - </span>
+					</li>
+
+					
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#note">
+												 Note
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#required-fields">
+												 Required Fields
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#single-level-data-getera5-sl-py">
+												 Single level data (GetERA5-sl.py)
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#pressure-level-data-getera5-pl-py">
+												 Pressure level data (GetERA5-pl.py)
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#automation-script-download">
+												 Automation script (Download)
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#geogrid">
+												 geogrid
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#ungrib">
+												 ungrib
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#metgrid">
+												 metgrid
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#references">
+												 References
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#version-control">
+												 Version control
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+
+				</ul>
+			</div>
+			
+
+		</div>
+		
+	
+
+    </div>
+    
+
+  </main>
+  
+
+  <script src="https://unpkg.com/vanilla-back-to-top@7.2.0/dist/vanilla-back-to-top.min.js"></script>
+  <script>
+    addBackToTop({
+    diameter: 56,
+    backgroundColor: 'rgb(255, 82, 82)',
+    textColor: '#fff'
+    })
+  </script>
+
+
+    
+    
+
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+
+  
+  <div class="pb-2 mt-5 pt-5">
+    
+      <a href="//github.com/zxdawn " target="_blank" rel="noopener"><i class="fab fa-github mr-3" aria-hidden="true"></i></a>    
+    
+    
+
+    
+
+    
+
+    
+        <a href="//twitter.com/zhangxin_dawn" target="_blank" rel="noopener"><i class="fab fa-twitter mr-3" aria-hidden="true"></i></a>
+    
+
+    
+        <a href="//instagram.com/zhangxin_dawn/" target="_blank" rel="noopener"><i class="fab fa-instagram mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+
+    
+        <a href="mailto:xinzhang1215@gmail.com"><i class="far fa-envelope-open mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+  </div>
+  
+
+  
+  <div class="copyright py-4">
+    
+    <span>  2016 - 2019 &copy; | Theme <a href='https://github.com/orianna-zzo/AllinOne' target="_blank">AllinOne</a> by <a href='https://github.com/orianna-zzo' target="_blank">Orianna</a>  </span>
+
+  
+  
+    | UV: <span id="busuanzi_value_site_uv"></span> | PV: <span id="busuanzi_value_site_pv"></span>
+  
+  
+
+  </div>
+  
+
+</footer>
+
+
+    
+
+
+
+
+
+
+<script type="text/javascript" src="https://dreambooker.site/js/vendors/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://dreambooker.site/js/vendors/jquery/jquery.smooth-scroll.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://dreambooker.site/js/vendors/popper.min.js"></script>
+<script type="text/javascript" src="https://dreambooker.site/js/vendors/holder.min.js"></script>
+<script type="text/javascript" src="https://dreambooker.site/js/vendors-extensions/bootstrap4/bootstrap.js" ></script>
+
+<script type="text/javascript" src="https://dreambooker.site/js/vendors/mdb/mdb.min.js"></script>
+
+<script type="text/javascript" src="https://dreambooker.site/js/main.js"></script>
+
+
+
+  
+  <script src="https://dreambooker.site/js/vendors/highlight.pack.js"> </script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  
+  new WOW().init();
+</script>
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    <script src="https://unpkg.com/vanilla-back-to-top@7.2.0/dist/vanilla-back-to-top.min.js"></script>
+    <script>
+      addBackToTop({
+      diameter: 56,
+      backgroundColor: 'rgb(255, 82, 82)',
+      textColor: '#fff'
+      })
+    </script>
+
+  </body>
+</html>
