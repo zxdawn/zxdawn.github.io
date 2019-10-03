@@ -9,6 +9,18 @@ img: "/images/sci-tech/2017-12/ECMWF.png"
 summary: "Downloading ERA5 model level data by Python and initialize WRF model"
 ---
 
+## Note
+
+This is the tutorial of using WRF with **ERA5 model level** (138 vertical levels) data.
+
+If you prefer **pressure level** (38 vertical levels), please check another [tutorial](https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/).
+
+I recommend the pressure level data, because the download speed is much faster.
+
+The disadvantage is the **region** (only supports the whole world) and **resolution** (less vertical level, same horizontal resolution).
+
+If you don’t have cdsapi, please check this official [tutorial](https://cds.climate.copernicus.eu/api-how-to).
+
 ## Summarization
 
 1. Download
@@ -458,3 +470,4 @@ You should use surface pressure directly from surface level for MOZART in WRF-Ch
 | 1.0     | Init                                                         | 2018-04-20 |
 | 1.1     | ERA5 are accessed via the Climate Data Store (CDS) infrastructure. Update download scripts. | 2019-04-16 |
 | 1.2     | Update Vtable                                                | 2019-08-22 |
+| 1.3     | Add note of pressure level                                   | 2019-10-03 |
