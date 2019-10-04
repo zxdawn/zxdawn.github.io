@@ -481,8 +481,6 @@ autologin-user-timeout=0
 
 &lt;p&gt;I recommend the pressure level data, because the download speed is much faster.&lt;/p&gt;
 
-&lt;p&gt;The disadvantage is the &lt;strong&gt;region&lt;/strong&gt; (only supports the whole world) and &lt;strong&gt;resolution&lt;/strong&gt; (less vertical level, same horizontal resolution).&lt;/p&gt;
-
 &lt;p&gt;If you don’t have cdsapi, please check this official &lt;a href=&#34;https://cds.climate.copernicus.eu/api-how-to&#34;&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;summarization&#34;&gt;Summarization&lt;/h2&gt;

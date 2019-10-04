@@ -351,8 +351,6 @@
 
 <p>I recommend the pressure level data, because the download speed is much faster.</p>
 
-<p>The disadvantage is the <strong>region</strong> (only supports the whole world) and <strong>resolution</strong> (less vertical level, same horizontal resolution).</p>
-
 <p>If you don&rsquo;t have cdsapi, please check this official <a href="https://cds.climate.copernicus.eu/api-how-to">tutorial</a>.</p>
 
 <h2 id="required-fields">Required Fields</h2>
@@ -412,6 +410,7 @@ c.retrieve(
             'volumetric_soil_water_layer_4'
         ],
         'date':'DATE1/DATE2',
+        'area':'Nort/West/Sout/East',
         'time':[
             '00:00','01:00','02:00',
             '03:00','04:00','05:00',
@@ -450,6 +449,7 @@ c.retrieve(
             '1000'
         ],
         'date':'DATE1/DATE2',
+        'area':'Nort/West/Sout/East',
         'time':[
             '00:00','01:00','02:00',
             '03:00','04:00','05:00',
@@ -487,6 +487,10 @@ DD1=`echo $DATE1 | cut -c7-8`
 YY2=`echo $DATE2 | cut -c1-4`
 MM2=`echo $DATE2 | cut -c5-6`
 DD2=`echo $DATE2 | cut -c7-8`
+Nort=60
+West=80
+Sout=15
+East=150
 
 sed -e &quot;s/DATE1/${DATE1}/g;s/DATE2/${DATE2}/g;s/Nort/${Nort}/g;s/West/${West}/g;s/Sout/${Sout}/g;s/East/${East}/g;&quot; GetERA5-sl.py &gt; GetERA5-${DATE1}-${DATE2}-sl.py
 
@@ -546,6 +550,12 @@ exit 0
 <td>1.0</td>
 <td>Init</td>
 <td>2019-10-03</td>
+</tr>
+
+<tr>
+<td>1.1</td>
+<td>Add support of selecting area</td>
+<td>2019-10-04</td>
 </tr>
 </tbody>
 </table>
