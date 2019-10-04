@@ -17,8 +17,6 @@ If you prefer **model level** (138 vertical  levels), please check another [tuto
 
 I recommend the pressure level data, because the download speed is much faster.
 
-The disadvantage is the **region** (only supports the whole world) and **resolution** (less vertical level, same horizontal resolution).
-
 If you don't have cdsapi, please check this official [tutorial](https://cds.climate.copernicus.eu/api-how-to).
 
 ## Required Fields
@@ -69,6 +67,7 @@ c.retrieve(
             'volumetric_soil_water_layer_4'
         ],
         'date':'DATE1/DATE2',
+        'area':'Nort/West/Sout/East',
         'time':[
             '00:00','01:00','02:00',
             '03:00','04:00','05:00',
@@ -108,6 +107,7 @@ c.retrieve(
             '1000'
         ],
         'date':'DATE1/DATE2',
+        'area':'Nort/West/Sout/East',
         'time':[
             '00:00','01:00','02:00',
             '03:00','04:00','05:00',
@@ -146,6 +146,10 @@ DD1=`echo $DATE1 | cut -c7-8`
 YY2=`echo $DATE2 | cut -c1-4`
 MM2=`echo $DATE2 | cut -c5-6`
 DD2=`echo $DATE2 | cut -c7-8`
+Nort=60
+West=80
+Sout=15
+East=150
 
 sed -e "s/DATE1/${DATE1}/g;s/DATE2/${DATE2}/g;s/Nort/${Nort}/g;s/West/${West}/g;s/Sout/${Sout}/g;s/East/${East}/g;" GetERA5-sl.py > GetERA5-${DATE1}-${DATE2}-sl.py
 
@@ -190,6 +194,7 @@ Run metgrid.exe as usual.
 
 ## Version control
 
-| Version | Action | Time       |
-| ------- | ------ | ---------- |
-| 1.0     | Init   | 2019-10-03 |
+| Version | Action                        | Time       |
+| ------- | ----------------------------- | ---------- |
+| 1.0     | Init                          | 2019-10-03 |
+| 1.1     | Add support of selecting area | 2019-10-04 |

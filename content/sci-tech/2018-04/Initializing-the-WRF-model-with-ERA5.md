@@ -17,8 +17,6 @@ If you prefer **pressure level** (38 vertical levels), please check another [tut
 
 I recommend the pressure level data, because the download speed is much faster.
 
-The disadvantage is the **region** (only supports the whole world) and **resolution** (less vertical level, same horizontal resolution).
-
 If you don’t have cdsapi, please check this official [tutorial](https://cds.climate.copernicus.eu/api-how-to).
 
 ## Summarization
