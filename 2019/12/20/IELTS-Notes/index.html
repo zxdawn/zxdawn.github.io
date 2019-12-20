@@ -7,23 +7,23 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
   <meta name="author" content="Xin Zhang">
-  <meta name="description" content="Downloading ERA5 pressure level data by Python and initialize WRF model">
+  <meta name="description" content="How to prepare for IELTS">
   
-  <meta property="og:title" content="Initializing the WRF model with ERA5 (pressure level)" />
-<meta property="og:description" content="Downloading ERA5 pressure level data by Python and initialize WRF model" />
+  <meta property="og:title" content="IELTS Notes" />
+<meta property="og:description" content="How to prepare for IELTS" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/" />
-<meta property="article:published_time" content="2019-10-03T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-10-03T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://dreambooker.site/2019/12/20/IELTS-Notes/" />
+<meta property="article:published_time" content="2019-12-20T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-12-20T00:00:00&#43;00:00"/>
 
 
   <title>
   
-       Initializing the WRF model with ERA5 (pressure level) | Dreambooker 
+       IELTS Notes | Dreambooker 
   
   </title>
 
-  <link rel="canonical" href="https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/">
+  <link rel="canonical" href="https://dreambooker.site/2019/12/20/IELTS-Notes/">
 
   
   
@@ -315,11 +315,11 @@
     
   </ul>
 
-  <div class="px-4 post-heading">Initializing the WRF model with ERA5 (pressure level)</div>
+  <div class="px-4 post-heading">IELTS Notes</div>
 
   <ul class="post-meta li-x mt-1">
     
-      <li>Oct 3, 2019</li>
+      <li>Dec 20, 2019</li>
     
 
     
@@ -333,7 +333,7 @@
   </ul>
   
     <div class="view">
-      <img src="https://dreambooker.site/images/sci-tech/2017-12/ECMWF.png" />
+      <img src="https://dreambooker.site/images/sci-tech/2019-12/IELTS_logo.png" />
     </div>
   
 
@@ -343,196 +343,238 @@
           <div class="post-content markdown">
             
 
-<h2 id="note">Note</h2>
+<h2 id="test-result">Test result</h2>
 
-<p>This is the tutorial of using WRF with <strong>ERA5 pressure level</strong> (38 vertical levels) data.</p>
+<p>Here&rsquo;s my IELTS result which took me one month:</p>
 
-<p>If you prefer <strong>model level</strong> (138 vertical  levels), please check another <a href="https://dreambooker.site/2018/04/20/Initializing-the-WRF-model-with-ERA5">tutorial</a>.</p>
+<p><img src="https://dreambooker.site/images/sci-tech/2019-12/test.png" alt="IELTS_result" /></p>
 
-<p>I recommend the pressure level data, because the download speed is much faster.</p>
+<p>All of my materials related to IELTS are pushed to the GitHub repo:</p>
 
-<p>If you don&rsquo;t have cdsapi, please check this official <a href="https://cds.climate.copernicus.eu/api-how-to">tutorial</a>.</p>
+<p><a href="https://github.com/zxdawn/IELTS_notes">https://github.com/zxdawn/IELTS_notes</a></p>
 
-<h2 id="required-fields">Required Fields</h2>
+<p>Check it for free :)</p>
 
-<blockquote>
-<p>WRF requires a number of fields as input.</p>
+<p>I want to share some general steps of preparations in four sections:</p>
 
-<ul>
-<li><p>3D Data (e.g. data on pressure levels)</p>
+<h2 id="listening">Listening</h2>
 
-<ul>
-<li>Temperature</li>
-<li>U and V components of Wind</li>
-<li>Geopotential Height</li>
-<li>Relative Humidity
-(<em>the code can calculate RH if Specific Humidity is available;this is controlled in the Vtable</em>)</li>
-</ul></li>
+<h3 id="test-books">Test Books</h3>
 
-<li><p>2D Data</p>
+<p>The most important one is the <strong>IELTS Cambridge Test Books</strong>.</p>
 
-<ul>
-<li>Surface Pressure</li>
-<li>Mean Sea Level Pressure</li>
-<li>Skin Temperature/SST</li>
-<li>2-meter Temperature</li>
-<li>2-meter Relative or Specific Humidity</li>
-<li>10-meter U and V components of wind</li>
-<li>Soil data (temperature and moisture) and soil height</li>
-</ul></li>
-</ul>
+<p>Please spend around <strong>3 - 5 days</strong> to get familiar with <strong>different kinds</strong> of questions in the Listening Part.</p>
 
-<p>If any masked field is ingested, then a <strong>LANDSEA</strong> field is recommended</p>
+<p>Then, you need to remember the most difficult kind(s).</p>
 
-<p>Water equivalent snow depth (<strong>SNOW</strong>) is a nice field to have, but not required.</p>
+<p>For me, that is the <em>Matching and Map</em> questions.</p>
 
-<p><strong>SEAICE</strong> is good to have for a high latitude winter case, but it is not required.</p>
-</blockquote>
+<p>It&rsquo;s <strong>not enough</strong> to finish tests one by one and check the answers. (<strong>Quality</strong> is better than Quantity)</p>
 
-<h3 id="single-level-data-getera5-sl-py">Single level data (GetERA5-sl.py)</h3>
-
-<pre><code>import cdsapi
-
-c = cdsapi.Client()
-
-c.retrieve(
-    'reanalysis-era5-single-levels',
-    {
-        'product_type':'reanalysis',
-        'format':'grib',
-        'variable':[
-            '10m_u_component_of_wind','10m_v_component_of_wind','2m_dewpoint_temperature',
-            '2m_temperature','land_sea_mask','mean_sea_level_pressure',
-            'sea_ice_cover','sea_surface_temperature','skin_temperature',
-            'snow_depth','soil_temperature_level_1','soil_temperature_level_2',
-            'soil_temperature_level_3','soil_temperature_level_4','surface_pressure',
-            'volumetric_soil_water_layer_1','volumetric_soil_water_layer_2','volumetric_soil_water_layer_3',
-            'volumetric_soil_water_layer_4'
-        ],
-        'date':'DATE1/DATE2',
-        'area':'Nort/West/Sout/East',
-        'time':[
-            '00:00','01:00','02:00',
-            '03:00','04:00','05:00',
-            '06:00','07:00','08:00',
-            '09:00','10:00','11:00',
-            '12:00'
-        ]
-    },
-    'ERA5-DATE1-DATE2-sl.grib')
-</code></pre>
-
-<h3 id="pressure-level-data-getera5-pl-py">Pressure level data (GetERA5-pl.py)</h3>
-
-<pre><code>import cdsapi
-
-c = cdsapi.Client()
-
-c.retrieve(
-    'reanalysis-era5-pressure-levels',
-    {
-        'product_type':'reanalysis',
-        'format':'grib',
-        'pressure_level':[
-            '1','2','3',
-            '5','7','10',
-            '20','30','50',
-            '70','100','125',
-            '150','175','200',
-            '225','250','300',
-            '350','400','450',
-            '500','550','600',
-            '650','700','750',
-            '775','800','825',
-            '850','875','900',
-            '925','950','975',
-            '1000'
-        ],
-        'date':'DATE1/DATE2',
-        'area':'Nort/West/Sout/East',
-        'time':[
-            '00:00','01:00','02:00',
-            '03:00','04:00','05:00',
-            '06:00','07:00','08:00',
-            '09:00','10:00','11:00',
-            '12:00'
-        ],
-        'variable':[
-            'geopotential','relative_humidity','specific_humidity',
-            'temperature','u_component_of_wind','v_component_of_wind'
-        ]
-    },
-    'ERA5-DATE1-DATE2-pl.grib')
-</code></pre>
-
-<h2 id="automation-script-download">Automation script (Download)</h2>
-
-<p>You can automate the script rather than change elements one by one.</p>
-
-<pre><code>#!/bin/bash -l
-
-CODEDIR=/nuist/u/home/yinyan/xin/scratch/data/ERA5/code
-DATADIR=/nuist/u/home/yinyan/xin/scratch/data/ERA5/data
-
-# Set your python environment
-export PATH=~/xin/work/anaconda3/bin:$PATH
-source activate root
-cd $CODEDIR
-
-DATE1=20170419
-DATE2=20170420
-YY1=`echo $DATE1 | cut -c1-4`
-MM1=`echo $DATE1 | cut -c5-6`
-DD1=`echo $DATE1 | cut -c7-8`
-YY2=`echo $DATE2 | cut -c1-4`
-MM2=`echo $DATE2 | cut -c5-6`
-DD2=`echo $DATE2 | cut -c7-8`
-Nort=60
-West=80
-Sout=15
-East=150
-
-sed -e &quot;s/DATE1/${DATE1}/g;s/DATE2/${DATE2}/g;s/Nort/${Nort}/g;s/West/${West}/g;s/Sout/${Sout}/g;s/East/${East}/g;&quot; GetERA5-sl.py &gt; GetERA5-${DATE1}-${DATE2}-sl.py
-
-python GetERA5-${DATE1}-${DATE2}-sl.py
-
-sed -e &quot;s/DATE1/${DATE1}/g;s/DATE2/${DATE2}/g;s/Nort/${Nort}/g;s/West/${West}/g;s/Sout/${Sout}/g;s/East/${East}/g;&quot; GetERA5-pl.py &gt; GetERA5-${DATE1}-${DATE2}-pl.py
-
-python GetERA5-${DATE1}-${DATE2}-pl.py
-
-mkdir -p ${DATADIR}/$YY1
-
-mv ERA5-${DATE1}-${DATE2}-sl.grib ERA5-${DATE1}-${DATE2}-pl.grib ${DATADIR}/$YY1/
-
-
-exit 0
-</code></pre>
-
-<h2 id="geogrid">geogrid</h2>
-
-<p>Run geogrid.exe as usual.</p>
-
-<p>If you&rsquo;re not familiar with WRF, please check the <a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Basics/index.php">online tutorial</a> in detail.</p>
-
-<h2 id="ungrib">ungrib</h2>
-
-<p>Run ungrib.exe by using the <code>Vtable.ERA-interim.pl</code> table:</p>
-
-<pre><code>$ ln -s ./ungrib/Variable_Tables/Vtable.ERA-interim.pl Vtable
-</code></pre>
-
-<h2 id="metgrid">metgrid</h2>
-
-<p>Run metgrid.exe as usual.</p>
-
-<h2 id="references">References</h2>
+<p>The best method should have four steps:</p>
 
 <ol>
-<li><a href="https://valcap74.blogspot.com/2017/10/how-to-run-wrf-model-driven-by-era5-on.html?showComment=1524140953190#c5741939636532233503">How to run the WRF model using ERA5 (on model levels) as initial and boundary conditions</a></li>
-<li><a href="https://software.ecmwf.int/wiki/display/OIFSUF/Grib+to+Netcdf+conversion">Grib to Netcdf conversion</a></li>
-<li><a href="http://conorsweeneyucd.blogspot.com/2015/01/download-era-interim-data.html">Download ERA-Interim data</a></li>
-<li><a href="http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Basics/UNGRIB/ungrib_req_fields.php">UNGRIB: Required Fields</a></li>
+<li><p>Check the answer <strong>without analyzing</strong>.</p></li>
+
+<li><p><strong>Ignore</strong> the <em>misspelled</em> words caused by careless and <strong>write down</strong> the <em>unknown</em> words.</p></li>
+
+<li><p>Pick out the specific Section which you <em>can&rsquo;t understand</em> the conversation or make <em>too many mistakes</em>, and <strong>listen to that again with x1.5 speed</strong> until one/two mistakes left. I recommend two softwares (<a href="https://potplayer.daum.net/">PotPlayer Win)</a> or <a href="https://www.videolan.org/vlc/index.html">VLC (all platforms)</a>) for this function.</p></li>
+
+<li><p>Summarize the reasons of each error to the <strong>Hit List</strong>.</p></li>
 </ol>
+
+<p>This is the example of Hit List:</p>
+
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>No.</th>
+<th>Reason</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>9.1.1</td>
+<td>2</td>
+<td>Location name</td>
+</tr>
+
+<tr>
+<td></td>
+<td>6</td>
+<td>wrong number: 11 o&rsquo;clock</td>
+</tr>
+
+<tr>
+<td>9.1.2</td>
+<td>16</td>
+<td>wrong words: backs &ndash;&gt; bags</td>
+</tr>
+
+<tr>
+<td>9.1.3</td>
+<td>28</td>
+<td>Tense</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>Test: the exact name of test. &ldquo;9.1.1&rdquo; means Cambridge IELTS 9, Test 1, Section 1</p>
+
+<p>No.: the No. of the question</p>
+
+<p>Reason</p>
+</blockquote>
+
+<h3 id="podcasts">Podcasts</h3>
+
+<p>I usually listened to the <a href="http://www.bbc.co.uk/learningenglish/english/features/6-minute-english"><strong>BBC 6 minute English</strong></a> podcast before sleep and reviewed the <strong>words</strong> (you can check that in the audio <em>transcript</em>, if you&rsquo;re not sure about the word) and useful <strong>topics</strong> next morning.</p>
+
+<p>For example, <a href="http://www.bbc.co.uk/learningenglish/english/features/6-minute-english/ep-191128">The joy of free diving</a> talks about an interesting water sport named &ldquo;free diving&rdquo;.</p>
+
+<p><em>Useful words</em>: &ldquo;spooky&rdquo;, &ldquo;intimidating&rdquo;, &ldquo;be deprived of sensations&rdquo;</p>
+
+<p><em>Useful topic</em>: Water sport which is the Speaking topic in IELTS. (IELTS has constant Speaking Topics and Questions. I will explain this in detail in the Speaking Section.)</p>
+
+<p>You can <strong>benefit a lot</strong> from the BBC 6 minute English podcast besides words and topic:</p>
+
+<ol>
+<li>British English pronunciation</li>
+<li>Natural English</li>
+<li>Fast speaking speed (sometimes)</li>
+</ol>
+
+<p><strong>Don&rsquo;t</strong> pay too much attention to Podcast !!!</p>
+
+<h3 id="videos">Videos</h3>
+
+<p>I only recommend <a href="https://www.ted.com/talks"><strong>TED talks</strong></a> &hellip; because I believe most examinees don&rsquo;t have enough time for TV Series or movies.</p>
+
+<p>The filter is the good tool to find the suitable talk to IELTS specially.</p>
+
+<p>For example, I choose Language(English), Duration (0 - 6 minutes) and Topic (environment):</p>
+
+<p><img src="https://dreambooker.site/images/sci-tech/2019-12/ted_filter.png" alt="Ted_filter" /></p>
+
+<p><strong>Don&rsquo;t</strong> pay too much attention to Videos !!!</p>
+
+<h2 id="reading">Reading</h2>
+
+<p>The ZhiHu live lecture named <a href="https://www.zhihu.com/lives/848533834134880256">雅思阅读9分备考指南</a> (￥9.9) summarizes all useful skills and tips for IELTS Reading.</p>
+
+<p>The most beneficial technique is practicing <strong>specific kind</strong> of Reading question <strong>at once</strong>. After 1 week, you will find you&rsquo;re not afraid of IELTS reading any more.</p>
+
+<p>Next step is to <strong>mock</strong> Reading Test in <strong>50 mins</strong> instead of 1 h.</p>
+
+<h2 id="writing">Writing</h2>
+
+<p>I got low band (5.5) in this section and suppose that it&rsquo;s caused by Task 2.</p>
+
+<p>I spent the least time on preparing Writing &hellip; Now, I reap what I sow :(</p>
+
+<p>In my opinion, you need to spend at least one month on Writing.</p>
+
+<h3 id="task-1">Task 1</h3>
+
+<p>Following the instructions of <a href="https://ielts-simon.com/"><strong>Simon</strong></a> will lead you to the door of <strong>band 8 - 9</strong>.</p>
+
+<p>After watching his tutorials about Task 1 on YouTube or other media, you must <strong>practice</strong> each type in his eBook by yourself and <strong>compare</strong> with the answers.</p>
+
+<h3 id="task-2">Task 2</h3>
+
+<p>As same as Task 2, Simon illustrates all steps you need to finish the short essay.</p>
+
+<p>The &ldquo;<a href="https://ielts-simon.com/ielts-help-and-english-pr/ielts-ebook.html">Ideas for IELTS topics</a>&rdquo; eBook written by Simon would help you get band higher than 7.</p>
+
+<h2 id="speaking">Speaking</h2>
+
+<p>I just spent ~ 15 days to prepare for the Speaking part.</p>
+
+<h3 id="skills">Skills</h3>
+
+<p>I learned a lot from <a href="https://markteacher.com/"><strong>Mark Teacher</strong></a> who listened to my records and helped me correct many mistakes, like <em>pronunciation, words and tense</em>. You can check some example tutorials on his YouTube channel: <a href="https://www.youtube.com/channel/UCoiUwUEOeoyNvFO7yJlg1XQ/featured">IELTS Speaking with Mark Teacher</a>.</p>
+
+<p>Although local accent won&rsquo;t affect your score, you need to make sure the <em>basic pronunciation</em> right. Old <a href="http://www.bbc.co.uk/worldservice/learningenglish/grammar/pron/"><strong>BBC Pronunciation tips</strong></a> website recommended by Mark could fix these problems.</p>
+
+<h3 id="topics">Topics</h3>
+
+<p>When you get enough skills for IELTS Speaking, it&rsquo;s time to prepare these Topics on <a href="http://ielts-yasi.englishlab.net">Chris Green&rsquo;s website</a> in which all recent topics are saved, especially for <strong>Part2</strong>.</p>
+
+<p>Please write down <strong>keywords</strong> instead of exactly every sentence. This will let you have a better <em>plan and fluency</em> when you have test.</p>
+
+<p>Remember four band descriptors in your mind when you&rsquo;re practicing:</p>
+
+<ol>
+<li>Fluency and coherence</li>
+<li>Lexical resource</li>
+<li>Grammatical range and accuracy</li>
+<li>Pronunciation</li>
+</ol>
+
+<p><strong>Task Achievement</strong>, which is the descriptor in Writing, <strong>isn&rsquo;t important</strong> in the Speaking Part.</p>
+
+<p><strong>Feel free</strong> to talk about the Part 2 topic :) Don&rsquo;t care about the listed points.</p>
+
+<h2 id="useful-links-books">Useful links/books</h2>
+
+<p>Here&rsquo;s the copy from my <a href="https://github.com/zxdawn/IELTS_notes">GitHub repo</a>:</p>
+
+<table>
+<thead>
+<tr>
+<th>Listening</th>
+<th>Reading</th>
+<th>Writing</th>
+<th>Speaking</th>
+<th>Vocabulary</th>
+<th>Resources</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>IELTS Cambridge Test Books</strong></td>
+<td><strong>IELTS Cambridge Test Books</strong></td>
+<td><strong><a href="https://ielts-simon.com/">https://ielts-simon.com/</a></strong></td>
+<td><strong><a href="http://ielts-yasi.englishlab.net/">http://ielts-yasi.englishlab.net/</a></strong></td>
+<td>IELTS Cambridge Test Books</td>
+<td><strong><a href="https://www.oxfordonlineenglish.com/free-ielts-preparation-lessons">IELTS preparation</a></strong></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><strong><a href="https://markteacher.com/">https://markteacher.com/</a></strong></td>
+<td><a href="https://dcielts.info/academic-word-list-exercises/">Academic Word List Exercises</a></td>
+<td><a href="https://www.economist.com/">The Economist</a></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="https://www.oxfordlearnersdictionaries.com/us/wordlist/english/academic/">The Academic Word List from the Oxford Advanced Learner&rsquo;s Dictionary</a></td>
+<td><a href="http://www.bbc.co.uk/learningenglish/english/features/6-minute-english">BBC 6 minute learning English</a></td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a href="https://www.merriam-webster.com/word-of-the-day">Word of the Day</a></td>
+<td><a href="https://www.scientificamerican.com/podcast/60-second-science/">60-Second Science</a></td>
+</tr>
+</tbody>
+</table>
+
+<pre><code>Good luck 👍 
+</code></pre>
 
 <h2 id="version-control">Version control</h2>
 
@@ -549,13 +591,7 @@ exit 0
 <tr>
 <td>1.0</td>
 <td>Init</td>
-<td>2019-10-03</td>
-</tr>
-
-<tr>
-<td>1.1</td>
-<td>Add support of selecting area</td>
-<td>2019-10-04</td>
+<td>2019-12-20</td>
 </tr>
 </tbody>
 </table>
@@ -572,10 +608,10 @@ exit 0
   <li class="pr-0"><a href="https://dreambooker.site/tags/"><i class="fas fa-tags"></i></a></li>
   <div class="tags-sm">
     
-      <li><a href="https://dreambooker.site/tags/ERA5" role="button">ERA5 </a></li>
+      <li><a href="https://dreambooker.site/tags/English" role="button">English </a></li>
       
     
-      <li><a href="https://dreambooker.site/tags/WRF-Chem" role="button">WRF-Chem </a></li>
+      <li><a href="https://dreambooker.site/tags/Language" role="button">Language </a></li>
       
     
   </div>
@@ -591,23 +627,16 @@ exit 0
           <div class="row pt-3">
             <div class="col-md-6">
               
-                <a href=https://dreambooker.site/2019/08/17/Hugo-Staticman-Travis/ class="post-meta">Previous
+                <a href=https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/ class="post-meta">Previous
                   <div class="pt-2 pb-5 d-flex">
                     <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
-                    <span>Hugo&#43;Staticman&#43;Travis</span>
+                    <span>Initializing the WRF model with ERA5 (pressure level)</span>
                   </div>
                 </a>
               
             </div>
             
             <div class="col-md-6 text-right" >
-              
-                <a href=https://dreambooker.site/2019/12/20/IELTS-Notes/ class="post-meta">Next
-                  <div class="pt-2 pb-5 flex-reverse">
-                    <i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
-                    <span>IELTS Notes</span>
-                  </div>
-                </a>
               
             </div>
           </div>
@@ -627,12 +656,12 @@ exit 0
 <div id="comment-form">
   <h3 id="comment-form-header">Say something</h3>
   <form method="POST" action="https://dreambooker-staticman.herokuapp.com/v2/entry/zxdawn/zxdawn.github.io/source/comments">
-    <input type="hidden" name="options[redirect]" value="https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/#comment-submitted">
-    <input type="hidden" name="options[redirectError]" value="https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/#comment-error">
-    <input type="hidden" name="options[slug]" value="Initializing_the_WRF_model-with_ERA5_pressure_level">
+    <input type="hidden" name="options[redirect]" value="https://dreambooker.site/2019/12/20/IELTS-Notes/#comment-submitted">
+    <input type="hidden" name="options[redirectError]" value="https://dreambooker.site/2019/12/20/IELTS-Notes/#comment-error">
+    <input type="hidden" name="options[slug]" value="IELTS_Notes">
     <input type="hidden" name="options[section]" value="sci-tech">
-    <input type="hidden" name="options[origin]" value="https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/">
-    <input type="hidden" name="options[parent]" value="Initializing_the_WRF_model-with_ERA5_pressure_level">
+    <input type="hidden" name="options[origin]" value="https://dreambooker.site/2019/12/20/IELTS-Notes/">
+    <input type="hidden" name="options[parent]" value="IELTS_Notes">
     <input type="hidden" name="fields[reply_to]" value="">
     <input type="address" name="fields[botpot]" placeholder="botpot (do not fill!)" style="display:none">
     
@@ -680,7 +709,7 @@ exit 0
 
 <div id="comment-error" class="dialog">
   <h3>OOPS!</h3>
-  <p>Your comment has not been submitted. Please <a href="https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/">go back</a> and try again. Thank You!</p>
+  <p>Your comment has not been submitted. Please <a href="https://dreambooker.site/2019/12/20/IELTS-Notes/">go back</a> and try again. Thank You!</p>
   <p>If this error persists, please open an issue by <a href="https://github.com/zxdawn/zxdawn.github.io/issues"> clicking here</a>.</p>
 </div>
 </section>
@@ -723,8 +752,8 @@ exit 0
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#note">
-												 Note
+						 					<a class="nav-link" href="#test-result">
+												 Test result
 											</a>
 										</li>
 						 
@@ -745,8 +774,8 @@ exit 0
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#required-fields">
-												 Required Fields
+						 					<a class="nav-link" href="#listening">
+												 Listening
 											</a>
 										</li>
 						 
@@ -769,8 +798,8 @@ exit 0
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#single-level-data-getera5-sl-py">
-												 Single level data (GetERA5-sl.py)
+						 					<a class="nav-link" href="#test-books">
+												 Test Books
 											</a>
 										</li>
 						 
@@ -795,8 +824,34 @@ exit 0
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#pressure-level-data-getera5-pl-py">
-												 Pressure level data (GetERA5-pl.py)
+						 					<a class="nav-link" href="#podcasts">
+												 Podcasts
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#videos">
+												 Videos
 											</a>
 										</li>
 						 
@@ -819,8 +874,8 @@ exit 0
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#automation-script-download">
-												 Automation script (Download)
+						 					<a class="nav-link" href="#reading">
+												 Reading
 											</a>
 										</li>
 						 
@@ -841,8 +896,8 @@ exit 0
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#geogrid">
-												 geogrid
+						 					<a class="nav-link" href="#writing">
+												 Writing
 											</a>
 										</li>
 						 
@@ -860,11 +915,63 @@ exit 0
 								
 									<ul class="nav">
 								
+									<ul class="nav">
+								
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#ungrib">
-												 ungrib
+						 					<a class="nav-link" href="#task-1">
+												 Task 1
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#task-2">
+												 Task 2
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#speaking">
+												 Speaking
 											</a>
 										</li>
 						 
@@ -882,15 +989,45 @@ exit 0
 								
 									<ul class="nav">
 								
+									<ul class="nav">
+								
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#metgrid">
-												 metgrid
+						 					<a class="nav-link" href="#skills">
+												 Skills
 											</a>
 										</li>
 						 
 								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#topics">
+												 Topics
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
 								
 									</ul>
 								
@@ -907,8 +1044,8 @@ exit 0
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#references">
-												 References
+						 					<a class="nav-link" href="#useful-links-books">
+												 Useful links/books
 											</a>
 										</li>
 						 

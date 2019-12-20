@@ -6,7 +6,7 @@
     <description>Recent content on Dreambooker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Thu, 03 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dreambooker.site/index.xml" rel="self" type="application/rss+xml" />
     
@@ -63,6 +63,15 @@
       
       <guid>https://dreambooker.site/about/projects/contributions/hpc/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>IELTS Notes</title>
+      <link>https://dreambooker.site/2019/12/20/IELTS-Notes/</link>
+      <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2019/12/20/IELTS-Notes/</guid>
+      <description>How to prepare for IELTS</description>
     </item>
     
     <item>

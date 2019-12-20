@@ -40,13 +40,48 @@
   
   <url>
     <loc>https://dreambooker.site/categories/</loc>
-    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://dreambooker.site/</loc>
-    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
+    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/English/</loc>
+    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/2019/12/20/IELTS-Notes/</loc>
+    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/Language/</loc>
+    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/sci-tech/</loc>
+    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/</loc>
+    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/categories/sci-tech/</loc>
+    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -62,25 +97,7 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/sci-tech/</loc>
-    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/</loc>
-    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://dreambooker.site/tags/WRF-Chem/</loc>
-    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/categories/sci-tech/</loc>
     <lastmod>2019-10-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
