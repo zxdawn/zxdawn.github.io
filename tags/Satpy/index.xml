@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Satpy on Dreambooker</title>
+    <link>https://dreambooker.site/tags/Satpy/</link>
+    <description>Recent content in Satpy on Dreambooker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dreambooker.site/tags/Satpy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Satpy Basic (FY4A)</title>
+      <link>https://dreambooker.site/2020/02/06/Satpy-Basic-FY4A/</link>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/02/06/Satpy-Basic-FY4A/</guid>
+      <description>Using Satpy to read and plot FY4A data</description>
+    </item>
+    
+  </channel>
+</rss>
