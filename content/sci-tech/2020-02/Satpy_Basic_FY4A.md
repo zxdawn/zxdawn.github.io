@@ -46,6 +46,12 @@ You have three options:
 
 ## 3. Examples
 
+### Installation
+
+```
+conda install -c conda-forge satpy
+```
+
 ### Loading data
 
 
