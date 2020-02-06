@@ -235,21 +235,10 @@ please check another notebook about `enhancement`.
 
 ## References
 
-1. Notebooks:
-
-   https://github.com/zxdawn/FY-4/tree/master/satpy/examples
-
-2. Satpy examples:
-
-   https://satpy.readthedocs.io/en/latest/examples.html
-
-3. Presample:
-
-   http://pyresample.readthedocs.org/
-
-4. Pytroll:
-
-   http://pytroll.github.io/
+1. Notebooks: https://github.com/zxdawn/FY-4/tree/master/satpy/examples
+2. Satpy examples: https://satpy.readthedocs.io/en/latest/examples.html
+3. Presample: http://pyresample.readthedocs.org/
+4. Pytroll: http://pytroll.github.io/
 
 ## Version control
 
