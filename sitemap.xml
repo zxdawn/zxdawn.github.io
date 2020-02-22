@@ -52,55 +52,66 @@
   
   <url>
     <loc>https://dreambooker.site/categories/</loc>
-    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://dreambooker.site/</loc>
-    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://dreambooker.site/2020/02/22/Plot-TROPOMI-using-pcolormesh-or-imshow/</loc>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://dreambooker.site/tags/Python/</loc>
-    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://dreambooker.site/tags/Satellite/</loc>
-    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://dreambooker.site/tags/Satpy/</loc>
-    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/sci-tech/</loc>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/TROPOMI/</loc>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/</loc>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/categories/sci-tech/</loc>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://dreambooker.site/2020/02/06/Satpy-Basic-FY4A/</loc>
     <lastmod>2020-02-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/sci-tech/</loc>
-    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/</loc>
-    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/categories/sci-tech/</loc>
-    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

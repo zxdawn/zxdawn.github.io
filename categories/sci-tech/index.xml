@@ -6,10 +6,19 @@
     <description>Recent content in sci-tech on Dreambooker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dreambooker.site/categories/sci-tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Plot TROPOMI using pcolormesh or imshow?</title>
+      <link>https://dreambooker.site/2020/02/22/Plot-TROPOMI-using-pcolormesh-or-imshow/</link>
+      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/02/22/Plot-TROPOMI-using-pcolormesh-or-imshow/</guid>
+      <description>Methods to plot Swath data correctly</description>
+    </item>
     
     <item>
       <title>Satpy Basic (FY4A)</title>
