@@ -1,5 +1,5 @@
 ---
-title: Plot TROPOMI using pcolormesh or imshow?
+title: Plot TROPOMI data using pcolormesh or imshow?
 date: 2020-02-22
 tags: ["Satpy", "Satellite", "TROPOMI", "Python"]
 categories: ["sci-tech"]
