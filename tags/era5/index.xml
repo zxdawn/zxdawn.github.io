@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Era5 on Dreambooker</title>
+    <link>https://dreambooker.site/tags/era5/</link>
+    <description>Recent content in Era5 on Dreambooker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 03 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dreambooker.site/tags/era5/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Initializing the WRF model with ERA5 (pressure level)</title>
+      <link>https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/</link>
+      <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/</guid>
+      <description>Note This is the tutorial of using WRF with ERA5 pressure level (38 vertical levels) data.
+If you prefer model level (138 vertical levels), please check another tutorial.
+I recommend the pressure level data, because the download speed is much faster.
+If you don&amp;rsquo;t have cdsapi, please check this official tutorial.
+Required Fields  WRF requires a number of fields as input.
+ 3D Data (e.g. data on pressure levels)
+ Temperature U and V components of Wind Geopotential Height Relative Humidity (the code can calculate RH if Specific Humidity is available;this is controlled in the Vtable)  2D Data
+ Surface Pressure Mean Sea Level Pressure Skin Temperature/SST 2-meter Temperature 2-meter Relative or Specific Humidity 10-meter U and V components of wind Soil data (temperature and moisture) and soil height   If any masked field is ingested, then a LANDSEA field is recommended
+Water equivalent snow depth (SNOW) is a nice field to have, but not required.
+SEAICE is good to have for a high latitude winter case, but it is not required.
+ Single level data (GetERA5-sl.py) import cdsapi c = cdsapi.Client() c.retrieve( &#39;reanalysis-era5-single-levels&#39;, { &#39;product_type&#39;:&#39;reanalysis&#39;, &#39;format&#39;:&#39;grib&#39;, &#39;variable&#39;:[ &#39;10m_u_component_of_wind&#39;,&#39;10m_v_component_of_wind&#39;,&#39;2m_dewpoint_temperature&#39;, &#39;2m_temperature&#39;,&#39;land_sea_mask&#39;,&#39;mean_sea_level_pressure&#39;, &#39;sea_ice_cover&#39;,&#39;sea_surface_temperature&#39;,&#39;skin_temperature&#39;, &#39;snow_depth&#39;,&#39;soil_temperature_level_1&#39;,&#39;soil_temperature_level_2&#39;, &#39;soil_temperature_level_3&#39;,&#39;soil_temperature_level_4&#39;,&#39;surface_pressure&#39;, &#39;volumetric_soil_water_layer_1&#39;,&#39;volumetric_soil_water_layer_2&#39;,&#39;volumetric_soil_water_layer_3&#39;, &#39;volumetric_soil_water_layer_4&#39; ], &#39;date&#39;:&#39;DATE1/DATE2&#39;, &#39;area&#39;:&#39;Nort/West/Sout/East&#39;, &#39;time&#39;:[ &#39;00:00&#39;,&#39;01:00&#39;,&#39;02:00&#39;, &#39;03:00&#39;,&#39;04:00&#39;,&#39;05:00&#39;, &#39;06:00&#39;,&#39;07:00&#39;,&#39;08:00&#39;, &#39;09:00&#39;,&#39;10:00&#39;,&#39;11:00&#39;, &#39;12:00&#39; ] }, &#39;ERA5-DATE1-DATE2-sl.</description>
+    </item>
+    
+    <item>
+      <title>Initializing the WRF model with ERA5</title>
+      <link>https://dreambooker.site/2018/04/20/Initializing-the-WRF-model-with-ERA5/</link>
+      <pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2018/04/20/Initializing-the-WRF-model-with-ERA5/</guid>
+      <description>&lt;h2 id=&#34;note&#34;&gt;Note&lt;/h2&gt;
+
+&lt;p&gt;This is the tutorial of using WRF with &lt;strong&gt;ERA5 model level&lt;/strong&gt; (138 vertical levels) data.&lt;/p&gt;
+
+&lt;p&gt;If you prefer &lt;strong&gt;pressure level&lt;/strong&gt; (38 vertical levels), please check another &lt;a href=&#34;https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/&#34;&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I recommend the pressure level data, because the download speed is much faster.&lt;/p&gt;
+
+&lt;p&gt;If you don’t have cdsapi, please check this official &lt;a href=&#34;https://cds.climate.copernicus.eu/api-how-to&#34;&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;summarization&#34;&gt;Summarization&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Download&lt;/li&gt;
+&lt;li&gt;Preprocess&lt;/li&gt;
+&lt;li&gt;Automation&lt;/li&gt;
+&lt;li&gt;Geogrid&lt;/li&gt;
+&lt;li&gt;Ungrib&lt;/li&gt;
+&lt;li&gt;Produce additional intermediate files&lt;/li&gt;
+&lt;li&gt;Metgrid&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Dreambooker</title>
+    <link>https://dreambooker.site/tags/python/</link>
+    <description>Recent content in Python on Dreambooker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sat, 22 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dreambooker.site/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Plot TROPOMI data using pcolormesh or imshow?</title>
+      <link>https://dreambooker.site/2020/02/22/Plot-TROPOMI-data-using-pcolormesh-or-imshow/</link>
+      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/02/22/Plot-TROPOMI-data-using-pcolormesh-or-imshow/</guid>
+      <description>1. Background There&amp;rsquo;re three ways to plot Polar satellite swaths data: pcolor, pcolormesh and imshow
+I don&amp;rsquo;t recommend contourf because I want to keep the original data without interpolation.
+The User Guide of matplotlib illustrates the differences between them in detail.
+Here, I&amp;rsquo;ll show you the effects by some simple examples .
+2. Definitions pcolormesh The definition of pcolormesh is plotting the C values with X,Y corners:
+(X[i+1, j], Y[i+1, j]) (X[i+1, j+1], Y[i+1, j+1]) +--------+ | C[i,j] | +--------+ (X[i, j], Y[i, j]) (X[i, j+1], Y[i, j+1])  The figure below could help us understand that &amp;hellip;
+import pylab as pl import matplotlib.pyplot as plt import numpy as np # values x and y give values at z xmin = 1; xmax = 8; dx = 2 ymin = 1; ymax = 6; dy = 1 x,y = np.meshgrid(np.arange(xmin,xmax,dx),np.arange(ymin,ymax,dy)) z = x*y # transform x and y to boundaries of x and y x2,y2 = np.meshgrid(np.arange(xmin,xmax+dx,dx)-dx/2.,np.arange(ymin,ymax+dy,dy)-dy/2.) fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2) # pcolormesh without x and y just uses indexing as labels ax1.pcolormesh(z) ax1.set_title(&amp;quot;Wrong ticks&amp;quot;) # pcolormesh with x and y values gives a wrong plot, x and y are treated as boundaries ax2.set_title(&amp;quot;Wrong: x,y as values&amp;quot;) ax2.</description>
+    </item>
+    
+    <item>
+      <title>Satpy Basic (FY4A)</title>
+      <link>https://dreambooker.site/2020/02/06/Satpy-Basic-FY4A/</link>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/02/06/Satpy-Basic-FY4A/</guid>
+      <description>1. Support Files FY4A AGRI data in NetCDF format. Both Full DISK and regional images are supported.
+Example filenames:
+Full DISK:
+FY4A-_AGRI--_N_DISK_1047E_L1-_FDI-_MULT_NOM_20190807060000_20190807061459_4000M_V0001.HDF  REGC:
+FY4A-_AGRI--_N_REGC_1047E_L1-_FDI-_MULT_NOM_20190807045334_20190807045750_1000M_V0001.HDF  Full disk scans are identified by DISK , regional scans by REGC.
+Data Links:
+Real Time Data Service (30 days) and Introduction Files: https://fy4.nsmc.org.cn/data/en/data/realtime.html History data (2018-03-12 -- ): http://satellite.nsmc.org.cn/PortalSite/Data/Satellite.aspx FY4A official weather application platform: http://rsapp.nsmc.org.cn/geofy/  2. Calibration You have three options:
+ The raw detector counts (All channels)
+ Reflectance (C01 - C06)
+ Radiance and Brightness Temperature (C07 - C14)
+  3. Examples Installation conda install -c conda-forge satpy  Loading data import os, glob from satpy.scene import Scene from satpy.utils import debug_on from trollimage.colormap import greys, spectral  # load FY4A filenames filenames = glob.glob(&#39;/xin/data/FY4A/20190807/FY4A-_AGRI*4000M_V0001.HDF&#39;) # create the scene object scn = Scene(filenames, reader=&#39;agri_l1&#39;) # check available channels scn.available_dataset_names()  Output:
+[&#39;C01&#39;, &#39;C02&#39;, &#39;C03&#39;, &#39;C04&#39;, &#39;C05&#39;, &#39;C06&#39;, &#39;C07&#39;, &#39;C08&#39;, &#39;C09&#39;, &#39;C10&#39;, &#39;C11&#39;, &#39;C12&#39;, &#39;C13&#39;, &#39;C14&#39;, &#39;satellite_azimuth_angle&#39;, &#39;satellite_zenith_angle&#39;, &#39;solar_azimuth_angle&#39;, &#39;solar_glint_angle&#39;, &#39;solar_zenith_angle&#39;]  Loading ir_channel data:
+# take the ir channel as example ir_channel = &#39;C12&#39; scn.load([ir_channel], generate=False, calibration=&#39;brightness_temperature&#39;)  Full Disk Image # display in notebook scn.show(ir_channel)  # save to file # scn.save_dataset(ir_channel, filename=&#39;{sensor}_{name}.png&#39;)  True color Image # get a list of all available composites for the current scene scn.</description>
+    </item>
+    
+    <item>
+      <title>Controlling the exam with Python</title>
+      <link>https://dreambooker.site/2018/11/22/Controlling-the-exam-with-Python/</link>
+      <pubDate>Thu, 22 Nov 2018 13:19:33 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2018/11/22/Controlling-the-exam-with-Python/</guid>
+      <description>&lt;h2 id=&#34;predicaments&#34;&gt;Predicaments&lt;/h2&gt;
+
+&lt;p&gt;We&amp;rsquo;re asked to learn a library about safety.&lt;/p&gt;
+
+&lt;p&gt;However, if the duration is greater than 5 minutes (~300 seconds), we need to click &lt;code&gt;agree&lt;/code&gt; to let the timing continue. So, when we finish the learning progress, we&amp;rsquo;ll click &lt;strong&gt;6*&lt;sup&gt;60&lt;/sup&gt;&amp;frasl;&lt;sub&gt;5&lt;/sub&gt; = 72&lt;/strong&gt; times &amp;hellip;&amp;hellip;..&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Trick of binned_statistic_2d</title>
+      <link>https://dreambooker.site/2018/11/22/Trick-of-binned_statistic_2d/</link>
+      <pubDate>Thu, 22 Nov 2018 09:11:07 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2018/11/22/Trick-of-binned_statistic_2d/</guid>
+      <description>&lt;h2 id=&#34;official-example&#34;&gt;Official example&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; from scipy import stats
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Calculate the counts with explicit bin-edges:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; x = [0.1, 0.1, 0.1, 0.6]
+&amp;gt;&amp;gt;&amp;gt; y = [2.1, 2.6, 2.1, 2.1]
+&amp;gt;&amp;gt;&amp;gt; binx = [0.0, 0.5, 1.0]
+&amp;gt;&amp;gt;&amp;gt; biny = [2.0, 2.5, 3.0]
+&amp;gt;&amp;gt;&amp;gt; ret = stats.binned_statistic_2d(x, y, None, &#39;count&#39;, bins=[binx,biny])
+&amp;gt;&amp;gt;&amp;gt; ret.statistic
+array([[ 2.,  1.],
+       [ 1.,  0.]])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Set up personal Anaconda mirror</title>
+      <link>https://dreambooker.site/2018/11/16/Set-up-personal-Anaconda-mirror/</link>
+      <pubDate>Fri, 16 Nov 2018 10:13:08 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2018/11/16/Set-up-personal-Anaconda-mirror/</guid>
+      <description>&lt;h2 id=&#34;predicaments&#34;&gt;Predicaments&lt;/h2&gt;
+
+&lt;p&gt;If you encounter any problems as follows, you should try to set up a personal Python(Anaconda) mirror:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Deploy a python environment on servers that have no access to the Internet;&lt;/li&gt;
+&lt;li&gt;Deploy a python environment which can be used directly by other users on the server;&lt;/li&gt;
+&lt;li&gt;Internet speed or connection to cloud mirror is slow.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+
+&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;Just install Anaconda according to this &lt;a href=&#34;https://conda.io/docs/user-guide/install/index.html&#34;&gt;guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Of course, you can download Anaconda installer archive from &lt;a href=&#34;https://repo.continuum.io/pkgs/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;download-mirror&#34;&gt;Download(mirror)&lt;/h3&gt;
+
+&lt;p&gt;You can use &lt;code&gt;wget&lt;/code&gt; to mirror the packages from &lt;a href=&#34;https://repo.continuum.io/pkgs/&#34;&gt;official Anaconda websites&lt;/a&gt; or other mirror websites (&lt;a href=&#34;https://mirrors.tuna.tsinghua.edu.cn/anaconda/&#34;&gt;TUNA&lt;/a&gt; and &lt;a href=&#34;https://mirrors.ustc.edu.cn/anaconda&#34;&gt;USTC&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;If your server is located in China, I recommend the later one.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll take the later one as example.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Trick of pcolormesh</title>
+      <link>https://dreambooker.site/2018/10/31/Trick-of-pcolormesh/</link>
+      <pubDate>Wed, 31 Oct 2018 10:40:24 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2018/10/31/Trick-of-pcolormesh/</guid>
+      <description>&lt;h2 id=&#34;reference&#34;&gt;Reference&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://alex.seeholzer.de/2014/05/fun-with-matplotlib-pcolormesh-getting-data-to-display-in-the-right-position/&#34;&gt;http://alex.seeholzer.de/2014/05/fun-with-matplotlib-pcolormesh-getting-data-to-display-in-the-right-position/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

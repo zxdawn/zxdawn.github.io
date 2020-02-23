@@ -31,7 +31,9 @@ Download and unzip Cmder to a convenient place on your disk. Then start Cmder.ex
 Install (Oh-my-) Zsh on Bash on Ubuntu on Windows
 
 
-Set up Zsh in Cmder">
+Set up Zsh in Cmder
+
+">
   
   <meta property="og:title" content="Running Win10 Debian Zsh in Cmder" />
 <meta property="og:description" content="References
@@ -58,10 +60,11 @@ Download and unzip Cmder to a convenient place on your disk. Then start Cmder.ex
 Install (Oh-my-) Zsh on Bash on Ubuntu on Windows
 
 
-Set up Zsh in Cmder" />
+Set up Zsh in Cmder
+
+" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dreambooker.site/2018/05/05/Running-Win10-Debian-Zsh-in-Cmder/" />
-<meta property="article:published_time" content="2018-05-05T15:21:53&#43;00:00"/>
+<meta property="og:url" content="https://dreambooker.site/2018/05/05/Running-Win10-Debian-Zsh-in-Cmder/" /><meta property="article:published_time" content="2018-05-05T15:21:53&#43;00:00"/>
 <meta property="article:modified_time" content="2018-05-05T15:21:53&#43;00:00"/>
 
 
@@ -434,6 +437,8 @@ Set up Zsh in Cmder" />
 
 <h1 id="set-up-zsh-in-cmder">Set up Zsh in Cmder</h1>
 
+<p></p>
+
 <ol>
 <li><p>Navigate to <em>Settings -&gt; Startup -&gt; Tasks</em> in Cmder.</p></li>
 
@@ -459,16 +464,18 @@ Set up Zsh in Cmder" />
 
 <li><p>The default settings can be viewed by accessing the <em>Preferences &gt; Package Settings &gt; Terminal &gt; Settings – Default</em> menu entry. To ensure settings are not lost when the package is upgraded, make sure all edits are saved to <em>Settings – User</em>.</p></li>
 
-<li><p>Then set settings for Cmder:</p>
+<li><p>Then set settings for Cmder:</p></li>
+</ol>
 
-<pre><code>{
- // Replace with your own path to cmder.exe
- &quot;terminal&quot;: &quot;C:\\Program Files\\cmder_mini\\cmder.exe&quot;,
- &quot;parameters&quot;: [&quot;/START&quot;, &quot;%CWD%&quot;]
-}
-</code></pre></li>
+<pre><code>   {
+     // Replace with your own path to cmder.exe
+     &quot;terminal&quot;: &quot;C:\\Program Files\\cmder_mini\\cmder.exe&quot;,
+     &quot;parameters&quot;: [&quot;/START&quot;, &quot;%CWD%&quot;]
+   }
+</code></pre>
 
-<li><p>Then you can open terminal at file press <code>ctrl+shift+t</code> or open terminal at project folder press <code>ctrl+alt+shift+t</code>.</p></li>
+<ol>
+<li>Then you can open terminal at file press <code>ctrl+shift+t</code> or open terminal at project folder press <code>ctrl+alt+shift+t</code>.</li>
 </ol>
           </div>
 

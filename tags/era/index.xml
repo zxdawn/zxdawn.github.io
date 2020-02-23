@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Era on Dreambooker</title>
+    <link>https://dreambooker.site/tags/era/</link>
+    <description>Recent content in Era on Dreambooker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Wed, 20 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dreambooker.site/tags/era/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Initializing the WRF model with ECMWF ERA-Interim reanalysis</title>
+      <link>https://dreambooker.site/2017/12/20/Initializing-the-WRF-model-with-ECMWF-ERA-Interim-reanalysis/</link>
+      <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2017/12/20/Initializing-the-WRF-model-with-ECMWF-ERA-Interim-reanalysis/</guid>
+      <description>&lt;h2 id=&#34;summarization&#34;&gt;Summarization&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;To summarise, you need three separate data files from the reanalysis data:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Pressure level data (or model levels)&lt;/li&gt;
+&lt;li&gt;Surface variable data&lt;/li&gt;
+&lt;li&gt;Fixed data.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

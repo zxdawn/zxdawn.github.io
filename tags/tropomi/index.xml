@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tropomi on Dreambooker</title>
+    <link>https://dreambooker.site/tags/tropomi/</link>
+    <description>Recent content in Tropomi on Dreambooker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sat, 22 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dreambooker.site/tags/tropomi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Plot TROPOMI data using pcolormesh or imshow?</title>
+      <link>https://dreambooker.site/2020/02/22/Plot-TROPOMI-data-using-pcolormesh-or-imshow/</link>
+      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/02/22/Plot-TROPOMI-data-using-pcolormesh-or-imshow/</guid>
+      <description>1. Background There&amp;rsquo;re three ways to plot Polar satellite swaths data: pcolor, pcolormesh and imshow
+I don&amp;rsquo;t recommend contourf because I want to keep the original data without interpolation.
+The User Guide of matplotlib illustrates the differences between them in detail.
+Here, I&amp;rsquo;ll show you the effects by some simple examples .
+2. Definitions pcolormesh The definition of pcolormesh is plotting the C values with X,Y corners:
+(X[i+1, j], Y[i+1, j]) (X[i+1, j+1], Y[i+1, j+1]) +--------+ | C[i,j] | +--------+ (X[i, j], Y[i, j]) (X[i, j+1], Y[i, j+1])  The figure below could help us understand that &amp;hellip;
+import pylab as pl import matplotlib.pyplot as plt import numpy as np # values x and y give values at z xmin = 1; xmax = 8; dx = 2 ymin = 1; ymax = 6; dy = 1 x,y = np.meshgrid(np.arange(xmin,xmax,dx),np.arange(ymin,ymax,dy)) z = x*y # transform x and y to boundaries of x and y x2,y2 = np.meshgrid(np.arange(xmin,xmax+dx,dx)-dx/2.,np.arange(ymin,ymax+dy,dy)-dy/2.) fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2) # pcolormesh without x and y just uses indexing as labels ax1.pcolormesh(z) ax1.set_title(&amp;quot;Wrong ticks&amp;quot;) # pcolormesh with x and y values gives a wrong plot, x and y are treated as boundaries ax2.set_title(&amp;quot;Wrong: x,y as values&amp;quot;) ax2.</description>
+    </item>
+    
+  </channel>
+</rss>

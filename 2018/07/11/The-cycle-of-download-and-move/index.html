@@ -7,13 +7,24 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
   <meta name="author" content="Xin Zhang">
-  <meta name="description" content="Download files on node_1 and move all of them to node_2 at intervals.">
+  <meta name="description" content=" Background My cluster has two nodes:
+​ node_1: Public IP, small disk space;
+​ node_2: Private IP, large disk space;
+So, I need to download files on node_1 and move all of them to node_2 at intervals.
+Method  After enough large files are downloaded, I just move them to node_2;
+ Copy files&rsquo; attributes to node_1
+   cp -r --attributes-only &lt;node_1_directory&gt; &lt;ndoe_2_directory&gt;   Download again by -nc option on node_1:   wget --no-check-certificate -nc -e robots=off -r -l inf -np -R .html,.tmp -nH --cut-dirs=3 https://ladsweb.modaps.eosdis.nasa.gov/archive/orders/501249136/ --header &quot;Authorization: Bearer &lt;APP_KEY&gt;&quot; -P ./   Delete empty fiels:   find . -type f -empty -delete   Repeat 1-4&hellip;&hellip;  ">
   
   <meta property="og:title" content="The cycle of download and move" />
-<meta property="og:description" content="Download files on node_1 and move all of them to node_2 at intervals." />
+<meta property="og:description" content=" Background My cluster has two nodes:
+​ node_1: Public IP, small disk space;
+​ node_2: Private IP, large disk space;
+So, I need to download files on node_1 and move all of them to node_2 at intervals.
+Method  After enough large files are downloaded, I just move them to node_2;
+ Copy files&rsquo; attributes to node_1
+   cp -r --attributes-only &lt;node_1_directory&gt; &lt;ndoe_2_directory&gt;   Download again by -nc option on node_1:   wget --no-check-certificate -nc -e robots=off -r -l inf -np -R .html,.tmp -nH --cut-dirs=3 https://ladsweb.modaps.eosdis.nasa.gov/archive/orders/501249136/ --header &quot;Authorization: Bearer &lt;APP_KEY&gt;&quot; -P ./   Delete empty fiels:   find . -type f -empty -delete   Repeat 1-4&hellip;&hellip;  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dreambooker.site/2018/07/11/The-cycle-of-download-and-move/" />
-<meta property="article:published_time" content="2018-07-11T09:27:50&#43;00:00"/>
+<meta property="og:url" content="https://dreambooker.site/2018/07/11/The-cycle-of-download-and-move/" /><meta property="article:published_time" content="2018-07-11T09:27:50&#43;00:00"/>
 <meta property="article:modified_time" content="2018-07-11T09:27:50&#43;00:00"/>
 
 
@@ -373,22 +384,28 @@
 <ol>
 <li><p>After enough large files are downloaded, I just move them to node_2;</p></li>
 
-<li><p>Copy files&rsquo; attributes to node_1</p>
+<li><p>Copy files&rsquo; attributes to node_1</p></li>
+</ol>
 
-<pre><code>cp -r --attributes-only &lt;node_1_directory&gt; &lt;ndoe_2_directory&gt;
-</code></pre></li>
+<pre><code>   cp -r --attributes-only &lt;node_1_directory&gt; &lt;ndoe_2_directory&gt;
+</code></pre>
 
-<li><p>Download again by <code>-nc</code> option on node_1:</p>
+<ol>
+<li>Download again by <code>-nc</code> option on node_1:</li>
+</ol>
 
-<pre><code>wget --no-check-certificate -nc -e robots=off -r -l inf -np -R .html,.tmp -nH --cut-dirs=3 https://ladsweb.modaps.eosdis.nasa.gov/archive/orders/501249136/ --header &quot;Authorization: Bearer &lt;APP_KEY&gt;&quot; -P ./
-</code></pre></li>
+<pre><code>   wget --no-check-certificate -nc -e robots=off -r -l inf -np -R .html,.tmp -nH --cut-dirs=3 https://ladsweb.modaps.eosdis.nasa.gov/archive/orders/501249136/ --header &quot;Authorization: Bearer &lt;APP_KEY&gt;&quot; -P ./
+</code></pre>
 
-<li><p>Delete empty fiels:</p>
+<ol>
+<li>Delete empty fiels:</li>
+</ol>
 
-<pre><code>find . -type f -empty -delete
-</code></pre></li>
+<pre><code>   find . -type f -empty -delete
+</code></pre>
 
-<li><p>Repeat 1-4&hellip;&hellip;</p></li>
+<ol>
+<li>Repeat 1-4&hellip;&hellip;</li>
 </ol>
 
           </div>

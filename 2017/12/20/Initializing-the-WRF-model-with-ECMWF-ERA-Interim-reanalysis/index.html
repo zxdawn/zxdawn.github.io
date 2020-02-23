@@ -17,6 +17,8 @@ Pressure level data (or model levels)
 Surface variable data
 Fixed data.
 
+
+
 ">
   
   <meta property="og:title" content="Initializing the WRF model with ECMWF ERA-Interim reanalysis" />
@@ -30,10 +32,11 @@ Pressure level data (or model levels)
 Surface variable data
 Fixed data.
 
+
+
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dreambooker.site/2017/12/20/Initializing-the-WRF-model-with-ECMWF-ERA-Interim-reanalysis/" />
-<meta property="article:published_time" content="2017-12-20T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://dreambooker.site/2017/12/20/Initializing-the-WRF-model-with-ECMWF-ERA-Interim-reanalysis/" /><meta property="article:published_time" content="2017-12-20T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2017-12-20T00:00:00&#43;00:00"/>
 
 
@@ -392,6 +395,8 @@ Fixed data.
 </ol>
 </blockquote>
 
+<p></p>
+
 <h2 id="downloading-the-data-via-python-script">Downloading the data via Python script</h2>
 
 <p>You’ll be required to select which surface varibles you want to download, as well as which pressure levels, too. The land-sea mask is just a single file. According to <a href="http://bbs.06climate.com/forum.php?mod=viewthread&amp;tid=30962&amp;extra=&amp;page=1">夏朗的芒果</a>, we just need to download UNGRIB - Required Fields</p>
@@ -483,53 +488,61 @@ server.retrieve({
 <p>Link the correct Vtable to the file name “Vtable” in the directory. The Vtable can be found in<code>WPS/ungrib/Variable_Tables/Vtable.ECMWF</code></p>
 
 <ol>
-<li><p>Link GRIB files to the correct file names in the run directory.</p>
-
-<pre><code>./link_grib.csh ERA-Int_pl_20150806_20150809_0.75.grib
-</code></pre></li>
-
-<li><p>Ungribbing the pressure level data.In the namelist.wps file, I set the the <code>&amp;ungrib</code> section to the following:</p>
-
-<pre><code>out_format = 'WPS',
-prefix = 'PL'
-</code></pre>
-
-<pre><code>./ungrib.exe
-</code></pre></li>
-
-<li><p>Repeat again for the surface data:</p>
-
-<pre><code>./link_grib.csh ERA-Int_sfc_20150806_20150809_0.75.grib
-</code></pre>
-
-<pre><code>out_format = 'WPS',
-prefix = 'SFC'
-</code></pre>
-
-<pre><code>./ungrib.exe
-</code></pre></li>
-
-<li><p>Repeat again for the  fixed data:</p>
-
-<pre><code>start_date = '1989-01-01_12:00:00','1989-01-01_12:00:00',
-end_date   = '1989-01-01_12:00:00','1989-01-01_12:00:00',
-.
-.
-.
-out_format = 'WPS',
-prefix = 'FIX'
-</code></pre>
-
-<pre><code>./ungrib.exe
-</code></pre></li>
-
-<li><p>You should have these files now:</p>
-
-<pre><code>FIX:1989-01-01_12  PL:2015-08-07_12  PL:2015-08-08_06   SFC:2015-08-07_06  SFC:2015-08-08_00
-PL:2015-08-07_00   PL:2015-08-07_18  PL:2015-08-08_12   SFC:2015-08-07_12  SFC:2015-08-08_06
-PL:2015-08-07_06   PL:2015-08-08_00  SFC:2015-08-07_00  SFC:2015-08-07_18  SFC:2015-08-08_12
-</code></pre></li>
+<li>Link GRIB files to the correct file names in the run directory.</li>
 </ol>
+
+<pre><code>   ./link_grib.csh ERA-Int_pl_20150806_20150809_0.75.grib
+</code></pre>
+
+<ol>
+<li>Ungribbing the pressure level data.In the namelist.wps file, I set the the <code>&amp;ungrib</code> section to the following:</li>
+</ol>
+
+<pre><code>   out_format = 'WPS',
+   prefix = 'PL'
+</code></pre>
+
+<pre><code>   ./ungrib.exe
+</code></pre>
+
+<ol>
+<li>Repeat again for the surface data:</li>
+</ol>
+
+<pre><code>   ./link_grib.csh ERA-Int_sfc_20150806_20150809_0.75.grib
+</code></pre>
+
+<pre><code>   out_format = 'WPS',
+   prefix = 'SFC'
+</code></pre>
+
+<pre><code>   ./ungrib.exe
+</code></pre>
+
+<ol>
+<li>Repeat again for the  fixed data:</li>
+</ol>
+
+<pre><code>   start_date = '1989-01-01_12:00:00','1989-01-01_12:00:00',
+   end_date   = '1989-01-01_12:00:00','1989-01-01_12:00:00',
+   .
+   .
+   .
+   out_format = 'WPS',
+   prefix = 'FIX'
+</code></pre>
+
+<pre><code>   ./ungrib.exe
+</code></pre>
+
+<ol>
+<li>You should have these files now:</li>
+</ol>
+
+<pre><code>   FIX:1989-01-01_12  PL:2015-08-07_12  PL:2015-08-08_06   SFC:2015-08-07_06  SFC:2015-08-08_00
+   PL:2015-08-07_00   PL:2015-08-07_18  PL:2015-08-08_12   SFC:2015-08-07_12  SFC:2015-08-08_06
+   PL:2015-08-07_06   PL:2015-08-08_00  SFC:2015-08-07_00  SFC:2015-08-07_18  SFC:2015-08-08_12
+</code></pre>
 
 <h2 id="metgrid">Metgrid</h2>
 

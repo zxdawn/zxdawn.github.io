@@ -51,62 +51,8 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/categories/</loc>
-    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/</loc>
-    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://dreambooker.site/2020/02/22/Plot-TROPOMI-data-using-pcolormesh-or-imshow/</loc>
     <lastmod>2020-02-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/Python/</loc>
-    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/Satellite/</loc>
-    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/Satpy/</loc>
-    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/sci-tech/</loc>
-    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/TROPOMI/</loc>
-    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/</loc>
-    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/categories/sci-tech/</loc>
-    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -115,66 +61,18 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/English/</loc>
-    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://dreambooker.site/2019/12/20/IELTS-Notes/</loc>
     <lastmod>2019-12-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/Language/</loc>
-    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/about/publications/</loc>
-    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/essay/</loc>
+    <loc>https://dreambooker.site/2019/12/12/%E7%A8%8B%E7%92%A7%E6%BC%94%E5%94%B1%E4%BC%9A-%E8%AF%97%E4%BC%9A/</loc>
     <lastmod>2019-12-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/Life/</loc>
-    <lastmod>2019-12-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/categories/essay/</loc>
-    <lastmod>2019-12-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/2019/12/12/%E7%A8%8B%E7%92%A7%E6%BC%94%E5%94%B1%E4%BC%9A/%E8%AF%97%E4%BC%9A/</loc>
-    <lastmod>2019-12-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/ERA5/</loc>
-    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/</loc>
     <lastmod>2019-10-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/WRF-Chem/</loc>
-    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -185,24 +83,6 @@
   <url>
     <loc>https://dreambooker.site/2019/08/17/Hugo-Staticman-Travis/</loc>
     <lastmod>2019-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/hugo/</loc>
-    <lastmod>2019-08-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/web/</loc>
-    <lastmod>2019-08-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/Dream/</loc>
-    <lastmod>2019-06-29T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -223,12 +103,6 @@
   <url>
     <loc>https://dreambooker.site/2019/03/19/%E5%9B%B0%E5%B1%80/</loc>
     <lastmod>2019-03-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/Conference/</loc>
-    <lastmod>2019-01-23T19:35:31+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -254,12 +128,6 @@
   <url>
     <loc>https://dreambooker.site/2018/12/13/Installing-libraries-and-automating-WRF-Chem/</loc>
     <lastmod>2018-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/Linux/</loc>
-    <lastmod>2018-12-05T13:22:09+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -348,12 +216,6 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/LaTeX/</loc>
-    <lastmod>2018-09-03T14:18:51+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://dreambooker.site/2018/09/03/Set-a-dark-theme-in-Texstudio/</loc>
     <lastmod>2018-09-03T14:18:51+00:00</lastmod>
   </url>
@@ -371,12 +233,6 @@
   <url>
     <loc>https://dreambooker.site/2018/07/08/%E8%BF%B7%E5%A4%B1/</loc>
     <lastmod>2018-07-08T23:16:20+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/Git/</loc>
-    <lastmod>2018-06-28T11:57:14+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -405,43 +261,13 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/Travis-CI/</loc>
-    <lastmod>2018-05-18T17:38:12+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/hexo/</loc>
-    <lastmod>2018-05-18T17:38:12+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://dreambooker.site/2018/05/10/%E6%A2%A6%E4%BA%8C%E5%88%99/</loc>
     <lastmod>2018-05-10T16:27:54+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/Cmder/</loc>
-    <lastmod>2018-05-05T15:21:53+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://dreambooker.site/2018/05/05/Running-Win10-Debian-Zsh-in-Cmder/</loc>
     <lastmod>2018-05-05T15:21:53+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/Windows/</loc>
-    <lastmod>2018-05-05T15:21:53+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/HPC/</loc>
-    <lastmod>2018-04-29T21:20:50+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -470,20 +296,8 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/BEHR/</loc>
-    <lastmod>2018-03-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://dreambooker.site/2018/03/11/BEHR_OMINO2-Guide-for-non_Berkeley/</loc>
     <lastmod>2018-03-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/OMI/</loc>
-    <lastmod>2018-03-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -497,20 +311,8 @@
   </url>
   
   <url>
-    <loc>https://dreambooker.site/tags/Remarkable/</loc>
-    <lastmod>2018-01-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://dreambooker.site/2018/01/18/Remarkable-Connecting-to-a-hotspot-which-supports-circumvention/</loc>
     <lastmod>2018-01-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dreambooker.site/tags/ERA/</loc>
-    <lastmod>2017-12-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -609,12 +411,209 @@
   </url>
   
   <url>
+    <loc>https://dreambooker.site/tags/behr/</loc>
+    <lastmod>2018-03-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/cmder/</loc>
+    <lastmod>2018-05-05T15:21:53+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/conference/</loc>
+    <lastmod>2019-01-23T19:35:31+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/dream/</loc>
+    <lastmod>2019-06-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/english/</loc>
+    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/era/</loc>
+    <lastmod>2017-12-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/era5/</loc>
+    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/categories/essay/</loc>
+    <lastmod>2019-12-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/essay/</loc>
+    <lastmod>2019-12-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/git/</loc>
+    <lastmod>2018-06-28T11:57:14+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/hexo/</loc>
+    <lastmod>2018-05-18T17:38:12+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/hpc/</loc>
+    <lastmod>2018-04-29T21:20:50+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/hugo/</loc>
+    <lastmod>2019-08-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/language/</loc>
+    <lastmod>2019-12-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/latex/</loc>
+    <lastmod>2018-09-03T14:18:51+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/life/</loc>
+    <lastmod>2019-12-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/linux/</loc>
+    <lastmod>2018-12-05T13:22:09+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/omi/</loc>
+    <lastmod>2018-03-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://dreambooker.site/about/projects/</loc>
     <priority>0.9</priority>
   </url>
   
   <url>
+    <loc>https://dreambooker.site/about/publications/</loc>
+    <lastmod>2019-12-13T00:00:00+00:00</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/python/</loc>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/remarkable/</loc>
+    <lastmod>2018-01-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/satellite/</loc>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/satpy/</loc>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/categories/sci-tech/</loc>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/sci-tech/</loc>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://dreambooker.site/series/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/</loc>
+    <lastmod>2018-03-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/travis-ci/</loc>
+    <lastmod>2018-05-18T17:38:12+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/tropomi/</loc>
+    <lastmod>2020-02-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/web/</loc>
+    <lastmod>2019-08-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/windows/</loc>
+    <lastmod>2018-05-05T15:21:53+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://dreambooker.site/tags/wrf-chem/</loc>
+    <lastmod>2019-10-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

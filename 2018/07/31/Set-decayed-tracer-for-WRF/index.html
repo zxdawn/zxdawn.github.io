@@ -18,6 +18,8 @@ module_state_description.F : ../Registry/$(REGISTRY)
                      ( cd .. ; tools/registry $(ARCHFLAGS) $(ENVCOMPDEFS) -DNEW_BDYS Registry/$(REGISTRY) ) ;
 
 Registry/Registry.EM_COMMON
+
+
 ">
   
   <meta property="og:title" content="Set decayed tracer for WRF" />
@@ -32,10 +34,11 @@ module_state_description.F : ../Registry/$(REGISTRY)
                      ( cd .. ; tools/registry $(ARCHFLAGS) $(ENVCOMPDEFS) -DNEW_BDYS Registry/$(REGISTRY) ) ;
 
 Registry/Registry.EM_COMMON
+
+
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dreambooker.site/2018/07/31/Set-decayed-tracer-for-WRF/" />
-<meta property="article:published_time" content="2018-07-31T10:09:31&#43;00:00"/>
+<meta property="og:url" content="https://dreambooker.site/2018/07/31/Set-decayed-tracer-for-WRF/" /><meta property="article:published_time" content="2018-07-31T10:09:31&#43;00:00"/>
 <meta property="article:modified_time" content="2018-07-31T10:09:31&#43;00:00"/>
 
 
@@ -395,13 +398,16 @@ Registry/Registry.EM_COMMON
 <li><p><code>Registry/Registry.EM_COMMON</code></p></li>
 </ol>
 
+<p></p>
+
 <pre><code>  # Lines that start with the word 'state' form a table that is
   # used by the script use_registry to generate module_state_descript.F
   # and other files.  Also see documentation in use_registry.
 </code></pre>
 
 <ol>
-<li><p>Add these lines to <code>Registry/Registry.EM_COMMON</code>:</p>
+<li>Add these lines to <code>Registry/Registry.EM_COMMON</code>:</li>
+</ol>
 
 <pre><code># Copy WRF-Chem tracers options
 state   real    -          ikjftb  tracer        1         -     -     -
@@ -434,32 +440,35 @@ package   tracer_smoke  tracer_opt==1       -             tracer:smoke
 package   tracer_test1  tracer_opt==2       -             tracer:tr17_1,tr17_2,tr17_3,tr17_4,tr17_5,tr17_6,tr17_7,tr17_8
 package   tracer_test2  tracer_opt==3       -             tracer:tr17_1,tr17_2,tr17_3,tr17_4,tr17_5,tr17_6,tr17_7,tr17_8
 package   tracer_test3  tracer_opt==4       -             tracer:tr17_1,tr17_2,tr17_3,tr17_4,tr17_5,tr17_6,tr17_7,tr17_8,tr18_1,tr18_2
-</code></pre></li>
+</code></pre>
 
-<li><p>Add <code>module_input_tracer</code> to <code>dyn_em/solve_em.F</code></p>
+<ol>
+<li>Add <code>module_input_tracer</code> to <code>dyn_em/solve_em.F</code></li>
+</ol>
 
-<pre><code>------before------
-!   USE module_diagnostics
-#if (WRF_CHEM == 1)
-  USE module_input_chem_data
-  USE module_input_tracer
-  USE module_chem_utilities
-#endif
-  USE module_first_rk_step_part1
-  USE module_first_rk_step_part2
-------after------
-!   USE module_diagnostics
-#if (WRF_CHEM == 1)
-  USE module_input_chem_data
-  USE module_input_tracer
-  USE module_chem_utilities
-#endif
-  USE module_input_tracer
-  USE module_first_rk_step_part1
-  USE module_first_rk_step_part2
-</code></pre></li>
+<pre><code>   ------before------
+   !   USE module_diagnostics
+   #if (WRF_CHEM == 1)
+      USE module_input_chem_data
+      USE module_input_tracer
+      USE module_chem_utilities
+   #endif
+      USE module_first_rk_step_part1
+      USE module_first_rk_step_part2
+   ------after------
+   !   USE module_diagnostics
+   #if (WRF_CHEM == 1)
+      USE module_input_chem_data
+      USE module_input_tracer
+      USE module_chem_utilities
+   #endif
+      USE module_input_tracer
+      USE module_first_rk_step_part1
+      USE module_first_rk_step_part2
+</code></pre>
 
-<li><p>Add <code>module_input_tracer_data.o</code> and <code>module_input_tracer.o</code> to <code>phys/Makefile</code></p></li>
+<ol>
+<li>Add <code>module_input_tracer_data.o</code> and <code>module_input_tracer.o</code> to <code>phys/Makefile</code></li>
 </ol>
           </div>
 

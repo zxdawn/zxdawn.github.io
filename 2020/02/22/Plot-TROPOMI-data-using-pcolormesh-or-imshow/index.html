@@ -7,13 +7,24 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
   <meta name="author" content="Xin Zhang">
-  <meta name="description" content="Methods to plot Swath data correctly">
+  <meta name="description" content="1. Background There&rsquo;re three ways to plot Polar satellite swaths data: pcolor, pcolormesh and imshow
+I don&rsquo;t recommend contourf because I want to keep the original data without interpolation.
+The User Guide of matplotlib illustrates the differences between them in detail.
+Here, I&rsquo;ll show you the effects by some simple examples .
+2. Definitions pcolormesh The definition of pcolormesh is plotting the C values with X,Y corners:
+(X[i&#43;1, j], Y[i&#43;1, j]) (X[i&#43;1, j&#43;1], Y[i&#43;1, j&#43;1]) &#43;--------&#43; | C[i,j] | &#43;--------&#43; (X[i, j], Y[i, j]) (X[i, j&#43;1], Y[i, j&#43;1])  The figure below could help us understand that &hellip;
+import pylab as pl import matplotlib.pyplot as plt import numpy as np # values x and y give values at z xmin = 1; xmax = 8; dx = 2 ymin = 1; ymax = 6; dy = 1 x,y = np.meshgrid(np.arange(xmin,xmax,dx),np.arange(ymin,ymax,dy)) z = x*y # transform x and y to boundaries of x and y x2,y2 = np.meshgrid(np.arange(xmin,xmax&#43;dx,dx)-dx/2.,np.arange(ymin,ymax&#43;dy,dy)-dy/2.) fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2) # pcolormesh without x and y just uses indexing as labels ax1.pcolormesh(z) ax1.set_title(&quot;Wrong ticks&quot;) # pcolormesh with x and y values gives a wrong plot, x and y are treated as boundaries ax2.set_title(&quot;Wrong: x,y as values&quot;) ax2.">
   
   <meta property="og:title" content="Plot TROPOMI data using pcolormesh or imshow?" />
-<meta property="og:description" content="Methods to plot Swath data correctly" />
+<meta property="og:description" content="1. Background There&rsquo;re three ways to plot Polar satellite swaths data: pcolor, pcolormesh and imshow
+I don&rsquo;t recommend contourf because I want to keep the original data without interpolation.
+The User Guide of matplotlib illustrates the differences between them in detail.
+Here, I&rsquo;ll show you the effects by some simple examples .
+2. Definitions pcolormesh The definition of pcolormesh is plotting the C values with X,Y corners:
+(X[i&#43;1, j], Y[i&#43;1, j]) (X[i&#43;1, j&#43;1], Y[i&#43;1, j&#43;1]) &#43;--------&#43; | C[i,j] | &#43;--------&#43; (X[i, j], Y[i, j]) (X[i, j&#43;1], Y[i, j&#43;1])  The figure below could help us understand that &hellip;
+import pylab as pl import matplotlib.pyplot as plt import numpy as np # values x and y give values at z xmin = 1; xmax = 8; dx = 2 ymin = 1; ymax = 6; dy = 1 x,y = np.meshgrid(np.arange(xmin,xmax,dx),np.arange(ymin,ymax,dy)) z = x*y # transform x and y to boundaries of x and y x2,y2 = np.meshgrid(np.arange(xmin,xmax&#43;dx,dx)-dx/2.,np.arange(ymin,ymax&#43;dy,dy)-dy/2.) fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2) # pcolormesh without x and y just uses indexing as labels ax1.pcolormesh(z) ax1.set_title(&quot;Wrong ticks&quot;) # pcolormesh with x and y values gives a wrong plot, x and y are treated as boundaries ax2.set_title(&quot;Wrong: x,y as values&quot;) ax2." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dreambooker.site/2020/02/22/Plot-TROPOMI-data-using-pcolormesh-or-imshow/" />
-<meta property="article:published_time" content="2020-02-22T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://dreambooker.site/2020/02/22/Plot-TROPOMI-data-using-pcolormesh-or-imshow/" /><meta property="article:published_time" content="2020-02-22T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2020-02-22T00:00:00&#43;00:00"/>
 
 

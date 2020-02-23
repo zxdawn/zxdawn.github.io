@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Travis Ci on Dreambooker</title>
+    <link>https://dreambooker.site/tags/travis-ci/</link>
+    <description>Recent content in Travis Ci on Dreambooker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Fri, 18 May 2018 17:38:12 +0000</lastBuildDate>
+    
+	<atom:link href="https://dreambooker.site/tags/travis-ci/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Migrate blog to Github(HTTPS) and add continuous integration</title>
+      <link>https://dreambooker.site/2018/05/18/Migrate-blog-to-GithubHTTPS-and-add-continuous-integration/</link>
+      <pubDate>Fri, 18 May 2018 17:38:12 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2018/05/18/Migrate-blog-to-GithubHTTPS-and-add-continuous-integration/</guid>
+      <description>&lt;h1 id=&#34;reference&#34;&gt;Reference&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://molunerfinn.com/hexo-travisci-https/#%E6%8C%81%E4%B9%85%E5%8C%96%E6%9E%84%E5%BB%BA&#34;&gt;MARKSZのBlog&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;continuous-integration&#34;&gt;Continuous integration&lt;/h1&gt;
+
+&lt;h2 id=&#34;set-travis-ci-account-and-token&#34;&gt;Set Travis-CI account and Token&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Sign up &lt;a href=&#34;https://travis-ci.org/&#34;&gt;Travis-CI&lt;/a&gt; and sync your Git-hub account:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ox58se1xg.bkt.clouddn.com/integration/Travis-CI_sign_up.png&#34; alt=&#34;Sign_up&#34; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Choose your *github.io:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ox58se1xg.bkt.clouddn.com/integration/repo.png&#34; alt=&#34;repo&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

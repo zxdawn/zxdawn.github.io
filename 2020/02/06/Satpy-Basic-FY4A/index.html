@@ -7,13 +7,36 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
   <meta name="author" content="Xin Zhang">
-  <meta name="description" content="Using Satpy to read and plot FY4A data">
+  <meta name="description" content="1. Support Files FY4A AGRI data in NetCDF format. Both Full DISK and regional images are supported.
+Example filenames:
+Full DISK:
+FY4A-_AGRI--_N_DISK_1047E_L1-_FDI-_MULT_NOM_20190807060000_20190807061459_4000M_V0001.HDF  REGC:
+FY4A-_AGRI--_N_REGC_1047E_L1-_FDI-_MULT_NOM_20190807045334_20190807045750_1000M_V0001.HDF  Full disk scans are identified by DISK , regional scans by REGC.
+Data Links:
+Real Time Data Service (30 days) and Introduction Files: https://fy4.nsmc.org.cn/data/en/data/realtime.html History data (2018-03-12 -- ): http://satellite.nsmc.org.cn/PortalSite/Data/Satellite.aspx FY4A official weather application platform: http://rsapp.nsmc.org.cn/geofy/  2. Calibration You have three options:
+ The raw detector counts (All channels)
+ Reflectance (C01 - C06)
+ Radiance and Brightness Temperature (C07 - C14)
+  3. Examples Installation conda install -c conda-forge satpy  Loading data import os, glob from satpy.scene import Scene from satpy.utils import debug_on from trollimage.colormap import greys, spectral  # load FY4A filenames filenames = glob.glob(&#39;/xin/data/FY4A/20190807/FY4A-_AGRI*4000M_V0001.HDF&#39;) # create the scene object scn = Scene(filenames, reader=&#39;agri_l1&#39;) # check available channels scn.available_dataset_names()  Output:
+[&#39;C01&#39;, &#39;C02&#39;, &#39;C03&#39;, &#39;C04&#39;, &#39;C05&#39;, &#39;C06&#39;, &#39;C07&#39;, &#39;C08&#39;, &#39;C09&#39;, &#39;C10&#39;, &#39;C11&#39;, &#39;C12&#39;, &#39;C13&#39;, &#39;C14&#39;, &#39;satellite_azimuth_angle&#39;, &#39;satellite_zenith_angle&#39;, &#39;solar_azimuth_angle&#39;, &#39;solar_glint_angle&#39;, &#39;solar_zenith_angle&#39;]  Loading ir_channel data:
+# take the ir channel as example ir_channel = &#39;C12&#39; scn.load([ir_channel], generate=False, calibration=&#39;brightness_temperature&#39;)  Full Disk Image # display in notebook scn.show(ir_channel)  # save to file # scn.save_dataset(ir_channel, filename=&#39;{sensor}_{name}.png&#39;)  True color Image # get a list of all available composites for the current scene scn.">
   
   <meta property="og:title" content="Satpy Basic (FY4A)" />
-<meta property="og:description" content="Using Satpy to read and plot FY4A data" />
+<meta property="og:description" content="1. Support Files FY4A AGRI data in NetCDF format. Both Full DISK and regional images are supported.
+Example filenames:
+Full DISK:
+FY4A-_AGRI--_N_DISK_1047E_L1-_FDI-_MULT_NOM_20190807060000_20190807061459_4000M_V0001.HDF  REGC:
+FY4A-_AGRI--_N_REGC_1047E_L1-_FDI-_MULT_NOM_20190807045334_20190807045750_1000M_V0001.HDF  Full disk scans are identified by DISK , regional scans by REGC.
+Data Links:
+Real Time Data Service (30 days) and Introduction Files: https://fy4.nsmc.org.cn/data/en/data/realtime.html History data (2018-03-12 -- ): http://satellite.nsmc.org.cn/PortalSite/Data/Satellite.aspx FY4A official weather application platform: http://rsapp.nsmc.org.cn/geofy/  2. Calibration You have three options:
+ The raw detector counts (All channels)
+ Reflectance (C01 - C06)
+ Radiance and Brightness Temperature (C07 - C14)
+  3. Examples Installation conda install -c conda-forge satpy  Loading data import os, glob from satpy.scene import Scene from satpy.utils import debug_on from trollimage.colormap import greys, spectral  # load FY4A filenames filenames = glob.glob(&#39;/xin/data/FY4A/20190807/FY4A-_AGRI*4000M_V0001.HDF&#39;) # create the scene object scn = Scene(filenames, reader=&#39;agri_l1&#39;) # check available channels scn.available_dataset_names()  Output:
+[&#39;C01&#39;, &#39;C02&#39;, &#39;C03&#39;, &#39;C04&#39;, &#39;C05&#39;, &#39;C06&#39;, &#39;C07&#39;, &#39;C08&#39;, &#39;C09&#39;, &#39;C10&#39;, &#39;C11&#39;, &#39;C12&#39;, &#39;C13&#39;, &#39;C14&#39;, &#39;satellite_azimuth_angle&#39;, &#39;satellite_zenith_angle&#39;, &#39;solar_azimuth_angle&#39;, &#39;solar_glint_angle&#39;, &#39;solar_zenith_angle&#39;]  Loading ir_channel data:
+# take the ir channel as example ir_channel = &#39;C12&#39; scn.load([ir_channel], generate=False, calibration=&#39;brightness_temperature&#39;)  Full Disk Image # display in notebook scn.show(ir_channel)  # save to file # scn.save_dataset(ir_channel, filename=&#39;{sensor}_{name}.png&#39;)  True color Image # get a list of all available composites for the current scene scn." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dreambooker.site/2020/02/06/Satpy-Basic-FY4A/" />
-<meta property="article:published_time" content="2020-02-06T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://dreambooker.site/2020/02/06/Satpy-Basic-FY4A/" /><meta property="article:published_time" content="2020-02-06T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2020-02-06T00:00:00&#43;00:00"/>
 
 

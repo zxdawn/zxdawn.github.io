@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sci-tech on Dreambooker</title>
+    <title>Sci Tech on Dreambooker</title>
     <link>https://dreambooker.site/categories/sci-tech/</link>
-    <description>Recent content in sci-tech on Dreambooker</description>
+    <description>Recent content in Sci Tech on Dreambooker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Sat, 22 Feb 2020 00:00:00 +0000</lastBuildDate>
@@ -17,7 +17,13 @@
       <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>https://dreambooker.site/2020/02/22/Plot-TROPOMI-data-using-pcolormesh-or-imshow/</guid>
-      <description>Methods to plot Swath data correctly</description>
+      <description>1. Background There&amp;rsquo;re three ways to plot Polar satellite swaths data: pcolor, pcolormesh and imshow
+I don&amp;rsquo;t recommend contourf because I want to keep the original data without interpolation.
+The User Guide of matplotlib illustrates the differences between them in detail.
+Here, I&amp;rsquo;ll show you the effects by some simple examples .
+2. Definitions pcolormesh The definition of pcolormesh is plotting the C values with X,Y corners:
+(X[i+1, j], Y[i+1, j]) (X[i+1, j+1], Y[i+1, j+1]) +--------+ | C[i,j] | +--------+ (X[i, j], Y[i, j]) (X[i, j+1], Y[i, j+1])  The figure below could help us understand that &amp;hellip;
+import pylab as pl import matplotlib.pyplot as plt import numpy as np # values x and y give values at z xmin = 1; xmax = 8; dx = 2 ymin = 1; ymax = 6; dy = 1 x,y = np.meshgrid(np.arange(xmin,xmax,dx),np.arange(ymin,ymax,dy)) z = x*y # transform x and y to boundaries of x and y x2,y2 = np.meshgrid(np.arange(xmin,xmax+dx,dx)-dx/2.,np.arange(ymin,ymax+dy,dy)-dy/2.) fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2) # pcolormesh without x and y just uses indexing as labels ax1.pcolormesh(z) ax1.set_title(&amp;quot;Wrong ticks&amp;quot;) # pcolormesh with x and y values gives a wrong plot, x and y are treated as boundaries ax2.set_title(&amp;quot;Wrong: x,y as values&amp;quot;) ax2.</description>
     </item>
     
     <item>
@@ -26,7 +32,19 @@
       <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>https://dreambooker.site/2020/02/06/Satpy-Basic-FY4A/</guid>
-      <description>Using Satpy to read and plot FY4A data</description>
+      <description>1. Support Files FY4A AGRI data in NetCDF format. Both Full DISK and regional images are supported.
+Example filenames:
+Full DISK:
+FY4A-_AGRI--_N_DISK_1047E_L1-_FDI-_MULT_NOM_20190807060000_20190807061459_4000M_V0001.HDF  REGC:
+FY4A-_AGRI--_N_REGC_1047E_L1-_FDI-_MULT_NOM_20190807045334_20190807045750_1000M_V0001.HDF  Full disk scans are identified by DISK , regional scans by REGC.
+Data Links:
+Real Time Data Service (30 days) and Introduction Files: https://fy4.nsmc.org.cn/data/en/data/realtime.html History data (2018-03-12 -- ): http://satellite.nsmc.org.cn/PortalSite/Data/Satellite.aspx FY4A official weather application platform: http://rsapp.nsmc.org.cn/geofy/  2. Calibration You have three options:
+ The raw detector counts (All channels)
+ Reflectance (C01 - C06)
+ Radiance and Brightness Temperature (C07 - C14)
+  3. Examples Installation conda install -c conda-forge satpy  Loading data import os, glob from satpy.scene import Scene from satpy.utils import debug_on from trollimage.colormap import greys, spectral  # load FY4A filenames filenames = glob.glob(&#39;/xin/data/FY4A/20190807/FY4A-_AGRI*4000M_V0001.HDF&#39;) # create the scene object scn = Scene(filenames, reader=&#39;agri_l1&#39;) # check available channels scn.available_dataset_names()  Output:
+[&#39;C01&#39;, &#39;C02&#39;, &#39;C03&#39;, &#39;C04&#39;, &#39;C05&#39;, &#39;C06&#39;, &#39;C07&#39;, &#39;C08&#39;, &#39;C09&#39;, &#39;C10&#39;, &#39;C11&#39;, &#39;C12&#39;, &#39;C13&#39;, &#39;C14&#39;, &#39;satellite_azimuth_angle&#39;, &#39;satellite_zenith_angle&#39;, &#39;solar_azimuth_angle&#39;, &#39;solar_glint_angle&#39;, &#39;solar_zenith_angle&#39;]  Loading ir_channel data:
+# take the ir channel as example ir_channel = &#39;C12&#39; scn.load([ir_channel], generate=False, calibration=&#39;brightness_temperature&#39;)  Full Disk Image # display in notebook scn.show(ir_channel)  # save to file # scn.save_dataset(ir_channel, filename=&#39;{sensor}_{name}.png&#39;)  True color Image # get a list of all available composites for the current scene scn.</description>
     </item>
     
     <item>
@@ -35,7 +53,7 @@
       <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://dreambooker.site/2019/12/20/IELTS-Notes/</guid>
-      <description>How to prepare for IELTS</description>
+      <description>Test result Here&amp;rsquo;s my IELTS result which took me one month: All of my materials related to IELTS are pushed to the GitHub repo: https://github.com/zxdawn/IELTS_notes Check it for free :) I want to share some general steps of preparations in four sections: Listening Test Books The most important one is the IELTS Cambridge Test Books. Please spend around 3 - 5 days to get familiar with different kinds of questions in the Listening Part. Then, you need to remember the most difficult kind(s). For me, that is the Matching and Map questions. It&amp;rsquo;s not enough to finish tests one by one and check the answers. (Quality is better than Quantity) The best method should have four steps: Check the answer without analyzing. Ignore the misspelled words caused by careless and write down the unknown words. Pick out the specific Section which you can&amp;rsquo;t understand the conversation or make too many mistakes, and listen to that again with x1.5 speed until one/two mistakes left. I recommend two softwares (PotPlayer Win) or VLC (all platforms)) for this function. Summarize the reasons of each error to the Hit List. This is the example of Hit List: Test No. Reason 9.1.1 2 Location name</description>
     </item>
     
     <item>
@@ -44,7 +62,17 @@
       <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/</guid>
-      <description>Downloading ERA5 pressure level data by Python and initialize WRF model</description>
+      <description>Note This is the tutorial of using WRF with ERA5 pressure level (38 vertical levels) data.
+If you prefer model level (138 vertical levels), please check another tutorial.
+I recommend the pressure level data, because the download speed is much faster.
+If you don&amp;rsquo;t have cdsapi, please check this official tutorial.
+Required Fields  WRF requires a number of fields as input.
+ 3D Data (e.g. data on pressure levels)
+ Temperature U and V components of Wind Geopotential Height Relative Humidity (the code can calculate RH if Specific Humidity is available;this is controlled in the Vtable)  2D Data
+ Surface Pressure Mean Sea Level Pressure Skin Temperature/SST 2-meter Temperature 2-meter Relative or Specific Humidity 10-meter U and V components of wind Soil data (temperature and moisture) and soil height   If any masked field is ingested, then a LANDSEA field is recommended
+Water equivalent snow depth (SNOW) is a nice field to have, but not required.
+SEAICE is good to have for a high latitude winter case, but it is not required.
+ Single level data (GetERA5-sl.py) import cdsapi c = cdsapi.Client() c.retrieve( &#39;reanalysis-era5-single-levels&#39;, { &#39;product_type&#39;:&#39;reanalysis&#39;, &#39;format&#39;:&#39;grib&#39;, &#39;variable&#39;:[ &#39;10m_u_component_of_wind&#39;,&#39;10m_v_component_of_wind&#39;,&#39;2m_dewpoint_temperature&#39;, &#39;2m_temperature&#39;,&#39;land_sea_mask&#39;,&#39;mean_sea_level_pressure&#39;, &#39;sea_ice_cover&#39;,&#39;sea_surface_temperature&#39;,&#39;skin_temperature&#39;, &#39;snow_depth&#39;,&#39;soil_temperature_level_1&#39;,&#39;soil_temperature_level_2&#39;, &#39;soil_temperature_level_3&#39;,&#39;soil_temperature_level_4&#39;,&#39;surface_pressure&#39;, &#39;volumetric_soil_water_layer_1&#39;,&#39;volumetric_soil_water_layer_2&#39;,&#39;volumetric_soil_water_layer_3&#39;, &#39;volumetric_soil_water_layer_4&#39; ], &#39;date&#39;:&#39;DATE1/DATE2&#39;, &#39;area&#39;:&#39;Nort/West/Sout/East&#39;, &#39;time&#39;:[ &#39;00:00&#39;,&#39;01:00&#39;,&#39;02:00&#39;, &#39;03:00&#39;,&#39;04:00&#39;,&#39;05:00&#39;, &#39;06:00&#39;,&#39;07:00&#39;,&#39;08:00&#39;, &#39;09:00&#39;,&#39;10:00&#39;,&#39;11:00&#39;, &#39;12:00&#39; ] }, &#39;ERA5-DATE1-DATE2-sl.</description>
     </item>
     
     <item>
@@ -61,7 +89,9 @@
 &lt;li&gt;&lt;a href=&#34;https://github.com/&#34;&gt;GitHub&lt;/a&gt; account;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://travis-ci.org/&#34;&gt;Travis CI&lt;/a&gt; account (login with GitHub account);&lt;/li&gt;
 &lt;li&gt;Installing &lt;a href=&#34;https://git-scm.com/book/en/v2/Getting-Started-Installing-Git&#34;&gt;git&lt;/a&gt;, &lt;a href=&#34;https://gohugo.io/getting-started/installing/&#34;&gt;hugo&lt;/a&gt; on your local system&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -85,7 +115,9 @@
 &lt;pre&gt;&lt;code&gt;$ ./configure --prefix=/HOME/nuist_chenq_2/WORKSPACE/xin/software/hdf5-1.10.4 --enable-fortran --enable-static-exec
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;But, I got this error:&lt;/p&gt;</description>
+&lt;p&gt;But, I got this error:&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -110,7 +142,9 @@ IPSec secret gzcszx@123
 #IKE Authmode hybrid
 Xauth username vpn_username
 Xauth password vpn_password
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -138,7 +172,9 @@ Xauth password vpn_password
  p_top_requested                    = 10000,
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;I used &lt;code&gt;384&lt;/code&gt; cores to run it and I found the speed of &lt;code&gt;calculation&lt;/code&gt; and &lt;code&gt;writing&lt;/code&gt; is &lt;strong&gt;~5.45 seconds/step&lt;/strong&gt;, &lt;strong&gt;~54.5 s/wrfout_file&lt;/strong&gt; and &lt;strong&gt;~210 s/wrfrst_file&lt;/strong&gt;. The terrible one is the speed of &lt;strong&gt;I/O  tasks&lt;/strong&gt;.&lt;/p&gt;</description>
+&lt;p&gt;I used &lt;code&gt;384&lt;/code&gt; cores to run it and I found the speed of &lt;code&gt;calculation&lt;/code&gt; and &lt;code&gt;writing&lt;/code&gt; is &lt;strong&gt;~5.45 seconds/step&lt;/strong&gt;, &lt;strong&gt;~54.5 s/wrfout_file&lt;/strong&gt; and &lt;strong&gt;~210 s/wrfrst_file&lt;/strong&gt;. The terrible one is the speed of &lt;strong&gt;I/O  tasks&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -151,7 +187,9 @@ Xauth password vpn_password
 
 &lt;p&gt;We&amp;rsquo;re asked to learn a library about safety.&lt;/p&gt;
 
-&lt;p&gt;However, if the duration is greater than 5 minutes (~300 seconds), we need to click &lt;code&gt;agree&lt;/code&gt; to let the timing continue. So, when we finish the learning progress, we&amp;rsquo;ll click &lt;strong&gt;6*&lt;sup&gt;60&lt;/sup&gt;&amp;frasl;&lt;sub&gt;5&lt;/sub&gt; = 72&lt;/strong&gt; times &amp;hellip;&amp;hellip;..&lt;/p&gt;</description>
+&lt;p&gt;However, if the duration is greater than 5 minutes (~300 seconds), we need to click &lt;code&gt;agree&lt;/code&gt; to let the timing continue. So, when we finish the learning progress, we&amp;rsquo;ll click &lt;strong&gt;6*&lt;sup&gt;60&lt;/sup&gt;&amp;frasl;&lt;sub&gt;5&lt;/sub&gt; = 72&lt;/strong&gt; times &amp;hellip;&amp;hellip;..&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -175,7 +213,9 @@ Xauth password vpn_password
 &amp;gt;&amp;gt;&amp;gt; ret.statistic
 array([[ 2.,  1.],
        [ 1.,  0.]])
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -199,7 +239,9 @@ set smtp=smtp.qq.com
 set smtp-auth-user=&amp;quot;363910399@qq.com&amp;quot;
 set smtp-auth-password=&amp;quot;authorization_code&amp;quot;
 set smtp-auth=login
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -232,7 +274,9 @@ set smtp-auth=login
 
 &lt;p&gt;If your server is located in China, I recommend the later one.&lt;/p&gt;
 
-&lt;p&gt;I&amp;rsquo;ll take the later one as example.&lt;/p&gt;</description>
+&lt;p&gt;I&amp;rsquo;ll take the later one as example.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -245,7 +289,9 @@ set smtp-auth=login
 
 &lt;p&gt;&lt;a href=&#34;http://alex.seeholzer.de/2014/05/fun-with-matplotlib-pcolormesh-getting-data-to-display-in-the-right-position/&#34;&gt;http://alex.seeholzer.de/2014/05/fun-with-matplotlib-pcolormesh-getting-data-to-display-in-the-right-position/&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;</description>
+&lt;h2 id=&#34;code&#34;&gt;Code&lt;/h2&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -285,7 +331,9 @@ mdadm: No md superblock detected on /dev/sdh.
 
 &lt;p&gt;Please follow the below instructions to create partition on &lt;strong&gt;/dev/sdb&lt;/strong&gt; drive.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;fdisk /dev/sdb&lt;/code&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;code&gt;fdisk /dev/sdb&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -303,7 +351,9 @@ mdadm: No md superblock detected on /dev/sdh.
 service nfsserver start
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;exporting-directories-on-the-server&#34;&gt;Exporting Directories on the Server&lt;/h2&gt;</description>
+&lt;h2 id=&#34;exporting-directories-on-the-server&#34;&gt;Exporting Directories on the Server&lt;/h2&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -322,7 +372,8 @@ service nfsserver start
 
 &lt;p&gt;&lt;img src=&#34;http://ox58se1xg.bkt.clouddn.com/Texstudio/texstudio_dark.png&#34; alt=&#34;Dark&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Steps:&lt;/strong&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;strong&gt;Steps:&lt;/strong&gt;
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -342,7 +393,9 @@ service nfsserver start
                      ( cd .. ; tools/registry $(ARCHFLAGS) $(ENVCOMPDEFS) -DNEW_BDYS Registry/$(REGISTRY) ) ;&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;&lt;code&gt;Registry/Registry.EM_COMMON&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -351,7 +404,13 @@ service nfsserver start
       <pubDate>Wed, 11 Jul 2018 09:27:50 +0000</pubDate>
       
       <guid>https://dreambooker.site/2018/07/11/The-cycle-of-download-and-move/</guid>
-      <description>Download files on node_1 and move all of them to node_2 at intervals.</description>
+      <description> Background My cluster has two nodes:
+​ node_1: Public IP, small disk space;
+​ node_2: Private IP, large disk space;
+So, I need to download files on node_1 and move all of them to node_2 at intervals.
+Method  After enough large files are downloaded, I just move them to node_2;
+ Copy files&amp;rsquo; attributes to node_1
+   cp -r --attributes-only &amp;lt;node_1_directory&amp;gt; &amp;lt;ndoe_2_directory&amp;gt;   Download again by -nc option on node_1:   wget --no-check-certificate -nc -e robots=off -r -l inf -np -R .html,.tmp -nH --cut-dirs=3 https://ladsweb.modaps.eosdis.nasa.gov/archive/orders/501249136/ --header &amp;quot;Authorization: Bearer &amp;lt;APP_KEY&amp;gt;&amp;quot; -P ./   Delete empty fiels:   find . -type f -empty -delete   Repeat 1-4&amp;hellip;&amp;hellip;  </description>
     </item>
     
     <item>
@@ -383,7 +442,9 @@ $ ./configure CURLDIR=/public/home/zhangxin/softwares/curl --prefix=/public/home
 # Since we don&#39;t need docs actually, just &#39;make&#39;.
 $ make CURLDIR=/public/home/zhangxin/softwares/curl
 $ make install CURLDIR=/public/home/zhangxin/softwares/curl
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -407,7 +468,9 @@ autologin-user-timeout=0
 
 &lt;h2 id=&#34;python-script&#34;&gt;Python script&lt;/h2&gt;
 
-&lt;p&gt;This is the example (&lt;a href=&#34;https://blog.csdn.net/shenhuaifeng/article/details/78333851&#34;&gt;python实现校园网自动登录&lt;/a&gt;):&lt;/p&gt;</description>
+&lt;p&gt;This is the example (&lt;a href=&#34;https://blog.csdn.net/shenhuaifeng/article/details/78333851&#34;&gt;python实现校园网自动登录&lt;/a&gt;):&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -434,7 +497,9 @@ autologin-user-timeout=0
 &lt;li&gt;Choose your *github.io:&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://ox58se1xg.bkt.clouddn.com/integration/repo.png&#34; alt=&#34;repo&#34; /&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;http://ox58se1xg.bkt.clouddn.com/integration/repo.png&#34; alt=&#34;repo&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -467,7 +532,9 @@ autologin-user-timeout=0
 &lt;p&gt;&lt;a href=&#34;https://gingter.org/2016/08/17/install-and-run-zsh-on-windows/&#34;&gt;Install (Oh-my-) Zsh on Bash on Ubuntu on Windows&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h1 id=&#34;set-up-zsh-in-cmder&#34;&gt;Set up Zsh in Cmder&lt;/h1&gt;</description>
+&lt;h1 id=&#34;set-up-zsh-in-cmder&#34;&gt;Set up Zsh in Cmder&lt;/h1&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -491,7 +558,9 @@ autologin-user-timeout=0
 &lt;p&gt;在校外电脑上，通过本地端口映射，使得校外电脑：2222 映射到VPS: 2222&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;ssh -N -f -L 2222:127.0.0.1:2222 root@vpsIP
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -520,7 +589,9 @@ autologin-user-timeout=0
 &lt;li&gt;Ungrib&lt;/li&gt;
 &lt;li&gt;Produce additional intermediate files&lt;/li&gt;
 &lt;li&gt;Metgrid&lt;/li&gt;
-&lt;/ol&gt;</description>
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -538,7 +609,9 @@ cd BEHR
 git clone https://github.com/CohenBerkeleyLab/BEHR-core.git
 cd BEHR-core
 ./setup.sh # if you want to use develop branch, add --develop
-&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -553,7 +626,9 @@ cd BEHR-core
 
 &lt;h2 id=&#34;method-2&#34;&gt;Method 2&lt;/h2&gt;
 
-&lt;h3 id=&#34;set-up-vpn&#34;&gt;Set up VPN&lt;/h3&gt;</description>
+&lt;h3 id=&#34;set-up-vpn&#34;&gt;Set up VPN&lt;/h3&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -572,7 +647,9 @@ cd BEHR-core
 &lt;li&gt;Surface variable data&lt;/li&gt;
 &lt;li&gt;Fixed data.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/blockquote&gt;</description>
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -585,7 +662,9 @@ cd BEHR-core
 
 &lt;h2 id=&#34;namelist&#34;&gt;namelist&lt;/h2&gt;
 
-&lt;h3 id=&#34;i-parent-start-and-j-parent-start&#34;&gt;i_parent_start and j_parent_start&lt;/h3&gt;</description>
+&lt;h3 id=&#34;i-parent-start-and-j-parent-start&#34;&gt;i_parent_start and j_parent_start&lt;/h3&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -598,7 +677,9 @@ cd BEHR-core
 
 &lt;h1 id=&#34;requirements&#34;&gt;Requirements&lt;/h1&gt;
 
-&lt;h2 id=&#34;flex-2-5-3&#34;&gt;flex(2.5.3)&lt;/h2&gt;</description>
+&lt;h2 id=&#34;flex-2-5-3&#34;&gt;flex(2.5.3)&lt;/h2&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -607,7 +688,9 @@ cd BEHR-core
       <pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://dreambooker.site/2017/10/02/How-to-set-up-Hexo/</guid>
-      <description>&lt;h2 id=&#34;install-node-js-and-npm-on-my-local-linux-computer&#34;&gt;Install &lt;strong&gt;Node.js and npm&lt;/strong&gt; on my local Linux computer:&lt;/h2&gt;</description>
+      <description>&lt;h2 id=&#34;install-node-js-and-npm-on-my-local-linux-computer&#34;&gt;Install &lt;strong&gt;Node.js and npm&lt;/strong&gt; on my local Linux computer:&lt;/h2&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
