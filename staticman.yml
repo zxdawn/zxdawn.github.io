@@ -59,9 +59,9 @@ comments:
   # via email when someone adds a reply or a new comment. This requires an account
   # with Mailgun, which you can get for free at http://mailgun.com.
   notifications:
-    enabled: false
-    # apiKey: "PQ7ZMxkjYNyZyARDBpH4uoKxPvqRCnCseRqccRyDnjigUZRGoN3VASB45Rydzgi1UsfjKVdwEzjzRsZBw8LFKGTHBj8bB8yycNvb8UNDHeHi8/wN22AsT0l6v4xGATgR0hwDMD6XTjlyqr9M2tBP6qHetWbcKx1iPAqxrjx55zCbf8XJLBqgNfbpeAxpQHWClOjxfmgcYswfy5puZ55gBPZwnpkWyJPqwTxVLwc4sLS3nazvk4fyJN12pzPsD2qql3qmohUKYR4VPJvpBqJ3GhzV+alsbyoYvHQVEAftYNJav9wYWtUQ7B7jq75k3QdxaO4UcATz6n17aDm+WqVp0A=="
-    # domain: "EaD+MUdSifQARd9Q6rg+MA5/tGRUdIKM15nwk0d5fWZlsdsIGHt01Ceplu5gxFCk1Gsq//oquZ2d/16xbwC/hG6ncRsiFca3xdkasmamiwwL3ibl1eVd1EaLxSYHQKDkCi4ta5VcER1CjFrz7shEQrU+B6lOnbcBSWDnunmIwb1cyNxpTcRQ+pmPQV7//hpNDYwu+Nih32rx5gSGmIMaoqJSAgfm0g/IUqvf+mvF7JSNHbIeY6xnnwod8sxG/nA3v3X/P97OZuM28/PFMEKSXbt3mBgks+KFunW765Sxppr7slfZHWBEqSBwU98BOT/oBggK5w4yjZHT6ag/jM9S+w=="
+    enabled: true
+    apiKey: "PQ7ZMxkjYNyZyARDBpH4uoKxPvqRCnCseRqccRyDnjigUZRGoN3VASB45Rydzgi1UsfjKVdwEzjzRsZBw8LFKGTHBj8bB8yycNvb8UNDHeHi8/wN22AsT0l6v4xGATgR0hwDMD6XTjlyqr9M2tBP6qHetWbcKx1iPAqxrjx55zCbf8XJLBqgNfbpeAxpQHWClOjxfmgcYswfy5puZ55gBPZwnpkWyJPqwTxVLwc4sLS3nazvk4fyJN12pzPsD2qql3qmohUKYR4VPJvpBqJ3GhzV+alsbyoYvHQVEAftYNJav9wYWtUQ7B7jq75k3QdxaO4UcATz6n17aDm+WqVp0A=="
+    domain: "EaD+MUdSifQARd9Q6rg+MA5/tGRUdIKM15nwk0d5fWZlsdsIGHt01Ceplu5gxFCk1Gsq//oquZ2d/16xbwC/hG6ncRsiFca3xdkasmamiwwL3ibl1eVd1EaLxSYHQKDkCi4ta5VcER1CjFrz7shEQrU+B6lOnbcBSWDnunmIwb1cyNxpTcRQ+pmPQV7//hpNDYwu+Nih32rx5gSGmIMaoqJSAgfm0g/IUqvf+mvF7JSNHbIeY6xnnwod8sxG/nA3v3X/P97OZuM28/PFMEKSXbt3mBgks+KFunW765Sxppr7slfZHWBEqSBwU98BOT/oBggK5w4yjZHT6ag/jM9S+w=="
 
   # List of transformations to apply to any of the fields supplied. Keys are
   # the name of the field and values are possible transformation types.
