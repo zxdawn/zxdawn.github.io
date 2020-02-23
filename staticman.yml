@@ -60,8 +60,8 @@ comments:
   # with Mailgun, which you can get for free at http://mailgun.com.
   notifications:
     enabled: true
-    apiKey: "XI/aGb6SzkaNYJctd/wsuAK5lOlxKorbdqYJouAuerrainh8fOiBvbYctXy+do/5nHs+bAmspLChGpDWtnkYtd7kYKTxGMkEgNfJvEm2vyFj1Yn3ecBxQSWEBLiLYJiZKUTA0+apEaIWtR7/5pceG3XtAyzpkEtWjWrOp1MAtD+w9uL5e7OyuEa4a7HCHHuhjwH4rB+xgygHppJ9hplaGubHgFm8WHkW6VkK8INSNuJv6FuwqNhN2IVte+R8tEEVCq8OVs3DFwk/JIoAdMRCdUvmbd6VycDiqacg4pz/sJDt4Xzlb8SXdcb61jXLW/Wxz4FfB0y2GpgKGglOU6Fjrw=="
-    domain: "guHjSwJcpMyG9+CFD6iX0gvmKGSVe5OXHebn5EmYQNXgmlwISxQ5DyvRBt+9zYR22osxcjqk+Uy2IccRmPV/ohN4/WxhrQYa11jcyrJ+yOkgOyVla/CV+gqK5Xh/h5H7hpWeOh2NmY8fpp9mEgLxrab7swKb1a45FUBrHefrF270fk8/e+MWfxMT5Q6z4UtuWv8dZW20FcANepXrO+uNSyQ/VbnzxCIs57nTJOEzhlx97u2ZYYL1eynVEBiQ2kY3HyDVNlUdvbbZef2lKIH6O6Nxqqkqi0LXS5Ged6glU5qR72K/TL9nKtMgePd5elmCRbLF4sncm7DMZd01QfudZQ=="
+    apiKey: "Y+xmGgse15zokIbHqsE7xCOQ1Tcp751OPstpoNN/L9MmYk+ba6zG3HGCL6I258nOWGEllzfrw4G+U0OHVLvT+B8cuqRxPv4JE+jLEhQifE6bKE24fhqT3Vpi024PcRWaDE/+p0yazOdCwRWhoPk7MNCmDtJQ6AOR+eCkxlnqFxPHdBRloWGFn1dQmNoiZolmwMuUPNDHW1JSZd7Few1FBfwlLMq79Rnn4qO8LHVbvridr6B766eqtQgoR2O0yN6kfv6O9YiN1S1dHZBSbqcXqof5wC3ZfqcAk/qB9FmIfsp6U6owunjeaisjh8azQ/2LqLlgc4A1k3F2zR882bgATQ=="
+    domain: "OjQ3xal+OXiMDTM5TWprYT1r5/JO+NZ+a1Fmdq3wk9h24QRW3AcOWZQzBm0/Ru2WWht7H1nq4JDqGlJ+RiP1qoNyhbX/s+sO8re48gYs7JQSSRCXa8V3jaxRvOFQr2U56zWKQV7e81mMdNQ8tz6o7ku+4Y51Ax+eOS/LrRuDTU5r6yGBytZuXUmhSHX5J32ezn/CaHQQ4i2DpDIvlhQK27cMHwSsCztbdUq8ZQLB1IJbIiyMiKA6+Akir7SgoJeSYj1MJMiivT4oJCAI8XnTZGLzRE+ZoEs1qTZiX1zVG5/eQ3l7RGS8rU9a4/RhWPj4oMC+32+eZ4tnb4Y5chrOlg=="
 
   # List of transformations to apply to any of the fields supplied. Keys are
   # the name of the field and values are possible transformation types.

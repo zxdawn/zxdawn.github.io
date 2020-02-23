@@ -381,6 +381,7 @@ Then, you can [add notifications using Mailgun](https://yasoob.me/posts/staticma
 | ------- | ---------------------------------------- | ---------- |
 | 1.0     | Init                                     | 2019-08-07 |
 | 1.1     | Add the part of setting up own staticman | 2019-08-28 |
+| 1.2     | Add more references                      | 2020-02-23 |
 
 ## Reference
 
@@ -390,3 +391,4 @@ Then, you can [add notifications using Mailgun](https://yasoob.me/posts/staticma
 4. [Threaded comments for Hugo with Staticman v3](https://jameskiefer.com/posts/threaded-comments-for-hugo-with-staticman-v3/)
 5. [Running Staticman on Hugo Blog With Nested Comments](https://yasoob.me/posts/running_staticman_on_static_hugo_blog_with_nested_comments/)
 6. [Staticman Comment Notifications Setup Using Mailgun](https://yasoob.me/posts/staticman_comment_notifications_mailgun/)
+7. [Staticman: Adding comments to my Jekyll site](http://www.gabescode.com/staticman/2019/01/04/staticman-comments-for-jekyll.html)
