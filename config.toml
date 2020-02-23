@@ -105,7 +105,7 @@ theme                      = ["AllinOne", "resume"]
   showQr = true
 
 [params.staticman]
-  endpoint = "https://dreambooker-staticman.herokuapp.com/v3/entry/github"
+  endpoint = "https://dreambooker-staticman.herokuapp.com/v2"
   username = "zxdawn"
   repository = "zxdawn.github.io"
   branch = "source"
