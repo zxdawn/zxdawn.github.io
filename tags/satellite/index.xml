@@ -6,10 +6,19 @@
     <description>Recent content in Satellite on Dreambooker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sat, 22 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dreambooker.site/tags/satellite/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Satpy中英双语简介</title>
+      <link>https://dreambooker.site/2020/02/24/Satpy%E4%B8%AD%E8%8B%B1%E5%8F%8C%E8%AF%AD%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/02/24/Satpy%E4%B8%AD%E8%8B%B1%E5%8F%8C%E8%AF%AD%E7%AE%80%E4%BB%8B/</guid>
+      <description>概览 Satpy is designed to provide easy access to common operations for processing meteorological remote sensing data. Satpy旨在为处理气象卫星数据提供一个便捷的工具。 Any details needed to perform these operations are configured internally to Satpy meaning users should not have to worry about how something is done, only ask for what they want. Satpy已经在模块内部配置好了所需信息，用户无需考虑每步的具体操作，只需提供自己想获得的内容即可。 Most of the features provided by Satpy can be configured by keyword arguments (see the API Documentation or other specific section for more details). 用户可以通过关键字参数来使用大部分的功能（详见API文档和其他官方文档）。 For more complex customizations or added features Satpy uses a set of configuration files that</description>
+    </item>
     
     <item>
       <title>Plot TROPOMI data using pcolormesh or imshow?</title>
