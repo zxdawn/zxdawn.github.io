@@ -84,6 +84,16 @@
     </item>
     
     <item>
+      <title>Map MEIC to MOZART</title>
+      <link>https://dreambooker.site/2020/03/10/Map-MEIC-to-MOZART/</link>
+      <pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/03/10/Map-MEIC-to-MOZART/</guid>
+      <description>Approximate matching of MOZART species to suffixes of MEIC files with different mechanisms.
+ table { width:100%; }     WRF-Chem CB05 SAPRC-99 RADM2     E_C10H16 TERP     E_C2H5OH ETOH     E_C2H2 5.87*10-3*CO     E_MACR  MACR    E_BENZENE  BENZ    E_ISO   ISO   E_HC3   HC3   E_HC5   HC5   E_HC8   HC8   E_OL2   OL2   E_OLT   OLT   E_OLI   OLI   E_TOL   TOL   E_CSL   CSL   E_ALD   ALD   E_KET   KET   E_ORA2   ORA2   E_CH3COOH   ORA2   E_CH3OH MEOH MEOH    E_C3H6 OLE + PAR OLE1    E_MVK 2.40*10-4*CO MVK    E_XYL XYL  XYL   E_ETH ETH  ETH   E_HCHO  HCHO HCHO   E_MEK  MEK+PRD2 KET   E_NH3 NH3 NH3 NH3   E_PM_25 PM2.5 PM2.5 PM2.5   E_PM_10 PMcoarse PMcoarse PMcoarse   E_BIGALK 5*PAR ALK3+ALK4+ALK5 HC5   E_BIGENE OLE + 2*PAR, IOLE + 2*PAR OLE2 OLT + OLI   E_C2H4 ETH ETHE OL2   E_C2H6 ETHA ALK1 ETH   E_C3H8 1.</description>
+    </item>
+    
+    <item>
       <title>Satpy中英双语简介</title>
       <link>https://dreambooker.site/2020/02/24/Satpy%E4%B8%AD%E8%8B%B1%E5%8F%8C%E8%AF%AD%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
