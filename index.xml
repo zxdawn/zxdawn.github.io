@@ -84,6 +84,19 @@
     </item>
     
     <item>
+      <title>X11 forwarding Chrome of internal PC</title>
+      <link>https://dreambooker.site/2020/03/11/X11-forwarding-Chrome-of-internal-PC/</link>
+      <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/03/11/X11-forwarding-Chrome-of-internal-PC/</guid>
+      <description> Method Just type this in one terminal:
+ ssh -L 8822:internal_pc:22 user@proxy_server  Then, open another terminal and type:
+ssh -p 8822 -X localhost  Note that if you have opened the Chrome on your internal PC, you need to specify a new user-data-dir like this:
+google-chrome --user-data-dir=~/.config/windos-chrome  If you don&amp;rsquo;t have a proxy server which has the internal access, you can check another blog about how to use VPS as the proxy server.
+Reference  PuTTY X11 forwarding can&amp;rsquo;t forward Google Chrome Photo by Edvinas Daugirdas on Unsplash  Version control    Version Action Time     1.0 Init 2020-03-11    </description>
+    </item>
+    
+    <item>
       <title>Map MEIC to MOZART</title>
       <link>https://dreambooker.site/2020/03/10/Map-MEIC-to-MOZART/</link>
       <pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate>
