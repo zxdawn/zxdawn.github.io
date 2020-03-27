@@ -17,7 +17,7 @@ Required Fields  WRF requires a number of fields as input.
  Surface Pressure Mean Sea Level Pressure Skin Temperature/SST 2-meter Temperature 2-meter Relative or Specific Humidity 10-meter U and V components of wind Soil data (temperature and moisture) and soil height   If any masked field is ingested, then a LANDSEA field is recommended
 Water equivalent snow depth (SNOW) is a nice field to have, but not required.
 SEAICE is good to have for a high latitude winter case, but it is not required.
- Single level data (GetERA5-sl.py) import cdsapi c = cdsapi.Client() c.retrieve( &#39;reanalysis-era5-single-levels&#39;, { &#39;product_type&#39;:&#39;reanalysis&#39;, &#39;format&#39;:&#39;grib&#39;, &#39;variable&#39;:[ &#39;10m_u_component_of_wind&#39;,&#39;10m_v_component_of_wind&#39;,&#39;2m_dewpoint_temperature&#39;, &#39;2m_temperature&#39;,&#39;land_sea_mask&#39;,&#39;mean_sea_level_pressure&#39;, &#39;sea_ice_cover&#39;,&#39;sea_surface_temperature&#39;,&#39;skin_temperature&#39;, &#39;snow_depth&#39;,&#39;soil_temperature_level_1&#39;,&#39;soil_temperature_level_2&#39;, &#39;soil_temperature_level_3&#39;,&#39;soil_temperature_level_4&#39;,&#39;surface_pressure&#39;, &#39;volumetric_soil_water_layer_1&#39;,&#39;volumetric_soil_water_layer_2&#39;,&#39;volumetric_soil_water_layer_3&#39;, &#39;volumetric_soil_water_layer_4&#39; ], &#39;date&#39;:&#39;DATE1/DATE2&#39;, &#39;area&#39;:&#39;Nort/West/Sout/East&#39;, &#39;time&#39;:[ &#39;00:00&#39;,&#39;01:00&#39;,&#39;02:00&#39;, &#39;03:00&#39;,&#39;04:00&#39;,&#39;05:00&#39;, &#39;06:00&#39;,&#39;07:00&#39;,&#39;08:00&#39;, &#39;09:00&#39;,&#39;10:00&#39;,&#39;11:00&#39;, &#39;12:00&#39; ] }, &#39;ERA5-DATE1-DATE2-sl.">
+ Single level data (GetERA5-sl.py) import cdsapi c = cdsapi.Client() c.retrieve( &#39;reanalysis-era5-single-levels&#39;, { &#39;product_type&#39;:&#39;reanalysis&#39;, &#39;format&#39;:&#39;grib&#39;, &#39;variable&#39;:[ &#39;10m_u_component_of_wind&#39;,&#39;10m_v_component_of_wind&#39;,&#39;2m_dewpoint_temperature&#39;, &#39;2m_temperature&#39;,&#39;land_sea_mask&#39;,&#39;mean_sea_level_pressure&#39;, &#39;sea_ice_cover&#39;,&#39;sea_surface_temperature&#39;,&#39;skin_temperature&#39;, &#39;snow_depth&#39;,&#39;soil_temperature_level_1&#39;,&#39;soil_temperature_level_2&#39;, &#39;soil_temperature_level_3&#39;,&#39;soil_temperature_level_4&#39;,&#39;surface_pressure&#39;, &#39;volumetric_soil_water_layer_1&#39;,&#39;volumetric_soil_water_layer_2&#39;,&#39;volumetric_soil_water_layer_3&#39;, &#39;volumetric_soil_water_layer_4&#39; ], &#39;date&#39;:&#39;DATE1/DATE2&#39;, &#39;area&#39;:&#39;Nort/West/Sout/East&#39;, &#39;time&#39;:&#39;00/to/23/by/1&#39;, }, &#39;ERA5-DATE1-DATE2-sl.">
   
   <meta property="og:title" content="Initializing the WRF model with ERA5 (pressure level)" />
 <meta property="og:description" content="Note This is the tutorial of using WRF with ERA5 pressure level (38 vertical levels) data.
@@ -30,7 +30,7 @@ Required Fields  WRF requires a number of fields as input.
  Surface Pressure Mean Sea Level Pressure Skin Temperature/SST 2-meter Temperature 2-meter Relative or Specific Humidity 10-meter U and V components of wind Soil data (temperature and moisture) and soil height   If any masked field is ingested, then a LANDSEA field is recommended
 Water equivalent snow depth (SNOW) is a nice field to have, but not required.
 SEAICE is good to have for a high latitude winter case, but it is not required.
- Single level data (GetERA5-sl.py) import cdsapi c = cdsapi.Client() c.retrieve( &#39;reanalysis-era5-single-levels&#39;, { &#39;product_type&#39;:&#39;reanalysis&#39;, &#39;format&#39;:&#39;grib&#39;, &#39;variable&#39;:[ &#39;10m_u_component_of_wind&#39;,&#39;10m_v_component_of_wind&#39;,&#39;2m_dewpoint_temperature&#39;, &#39;2m_temperature&#39;,&#39;land_sea_mask&#39;,&#39;mean_sea_level_pressure&#39;, &#39;sea_ice_cover&#39;,&#39;sea_surface_temperature&#39;,&#39;skin_temperature&#39;, &#39;snow_depth&#39;,&#39;soil_temperature_level_1&#39;,&#39;soil_temperature_level_2&#39;, &#39;soil_temperature_level_3&#39;,&#39;soil_temperature_level_4&#39;,&#39;surface_pressure&#39;, &#39;volumetric_soil_water_layer_1&#39;,&#39;volumetric_soil_water_layer_2&#39;,&#39;volumetric_soil_water_layer_3&#39;, &#39;volumetric_soil_water_layer_4&#39; ], &#39;date&#39;:&#39;DATE1/DATE2&#39;, &#39;area&#39;:&#39;Nort/West/Sout/East&#39;, &#39;time&#39;:[ &#39;00:00&#39;,&#39;01:00&#39;,&#39;02:00&#39;, &#39;03:00&#39;,&#39;04:00&#39;,&#39;05:00&#39;, &#39;06:00&#39;,&#39;07:00&#39;,&#39;08:00&#39;, &#39;09:00&#39;,&#39;10:00&#39;,&#39;11:00&#39;, &#39;12:00&#39; ] }, &#39;ERA5-DATE1-DATE2-sl." />
+ Single level data (GetERA5-sl.py) import cdsapi c = cdsapi.Client() c.retrieve( &#39;reanalysis-era5-single-levels&#39;, { &#39;product_type&#39;:&#39;reanalysis&#39;, &#39;format&#39;:&#39;grib&#39;, &#39;variable&#39;:[ &#39;10m_u_component_of_wind&#39;,&#39;10m_v_component_of_wind&#39;,&#39;2m_dewpoint_temperature&#39;, &#39;2m_temperature&#39;,&#39;land_sea_mask&#39;,&#39;mean_sea_level_pressure&#39;, &#39;sea_ice_cover&#39;,&#39;sea_surface_temperature&#39;,&#39;skin_temperature&#39;, &#39;snow_depth&#39;,&#39;soil_temperature_level_1&#39;,&#39;soil_temperature_level_2&#39;, &#39;soil_temperature_level_3&#39;,&#39;soil_temperature_level_4&#39;,&#39;surface_pressure&#39;, &#39;volumetric_soil_water_layer_1&#39;,&#39;volumetric_soil_water_layer_2&#39;,&#39;volumetric_soil_water_layer_3&#39;, &#39;volumetric_soil_water_layer_4&#39; ], &#39;date&#39;:&#39;DATE1/DATE2&#39;, &#39;area&#39;:&#39;Nort/West/Sout/East&#39;, &#39;time&#39;:&#39;00/to/23/by/1&#39;, }, &#39;ERA5-DATE1-DATE2-sl." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/" /><meta property="article:published_time" content="2019-10-03T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-10-03T00:00:00&#43;00:00"/>
@@ -449,13 +449,7 @@ c.retrieve(
         ],
         'date':'DATE1/DATE2',
         'area':'Nort/West/Sout/East',
-        'time':[
-            '00:00','01:00','02:00',
-            '03:00','04:00','05:00',
-            '06:00','07:00','08:00',
-            '09:00','10:00','11:00',
-            '12:00'
-        ]
+        'time':'00/to/23/by/1',
     },
     'ERA5-DATE1-DATE2-sl.grib')
 </code></pre>
@@ -488,13 +482,7 @@ c.retrieve(
         ],
         'date':'DATE1/DATE2',
         'area':'Nort/West/Sout/East',
-        'time':[
-            '00:00','01:00','02:00',
-            '03:00','04:00','05:00',
-            '06:00','07:00','08:00',
-            '09:00','10:00','11:00',
-            '12:00'
-        ],
+        'time':'00/to/23/by/1',
         'variable':[
             'geopotential','relative_humidity','specific_humidity',
             'temperature','u_component_of_wind','v_component_of_wind'
@@ -594,6 +582,12 @@ exit 0
 <td>1.1</td>
 <td>Add support of selecting area</td>
 <td>2019-10-04</td>
+</tr>
+
+<tr>
+<td>1.2</td>
+<td>Update the method of assigning &lsquo;time&rsquo;</td>
+<td>2020-03-27</td>
 </tr>
 </tbody>
 </table>
