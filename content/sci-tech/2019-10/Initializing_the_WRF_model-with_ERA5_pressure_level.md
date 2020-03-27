@@ -68,13 +68,7 @@ c.retrieve(
         ],
         'date':'DATE1/DATE2',
         'area':'Nort/West/Sout/East',
-        'time':[
-            '00:00','01:00','02:00',
-            '03:00','04:00','05:00',
-            '06:00','07:00','08:00',
-            '09:00','10:00','11:00',
-            '12:00'
-        ]
+        'time':'00/to/23/by/1',
     },
     'ERA5-DATE1-DATE2-sl.grib')
 ```
@@ -108,13 +102,7 @@ c.retrieve(
         ],
         'date':'DATE1/DATE2',
         'area':'Nort/West/Sout/East',
-        'time':[
-            '00:00','01:00','02:00',
-            '03:00','04:00','05:00',
-            '06:00','07:00','08:00',
-            '09:00','10:00','11:00',
-            '12:00'
-        ],
+        'time':'00/to/23/by/1',
         'variable':[
             'geopotential','relative_humidity','specific_humidity',
             'temperature','u_component_of_wind','v_component_of_wind'
@@ -194,7 +182,8 @@ Run metgrid.exe as usual.
 
 ## Version control
 
-| Version | Action                        | Time       |
-| ------- | ----------------------------- | ---------- |
-| 1.0     | Init                          | 2019-10-03 |
-| 1.1     | Add support of selecting area | 2019-10-04 |
+| Version | Action                                | Time       |
+| ------- | ------------------------------------- | ---------- |
+| 1.0     | Init                                  | 2019-10-03 |
+| 1.1     | Add support of selecting area         | 2019-10-04 |
+| 1.2     | Update the method of assigning 'time' | 2020-03-27 |
