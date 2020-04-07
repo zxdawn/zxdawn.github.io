@@ -1,0 +1,8 @@
+_id: 919f7fc0-78e3-11ea-b5e0-b31158c1d767
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: cd1456c0-78d9-11ea-8ca2-c35471e2764d
+botpot: ''
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "Hi Prerita,\r\n\r\nA1:\r\n\r\nThe pressure levels are interpolated from model levels. You can check the [ERA5 document](https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+documentation) in detail. Also, the definition of 137 model levels is [here](https://www.ecmwf.int/en/forecasts/documentation-and-support/137-model-levels) and the [diagram](https://rda.ucar.edu/datasets/ds627.0/docs/Eta_coordinate/).\r\n\r\nA2:\r\nYes, you can link both kinds of data. That's easier to do `ungrib.exe` and `metgrid.exe`.\r\n\r\nCheers,\r\nXin"
+date: '2020-04-07T15:22:18.645Z'
