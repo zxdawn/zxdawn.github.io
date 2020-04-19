@@ -1,0 +1,8 @@
+_id: d1843440-81fe-11ea-8c22-d533af7825ae
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: f1378a00-7c9d-11ea-8a94-d3c454f06e4a
+botpot: ''
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "Hi Yasmin,\r\n\r\nIn my opinion, the pressure level data is enough. But, if you want the higher vertical resolution, such as >100 levels, or focus on upper atmosphere, you can try the model data.\r\n\r\nLooking forward to your test ;)\r\n\r\nXin"
+date: '2020-04-19T05:30:02.673Z'
