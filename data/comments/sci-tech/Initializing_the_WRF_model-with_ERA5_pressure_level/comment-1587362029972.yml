@@ -1,0 +1,8 @@
+_id: 4eaa5860-82cb-11ea-a747-75be62c6867c
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: ''
+botpot: ''
+name: Yasmin
+email: c8a21dc00051f8ff072b9a35abe2d75d
+body: "Hey Xin, \r\nYou were right, The problem was in the namelist.wps, which I didnt remove the fg_nam = 'PRES' (I've copied it from past simulations that I did using ERA-Interim). My simulations are already running. Thank you very much. Hopefully this dataset will provide results as good as the Era-Interim =)"
+date: '2020-04-20T05:53:49.968Z'
