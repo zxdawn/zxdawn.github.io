@@ -651,7 +651,7 @@ exit 0
   
 
   
-    <h3>Comments (12)</h3>
+    <h3>Comments (13)</h3>
   
 
   
@@ -674,6 +674,8 @@ exit 0
         
           
             
+          
+        
           
         
           
@@ -752,6 +754,8 @@ exit 0
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -793,6 +797,8 @@ exit 0
         
           
             
+          
+        
           
         
           
@@ -894,6 +900,8 @@ Thanks</p>
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -940,6 +948,8 @@ Thanks</p>
         
           
             
+          
+        
           
         
           
@@ -1017,6 +1027,8 @@ Xin</p>
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1072,6 +1084,8 @@ Xin</p>
         
           
             
+          
+        
           
         
           
@@ -1170,6 +1184,8 @@ Yasmin</p>
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1229,6 +1245,10 @@ Yasmin</p>
         
           
         
+          
+            
+          
+        
 
         <div id="5eb8ebe0-8285-11ea-9b82-c5048cc5491f" class="comment-thread">
           <blockquote class="comment">
@@ -1243,10 +1263,6 @@ Do you know where I can find the ecmwf_coeffs table for 38 pressure levels?</p>
 
           </blockquote>
 
-          
-            <div class="comment-reply-button">
-              <input id="5eb8ebe0-8285-11ea-9b82-c5048cc5491f" type="button" class="right" value="Reply to Yasmin" onclick="replyTo('5eb8ebe0-8285-11ea-9b82-c5048cc5491f', 'Yasmin')" />
-            </div>
           
 
           <div style="clear: both;"></div>
@@ -1276,11 +1292,51 @@ Do you know where I can find the ecmwf_coeffs table for 38 pressure levels?</p>
           
             
           
+            
+                <article class="comment-reply">
+                  <header class="comment-header">
+                    <figure class="frame comment-avatar">
+                      <img class="comment-avatar" src="https://www.gravatar.com/avatar/8dc0f26bcc80769c2e9117e17c12a212?s=70">
+                    </figure>
+                    <p class="comment-info"><strong>Xin Zhang</strong><br><i><small>In reply to Yasmin</i><br>Monday, Apr 20, 2020</small></p>
+                  </header>
+                  <div class="comment">
+                    <p>Hi Yasmin,</p>
 
+<p>I&rsquo;ve used the ERA5 pressure level data several times and it always works well. So, I suppose there&rsquo;s something wrong in your step of <code>./link_grib.csh</code> or <code>ungrib.exe</code>. You need to check files (<code>GRIBFILE.AAA</code> &hellip;&hellip;) and logs (<code>ungrib.log</code>) related to these two command.  If these steps are successful, then you should see the <code>FILE:**</code> files which cover the simulation time duration.</p>
+
+<p>The most possible cause is the <code>namelist.wps</code>, you don&rsquo;t need <code>PRES</code>. Here&rsquo;s an example:</p>
+
+<pre><code>&amp;ungrib
+ out_format                         = 'WPS',
+ prefix                             = 'FILE',
+ /
+
+&amp;metgrid
+ fg_name                            = 'FILE',
+ io_form_metgrid                    = 2,
+ /
+</code></pre>
+
+<p>Xin</p>
+
+                  </div>
+                </article>
+            
+          
+
+          
+            <div class="comment-reply-button-reply">
+              <input type="button" class="right" value="Reply to Thread" onclick="replyTo('5eb8ebe0-8285-11ea-9b82-c5048cc5491f', 'Yasmin')" />
+            </div>
+            <div style="clear: both;"></div>
           
         </div>
       </article>
 
+    
+  
+    
     
   
 
