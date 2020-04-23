@@ -1,0 +1,8 @@
+_id: 4a748900-855f-11ea-af8c-e5820b998296
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+botpot: ''
+name: Huidong Li
+email: 0fde6ee10beca32d43d4c22df8d9bf12
+body: "Hi, I see the script download the data with the time option like time':'00:00:00/03:00:00/06:00:00/09:00:00/12:00:00/15:00:00/18:00:00/21:00:00',\r\nwhy the script download the data every 3hours? The resolution of ERA5 is hourly? Yes?"
+date: '2020-04-23T12:38:10.669Z'
