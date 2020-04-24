@@ -1,0 +1,10 @@
+_id: abd831c0-85c7-11ea-a79c-7d91d76020a2
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: 4a748900-855f-11ea-af8c-e5820b998296
+botpot: ''
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: >-
+  Sorry for the misleading. You can use `'time':'00/to/23/by/1',` to get the
+  hourly data.
+date: '2020-04-24T01:05:21.870Z'
