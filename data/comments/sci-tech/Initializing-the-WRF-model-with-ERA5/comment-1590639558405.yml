@@ -1,0 +1,8 @@
+_id: 65d64390-a09a-11ea-9761-cd5b7f12042b
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+botpot: ''
+name: Kiran P V
+email: 0bae4c608713a1832dfdf8edbd25e2c4
+body: "Hi,\r\n     I successfully initialised the simulation with 137 levels. \r\nBut, In my study, I need only 27 metgrid levels. (1000,975,950,925,900,850,800,750,700,650,600,550,500,450,400,350,300,250,200,150,100,70,50,30,20,10hPA). What modification shoud be done for geting only these metgrid levels."
+date: '2020-05-28T04:19:18.401Z'
