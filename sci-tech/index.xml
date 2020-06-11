@@ -6,10 +6,30 @@
     <description>Recent content in Sci-teches on Dreambooker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Tue, 24 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dreambooker.site/sci-tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Time-lapse images by Raspberry Pi</title>
+      <link>https://dreambooker.site/2020/06/10/Time-lapse-images-by-Raspberry-Pi/</link>
+      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/06/10/Time-lapse-images-by-Raspberry-Pi/</guid>
+      <description>Examples Set up Raspberry Pi Install system I used rufus to write the official Raspberry Pi OS to SD card.
+If you bought the SD card with Raspberry Pi, they may have installed one system.
+It&amp;rsquo;s better to format it first and install the official one.
+Initialize SSH You need to create an empty file named ssh under the boot dir.
+Then, you can connect your Raspberry Pi using some softwares, like MobaXterm and putty.
+Connect to your Pi Because I&amp;rsquo;m using the school Internet, the simple method (Edit wpa_supplicant.conf) mentioned in many guides don&amp;rsquo;t work.
+I figured out that a laptop (connected to the school WIFI) and an Ethernet cable are enough.
+ Connect the Pi to the laptop using cable
+ Share the network to the Ethernet
+   Check the IP by comparing the results of arp -a  Install Python Since I wanna do lots of things on the Pi, I prefer installing my own Python through Miniconda.
+Please check this tutorial.
+Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname (mine is maxdoas) Interfacing Options &amp;ndash;&amp;gt; Camera &amp;ndash;&amp;gt; Yes  Install camera on the instrument I fixed two USB cameras with screws on a board which is on the top of my instrument called MAX-DOAS.</description>
+    </item>
     
     <item>
       <title>Run sublimetext in WSL</title>
