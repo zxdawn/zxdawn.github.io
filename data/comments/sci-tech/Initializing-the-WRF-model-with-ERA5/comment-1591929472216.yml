@@ -1,0 +1,8 @@
+_id: b667e040-ac55-11ea-8b0d-eb4f639fffeb
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: 158ce640-ac53-11ea-8b0d-eb4f639fffeb
+botpot: ''
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "Hi Lee,\r\n\r\nI've not met this error before. But, according to the error message, it should be related to the **memory error**.\r\n\r\nCould you try larger memory? For example, more nodes with same cores when running `metgrid`.\r\n\r\nXin"
+date: '2020-06-12T02:37:52.215Z'
