@@ -480,6 +480,8 @@ Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname
        # take photos and save
        subprocess.call(['fswebcam', '-d', '/dev/video0',
                         '-r','1920x1080',
+                        '-S', '20',
+                        '--rotate', '180',
                         '--no-banner',
                         filename+'_1.jpg'])
        #print('Saving photo to %s'%(filename))
@@ -487,12 +489,22 @@ Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname
    
        subprocess.call(['fswebcam', '-d', '/dev/video2',
                         '-r','1920x1080',
+                        '-S', '20',
+                        '--rotate', '180',
                         '--no-banner',
                         filename+'_2.jpg'])
        #print('Saving photo to %s'%(filename))
    
        time.sleep(120)
 </code></pre>
+
+<p><code>-r</code>: resolution</p>
+
+<p><code>-S</code>: skipping frames for auto focus</p>
+
+<p><code>--rotate</code>: rotation</p>
+
+<p><code>--no-banner</code>: without banner</p>
 
 <ol>
 <li>Let us set it to take photos automatically when the Pi is started, especially for the power failure case.</li>
@@ -551,6 +563,12 @@ Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname
 <td>1.0</td>
 <td>Init</td>
 <td>2020-06-11</td>
+</tr>
+
+<tr>
+<td>1.1</td>
+<td>Add skipping frames in script</td>
+<td>2020-06-12</td>
 </tr>
 </tbody>
 </table>
