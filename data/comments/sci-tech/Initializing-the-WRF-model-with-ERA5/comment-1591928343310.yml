@@ -1,0 +1,8 @@
+_id: 158ce640-ac53-11ea-8b0d-eb4f639fffeb
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+botpot: ''
+name: Lee
+email: 8c52f85cecf875dd7c36799afcc0e1dc
+body: "Hi, \r\nThank you so much for your information.\r\nI downloaded ERA5 in the above step and executed WPS.\r\nThe ungrib proceeded successfully, but an error occurred in metgrid.\r\n\r\nERROR: In read_next_field(), got error code -3.\r\n\r\nIn the metgrid process, I could not find an answer to the above error.\r\nCan you give me a solution or advice?\r\n\r\n\r\n(Below is the error message after ./metgrid.)\r\nlibi40iw-i40iw_vmapped_qp: failed to pin memory for SQ\r\nlibi40iw-i40iw_ucreate_qp: failed to map QP\r\nlibi40iw-i40iw_vmapped_qp: failed to pin memory for SQ\r\nlibi40iw-i40iw_ucreate_qp: failed to map QP\r\nProcessing domain 1 of 1\r\nERROR: In read_next_field(), got error code -3.\r\nAbort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 38406864)-process 0"
+date: '2020-06-12T02:19:03.309Z'
