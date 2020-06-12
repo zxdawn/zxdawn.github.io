@@ -98,6 +98,8 @@ I fixed two USB cameras with screws on a board which is on the top of my instrum
        # take photos and save
        subprocess.call(['fswebcam', '-d', '/dev/video0',
                         '-r','1920x1080',
+                        '-S', '20',
+                        '--rotate', '180',
                         '--no-banner',
                         filename+'_1.jpg'])
        #print('Saving photo to %s'%(filename))
@@ -105,12 +107,22 @@ I fixed two USB cameras with screws on a board which is on the top of my instrum
    
        subprocess.call(['fswebcam', '-d', '/dev/video2',
                         '-r','1920x1080',
+                        '-S', '20',
+                        '--rotate', '180',
                         '--no-banner',
                         filename+'_2.jpg'])
        #print('Saving photo to %s'%(filename))
    
        time.sleep(120)
    ```
+
+   `-r`: resolution
+
+   `-S`: skipping frames for auto focus
+
+   `--rotate`: rotation
+
+   `--no-banner`: without banner
 
 5. Let us set it to take photos automatically when the Pi is started, especially for the power failure case.
 
@@ -152,6 +164,7 @@ This [tutorial](https://bencane.com/2014/01/07/using-rsync-to-synchronize-a-loca
 
 ## Version control
 
-| Version | Action | Time       |
-| ------- | ------ | ---------- |
-| 1.0     | Init   | 2020-06-11 |
+| Version | Action                        | Time       |
+| ------- | ----------------------------- | ---------- |
+| 1.0     | Init                          | 2020-06-11 |
+| 1.1     | Add skipping frames in script | 2020-06-12 |
