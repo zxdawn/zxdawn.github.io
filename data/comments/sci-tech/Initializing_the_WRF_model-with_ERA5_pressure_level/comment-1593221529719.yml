@@ -1,0 +1,8 @@
+_id: 04b4a3c0-b816-11ea-927f-e5f84e99aabc
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: 9f17e990-b7cb-11ea-9e0b-bbcb9fdcfd5a
+botpot: ''
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "Hi Bara,\r\n\r\nThat's strange ...\r\n\r\nCould you check whether `RH` and `TT` exist in the pressure level grib files you have downloaded?\r\n\r\nBTW, it;s better to make sure there's no error in the log files (**ungrib.log** and **metgrid.log**).\r\n\r\nXin"
+date: '2020-06-27T01:32:09.717Z'
