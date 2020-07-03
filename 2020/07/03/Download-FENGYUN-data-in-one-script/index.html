@@ -7,44 +7,42 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
   <meta name="author" content="Xin Zhang">
-  <meta name="description" content="Examples Set up Raspberry Pi Install system I used rufus to write the official Raspberry Pi OS to SD card.
-If you bought the SD card with Raspberry Pi, they may have installed one system.
-It&rsquo;s better to format it first and install the official one.
-Initialize SSH You need to create an empty file named ssh under the boot dir.
-Then, you can connect your Raspberry Pi using some softwares, like MobaXterm and putty.
-Connect to your Pi Because I&rsquo;m using the school Internet, the simple method (Edit wpa_supplicant.conf) mentioned in many guides don&rsquo;t work.
-I figured out that a laptop (connected to the school WIFI) and an Ethernet cable are enough.
- Connect the Pi to the laptop using cable
- Share the network to the Ethernet
-   Check the IP by comparing the results of arp -a  Install Python Since I wanna do lots of things on the Pi, I prefer installing my own Python through Miniconda.
-Please check this tutorial.
-Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname (mine is maxdoas) Interfacing Options &ndash;&gt; Camera &ndash;&gt; Yes  Install camera on the instrument I fixed two USB cameras with screws on a board which is on the top of my instrument called MAX-DOAS.">
+  <meta name="description" content=" Background The download method of FENGYUN satellite is so inconvenient, especially for large datasets &hellip;
+So, I decide to scrape the FTP links from the &ldquo;Order&rdquo; page and save them into one file.
+Then, lftp could speed up the download speed a lot!
+Requirements Python installed with three packages: logging, getpass and selenium
+Usage Script and example: https://github.com/zxdawn/weather_data/tree/master/FY
+ Order data on the FY website (all platforms) or using the FY Toolkit (Windows).
+ Run the script from the terminal
+   $ python fy.py  Input the requested infos &hellip;.
+ Check the bash script named download_fy.sh  (You can change the name by savename in the fy,py script)
+ Run the bash script   $ chmod &#43;x download_fy.sh $ ./download_fy.sh  Example of the bash script:
+ #!/bin/bash lftp -e &quot;mget -c ftp://AO20200701000066936:Uo6O5__j@ftp.nsmc.org.cn/*&quot; &amp; lftp -e &quot;mget -c ftp://AO20200701000065328:0lK_rxpW@ftp.nsmc.org.cn/AO202007010000653280001/*&quot; &amp; lftp -e &quot;mget -c ftp://AO20200701000065328:0lK_rxpW@ftp.nsmc.org.cn/AO202007010000653280002/*&quot; &amp; lftp -e &quot;mget -c ftp://AO20200701000065328:0lK_rxpW@ftp.nsmc.org.cn/AO202007010000653280003/*&quot; &amp;  Version control    Version Action Time     1.0 Init 2020-07-03    ">
   
-  <meta property="og:title" content="Time-lapse images by Raspberry Pi" />
-<meta property="og:description" content="Examples Set up Raspberry Pi Install system I used rufus to write the official Raspberry Pi OS to SD card.
-If you bought the SD card with Raspberry Pi, they may have installed one system.
-It&rsquo;s better to format it first and install the official one.
-Initialize SSH You need to create an empty file named ssh under the boot dir.
-Then, you can connect your Raspberry Pi using some softwares, like MobaXterm and putty.
-Connect to your Pi Because I&rsquo;m using the school Internet, the simple method (Edit wpa_supplicant.conf) mentioned in many guides don&rsquo;t work.
-I figured out that a laptop (connected to the school WIFI) and an Ethernet cable are enough.
- Connect the Pi to the laptop using cable
- Share the network to the Ethernet
-   Check the IP by comparing the results of arp -a  Install Python Since I wanna do lots of things on the Pi, I prefer installing my own Python through Miniconda.
-Please check this tutorial.
-Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname (mine is maxdoas) Interfacing Options &ndash;&gt; Camera &ndash;&gt; Yes  Install camera on the instrument I fixed two USB cameras with screws on a board which is on the top of my instrument called MAX-DOAS." />
+  <meta property="og:title" content="Download FENGYUN data in one script" />
+<meta property="og:description" content=" Background The download method of FENGYUN satellite is so inconvenient, especially for large datasets &hellip;
+So, I decide to scrape the FTP links from the &ldquo;Order&rdquo; page and save them into one file.
+Then, lftp could speed up the download speed a lot!
+Requirements Python installed with three packages: logging, getpass and selenium
+Usage Script and example: https://github.com/zxdawn/weather_data/tree/master/FY
+ Order data on the FY website (all platforms) or using the FY Toolkit (Windows).
+ Run the script from the terminal
+   $ python fy.py  Input the requested infos &hellip;.
+ Check the bash script named download_fy.sh  (You can change the name by savename in the fy,py script)
+ Run the bash script   $ chmod &#43;x download_fy.sh $ ./download_fy.sh  Example of the bash script:
+ #!/bin/bash lftp -e &quot;mget -c ftp://AO20200701000066936:Uo6O5__j@ftp.nsmc.org.cn/*&quot; &amp; lftp -e &quot;mget -c ftp://AO20200701000065328:0lK_rxpW@ftp.nsmc.org.cn/AO202007010000653280001/*&quot; &amp; lftp -e &quot;mget -c ftp://AO20200701000065328:0lK_rxpW@ftp.nsmc.org.cn/AO202007010000653280002/*&quot; &amp; lftp -e &quot;mget -c ftp://AO20200701000065328:0lK_rxpW@ftp.nsmc.org.cn/AO202007010000653280003/*&quot; &amp;  Version control    Version Action Time     1.0 Init 2020-07-03    " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dreambooker.site/2020/06/10/Time-lapse-images-by-Raspberry-Pi/" /><meta property="article:published_time" content="2020-06-10T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2020-06-10T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://dreambooker.site/2020/07/03/Download-FENGYUN-data-in-one-script/" /><meta property="article:published_time" content="2020-07-03T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2020-07-03T00:00:00&#43;00:00"/>
 
 
   <title>
   
-       Time-lapse images by Raspberry Pi | Dreambooker 
+       Download FENGYUN data in one script | Dreambooker 
   
   </title>
 
-  <link rel="canonical" href="https://dreambooker.site/2020/06/10/Time-lapse-images-by-Raspberry-Pi/">
+  <link rel="canonical" href="https://dreambooker.site/2020/07/03/Download-FENGYUN-data-in-one-script/">
 
   
   
@@ -355,16 +353,16 @@ Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname
     
   </ul>
 
-  <div class="px-4 post-heading">Time-lapse images by Raspberry Pi</div>
+  <div class="px-4 post-heading">Download FENGYUN data in one script</div>
 
   <ul class="post-meta li-x mt-1">
     
-      <li>Jun 10, 2020</li>
+      <li>Jul 3, 2020</li>
     
 
     
       <li class="middot"></li>
-      <li>3 minutes read</li>
+      <li>One minute read</li>
     
     
       <li class="middot"></li>
@@ -373,7 +371,7 @@ Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname
   </ul>
   
     <div class="view">
-      <img src="https://dreambooker.site/images/sci-tech/2020-06/pi_logo.jpg" />
+      <img src="https://dreambooker.site/images/sci-tech/2020-07/NSMC.png" />
     </div>
   
 
@@ -383,169 +381,55 @@ Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname
           <div class="post-content markdown">
             
 
-<h2 id="examples">Examples</h2>
+<h2 id="background">Background</h2>
 
-<p><img src="https://dreambooker.site/images/sci-tech/2020-06/example.jpg" alt="example" /></p>
+<p>The download method of FENGYUN satellite is so inconvenient, especially for large datasets &hellip;</p>
 
-<h2 id="set-up-raspberry-pi">Set up Raspberry Pi</h2>
+<p>So, I decide to scrape the FTP links from the &ldquo;Order&rdquo; page and save them into one file.</p>
 
-<h3 id="install-system">Install system</h3>
+<p>Then, <code>lftp</code> could speed up the download speed a lot!</p>
 
-<p>I used <a href="https://rufus.ie/">rufus</a> to write the <a href="https://www.raspberrypi.org/downloads/raspberry-pi-os/">official Raspberry Pi OS</a> to SD card.</p>
+<h2 id="requirements">Requirements</h2>
 
-<p>If you bought the SD card with Raspberry Pi, they may have installed one system.</p>
+<p>Python installed with three packages: logging, getpass and selenium</p>
 
-<p>It&rsquo;s better to format it first and install the official one.</p>
+<h2 id="usage">Usage</h2>
 
-<h3 id="initialize-ssh">Initialize SSH</h3>
-
-<p>You need to create an empty file named <code>ssh</code> under the <code>boot</code> dir.</p>
-
-<p>Then, you can connect your Raspberry Pi using some softwares, like MobaXterm and putty.</p>
-
-<h3 id="connect-to-your-pi">Connect to your Pi</h3>
-
-<p>Because I&rsquo;m using the school Internet, the simple method (Edit <code>wpa_supplicant.conf</code>) mentioned in many guides don&rsquo;t work.</p>
-
-<p>I figured out that a laptop (connected to the school WIFI) and an Ethernet cable are enough.</p>
+<p>Script and example: <a href="https://github.com/zxdawn/weather_data/tree/master/FY">https://github.com/zxdawn/weather_data/tree/master/FY</a></p>
 
 <ol>
-<li><p>Connect the Pi to the laptop using cable</p></li>
+<li><p>Order data on the <a href="http://satellite.nsmc.org.cn/portalsite/default.aspx">FY website</a> (all platforms) or using the <a href="http://fy4.nsmc.org.cn/nsmc/en/data/pcclient.html">FY Toolkit</a> (Windows).</p></li>
 
-<li><p>Share the network to the Ethernet</p></li>
+<li><p>Run the script from the terminal</p></li>
 </ol>
 
-<p><img src="https://dreambooker.site/images/sci-tech/2020-06/network_share.png" alt="network" /></p>
-
-<ol>
-<li>Check the IP by comparing the results of <code>arp -a</code></li>
-</ol>
-
-<p><img src="https://dreambooker.site/images/sci-tech/2020-06/ip.png" alt="IP" /></p>
-
-<h3 id="install-python">Install Python</h3>
-
-<p>Since I wanna do lots of things on the Pi, I prefer installing my own Python through Miniconda.</p>
-
-<p>Please check this <a href="https://stackoverflow.com/questions/39371772/how-to-install-anaconda-on-raspberry-pi-3-model-b">tutorial</a>.</p>
-
-<h2 id="set-up-camera">Set up camera</h2>
-
-<h3 id="enable-camera">Enable camera</h3>
-
-<ol>
-<li><code>sudo raspi-config</code></li>
-<li>Set a new password</li>
-<li>Set a hostname (mine is <code>maxdoas</code>)</li>
-<li><code>Interfacing Options</code> &ndash;&gt; <code>Camera</code> &ndash;&gt; <code>Yes</code></li>
-</ol>
-
-<h3 id="install-camera-on-the-instrument">Install camera on the instrument</h3>
-
-<p>I fixed two USB cameras with screws on a board which is on the top of my instrument called <strong>MAX-DOAS</strong>.</p>
-
-<p><img src="https://dreambooker.site/images/sci-tech/2020-06/maxdoas.jpeg" alt="maxdoas" /></p>
-
-<h2 id="time-lapse-script">Time-lapse script</h2>
-
-<ol>
-<li>We can get the ports of cameras by checking the results of <code>ls /dev/video*</code> with cameras plugged in and not.</li>
-</ol>
-
-<pre><code>   pi@raspberrypi:~ $ ls /dev/video*
-   /dev/video0  /dev/video10  /dev/video12  /dev/video3
-   /dev/video1  /dev/video11  /dev/video2
+<pre><code>   $ python fy.py
 </code></pre>
 
+<p>Input the requested infos &hellip;.</p>
+
 <ol>
-<li><p>I will use <code>/dev/video0</code> and <code>/dev/video2</code>.</p></li>
-
-<li><p>Because I don&rsquo;t wanna install too much libraries on Pi, I chose <strong>fswebcam</strong> (<code>sudo apt-get install fswebcam</code>) to let the cameras capture images every 2 minutes:</p></li>
-
-<li><p>The content of <code>tlapse.py</code>:</p></li>
+<li>Check the bash script named <code>download_fy.sh</code></li>
 </ol>
 
-<pre><code>   import os
-   import time
-   import subprocess
-   from datetime import datetime
-   
-   while True:
-       # set ouput dir and filename
-       lapse_dir = datetime.strftime(datetime.now(),&quot;/home/pi/timelapse/%Y/%m/%Y%m%d/&quot;)
-       os.makedirs(lapse_dir, exist_ok=True)
-       prefix = datetime.strftime(datetime.now(),&quot;%Y-%m-%d_%H-%M&quot;)
-       filename = lapse_dir+&quot;/&quot;+prefix
-   
-       # take photos and save
-       subprocess.call(['fswebcam', '-d', '/dev/video0',
-                        '-r','1920x1080',
-                        '-S', '20',
-                        '--rotate', '180',
-                        '--no-banner',
-                        filename+'_1.jpg'])
-       #print('Saving photo to %s'%(filename))
-       time.sleep(0.5)
-   
-       subprocess.call(['fswebcam', '-d', '/dev/video2',
-                        '-r','1920x1080',
-                        '-S', '20',
-                        '--rotate', '180',
-                        '--no-banner',
-                        filename+'_2.jpg'])
-       #print('Saving photo to %s'%(filename))
-   
-       time.sleep(120)
+<p>(You can change the name by <code>savename</code> in the <code>fy,py</code> script)</p>
+
+<ol>
+<li>Run the bash script</li>
+</ol>
+
+<pre><code>   $ chmod +x download_fy.sh
+   $ ./download_fy.sh
 </code></pre>
 
-<p><code>-r</code>: resolution</p>
+<p>Example of the bash script:</p>
 
-<p><code>-S</code>: skipping frames for auto focus</p>
-
-<p><code>--rotate</code>: rotation</p>
-
-<p><code>--no-banner</code>: without banner</p>
-
-<ol>
-<li>Let us set it to take photos automatically when the Pi is started, especially for the power failure case.</li>
-</ol>
-
-<p>Just add the Python path to the beginning of Python script <code>tlapse.py</code> and the script name to <code>/etc/rc.local</code>:</p>
-
-<p>1) <code>tlapse.py</code></p>
-
-<p>You can check the path of Python by <code>which python</code></p>
-
-<pre><code>   #!/home/pi/miniconda3/bin/python
-   import os
-   ........
+<pre><code>   #!/bin/bash
+   lftp -e &quot;mget -c ftp://AO20200701000066936:Uo6O5__j@ftp.nsmc.org.cn/*&quot; &amp;
+   lftp -e &quot;mget -c ftp://AO20200701000065328:0lK_rxpW@ftp.nsmc.org.cn/AO202007010000653280001/*&quot; &amp;
+   lftp -e &quot;mget -c ftp://AO20200701000065328:0lK_rxpW@ftp.nsmc.org.cn/AO202007010000653280002/*&quot; &amp;
+   lftp -e &quot;mget -c ftp://AO20200701000065328:0lK_rxpW@ftp.nsmc.org.cn/AO202007010000653280003/*&quot; &amp;
 </code></pre>
-
-<p>2) <code>/etc/rc.local</code></p>
-
-<pre><code>   /home/pi/tlapse.py &amp;
-</code></pre>
-
-<ol>
-<li>Reboot and check the process by<code>pgrep tlapse*</code>.</li>
-</ol>
-
-<p>If you wanna kill it, you can type <code>sudo pkill tlapse*</code>.</p>
-
-<h2 id="sync-images-to-server">Sync images to server</h2>
-
-<p>As the SD card just has 64 G, I decide to sync the local images to the server by <code>rsync</code>.</p>
-
-<p>This <a href="https://bencane.com/2014/01/07/using-rsync-to-synchronize-a-local-and-remote-directory/">tutorial</a> shows the detailed steps.</p>
-
-<h2 id="references">References</h2>
-
-<ol>
-<li><a href="https://www.jeffgeerling.com/blog/2017/raspberry-pi-zero-w-headless-time-lapse-camera">Raspberry Pi Zero W as a headless time-lapse camera</a></li>
-<li><a href="https://hub.packtpub.com/working-webcam-and-pi-camera/">Working with a Webcam and Pi Camera</a></li>
-<li><a href="https://lonewolfonline.net/raspberry-pi-timelapse-videos/">Raspberry Pi Time-lapse Videos with USB Webcam</a></li>
-<li><a href="https://bencane.com/2014/01/07/using-rsync-to-synchronize-a-local-and-remote-directory/">Using rsync to synchronize a local and remote directory</a></li>
-</ol>
 
 <h2 id="version-control">Version control</h2>
 
@@ -562,13 +446,7 @@ Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname
 <tr>
 <td>1.0</td>
 <td>Init</td>
-<td>2020-06-11</td>
-</tr>
-
-<tr>
-<td>1.1</td>
-<td>Add skipping frames in script</td>
-<td>2020-06-12</td>
+<td>2020-07-03</td>
 </tr>
 </tbody>
 </table>
@@ -585,7 +463,10 @@ Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname
   <li class="pr-0"><a href="https://dreambooker.site/tags/"><i class="fas fa-tags"></i></a></li>
   <div class="tags-sm">
     
-      <li><a href="https://dreambooker.site/tags/raspberry-pi" role="button">raspberry-pi </a></li>
+      <li><a href="https://dreambooker.site/tags/satellite" role="button">satellite </a></li>
+      
+    
+      <li><a href="https://dreambooker.site/tags/fengyun" role="button">fengyun </a></li>
       
     
   </div>
@@ -601,23 +482,16 @@ Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname
           <div class="row pt-3">
             <div class="col-md-6">
               
-                <a href=https://dreambooker.site/2020/03/24/Run-sublimetext-in-WSL/ class="post-meta">Previous
+                <a href=https://dreambooker.site/2020/06/10/Time-lapse-images-by-Raspberry-Pi/ class="post-meta">Previous
                   <div class="pt-2 pb-5 d-flex">
                     <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
-                    <span>Run sublimetext in WSL</span>
+                    <span>Time-lapse images by Raspberry Pi</span>
                   </div>
                 </a>
               
             </div>
             
             <div class="col-md-6 text-right" >
-              
-                <a href=https://dreambooker.site/2020/07/03/Download-FENGYUN-data-in-one-script/ class="post-meta">Next
-                  <div class="pt-2 pb-5 flex-reverse">
-                    <i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
-                    <span>Download FENGYUN data in one script</span>
-                  </div>
-                </a>
               
             </div>
           </div>
@@ -637,12 +511,12 @@ Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname
 <div id="comment-form">
   <h3 id="comment-form-header">Say something</h3>
   <form method="POST" action="https://dreambooker-staticman.herokuapp.com/v3/entry/github/zxdawn/zxdawn.github.io/source/comments">
-    <input type="hidden" name="options[redirect]" value="https://dreambooker.site/2020/06/10/Time-lapse-images-by-Raspberry-Pi/#comment-submitted">
-    <input type="hidden" name="options[redirectError]" value="https://dreambooker.site/2020/06/10/Time-lapse-images-by-Raspberry-Pi/#comment-error">
-    <input type="hidden" name="options[slug]" value="raspberry_pi">
+    <input type="hidden" name="options[redirect]" value="https://dreambooker.site/2020/07/03/Download-FENGYUN-data-in-one-script/#comment-submitted">
+    <input type="hidden" name="options[redirectError]" value="https://dreambooker.site/2020/07/03/Download-FENGYUN-data-in-one-script/#comment-error">
+    <input type="hidden" name="options[slug]" value="download_fy">
     <input type="hidden" name="options[section]" value="sci-tech">
-    <input type="hidden" name="options[origin]" value="https://dreambooker.site/2020/06/10/Time-lapse-images-by-Raspberry-Pi/">
-    <input type="hidden" name="options[parent]" value="raspberry_pi">
+    <input type="hidden" name="options[origin]" value="https://dreambooker.site/2020/07/03/Download-FENGYUN-data-in-one-script/">
+    <input type="hidden" name="options[parent]" value="download_fy">
     <input type="hidden" name="fields[reply_to]" value="">
     <input type="address" name="fields[botpot]" placeholder="botpot (do not fill!)" style="display:none">
     
@@ -690,7 +564,7 @@ Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname
 
 <div id="comment-error" class="dialog">
   <h3>OOPS!</h3>
-  <p>Your comment has not been submitted. Please <a href="https://dreambooker.site/2020/06/10/Time-lapse-images-by-Raspberry-Pi/">go back</a> and try again. Thank You!</p>
+  <p>Your comment has not been submitted. Please <a href="https://dreambooker.site/2020/07/03/Download-FENGYUN-data-in-one-script/">go back</a> and try again. Thank You!</p>
   <p>If this error persists, please open an issue by <a href="https://github.com/zxdawn/zxdawn.github.io/issues"> clicking here</a>.</p>
 </div>
 </section>
@@ -733,8 +607,8 @@ Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#examples">
-												 Examples
+						 					<a class="nav-link" href="#background">
+												 Background
 											</a>
 										</li>
 						 
@@ -755,208 +629,8 @@ Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#set-up-raspberry-pi">
-												 Set up Raspberry Pi
-											</a>
-										</li>
-						 
-								
-								
-									</ul>
-								
-							
-						
-				 
-						
-						
-							
-								
-								
-									<ul class="nav">
-								
-									<ul class="nav">
-								
-								
-
-										<li class="nav-item">
-						 					<a class="nav-link" href="#install-system">
-												 Install system
-											</a>
-										</li>
-						 
-								
-								
-									</ul>
-								
-									</ul>
-								
-							
-						
-				 
-						
-						
-							
-								
-								
-									<ul class="nav">
-								
-									<ul class="nav">
-								
-								
-
-										<li class="nav-item">
-						 					<a class="nav-link" href="#initialize-ssh">
-												 Initialize SSH
-											</a>
-										</li>
-						 
-								
-								
-									</ul>
-								
-									</ul>
-								
-							
-						
-				 
-						
-						
-							
-								
-								
-									<ul class="nav">
-								
-									<ul class="nav">
-								
-								
-
-										<li class="nav-item">
-						 					<a class="nav-link" href="#connect-to-your-pi">
-												 Connect to your Pi
-											</a>
-										</li>
-						 
-								
-								
-									</ul>
-								
-									</ul>
-								
-							
-						
-				 
-						
-						
-							
-								
-								
-									<ul class="nav">
-								
-									<ul class="nav">
-								
-								
-
-										<li class="nav-item">
-						 					<a class="nav-link" href="#install-python">
-												 Install Python
-											</a>
-										</li>
-						 
-								
-								
-									</ul>
-								
-									</ul>
-								
-							
-						
-				 
-						
-						
-							
-								
-								
-									<ul class="nav">
-								
-								
-
-										<li class="nav-item">
-						 					<a class="nav-link" href="#set-up-camera">
-												 Set up camera
-											</a>
-										</li>
-						 
-								
-								
-									</ul>
-								
-							
-						
-				 
-						
-						
-							
-								
-								
-									<ul class="nav">
-								
-									<ul class="nav">
-								
-								
-
-										<li class="nav-item">
-						 					<a class="nav-link" href="#enable-camera">
-												 Enable camera
-											</a>
-										</li>
-						 
-								
-								
-									</ul>
-								
-									</ul>
-								
-							
-						
-				 
-						
-						
-							
-								
-								
-									<ul class="nav">
-								
-									<ul class="nav">
-								
-								
-
-										<li class="nav-item">
-						 					<a class="nav-link" href="#install-camera-on-the-instrument">
-												 Install camera on the instrument
-											</a>
-										</li>
-						 
-								
-								
-									</ul>
-								
-									</ul>
-								
-							
-						
-				 
-						
-						
-							
-								
-								
-									<ul class="nav">
-								
-								
-
-										<li class="nav-item">
-						 					<a class="nav-link" href="#time-lapse-script">
-												 Time-lapse script
+						 					<a class="nav-link" href="#requirements">
+												 Requirements
 											</a>
 										</li>
 						 
@@ -977,30 +651,8 @@ Set up camera Enable camera  sudo raspi-config Set a new password Set a hostname
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#sync-images-to-server">
-												 Sync images to server
-											</a>
-										</li>
-						 
-								
-								
-									</ul>
-								
-							
-						
-				 
-						
-						
-							
-								
-								
-									<ul class="nav">
-								
-								
-
-										<li class="nav-item">
-						 					<a class="nav-link" href="#references">
-												 References
+						 					<a class="nav-link" href="#usage">
+												 Usage
 											</a>
 										</li>
 						 

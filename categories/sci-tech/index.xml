@@ -6,10 +6,29 @@
     <description>Recent content in Sci Tech on Dreambooker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dreambooker.site/categories/sci-tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Download FENGYUN data in one script</title>
+      <link>https://dreambooker.site/2020/07/03/Download-FENGYUN-data-in-one-script/</link>
+      <pubDate>Fri, 03 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/07/03/Download-FENGYUN-data-in-one-script/</guid>
+      <description> Background The download method of FENGYUN satellite is so inconvenient, especially for large datasets &amp;hellip;
+So, I decide to scrape the FTP links from the &amp;ldquo;Order&amp;rdquo; page and save them into one file.
+Then, lftp could speed up the download speed a lot!
+Requirements Python installed with three packages: logging, getpass and selenium
+Usage Script and example: https://github.com/zxdawn/weather_data/tree/master/FY
+ Order data on the FY website (all platforms) or using the FY Toolkit (Windows).
+ Run the script from the terminal
+   $ python fy.py  Input the requested infos &amp;hellip;.
+ Check the bash script named download_fy.sh  (You can change the name by savename in the fy,py script)
+ Run the bash script   $ chmod +x download_fy.sh $ ./download_fy.sh  Example of the bash script:
+ #!/bin/bash lftp -e &amp;quot;mget -c ftp://AO20200701000066936:Uo6O5__j@ftp.nsmc.org.cn/*&amp;quot; &amp;amp; lftp -e &amp;quot;mget -c ftp://AO20200701000065328:0lK_rxpW@ftp.nsmc.org.cn/AO202007010000653280001/*&amp;quot; &amp;amp; lftp -e &amp;quot;mget -c ftp://AO20200701000065328:0lK_rxpW@ftp.nsmc.org.cn/AO202007010000653280002/*&amp;quot; &amp;amp; lftp -e &amp;quot;mget -c ftp://AO20200701000065328:0lK_rxpW@ftp.nsmc.org.cn/AO202007010000653280003/*&amp;quot; &amp;amp;  Version control    Version Action Time     1.0 Init 2020-07-03    </description>
+    </item>
     
     <item>
       <title>Time-lapse images by Raspberry Pi</title>
