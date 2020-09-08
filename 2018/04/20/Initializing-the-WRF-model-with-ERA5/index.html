@@ -943,7 +943,7 @@ $ rename nc_tmp nc *.nc_tmp
   
 
   
-    <h3>Comments (24)</h3>
+    <h3>Comments (25)</h3>
   
 
   
@@ -966,6 +966,8 @@ $ rename nc_tmp nc *.nc_tmp
         
           
             
+          
+        
           
         
           
@@ -1084,6 +1086,8 @@ why the script download the data every 3hours? The resolution of ERA5 is hourly?
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1121,6 +1125,8 @@ why the script download the data every 3hours? The resolution of ERA5 is hourly?
         
           
             
+          
+        
           
         
           
@@ -1258,6 +1264,8 @@ ERA5-20180101-20180102-ml.grib1: No such file or directory</p>
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1299,6 +1307,8 @@ ERA5-20180101-20180102-ml.grib1: No such file or directory</p>
         
           
             
+          
+        
           
         
           
@@ -1418,6 +1428,8 @@ Xin</p>
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1465,6 +1477,8 @@ Xin</p>
         
           
             
+          
+        
           
         
           
@@ -1575,6 +1589,8 @@ kindly help me out
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1621,6 +1637,8 @@ kindly help me out
         
           
             
+          
+        
           
         
           
@@ -1747,6 +1765,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1778,6 +1798,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
           <p class="comment-info"><strong>Peter A.</strong><br><small>Wednesday, Jul 29, 2020</small></p>
         </header>
 
+        
+          
         
           
         
@@ -1890,6 +1912,160 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
           
             
           
+            
+          
+
+          
+        </div>
+      </article>
+
+    
+  
+    
+    
+      
+      
+      
+      <article>
+        <header class="comment-header">
+          <figure class="frame comment-avatar">
+            <img class="comment-avatar" src="https://www.gravatar.com/avatar/fe1ebf9ed20a33f87e91fbcdc6b1c304?s=70">
+          </figure>
+          <p class="comment-info"><strong>Ray</strong><br><small>Tuesday, Sep 8, 2020</small></p>
+        </header>
+
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        <div id="86ec91c0-f1ca-11ea-a117-4914f65d6c87" class="comment-thread">
+          <blockquote class="comment">
+            <p>Two comments:</p>
+
+<p>(2) Not sure that you should have</p>
+
+<p>fg_name = &lsquo;FILE&rsquo;,&lsquo;PRES&rsquo;</p>
+
+<p>in the namelist.
+calc_ecmwf_p.exe will open &lsquo;FILE&rsquo; and &lsquo;PRES&rsquo; to read the ERA5 data in these files (produced by ungrib); if the files don&rsquo;t exist they are skipped. The calc_ecmwf_p.exe then WRITES a file &lsquo;PRES&rsquo; (with time/date appended after the colon); this is hardcoded in the program and represents the output of the .exe.  I suggest that you should ONLY have</p>
+
+<p>fg_name = &lsquo;FILE&rsquo;,</p>
+
+<p>to avoid overwriting of the &lsquo;PRES&rsquo; output file, or (as I found in the situation with multiple dates in the input file) you may get a &lsquo;PRES&rsquo; file with only pressures but no HGT or RH; in the latter case metgrid.exe rescued the situation by silently interpolating the missing data but this not what you want (less accurate &hellip;). You should check the &lsquo;PRES&rsquo; output files to confirm you have pressure, height and RH - e.g. using WPS/util/plotfmt.ncl</p>
+
+<p>Note that you DO need fg_name = &lsquo;FILE&rsquo;,&lsquo;PRES&rsquo; in the namelist when running metgrid.exe - it expects to read &lsquo;PRES&rsquo; (and any other such file e.g. a &lsquo;SURF&rsquo; file, if you have one).</p>
+
+<p>(2) WRF rarely needs 137 levels. For example if PTOT=50hPa then model levels 45-137 are quite sufficient. It saves extracting a lot of data. You just need to amend the list of A,B values and reorder the level numbers in the GRIB.</p>
+
+          </blockquote>
+
+          
+            <div class="comment-reply-button">
+              <input id="86ec91c0-f1ca-11ea-a117-4914f65d6c87" type="button" class="right" value="Reply to Ray" onclick="replyTo('86ec91c0-f1ca-11ea-a117-4914f65d6c87', 'Ray')" />
+            </div>
+          
+
+          <div style="clear: both;"></div>
+
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
 
           
         </div>
@@ -1910,6 +2086,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
           <p class="comment-info"><strong>Andreas Hilboll</strong><br><small>Thursday, Dec 6, 2018</small></p>
         </header>
 
+        
+          
         
           
         
@@ -1984,6 +2162,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
 
           <div style="clear: both;"></div>
 
+          
+            
           
             
           
@@ -2156,6 +2336,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
           
         
           
+        
+          
             
           
         
@@ -2190,6 +2372,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
 
           <div style="clear: both;"></div>
 
+          
+            
           
             
           
@@ -2324,6 +2508,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
           
         
           
+        
+          
             
           
         
@@ -2358,6 +2544,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
 
           <div style="clear: both;"></div>
 
+          
+            
           
             
           
@@ -2494,6 +2682,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
           
         
           
+        
+          
             
           
         
@@ -2549,6 +2739,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
 
           <div style="clear: both;"></div>
 
+          
+            
           
             
           
@@ -2735,6 +2927,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
         
           
         
+          
+        
 
         <div id="35e0a330-be73-434d-8fa5-fa692b833d1a" class="comment-thread">
           <blockquote class="comment">
@@ -2756,6 +2950,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
 
           <div style="clear: both;"></div>
 
+          
+            
           
             
           
