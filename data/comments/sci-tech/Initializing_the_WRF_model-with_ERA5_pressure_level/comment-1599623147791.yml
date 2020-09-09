@@ -1,0 +1,8 @@
+_id: f26d6d50-f24e-11ea-bcf0-bd986a5b2e26
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: a34aee40-f24a-11ea-bcf0-bd986a5b2e26
+botpot: ''
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "Hi Josué,\r\n\r\nThis is caused by the `restart` option in the `namelist.input` file.\r\n\r\nIf you don't want restart, you can set it to **False**. Otherwise, you have to set the suitable `restart_interval` for the restart.\r\n\r\nYou can check the official WRF USER GUIDE in detail.\r\n\r\nRegards,\r\n\r\nXin"
+date: '2020-09-09T03:45:47.790Z'
