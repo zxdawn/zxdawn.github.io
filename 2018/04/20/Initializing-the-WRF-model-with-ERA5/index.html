@@ -943,7 +943,7 @@ $ rename nc_tmp nc *.nc_tmp
   
 
   
-    <h3>Comments (26)</h3>
+    <h3>Comments (27)</h3>
   
 
   
@@ -966,6 +966,8 @@ $ rename nc_tmp nc *.nc_tmp
         
           
             
+          
+        
           
         
           
@@ -1092,6 +1094,8 @@ why the script download the data every 3hours? The resolution of ERA5 is hourly?
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1129,6 +1133,8 @@ why the script download the data every 3hours? The resolution of ERA5 is hourly?
         
           
             
+          
+        
           
         
           
@@ -1274,6 +1280,8 @@ ERA5-20180101-20180102-ml.grib1: No such file or directory</p>
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1315,6 +1323,8 @@ ERA5-20180101-20180102-ml.grib1: No such file or directory</p>
         
           
             
+          
+        
           
         
           
@@ -1442,6 +1452,8 @@ Xin</p>
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1489,6 +1501,8 @@ Xin</p>
         
           
             
+          
+        
           
         
           
@@ -1607,6 +1621,8 @@ kindly help me out
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1653,6 +1669,8 @@ kindly help me out
         
           
             
+          
+        
           
         
           
@@ -1787,6 +1805,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1818,6 +1838,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
           <p class="comment-info"><strong>Peter A.</strong><br><small>Wednesday, Jul 29, 2020</small></p>
         </header>
 
+        
+          
         
           
         
@@ -1938,6 +1960,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
           
             
           
+            
+          
 
           
         </div>
@@ -1981,6 +2005,10 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
         
           
         
+          
+        
+          
+            
           
         
           
@@ -2092,6 +2120,89 @@ calc_ecmwf_p.exe will open &lsquo;FILE&rsquo; and &lsquo;PRES&rsquo; to read the
             
           
             
+                <article class="comment-reply">
+                  <header class="comment-header">
+                    <figure class="frame comment-avatar">
+                      <img class="comment-avatar" src="https://www.gravatar.com/avatar/fe1ebf9ed20a33f87e91fbcdc6b1c304?s=70">
+                    </figure>
+                    <p class="comment-info"><strong>Ray</strong><br><i><small>In reply to Ray</i><br>Thursday, Sep 10, 2020</small></p>
+                  </header>
+                  <div class="comment">
+                    <p>Hi Xin,</p>
+
+<p>Re using reduced number f model levels, see script below (amend to suit: FILEIN and LEVEL_MIN. Run this on the raw model level data file (not the surface data file). It handles the conversion to GRIB1 and PV issue. Note that if you extract only ml from (say) 45-137 you still need to extract the orography and LogPs at ml=1 i.e. amend your retrieval. You also need a new list of A,B values. Easiest way to get this is simply run, assuming you use ml starting from 45,
+tail -n +45 List_A_B_Values.wrf.full | cut -d&rdquo; &ldquo; -f2- | nl -v0 | sed &rsquo;s/^ *//&rsquo;  &gt;List_A_B_Values.wrf.new</p>
+
+<p>No changes are required fro the surface (non ml) data, apart from GRIB1 conversion etc.</p>
+
+<p>Run the script to get processed ml data:</p>
+
+<p>#!/bin/sh
+#
+FILEIN=dummy.grb  # the input file - the raw ml (GRIB2) ERA5 data from archive
+[ -s &ldquo;$FILEIN&rdquo; ] || { echo &ldquo;** $FILEIN does not exist or size zero .. &ldquo;; exit 1; }</p>
+
+<p>LEVEL_MIN=45  # i.e. we have retrieved levels 45-137 to save space</p>
+
+<p>[ $LEVEL_MIN -le 1 ] &amp;&amp; { echo &ldquo;** ml starting at 1?? - nothing to do!&ldquo;; exit 0; }</p>
+
+<p>cat &gt;filter<em>levels &lt;&lt;eof
+write &ldquo;$$</em>[indicatorOfParameter]<em>[levelType]</em>[level]&ldquo;;
+eof</p>
+
+<h1 id="transform-to-grib1-and-fix-issue-with-pv">Transform to GRIB1 and fix issue with PV</h1>
+
+<p>grib_set -r -s packingType=grid_simple $FILEIN $$.grb || <br />
+{ echo &ldquo;** grib_set packing failed &hellip;&ldquo;; rm -f $$.grb; exit 1; }
+grib_set -s deletePV=1,edition=1 $$.grb ${FILEIN}.$$ || <br />
+{ echo &ldquo;** grib_set pv failed &hellip;&ldquo;; rm -f ${FILEIN}.$$; exit 1; }
+rm -f $$.grb
+FILE=${FILEIN}.$$</p>
+
+<h1 id="split-file-into-single-grib-files">Split file into single GRIB files</h1>
+
+<p>trap &lsquo;/bin/rm -f $$<em>*</em><em>_</em> filter_levels&rsquo; 0 1 2 3 6 15</p>
+
+<p>grib_filter filter_levels &ldquo;$FILE&rdquo; || <br />
+{ echo &ldquo;** grib_filter failed &hellip;&ldquo;; exit 1; }
+rm -f $FILE</p>
+
+<h1 id="sanity-check">Sanity check</h1>
+
+<p>[ -s &ldquo;$$_t_ml_1&rdquo; ] &amp;&amp; <br />
+{ echo &ldquo;** It looks like your file has model levels from 1 .. nothing to do!&ldquo;; exit 0; }</p>
+
+<h1 id="reset-model-levels-to-start-at-1-but-leave-sfcheight-sfcgeopotential-logps-alone">reset model levels to start at 1 (but leave sfcheight/sfcgeopotential/logPs alone)</h1>
+
+<p>LEVEL_MIN=$((LEVEL_MIN - 1))</p>
+
+<p>for file in $$<em>*</em><em>_</em>
+do
+LEVEL=${file##*_}
+if [ &ldquo;$LEVEL&rdquo; -ne 1 ]
+then
+LEVEL_NEW=$((LEVEL - LEVEL_MIN))
+#echo $LEVEL $LEVEL_NEW $file</p>
+
+<p>grib_set -r -s level=$LEVEL_NEW $file ${file}.$$ || <br />
+{ echo &ldquo;** grib_set failed &hellip;&ldquo;; rm -f ${file}.$$; exit 1; }
+mv ${file}.$$ $file
+fi
+done</p>
+
+<h1 id="merge-files-note-that-wrf-expects-files-ordered-by-date-time">Merge files (note that WRF expects files ordered by date/time)</h1>
+
+<p>rm -f ${FILEIN}.reset_ml
+grib<em>copy -B&rsquo;dataTime:i asc&rsquo; $$</em><em>_</em>_* ${FILEIN}.reset_ml || <br />
+{ echo &ldquo;** failed to merge files &hellip;&ldquo;; rm -f ${FILEIN}.reset_ml; exit 1; }
+echo &ldquo;** Adjusted file: ${FILEIN}.reset_ml&rdquo;
+exit</p>
+
+                  </div>
+                </article>
+            
+          
+            
           
             
           
@@ -2134,6 +2245,9 @@ calc_ecmwf_p.exe will open &lsquo;FILE&rsquo; and &lsquo;PRES&rsquo; to read the
   
     
     
+  
+    
+    
       
       
       
@@ -2145,6 +2259,8 @@ calc_ecmwf_p.exe will open &lsquo;FILE&rsquo; and &lsquo;PRES&rsquo; to read the
           <p class="comment-info"><strong>Andreas Hilboll</strong><br><small>Thursday, Dec 6, 2018</small></p>
         </header>
 
+        
+          
         
           
         
@@ -2223,6 +2339,8 @@ calc_ecmwf_p.exe will open &lsquo;FILE&rsquo; and &lsquo;PRES&rsquo; to read the
 
           <div style="clear: both;"></div>
 
+          
+            
           
             
           
@@ -2403,6 +2521,8 @@ calc_ecmwf_p.exe will open &lsquo;FILE&rsquo; and &lsquo;PRES&rsquo; to read the
           
         
           
+        
+          
             
           
         
@@ -2437,6 +2557,8 @@ calc_ecmwf_p.exe will open &lsquo;FILE&rsquo; and &lsquo;PRES&rsquo; to read the
 
           <div style="clear: both;"></div>
 
+          
+            
           
             
           
@@ -2579,6 +2701,8 @@ calc_ecmwf_p.exe will open &lsquo;FILE&rsquo; and &lsquo;PRES&rsquo; to read the
           
         
           
+        
+          
             
           
         
@@ -2613,6 +2737,8 @@ calc_ecmwf_p.exe will open &lsquo;FILE&rsquo; and &lsquo;PRES&rsquo; to read the
 
           <div style="clear: both;"></div>
 
+          
+            
           
             
           
@@ -2757,6 +2883,8 @@ calc_ecmwf_p.exe will open &lsquo;FILE&rsquo; and &lsquo;PRES&rsquo; to read the
           
         
           
+        
+          
             
           
         
@@ -2812,6 +2940,8 @@ calc_ecmwf_p.exe will open &lsquo;FILE&rsquo; and &lsquo;PRES&rsquo; to read the
 
           <div style="clear: both;"></div>
 
+          
+            
           
             
           
@@ -3006,6 +3136,8 @@ calc_ecmwf_p.exe will open &lsquo;FILE&rsquo; and &lsquo;PRES&rsquo; to read the
         
           
         
+          
+        
 
         <div id="35e0a330-be73-434d-8fa5-fa692b833d1a" class="comment-thread">
           <blockquote class="comment">
@@ -3027,6 +3159,8 @@ calc_ecmwf_p.exe will open &lsquo;FILE&rsquo; and &lsquo;PRES&rsquo; to read the
 
           <div style="clear: both;"></div>
 
+          
+            
           
             
           
