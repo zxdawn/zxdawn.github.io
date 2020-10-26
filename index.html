@@ -890,12 +890,7 @@
       
 
       
-        Because of the COVID-19, CAM-chem output files aren’t available after June 2019.
-I compared the WACCM output file and ERA5 reanalysis pressure level data and found that the upper tropospheric ozone is better for the ERA5 data.
-As a result, I decided to directly replace the O3 variable in wrfinput* files by that of the ERA5 data.
-Here’re the steps:
-import numpy as np import xarray as xr import proplot as plot from netCDF4 import Dataset from wrf import getvar, ll_to_xy import scipy.interpolate as interp  Read data # read wrfinput file ds_wrf = xr.open_dataset(&#39;./wrfinput/20200901/wrfinput_d01&#39;) # calculate the pressure levels (hPa) p_wrf = (ds_wrf[&#39;P&#39;]&#43;ds_wrf[&#39;PB&#39;]).isel(Time=0)/1e2 p_wrf.attrs[&#39;units&#39;] = &#39;hPa&#39; # convert to ppbv o3 = ds_wrf[&#39;o3&#39;]*1e3 # read era5 data ds_era5 = xr.open_dataset(&#39;./era5/era5_20200901.nc&#39;) era5_o3 = ds_era5[&#39;o3&#39;]*28.9644/47.9982*1e9  Interpolation Interpolating era5 data to wrf grids (lon/lat) era5_o3_interp = era5_o3.interp(longitude=o3.XLONG.isel(Time=0), latitude=o3.XLAT.isel(Time=0)) ## expand 1d to 3d p_era5 = era5_o3_interp.level.expand_dims([&#39;south_north&#39;, &#39;west_east&#39;]) p_era5 = np.repeat(p_era5, repeats=o3.sizes[&#39;south_north&#39;], axis=0) p_era5 = np.repeat(p_era5, repeats=o3.sizes[&#39;west_east&#39;], axis=1) p_era5.attrs[&#39;units&#39;] = &#39;hPa&#39;  Check the result of interpolation:
-f, axs = plot.subplots(ncols=2, share=0) ax = axs[0] m = ax.pcolormesh(era5_o3.longitude, era5_o3.latitude, era5_o3.isel(time=0, level=-1), cmap=&#39;viridis&#39;) ax.colorbar(m, label=&#39;O$_3$ (ppbv)&#39;, loc=&#39;r&#39;) ax.format(title=&#39;Original&#39;) ax = axs[1] m = ax.pcolormesh(era5_o3_interp.longitude, era5_o3_interp.latitude, era5_o3_interp.isel(time=0, level=-1), cmap=&#39;viridis&#39;) ax.format(title=&#39;Interpolated&#39;) ax.colorbar(m, label=&#39;O$_3$ (ppbv)&#39;, loc=&#39;r&#39;) axs.......
+        How to edit the WRF IC
       
     </a>
 
