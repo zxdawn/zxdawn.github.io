@@ -2041,11 +2041,7 @@ axs.format(xlim=(o3.XLONG.min(), o3.XLONG.max()),
            ylabel='latitude',)
 ```
 
-
-    
 ![comparison](/images/sci-tech/2020-10/era5_overview_2.png)
-
-    
 
 
 We can get the index of specific location and use it to pick the interpolated O3 profile.
@@ -2080,8 +2076,6 @@ ds_wrf['o3'].isel(Time=0, bottom_top=0).plot(vmin=20*1e-3, vmax=65*1e-3)
 ```
 
 ![era5 IC](/images/sci-tech/2020-10/era5.png)
-
-    
 
 
 Export to netcdf file:
@@ -2128,8 +2122,4 @@ axs.format(xlim=(0, 200),
 ```
 
 
-    
 ![profiles](/images/sci-tech/2020-10/profiles.png)
-
-    
-
