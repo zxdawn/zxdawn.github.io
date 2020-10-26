@@ -6,7 +6,7 @@ categories: ["sci-tech"]
 draft: false
 toc: true
 img: "/images/sci-tech/2020-10/era5.png"
-summary: ""
+summary: "How to edit the WRF IC"
 ---
 
 Because of the COVID-19, [CAM-chem](https://www.acom.ucar.edu/cam-chem/cam-chem.shtml) output files aren't available after June 2019.
