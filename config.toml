@@ -86,7 +86,7 @@ theme                      = ["AllinOne", "resume"]
   # googleAnalytics          = "UA-90057853-1"
 
   # counter
-  busuanzi                 = true
+  busuanzi                 = false
 
   firstName = "Xin"
   lastName = "Zhang"
