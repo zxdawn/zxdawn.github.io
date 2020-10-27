@@ -11,16 +11,16 @@
 I compared the WACCM output file and ERA5 reanalysis pressure level data and found that the upper tropospheric ozone is better for the ERA5 data.
 As a result, I decided to directly replace the O3 variable in wrfinput* files by that of the ERA5 data.
 Here&rsquo;re the steps:
-import numpy as np import xarray as xr import proplot as plot from netCDF4 import Dataset from wrf import getvar, ll_to_xy import scipy.interpolate as interp  Read data # read wrfinput file ds_wrf = xr.open_dataset(&#39;./wrfinput/20200901/wrfinput_d01&#39;) # calculate the pressure levels (hPa) p_wrf = (ds_wrf[&#39;P&#39;]&#43;ds_wrf[&#39;PB&#39;]).isel(Time=0)/1e2 p_wrf.attrs[&#39;units&#39;] = &#39;hPa&#39; # convert to ppbv o3 = ds_wrf[&#39;o3&#39;]*1e3 # read era5 data ds_era5 = xr.open_dataset(&#39;./era5/era5_20200901.nc&#39;) era5_o3 = ds_era5[&#39;o3&#39;]*28.9644/47.9982*1e9  Interpolation Interpolating era5 data to wrf grids (lon/lat) era5_o3_interp = era5_o3.interp(longitude=o3.XLONG.isel(Time=0), latitude=o3.XLAT.isel(Time=0)) ## expand 1d to 3d p_era5 = era5_o3_interp.level.expand_dims([&#39;south_north&#39;, &#39;west_east&#39;]) p_era5 = np.repeat(p_era5, repeats=o3.sizes[&#39;south_north&#39;], axis=0) p_era5 = np.repeat(p_era5, repeats=o3.sizes[&#39;west_east&#39;], axis=1) p_era5.attrs[&#39;units&#39;] = &#39;hPa&#39;  Check the result of interpolation:
-f, axs = plot.subplots(ncols=2, share=0) ax = axs[0] m = ax.pcolormesh(era5_o3.longitude, era5_o3.latitude, era5_o3.isel(time=0, level=-1), cmap=&#39;viridis&#39;) ax.colorbar(m, label=&#39;O$_3$ (ppbv)&#39;, loc=&#39;r&#39;) ax.format(title=&#39;Original&#39;) ax = axs[1] m = ax.pcolormesh(era5_o3_interp.longitude, era5_o3_interp.latitude, era5_o3_interp.isel(time=0, level=-1), cmap=&#39;viridis&#39;) ax.format(title=&#39;Interpolated&#39;) ax.colorbar(m, label=&#39;O$_3$ (ppbv)&#39;, loc=&#39;r&#39;) axs.">
+import numpy as np import xarray as xr import proplot as plot from netCDF4 import Dataset from wrf import getvar, ll_to_xy import scipy.interpolate as interp  Read data # read wrfinput file ncfile = Dataset(&#39;./wrfinput/20200901/mozbc/wrfinput_d01&#39;, &#39;r&#43;&#39;) # for modification ds_wrf = xr.open_dataset(&#39;./wrfinput/20200901/mozbc/wrfinput_d01&#39;) # for reading data # calculate the pressure levels (hPa) p_wrf = (ds_wrf[&#39;P&#39;]&#43;ds_wrf[&#39;PB&#39;]).isel(Time=0)/1e2 p_wrf.attrs[&#39;units&#39;] = &#39;hPa&#39; # convert to ppbv o3 = ds_wrf[&#39;o3&#39;]*1e3 # read era5 data ds_era5 = xr.open_dataset(&#39;./era5/era5_20200901.nc&#39;) era5_o3 = ds_era5[&#39;o3&#39;]*28.9644/47.9982*1e9  Correct the ERA5 data manually (optional) I correct the ERA5 data based on the ozonesonde data:
+# correct the ERA5 data manually era5_o3 = xr.where((era5_o3.level&lt;=500) &amp; (era5_o3.level&gt;=100) &amp; (era5_o3-20&gt;10), era5_o3-20, era5_o3) era5_o3 = xr.where((era5_o3.level&lt;=700) &amp; (era5_o3.level&gt;500) &amp; (era5_o3-10&gt;10), era5_o3-10, era5_o3)  Interpolation Interpolating era5 data to wrf grids (lon/lat) era5_o3_interp = era5_o3.interp(longitude=o3.XLONG.isel(Time=0), latitude=o3.XLAT.isel(Time=0)) ## expand 1d to 3d p_era5 = era5_o3_interp.level.expand_dims([&#39;south_north&#39;, &#39;west_east&#39;]) p_era5 = np.">
   
   <meta property="og:title" content="Using the ERA5 O3 data in the WRF initial condition" />
 <meta property="og:description" content="Because of the COVID-19, CAM-chem output files aren&rsquo;t available after June 2019.
 I compared the WACCM output file and ERA5 reanalysis pressure level data and found that the upper tropospheric ozone is better for the ERA5 data.
 As a result, I decided to directly replace the O3 variable in wrfinput* files by that of the ERA5 data.
 Here&rsquo;re the steps:
-import numpy as np import xarray as xr import proplot as plot from netCDF4 import Dataset from wrf import getvar, ll_to_xy import scipy.interpolate as interp  Read data # read wrfinput file ds_wrf = xr.open_dataset(&#39;./wrfinput/20200901/wrfinput_d01&#39;) # calculate the pressure levels (hPa) p_wrf = (ds_wrf[&#39;P&#39;]&#43;ds_wrf[&#39;PB&#39;]).isel(Time=0)/1e2 p_wrf.attrs[&#39;units&#39;] = &#39;hPa&#39; # convert to ppbv o3 = ds_wrf[&#39;o3&#39;]*1e3 # read era5 data ds_era5 = xr.open_dataset(&#39;./era5/era5_20200901.nc&#39;) era5_o3 = ds_era5[&#39;o3&#39;]*28.9644/47.9982*1e9  Interpolation Interpolating era5 data to wrf grids (lon/lat) era5_o3_interp = era5_o3.interp(longitude=o3.XLONG.isel(Time=0), latitude=o3.XLAT.isel(Time=0)) ## expand 1d to 3d p_era5 = era5_o3_interp.level.expand_dims([&#39;south_north&#39;, &#39;west_east&#39;]) p_era5 = np.repeat(p_era5, repeats=o3.sizes[&#39;south_north&#39;], axis=0) p_era5 = np.repeat(p_era5, repeats=o3.sizes[&#39;west_east&#39;], axis=1) p_era5.attrs[&#39;units&#39;] = &#39;hPa&#39;  Check the result of interpolation:
-f, axs = plot.subplots(ncols=2, share=0) ax = axs[0] m = ax.pcolormesh(era5_o3.longitude, era5_o3.latitude, era5_o3.isel(time=0, level=-1), cmap=&#39;viridis&#39;) ax.colorbar(m, label=&#39;O$_3$ (ppbv)&#39;, loc=&#39;r&#39;) ax.format(title=&#39;Original&#39;) ax = axs[1] m = ax.pcolormesh(era5_o3_interp.longitude, era5_o3_interp.latitude, era5_o3_interp.isel(time=0, level=-1), cmap=&#39;viridis&#39;) ax.format(title=&#39;Interpolated&#39;) ax.colorbar(m, label=&#39;O$_3$ (ppbv)&#39;, loc=&#39;r&#39;) axs." />
+import numpy as np import xarray as xr import proplot as plot from netCDF4 import Dataset from wrf import getvar, ll_to_xy import scipy.interpolate as interp  Read data # read wrfinput file ncfile = Dataset(&#39;./wrfinput/20200901/mozbc/wrfinput_d01&#39;, &#39;r&#43;&#39;) # for modification ds_wrf = xr.open_dataset(&#39;./wrfinput/20200901/mozbc/wrfinput_d01&#39;) # for reading data # calculate the pressure levels (hPa) p_wrf = (ds_wrf[&#39;P&#39;]&#43;ds_wrf[&#39;PB&#39;]).isel(Time=0)/1e2 p_wrf.attrs[&#39;units&#39;] = &#39;hPa&#39; # convert to ppbv o3 = ds_wrf[&#39;o3&#39;]*1e3 # read era5 data ds_era5 = xr.open_dataset(&#39;./era5/era5_20200901.nc&#39;) era5_o3 = ds_era5[&#39;o3&#39;]*28.9644/47.9982*1e9  Correct the ERA5 data manually (optional) I correct the ERA5 data based on the ozonesonde data:
+# correct the ERA5 data manually era5_o3 = xr.where((era5_o3.level&lt;=500) &amp; (era5_o3.level&gt;=100) &amp; (era5_o3-20&gt;10), era5_o3-20, era5_o3) era5_o3 = xr.where((era5_o3.level&lt;=700) &amp; (era5_o3.level&gt;500) &amp; (era5_o3-10&gt;10), era5_o3-10, era5_o3)  Interpolation Interpolating era5 data to wrf grids (lon/lat) era5_o3_interp = era5_o3.interp(longitude=o3.XLONG.isel(Time=0), latitude=o3.XLAT.isel(Time=0)) ## expand 1d to 3d p_era5 = era5_o3_interp.level.expand_dims([&#39;south_north&#39;, &#39;west_east&#39;]) p_era5 = np." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dreambooker.site/2020/10/26/Using-the-ERA5-O3-data-in-the-WRF-initial-condition/" /><meta property="article:published_time" content="2020-10-26T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2020-10-26T00:00:00&#43;00:00"/>
@@ -361,7 +361,7 @@ f, axs = plot.subplots(ncols=2, share=0) ax = axs[0] m = ax.pcolormesh(era5_o3.l
   </ul>
   
     <div class="view">
-      <img src="https://dreambooker.site/images/sci-tech/2020-10/era5.png" />
+      <img src="https://dreambooker.site/images/sci-tech/2020-10/era5_overview_2.png" />
     </div>
   
 
@@ -390,7 +390,8 @@ import scipy.interpolate as interp
 <h2 id="read-data">Read data</h2>
 
 <pre><code class="language-python"># read wrfinput file
-ds_wrf = xr.open_dataset('./wrfinput/20200901/wrfinput_d01')
+ncfile = Dataset('./wrfinput/20200901/mozbc/wrfinput_d01', 'r+') # for modification
+ds_wrf = xr.open_dataset('./wrfinput/20200901/mozbc/wrfinput_d01') # for reading data
 # calculate the pressure levels (hPa)
 p_wrf = (ds_wrf['P']+ds_wrf['PB']).isel(Time=0)/1e2
 p_wrf.attrs['units'] = 'hPa'
@@ -400,6 +401,15 @@ o3 = ds_wrf['o3']*1e3
 # read era5 data
 ds_era5 = xr.open_dataset('./era5/era5_20200901.nc')
 era5_o3 = ds_era5['o3']*28.9644/47.9982*1e9
+</code></pre>
+
+<h2 id="correct-the-era5-data-manually-optional">Correct the ERA5 data manually (optional)</h2>
+
+<p>I correct the ERA5 data based on the ozonesonde data:</p>
+
+<pre><code class="language-python"># correct the ERA5 data manually
+era5_o3 = xr.where((era5_o3.level&lt;=500) &amp; (era5_o3.level&gt;=100) &amp; (era5_o3-20&gt;10), era5_o3-20, era5_o3)
+era5_o3 = xr.where((era5_o3.level&lt;=700) &amp; (era5_o3.level&gt;500) &amp; (era5_o3-10&gt;10), era5_o3-10, era5_o3)
 </code></pre>
 
 <h2 id="interpolation">Interpolation</h2>
@@ -441,7 +451,7 @@ axs.format(xlim=(o3.XLONG.min(), o3.XLONG.max()),
            ylabel='latitude',)
 </code></pre>
 
-<p><img src="https://dreambooker.site/images/sci-tech/2020-10/era5_overview_1.png" alt="comparison" /></p>
+<p><img src="https://dreambooker.site/images/sci-tech/2020-10/era5_overview_1.png" alt="overview" /></p>
 
 <h3 id="interpolating-to-wrf-pressure-levels">Interpolating to WRF pressure levels</h3>
 
@@ -808,7 +818,7 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;o3&#x27; (time: 72, level: 37, latitude: 201, longitude: 281)&gt;
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray (level: 37, time: 72, latitude: 201, longitude: 281)&gt;
 array([[[[2436.0215  , 2437.7124  , 2438.7883  , ..., 2450.778   ,
           2450.9316  , 2451.239   ],
          [2441.5552  , 2442.631   , 2443.246   , ..., 2456.158   ,
@@ -823,19 +833,19 @@ array([[[[2436.0215  , 2437.7124  , 2438.7883  , ..., 2450.778   ,
          [3075.7715  , 3064.397   , 3053.176   , ..., 3273.599   ,
           3278.3643  , 3284.8203  ]],
 
-        [[3607.4624  , 3600.084   , 3593.0132  , ..., 3570.1106  ,
-          3566.4211  , 3562.732   ],
-         [3614.2256  , 3608.077   , 3602.39    , ..., 3583.7908  ,
-          3580.2551  , 3576.5664  ],
-         [3619.6057  , 3613.6106  , 3609.4604  , ..., 3597.1633  ,
-          3593.7822  , 3590.4001  ],
+        [[2427.26    , 2429.2583  , 2431.2563  , ..., 2447.8574  ,
+          2447.8574  , 2448.0112  ],
+         [2431.8713  , 2433.716   , 2435.5603  , ..., 2451.3926  ,
+          2451.3926  , 2451.3926  ],
+         [2436.9438  , 2438.9421  , 2440.6328  , ..., 2454.7744  ,
+          2454.467   , 2454.3132  ],
 ...
-         [  27.19739 ,   27.043716,   26.890043, ...,   26.274803,
-            26.274803,   26.12113 ],
-         [  27.19739 ,   27.043716,   26.890043, ...,   26.274803,
-            26.274803,   26.274803],
-         [  27.043716,   27.043716,   26.890043, ...,   26.428476,
-            26.428476,   26.274803]],
+         [  26.428476,   26.428476,   26.428476, ...,   26.890043,
+            26.890043,   26.736372],
+         [  26.428476,   26.428476,   26.274803, ...,   27.043716,
+            27.043716,   27.043716],
+         [  26.428476,   26.428476,   26.274803, ...,   27.19739 ,
+            27.19739 ,   27.19739 ]],
 
         [[  35.34426 ,   35.34426 ,   35.34426 , ...,   44.720516,
             44.720516,   44.720516],
@@ -851,10 +861,10 @@ array([[[[2436.0215  , 2437.7124  , 2438.7883  , ..., 2450.778   ,
          [  26.428476,   26.428476,   26.274803, ...,   27.043716,
             27.043716,   27.043716]]]], dtype=float32)
 Coordinates:
+  * level      (level) int32 1 2 3 5 7 10 20 30 ... 850 875 900 925 950 975 1000
   * longitude  (longitude) float32 90.0 90.25 90.5 90.75 ... 159.5 159.75 160.0
   * latitude   (latitude) float32 60.0 59.75 59.5 59.25 ... 10.5 10.25 10.0
-  * level      (level) int32 1 2 3 5 7 10 20 30 ... 850 875 900 925 950 975 1000
-  * time       (time) datetime64[ns] 2020-08-01 ... 2020-09-01T23:00:00</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'o3'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 72</li><li><span class='xr-has-index'>level</span>: 37</li><li><span class='xr-has-index'>latitude</span>: 201</li><li><span class='xr-has-index'>longitude</span>: 281</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-745029f0-7a68-485a-a7c3-0e03ce5cf716' class='xr-array-in' type='checkbox' checked><label for='section-745029f0-7a68-485a-a7c3-0e03ce5cf716' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>2436.0215 2437.7124 2438.7883 ... 27.043716 27.043716 27.043716</span></div><div class='xr-array-data'><pre>array([[[[2436.0215  , 2437.7124  , 2438.7883  , ..., 2450.778   ,
+  * time       (time) datetime64[ns] 2020-08-01 ... 2020-09-01T23:00:00</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>level</span>: 37</li><li><span class='xr-has-index'>time</span>: 72</li><li><span class='xr-has-index'>latitude</span>: 201</li><li><span class='xr-has-index'>longitude</span>: 281</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-720b4fc7-4be9-4553-b11f-df593c18099b' class='xr-array-in' type='checkbox' checked><label for='section-720b4fc7-4be9-4553-b11f-df593c18099b' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>2436.0215 2437.7124 2438.7883 ... 27.043716 27.043716 27.043716</span></div><div class='xr-array-data'><pre>array([[[[2436.0215  , 2437.7124  , 2438.7883  , ..., 2450.778   ,
           2450.9316  , 2451.239   ],
          [2441.5552  , 2442.631   , 2443.246   , ..., 2456.158   ,
           2456.4653  , 2456.7725  ],
@@ -868,19 +878,19 @@ Coordinates:
          [3075.7715  , 3064.397   , 3053.176   , ..., 3273.599   ,
           3278.3643  , 3284.8203  ]],
 
-        [[3607.4624  , 3600.084   , 3593.0132  , ..., 3570.1106  ,
-          3566.4211  , 3562.732   ],
-         [3614.2256  , 3608.077   , 3602.39    , ..., 3583.7908  ,
-          3580.2551  , 3576.5664  ],
-         [3619.6057  , 3613.6106  , 3609.4604  , ..., 3597.1633  ,
-          3593.7822  , 3590.4001  ],
+        [[2427.26    , 2429.2583  , 2431.2563  , ..., 2447.8574  ,
+          2447.8574  , 2448.0112  ],
+         [2431.8713  , 2433.716   , 2435.5603  , ..., 2451.3926  ,
+          2451.3926  , 2451.3926  ],
+         [2436.9438  , 2438.9421  , 2440.6328  , ..., 2454.7744  ,
+          2454.467   , 2454.3132  ],
 ...
-         [  27.19739 ,   27.043716,   26.890043, ...,   26.274803,
-            26.274803,   26.12113 ],
-         [  27.19739 ,   27.043716,   26.890043, ...,   26.274803,
-            26.274803,   26.274803],
-         [  27.043716,   27.043716,   26.890043, ...,   26.428476,
-            26.428476,   26.274803]],
+         [  26.428476,   26.428476,   26.428476, ...,   26.890043,
+            26.890043,   26.736372],
+         [  26.428476,   26.428476,   26.274803, ...,   27.043716,
+            27.043716,   27.043716],
+         [  26.428476,   26.428476,   26.274803, ...,   27.19739 ,
+            27.19739 ,   27.19739 ]],
 
         [[  35.34426 ,   35.34426 ,   35.34426 , ...,   44.720516,
             44.720516,   44.720516],
@@ -894,10 +904,10 @@ Coordinates:
          [  26.428476,   26.428476,   26.274803, ...,   26.890043,
             26.890043,   26.890043],
          [  26.428476,   26.428476,   26.274803, ...,   27.043716,
-            27.043716,   27.043716]]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-b4584a37-9c52-4b69-aec4-4aa7ffc23aca' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b4584a37-9c52-4b69-aec4-4aa7ffc23aca' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 90.25 90.5 ... 159.75 160.0</div><input id='attrs-3d7ec4ef-5a75-4b11-9353-6b856b2b4149' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3d7ec4ef-5a75-4b11-9353-6b856b2b4149' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7d003ded-9e69-4edf-a34b-03b07a9d234d' class='xr-var-data-in' type='checkbox'><label for='data-7d003ded-9e69-4edf-a34b-03b07a9d234d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([ 90.  ,  90.25,  90.5 , ..., 159.5 , 159.75, 160.  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>60.0 59.75 59.5 ... 10.5 10.25 10.0</div><input id='attrs-66a499f4-b521-4911-975c-377b4338ecf5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-66a499f4-b521-4911-975c-377b4338ecf5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-91fca685-4bec-4b40-9570-ea35301e2334' class='xr-var-data-in' type='checkbox'><label for='data-91fca685-4bec-4b40-9570-ea35301e2334' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([60.  , 59.75, 59.5 , ..., 10.5 , 10.25, 10.  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>1 2 3 5 7 ... 900 925 950 975 1000</div><input id='attrs-c7762636-5e00-480c-8bea-8159abf27d8e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c7762636-5e00-480c-8bea-8159abf27d8e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3e364bf7-b01e-4ca0-a3d6-77821e9e1c20' class='xr-var-data-in' type='checkbox'><label for='data-3e364bf7-b01e-4ca0-a3d6-77821e9e1c20' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>millibars</dd><dt><span>long_name :</span></dt><dd>pressure_level</dd></dl></div><div class='xr-var-data'><pre>array([   1,    2,    3,    5,    7,   10,   20,   30,   50,   70,  100,  125,
+            27.043716,   27.043716]]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-9cb4bc94-0f16-4f68-bfa9-441289071662' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9cb4bc94-0f16-4f68-bfa9-441289071662' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>1 2 3 5 7 ... 900 925 950 975 1000</div><input id='attrs-b5ab0ded-6f6f-427f-8174-9f358060f7e4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b5ab0ded-6f6f-427f-8174-9f358060f7e4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-393e4d38-b5ed-4ea5-8734-8d7f161f7958' class='xr-var-data-in' type='checkbox'><label for='data-393e4d38-b5ed-4ea5-8734-8d7f161f7958' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>millibars</dd><dt><span>long_name :</span></dt><dd>pressure_level</dd></dl></div><div class='xr-var-data'><pre>array([   1,    2,    3,    5,    7,   10,   20,   30,   50,   70,  100,  125,
         150,  175,  200,  225,  250,  300,  350,  400,  450,  500,  550,  600,
         650,  700,  750,  775,  800,  825,  850,  875,  900,  925,  950,  975,
-       1000])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2020-08-01 ... 2020-09-01T23:00:00</div><input id='attrs-23a4b199-03ef-47fd-94f7-83114c6002e7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-23a4b199-03ef-47fd-94f7-83114c6002e7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-78c11163-ff7f-4cf7-ad84-9acb98c77e99' class='xr-var-data-in' type='checkbox'><label for='data-78c11163-ff7f-4cf7-ad84-9acb98c77e99' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2020-08-01T00:00:00.000000000&#x27;, &#x27;2020-08-01T01:00:00.000000000&#x27;,
+       1000], dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 90.25 90.5 ... 159.75 160.0</div><input id='attrs-377b82e6-07d0-4a36-8395-c01eee3ce5f4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-377b82e6-07d0-4a36-8395-c01eee3ce5f4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-98b65de9-f196-4165-932a-4c6279ae6beb' class='xr-var-data-in' type='checkbox'><label for='data-98b65de9-f196-4165-932a-4c6279ae6beb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>long_name :</span></dt><dd>longitude</dd></dl></div><div class='xr-var-data'><pre>array([ 90.  ,  90.25,  90.5 , ..., 159.5 , 159.75, 160.  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>60.0 59.75 59.5 ... 10.5 10.25 10.0</div><input id='attrs-68618649-6582-4e64-8b36-0c9864fcfae3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-68618649-6582-4e64-8b36-0c9864fcfae3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f9bfacc1-e012-4126-9b4a-09b89847ecea' class='xr-var-data-in' type='checkbox'><label for='data-f9bfacc1-e012-4126-9b4a-09b89847ecea' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>long_name :</span></dt><dd>latitude</dd></dl></div><div class='xr-var-data'><pre>array([60.  , 59.75, 59.5 , ..., 10.5 , 10.25, 10.  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2020-08-01 ... 2020-09-01T23:00:00</div><input id='attrs-433e7c6c-75c5-4c78-816f-6b3f3ec9ff1a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-433e7c6c-75c5-4c78-816f-6b3f3ec9ff1a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-150c09d5-77da-48f2-bff4-fe0d1a07cae9' class='xr-var-data-in' type='checkbox'><label for='data-150c09d5-77da-48f2-bff4-fe0d1a07cae9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2020-08-01T00:00:00.000000000&#x27;, &#x27;2020-08-01T01:00:00.000000000&#x27;,
        &#x27;2020-08-01T02:00:00.000000000&#x27;, &#x27;2020-08-01T03:00:00.000000000&#x27;,
        &#x27;2020-08-01T04:00:00.000000000&#x27;, &#x27;2020-08-01T05:00:00.000000000&#x27;,
        &#x27;2020-08-01T06:00:00.000000000&#x27;, &#x27;2020-08-01T07:00:00.000000000&#x27;,
@@ -933,7 +943,7 @@ Coordinates:
        &#x27;2020-09-01T18:00:00.000000000&#x27;, &#x27;2020-09-01T19:00:00.000000000&#x27;,
        &#x27;2020-09-01T20:00:00.000000000&#x27;, &#x27;2020-09-01T21:00:00.000000000&#x27;,
        &#x27;2020-09-01T22:00:00.000000000&#x27;, &#x27;2020-09-01T23:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-aed46474-f39a-4cd2-8cc0-7f8fc135c02d' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-aed46474-f39a-4cd2-8cc0-7f8fc135c02d' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div>
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-16b1a21e-f7c1-45d3-bbcc-39ebdd29a03f' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-16b1a21e-f7c1-45d3-bbcc-39ebdd29a03f' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div>
 
 <div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
 <defs>
@@ -1326,12 +1336,12 @@ array([[[   1,    2,    3, ...,  950,  975, 1000],
         ...,
         [   1,    2,    3, ...,  950,  975, 1000],
         [   1,    2,    3, ...,  950,  975, 1000],
-        [   1,    2,    3, ...,  950,  975, 1000]]])
+        [   1,    2,    3, ...,  950,  975, 1000]]], dtype=int32)
 Coordinates:
   * level    (level) int32 1 2 3 5 7 10 20 30 ... 850 875 900 925 950 975 1000
 Dimensions without coordinates: south_north, west_east
 Attributes:
-    units:    hPa</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'level'</div><ul class='xr-dim-list'><li><span>south_north</span>: 119</li><li><span>west_east</span>: 119</li><li><span class='xr-has-index'>level</span>: 37</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-2f8e1d7e-eeeb-41f5-b310-265662725dd3' class='xr-array-in' type='checkbox' checked><label for='section-2f8e1d7e-eeeb-41f5-b310-265662725dd3' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>1 2 3 5 7 10 20 30 50 70 ... 775 800 825 850 875 900 925 950 975 1000</span></div><div class='xr-array-data'><pre>array([[[   1,    2,    3, ...,  950,  975, 1000],
+    units:    hPa</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'level'</div><ul class='xr-dim-list'><li><span>south_north</span>: 119</li><li><span>west_east</span>: 119</li><li><span class='xr-has-index'>level</span>: 37</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-bc5ccd20-6320-411f-99e6-c1b2a90db2bb' class='xr-array-in' type='checkbox' checked><label for='section-bc5ccd20-6320-411f-99e6-c1b2a90db2bb' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>1 2 3 5 7 10 20 30 50 70 ... 775 800 825 850 875 900 925 950 975 1000</span></div><div class='xr-array-data'><pre>array([[[   1,    2,    3, ...,  950,  975, 1000],
         [   1,    2,    3, ...,  950,  975, 1000],
         [   1,    2,    3, ...,  950,  975, 1000],
         ...,
@@ -1371,10 +1381,10 @@ Attributes:
         ...,
         [   1,    2,    3, ...,  950,  975, 1000],
         [   1,    2,    3, ...,  950,  975, 1000],
-        [   1,    2,    3, ...,  950,  975, 1000]]])</pre></div></div></li><li class='xr-section-item'><input id='section-8a1cd797-11dd-4792-8e0c-1c5d55afde3b' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8a1cd797-11dd-4792-8e0c-1c5d55afde3b' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>1 2 3 5 7 ... 900 925 950 975 1000</div><input id='attrs-f90339b9-e64e-4d1a-9b5a-86805a27e95d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f90339b9-e64e-4d1a-9b5a-86805a27e95d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3bbf3d16-f0c7-45ea-bc58-c8c7c47eddd7' class='xr-var-data-in' type='checkbox'><label for='data-3bbf3d16-f0c7-45ea-bc58-c8c7c47eddd7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>millibars</dd><dt><span>long_name :</span></dt><dd>pressure_level</dd></dl></div><div class='xr-var-data'><pre>array([   1,    2,    3,    5,    7,   10,   20,   30,   50,   70,  100,  125,
+        [   1,    2,    3, ...,  950,  975, 1000]]], dtype=int32)</pre></div></div></li><li class='xr-section-item'><input id='section-16efa49a-06a2-417b-bd6d-191e23a67e60' class='xr-section-summary-in' type='checkbox'  checked><label for='section-16efa49a-06a2-417b-bd6d-191e23a67e60' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>1 2 3 5 7 ... 900 925 950 975 1000</div><input id='attrs-7e1cd1d0-3f1a-47d4-8945-084a561cc686' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7e1cd1d0-3f1a-47d4-8945-084a561cc686' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-65d9d8aa-0e9d-4e23-bfb9-0b93ca4242b1' class='xr-var-data-in' type='checkbox'><label for='data-65d9d8aa-0e9d-4e23-bfb9-0b93ca4242b1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>millibars</dd><dt><span>long_name :</span></dt><dd>pressure_level</dd></dl></div><div class='xr-var-data'><pre>array([   1,    2,    3,    5,    7,   10,   20,   30,   50,   70,  100,  125,
         150,  175,  200,  225,  250,  300,  350,  400,  450,  500,  550,  600,
         650,  700,  750,  775,  800,  825,  850,  875,  900,  925,  950,  975,
-       1000])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-08396177-9557-457c-85b9-6e801d7b6684' class='xr-section-summary-in' type='checkbox'  checked><label for='section-08396177-9557-457c-85b9-6e801d7b6684' class='xr-section-summary' >Attributes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>hPa</dd></dl></div></li></ul></div></div>
+       1000], dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-bfcf0acb-8de9-4a8d-bfc5-e48d51cd8e6d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-bfcf0acb-8de9-4a8d-bfc5-e48d51cd8e6d' class='xr-section-summary' >Attributes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>hPa</dd></dl></div></li></ul></div></div>
 
 <div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
 <defs>
@@ -1773,7 +1783,7 @@ Coordinates:
     XLONG    (south_north, west_east) float32 104.098694 104.3277 ... 138.15619
 Dimensions without coordinates: bottom_top, south_north, west_east
 Attributes:
-    units:    hPa</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span>bottom_top</span>: 74</li><li><span>south_north</span>: 119</li><li><span>west_east</span>: 119</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-51f5e776-4c6d-4b49-b973-97a97dff0b1e' class='xr-array-in' type='checkbox' checked><label for='section-51f5e776-4c6d-4b49-b973-97a97dff0b1e' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>977.6088 973.8247 980.0365 985.46826 ... 10.364057 10.365552 10.365443</span></div><div class='xr-array-data'><pre>array([[[ 977.6088   ,  973.8247   ,  980.0365   , ..., 1005.25305  ,
+    units:    hPa</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span>bottom_top</span>: 74</li><li><span>south_north</span>: 119</li><li><span>west_east</span>: 119</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-c339c545-37c4-490d-b7ad-065a079dde04' class='xr-array-in' type='checkbox' checked><label for='section-c339c545-37c4-490d-b7ad-065a079dde04' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>977.6088 973.8247 980.0365 985.46826 ... 10.364057 10.365552 10.365443</span></div><div class='xr-array-data'><pre>array([[[ 977.6088   ,  973.8247   ,  980.0365   , ..., 1005.25305  ,
          1005.3736   , 1005.49805  ],
         [ 972.2685   ,  972.64575  ,  980.2555   , ..., 1005.1616   ,
          1005.28357  , 1005.40784  ],
@@ -1813,7 +1823,7 @@ Attributes:
         [  10.325963 ,   10.319494 ,   10.317566 , ...,   10.3655205,
            10.3654995,   10.365434 ],
         [  10.313118 ,   10.308083 ,   10.31015  , ...,   10.364057 ,
-           10.365552 ,   10.365443 ]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-242fdd2e-1a8e-46ef-b416-415989508da3' class='xr-section-summary-in' type='checkbox'  checked><label for='section-242fdd2e-1a8e-46ef-b416-415989508da3' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>XLAT</span></div><div class='xr-var-dims'>(south_north, west_east)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>16.568985 16.612839 ... 45.305634</div><input id='attrs-5a70b8c1-cab4-4b8b-bdad-c38e5fb122e0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5a70b8c1-cab4-4b8b-bdad-c38e5fb122e0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e29fcc94-58bd-4f1c-928b-94c3bd37410a' class='xr-var-data-in' type='checkbox'><label for='data-e29fcc94-58bd-4f1c-928b-94c3bd37410a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>FieldType :</span></dt><dd>104</dd><dt><span>MemoryOrder :</span></dt><dd>XY </dd><dt><span>description :</span></dt><dd>LATITUDE, SOUTH IS NEGATIVE</dd><dt><span>units :</span></dt><dd>degree_north</dd><dt><span>stagger :</span></dt><dd></dd></dl></div><div class='xr-var-data'><pre>array([[16.568985, 16.612839, 16.656075, ..., 17.305672, 17.273308,
+           10.365552 ,   10.365443 ]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-a664d938-3432-42fd-8bf2-823f1a8377a7' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a664d938-3432-42fd-8bf2-823f1a8377a7' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>XLAT</span></div><div class='xr-var-dims'>(south_north, west_east)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>16.568985 16.612839 ... 45.305634</div><input id='attrs-e54793ab-c887-4620-9aec-bb6e3688e464' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e54793ab-c887-4620-9aec-bb6e3688e464' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a9af8f7e-6c04-4d19-93fd-ffe96b2516ba' class='xr-var-data-in' type='checkbox'><label for='data-a9af8f7e-6c04-4d19-93fd-ffe96b2516ba' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>FieldType :</span></dt><dd>104</dd><dt><span>MemoryOrder :</span></dt><dd>XY </dd><dt><span>description :</span></dt><dd>LATITUDE, SOUTH IS NEGATIVE</dd><dt><span>units :</span></dt><dd>degree_north</dd><dt><span>stagger :</span></dt><dd></dd></dl></div><div class='xr-var-data'><pre>array([[16.568985, 16.612839, 16.656075, ..., 17.305672, 17.273308,
         17.240318],
        [16.788559, 16.832611, 16.87603 , ..., 17.52864 , 17.496117,
         17.462982],
@@ -1825,7 +1835,7 @@ Attributes:
        [43.929745, 44.003387, 44.076023, ..., 45.171005, 45.116314,
         45.06056 ],
        [44.16991 , 44.243866, 44.316814, ..., 45.416573, 45.361637,
-        45.305634]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>XLONG</span></div><div class='xr-var-dims'>(south_north, west_east)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>104.098694 104.3277 ... 138.15619</div><input id='attrs-3753fa54-b6b7-48bd-818c-964ac25ed303' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3753fa54-b6b7-48bd-818c-964ac25ed303' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-04f0b99f-19e7-4574-906a-03bd445f10cf' class='xr-var-data-in' type='checkbox'><label for='data-04f0b99f-19e7-4574-906a-03bd445f10cf' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>FieldType :</span></dt><dd>104</dd><dt><span>MemoryOrder :</span></dt><dd>XY </dd><dt><span>description :</span></dt><dd>LONGITUDE, WEST IS NEGATIVE</dd><dt><span>units :</span></dt><dd>degree_east</dd><dt><span>stagger :</span></dt><dd></dd></dl></div><div class='xr-var-data'><pre>array([[104.098694, 104.3277  , 104.55701 , ..., 131.43512 , 131.66837 ,
+        45.305634]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>XLONG</span></div><div class='xr-var-dims'>(south_north, west_east)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>104.098694 104.3277 ... 138.15619</div><input id='attrs-2a3d3d69-5a30-49d5-a5dc-190213a85314' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2a3d3d69-5a30-49d5-a5dc-190213a85314' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ce91913e-049a-4d85-a202-b83b6e5ae5ad' class='xr-var-data-in' type='checkbox'><label for='data-ce91913e-049a-4d85-a202-b83b6e5ae5ad' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>FieldType :</span></dt><dd>104</dd><dt><span>MemoryOrder :</span></dt><dd>XY </dd><dt><span>description :</span></dt><dd>LONGITUDE, WEST IS NEGATIVE</dd><dt><span>units :</span></dt><dd>degree_east</dd><dt><span>stagger :</span></dt><dd></dd></dl></div><div class='xr-var-data'><pre>array([[104.098694, 104.3277  , 104.55701 , ..., 131.43512 , 131.66837 ,
         131.90143 ],
        [104.05249 , 104.282135, 104.512054, ..., 131.46875 , 131.7027  ,
         131.9364  ],
@@ -1837,7 +1847,7 @@ Attributes:
        [ 96.02817 ,  96.36212 ,  96.6969  , ..., 137.3808  , 137.72882 ,
         138.07614 ],
        [ 95.924805,  96.26001 ,  96.59607 , ..., 137.45795 , 137.80743 ,
-        138.15619 ]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3d5808ba-1876-4bc2-aa39-0f5f1d0072cd' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3d5808ba-1876-4bc2-aa39-0f5f1d0072cd' class='xr-section-summary' >Attributes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>hPa</dd></dl></div></li></ul></div></div>
+        138.15619 ]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6df035ab-53c1-4bf2-9954-8badf25b640a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6df035ab-53c1-4bf2-9954-8badf25b640a' class='xr-section-summary' >Attributes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>hPa</dd></dl></div></li></ul></div></div>
 
 <p>It&rsquo;s time to run the interpolation:</p>
 
@@ -1854,9 +1864,10 @@ interped = xr.apply_ufunc(
 )
 </code></pre>
 
-<p>Reorgnizing interpolated data to WRF variable dimension:</p>
+<p>Reorgnizie interpolated data to WRF variable dimension:</p>
 
-<pre><code class="language-python">interped_o3 = interped.sel(time='2020-09-01 00:00').rename({'time': 'Time'}).transpose('bottom_top', ...).expand_dims('Time')
+<pre><code class="language-python"># sort the dims and delete useless coordinates
+interped_o3 = interped.sel(time='2020-09-01 00:00').transpose('bottom_top', ...).expand_dims('Time').drop_vars(['time', 'longitude', 'latitude'])
 display(interped_o3)
 </code></pre>
 
@@ -2253,12 +2264,9 @@ array([[[[  26.85544708,   26.89004326,   26.89004326, ...,
          [7585.96803727, 7569.48853948, 7558.64050131, ...,
           7612.8093532 , 7611.19161405, 7612.15335775]]]])
 Coordinates:
-  * Time       (Time) datetime64[ns] 2020-09-01
-    longitude  (south_north, west_east) float32 104.098694 ... 138.15619
-    latitude   (south_north, west_east) float32 16.568985 ... 45.305634
-    XLAT       (south_north, west_east) float32 16.568985 ... 45.305634
-    XLONG      (south_north, west_east) float32 104.098694 ... 138.15619
-Dimensions without coordinates: bottom_top, south_north, west_east</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>Time</span>: 1</li><li><span>bottom_top</span>: 74</li><li><span>south_north</span>: 119</li><li><span>west_east</span>: 119</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-79543c33-7791-47cf-a150-4ba661a46e7e' class='xr-array-in' type='checkbox' checked><label for='section-79543c33-7791-47cf-a150-4ba661a46e7e' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>26.86 26.89 26.89 26.89 ... 7.62e+03 7.613e+03 7.611e+03 7.612e+03</span></div><div class='xr-array-data'><pre>array([[[[  26.85544708,   26.89004326,   26.89004326, ...,
+    XLAT     (south_north, west_east) float32 16.568985 16.612839 ... 45.305634
+    XLONG    (south_north, west_east) float32 104.098694 104.3277 ... 138.15619
+Dimensions without coordinates: Time, bottom_top, south_north, west_east</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span>Time</span>: 1</li><li><span>bottom_top</span>: 74</li><li><span>south_north</span>: 119</li><li><span>west_east</span>: 119</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-e96934e6-6098-484e-977e-d73018305195' class='xr-array-in' type='checkbox' checked><label for='section-e96934e6-6098-484e-977e-d73018305195' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>26.86 26.89 26.89 26.89 ... 7.62e+03 7.613e+03 7.611e+03 7.612e+03</span></div><div class='xr-array-data'><pre>array([[[[  26.85544708,   26.89004326,   26.89004326, ...,
             27.85048673,   27.96454546,   27.97777195],
          [  26.79858192,   26.89004517,   26.90632874, ...,
             27.86999883,   28.03319995,   28.00973581],
@@ -2298,26 +2306,7 @@ Dimensions without coordinates: bottom_top, south_north, west_east</pre><div cla
          [7626.72798026, 7609.10646871, 7591.36561556, ...,
           7622.32897339, 7635.5818719 , 7659.58415364],
          [7585.96803727, 7569.48853948, 7558.64050131, ...,
-          7612.8093532 , 7611.19161405, 7612.15335775]]]])</pre></div></div></li><li class='xr-section-item'><input id='section-08ec20cb-0e95-4b2c-b12d-bc4f6ff7fd31' class='xr-section-summary-in' type='checkbox'  checked><label for='section-08ec20cb-0e95-4b2c-b12d-bc4f6ff7fd31' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>Time</span></div><div class='xr-var-dims'>(Time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2020-09-01</div><input id='attrs-1c64fb7a-66fa-43d1-9781-b56fe56bb937' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1c64fb7a-66fa-43d1-9781-b56fe56bb937' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b177e853-559a-44bf-8c01-6a3f92c1bdc2' class='xr-var-data-in' type='checkbox'><label for='data-b177e853-559a-44bf-8c01-6a3f92c1bdc2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2020-09-01T00:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>longitude</span></div><div class='xr-var-dims'>(south_north, west_east)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>104.098694 104.3277 ... 138.15619</div><input id='attrs-b42b40f5-1c0a-4aad-b65d-05fd708a4726' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b42b40f5-1c0a-4aad-b65d-05fd708a4726' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1b8246a8-2d7d-4216-961f-868fdd5a54cd' class='xr-var-data-in' type='checkbox'><label for='data-1b8246a8-2d7d-4216-961f-868fdd5a54cd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>FieldType :</span></dt><dd>104</dd><dt><span>MemoryOrder :</span></dt><dd>XY </dd><dt><span>description :</span></dt><dd>LONGITUDE, WEST IS NEGATIVE</dd><dt><span>units :</span></dt><dd>degree_east</dd><dt><span>stagger :</span></dt><dd></dd></dl></div><div class='xr-var-data'><pre>array([[104.098694, 104.3277  , 104.55701 , ..., 131.43512 , 131.66837 ,
-        131.90143 ],
-       [104.05249 , 104.282135, 104.512054, ..., 131.46875 , 131.7027  ,
-        131.9364  ],
-       [104.00604 , 104.23633 , 104.46686 , ..., 131.50262 , 131.73718 ,
-        131.97156 ],
-       ...,
-       [ 96.13068 ,  96.46338 ,  96.796875, ..., 137.30432 , 137.65088 ,
-        137.9968  ],
-       [ 96.02817 ,  96.36212 ,  96.6969  , ..., 137.3808  , 137.72882 ,
-        138.07614 ],
-       [ 95.924805,  96.26001 ,  96.59607 , ..., 137.45795 , 137.80743 ,
-        138.15619 ]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>latitude</span></div><div class='xr-var-dims'>(south_north, west_east)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>16.568985 16.612839 ... 45.305634</div><input id='attrs-1d703cdf-8b5b-4317-8d0e-94c87e429ed3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1d703cdf-8b5b-4317-8d0e-94c87e429ed3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d4f0dddc-3b0f-4d66-aa6f-f0afc1c25e11' class='xr-var-data-in' type='checkbox'><label for='data-d4f0dddc-3b0f-4d66-aa6f-f0afc1c25e11' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>FieldType :</span></dt><dd>104</dd><dt><span>MemoryOrder :</span></dt><dd>XY </dd><dt><span>description :</span></dt><dd>LATITUDE, SOUTH IS NEGATIVE</dd><dt><span>units :</span></dt><dd>degree_north</dd><dt><span>stagger :</span></dt><dd></dd></dl></div><div class='xr-var-data'><pre>array([[16.568985, 16.612839, 16.656075, ..., 17.305672, 17.273308, 17.240318],
-       [16.788559, 16.832611, 16.87603 , ..., 17.52864 , 17.496117, 17.462982],
-       [17.008484, 17.052727, 17.09636 , ..., 17.751953, 17.719307, 17.68602 ],
-       ...,
-       [43.68952 , 43.762844, 43.835167, ..., 44.925404, 44.870953, 44.815437],
-       [43.929745, 44.003387, 44.076023, ..., 45.171005, 45.116314, 45.06056 ],
-       [44.16991 , 44.243866, 44.316814, ..., 45.416573, 45.361637, 45.305634]],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>XLAT</span></div><div class='xr-var-dims'>(south_north, west_east)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>16.568985 16.612839 ... 45.305634</div><input id='attrs-ca30ed18-3baa-4f5f-8691-ebbab1b0b50c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ca30ed18-3baa-4f5f-8691-ebbab1b0b50c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5ed75503-0606-41e8-b84d-e0f2a2598fa0' class='xr-var-data-in' type='checkbox'><label for='data-5ed75503-0606-41e8-b84d-e0f2a2598fa0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>FieldType :</span></dt><dd>104</dd><dt><span>MemoryOrder :</span></dt><dd>XY </dd><dt><span>description :</span></dt><dd>LATITUDE, SOUTH IS NEGATIVE</dd><dt><span>units :</span></dt><dd>degree_north</dd><dt><span>stagger :</span></dt><dd></dd></dl></div><div class='xr-var-data'><pre>array([[16.568985, 16.612839, 16.656075, ..., 17.305672, 17.273308,
+          7612.8093532 , 7611.19161405, 7612.15335775]]]])</pre></div></div></li><li class='xr-section-item'><input id='section-1266f87e-7b2b-45be-8fed-921e34b29f0a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-1266f87e-7b2b-45be-8fed-921e34b29f0a' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>XLAT</span></div><div class='xr-var-dims'>(south_north, west_east)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>16.568985 16.612839 ... 45.305634</div><input id='attrs-7fad8ee5-c1cd-47a4-b296-ba9b80abd28d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7fad8ee5-c1cd-47a4-b296-ba9b80abd28d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-24ce1929-2633-4261-b3b0-b84c44a1c644' class='xr-var-data-in' type='checkbox'><label for='data-24ce1929-2633-4261-b3b0-b84c44a1c644' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>FieldType :</span></dt><dd>104</dd><dt><span>MemoryOrder :</span></dt><dd>XY </dd><dt><span>description :</span></dt><dd>LATITUDE, SOUTH IS NEGATIVE</dd><dt><span>units :</span></dt><dd>degree_north</dd><dt><span>stagger :</span></dt><dd></dd></dl></div><div class='xr-var-data'><pre>array([[16.568985, 16.612839, 16.656075, ..., 17.305672, 17.273308,
         17.240318],
        [16.788559, 16.832611, 16.87603 , ..., 17.52864 , 17.496117,
         17.462982],
@@ -2329,7 +2318,7 @@ Dimensions without coordinates: bottom_top, south_north, west_east</pre><div cla
        [43.929745, 44.003387, 44.076023, ..., 45.171005, 45.116314,
         45.06056 ],
        [44.16991 , 44.243866, 44.316814, ..., 45.416573, 45.361637,
-        45.305634]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>XLONG</span></div><div class='xr-var-dims'>(south_north, west_east)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>104.098694 104.3277 ... 138.15619</div><input id='attrs-7228039e-e2a9-44af-a314-d4ff611288b1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7228039e-e2a9-44af-a314-d4ff611288b1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-11e5dc82-29e2-4b76-a0c2-dc03b720ce7d' class='xr-var-data-in' type='checkbox'><label for='data-11e5dc82-29e2-4b76-a0c2-dc03b720ce7d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>FieldType :</span></dt><dd>104</dd><dt><span>MemoryOrder :</span></dt><dd>XY </dd><dt><span>description :</span></dt><dd>LONGITUDE, WEST IS NEGATIVE</dd><dt><span>units :</span></dt><dd>degree_east</dd><dt><span>stagger :</span></dt><dd></dd></dl></div><div class='xr-var-data'><pre>array([[104.098694, 104.3277  , 104.55701 , ..., 131.43512 , 131.66837 ,
+        45.305634]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>XLONG</span></div><div class='xr-var-dims'>(south_north, west_east)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>104.098694 104.3277 ... 138.15619</div><input id='attrs-df8341b6-3ca2-46cc-90e4-4b11684c41a6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-df8341b6-3ca2-46cc-90e4-4b11684c41a6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f6c1bb7b-75da-4b6f-8f26-c54f346300d0' class='xr-var-data-in' type='checkbox'><label for='data-f6c1bb7b-75da-4b6f-8f26-c54f346300d0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>FieldType :</span></dt><dd>104</dd><dt><span>MemoryOrder :</span></dt><dd>XY </dd><dt><span>description :</span></dt><dd>LONGITUDE, WEST IS NEGATIVE</dd><dt><span>units :</span></dt><dd>degree_east</dd><dt><span>stagger :</span></dt><dd></dd></dl></div><div class='xr-var-data'><pre>array([[104.098694, 104.3277  , 104.55701 , ..., 131.43512 , 131.66837 ,
         131.90143 ],
        [104.05249 , 104.282135, 104.512054, ..., 131.46875 , 131.7027  ,
         131.9364  ],
@@ -2341,7 +2330,7 @@ Dimensions without coordinates: bottom_top, south_north, west_east</pre><div cla
        [ 96.02817 ,  96.36212 ,  96.6969  , ..., 137.3808  , 137.72882 ,
         138.07614 ],
        [ 95.924805,  96.26001 ,  96.59607 , ..., 137.45795 , 137.80743 ,
-        138.15619 ]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d74c179f-06b7-42f4-86f3-3282ce17a638' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-d74c179f-06b7-42f4-86f3-3282ce17a638' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div>
+        138.15619 ]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-14d88b3a-a8b4-4d4b-9abd-e5286c63fd95' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-14d88b3a-a8b4-4d4b-9abd-e5286c63fd95' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div>
 
 <p>Check the surface O3 again:</p>
 
@@ -2358,8 +2347,8 @@ ax.colorbar(m, label='O$_3$ (ppbv)', loc='r')
 ax.format(title='Original')
 
 ax = axs[1]
-m = ax.pcolormesh(interped_o3.longitude,
-                  interped_o3.latitude,
+m = ax.pcolormesh(interped_o3.XLONG,
+                  interped_o3.XLAT,
                   interped_o3.isel(Time=0, bottom_top=0),
                   cmap='viridis',
                   vmin=20,
@@ -2373,38 +2362,50 @@ axs.format(xlim=(o3.XLONG.min(), o3.XLONG.max()),
            ylabel='latitude',)
 </code></pre>
 
-<p><img src="https://dreambooker.site/images/sci-tech/2020-10/era5_overview_2.png" alt="comparison" /></p>
+<p><img src="https://dreambooker.site/images/sci-tech/2020-10/era5_overview_2.png" alt="png" /></p>
+
+<p>The interpolated result is different from the previous one, because the lowest level of ERA5 data is 1000 hPa while the WRF uses the lowest height for the defined eta level.</p>
 
 <p>We can get the index of specific location and use it to pick the interpolated O3 profile.</p>
 
 <pre><code class="language-python"># convert to index in wrf grid
-ncfile = Dataset('./wrfinput/20200901/wrfinput_d01')
 x_y = ll_to_xy(ncfile, 32, 119)
 x, y = x_y[0].values, x_y[1].values
 </code></pre>
 
-<h2 id="saving-and-exporting-data">Saving and exporting data</h2>
+<h2 id="save-and-export-data">Save and export data</h2>
 
 <p>Original surface ozone:</p>
 
 <pre><code class="language-python">ds_wrf['o3'].isel(Time=0, bottom_top=0).plot(vmin=20*1e-3, vmax=65*1e-3)
 </code></pre>
 
-<p><img src="https://dreambooker.site/images/sci-tech/2020-10/waccm.png" alt="WACCM IC" /></p>
+<p><img src="https://dreambooker.site/images/sci-tech/2020-10/waccm.png" alt="waccm" /></p>
 
-<p>Replaced era5 surface ozone:</p>
+<p>Replace the era5 surface ozone:</p>
 
 <pre><code class="language-python">ds_wrf['o3'] = interped_o3*1e-3 # back to ppmv
 ds_wrf['o3'].isel(Time=0, bottom_top=0).plot(vmin=20*1e-3, vmax=65*1e-3)
 </code></pre>
 
-<p><img src="https://dreambooker.site/images/sci-tech/2020-10/era5.png" alt="era5 IC" /></p>
+<p><img src="https://dreambooker.site/images/sci-tech/2020-10/era5.png" alt="era5" /></p>
 
-<p>Export to netcdf file:</p>
+<p>Because the coordinates in the attributes of variables are important for WRF, we should use <code>netCDF4</code> instead of <code>xarray</code> to change the O3 value.</p>
 
-<pre><code class="language-python">ds_wrf.to_netcdf(path='./wrfinput/wrfinput_d01_era5',
-                 mode='w',
-                 engine='netcdf4')
+<p>To make sure the structure and attributes of the new wrfinput is correct, it&rsquo;s better to compare the head info using <code>ncdump -h</code>.</p>
+
+<pre><code class="language-python"># ds_wrf.to_netcdf(path='./wrfinput/20200901/era5/wrfinput_d01',
+#                  mode='w',
+#                  engine='netcdf4')
+
+# back up the original wrfinput file, please change the path by yourself
+!cp ./wrfinput/20200901/mozbc/wrfinput_d01 ./wrfinput/20200901/mozbc/wrfinput_d01_bak
+
+ncfile['o3'][:] = interped_o3*1e-3 # back to ppmv
+ncfile.close()
+
+# move the edited one to anywhere you like
+!mv ./wrfinput/20200901/mozbc/wrfinput_d01 ./wrfinput/20200901/era5/wrfinput_d01
 </code></pre>
 
 <h2 id="comparison-of-o3-profiles">Comparison of O3 profiles</h2>
@@ -2415,7 +2416,7 @@ f, axs = plot.subplots(axwidth=4)
 # o3_profile = era5_o3.sel(longitude=119, latitude=32, time='2020-09-01 00:00')
 # legend_1 = axs.plot(o3_profile, o3_profile.level, label='Original')
 
-interped_o3_profile = interped_o3.sel(west_east=x, south_north=y, Time='2020-09-01 00:00')
+interped_o3_profile = interped_o3.sel(west_east=x, south_north=y).isel(Time=0)
 p_profile = p_wrf.sel(west_east=x, south_north=y)
 legend_1 = axs.plot(interped_o3_profile,
                     p_profile,
@@ -2439,7 +2440,27 @@ axs.format(xlim=(0, 200),
            ylabel='O$_3$ (ppbv)',)
 </code></pre>
 
-<p><img src="https://dreambooker.site/images/sci-tech/2020-10/profiles.png" alt="profiles" /></p>
+<p><img src="https://dreambooker.site/images/sci-tech/2020-10/profiles.png" alt="png" /></p>
+
+<h2 id="version-control">Version control</h2>
+
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Action</th>
+<th>Time</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1.0</td>
+<td>Init</td>
+<td>2020-10-27</td>
+</tr>
+</tbody>
+</table>
 
           </div>
 
@@ -2619,6 +2640,28 @@ axs.format(xlim=(0, 200),
 								
 
 										<li class="nav-item">
+						 					<a class="nav-link" href="#correct-the-era5-data-manually-optional">
+												 Correct the ERA5 data manually (optional)
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
 						 					<a class="nav-link" href="#interpolation">
 												 Interpolation
 											</a>
@@ -2693,8 +2736,8 @@ axs.format(xlim=(0, 200),
 								
 
 										<li class="nav-item">
-						 					<a class="nav-link" href="#saving-and-exporting-data">
-												 Saving and exporting data
+						 					<a class="nav-link" href="#save-and-export-data">
+												 Save and export data
 											</a>
 										</li>
 						 
@@ -2717,6 +2760,28 @@ axs.format(xlim=(0, 200),
 										<li class="nav-item">
 						 					<a class="nav-link" href="#comparison-of-o3-profiles">
 												 Comparison of O3 profiles
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#version-control">
+												 Version control
 											</a>
 										</li>
 						 
