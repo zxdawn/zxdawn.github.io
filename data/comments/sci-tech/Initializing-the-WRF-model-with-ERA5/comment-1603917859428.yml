@@ -1,0 +1,8 @@
+_id: 5a0a0b40-195e-11eb-97a7-c1fce85fd047
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: 35e0a330-be73-434d-8fa5-fa692b833d1a
+botpot: ''
+name: Divyansh
+email: de1d66040ea8c3d030f74ae37c4c1b11
+body: "Hi Peter, \r\nDid you preprocess the model level data as mentioned by Xin?\r\n\r\ngrib_set -s deletePV=1,edition=1 your/model_level_data/name your/model_level_data/name.grib1\r\ngrib_filter split.rule your/model_level_data/name.grib1\r\n\r\n\r\nDivyansh"
+date: '2020-10-28T20:44:19.427Z'
