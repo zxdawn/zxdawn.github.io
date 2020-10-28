@@ -1,0 +1,8 @@
+_id: 9ad20e10-1969-11eb-8798-811954e27bba
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+botpot: ''
+name: Divyansh
+email: de1d66040ea8c3d030f74ae37c4c1b11
+body: "Hi Xin,\r\n\r\nDo you think it would be better to edit METGRID.TBL to set interpolation method of ST100255 SM100255 and LOGSFP before or after running calc_ecmwf?"
+date: '2020-10-28T22:04:52.608Z'
