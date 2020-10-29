@@ -1,0 +1,8 @@
+_id: 0f3ac730-19fe-11eb-b62b-3f315ab7bbf8
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+botpot: ''
+name: Divyansh
+email: de1d66040ea8c3d030f74ae37c4c1b11
+body: "Hi Xin,\r\n\r\nI was able to download all data for Dec 2015, use your Vtable and METGRID.TBL recommendations to successfully get the met_em files. On first look, the files looks alright. I compared them to some met_em files from a previous WRF run.\r\n\r\nHowever, when I try to run WRF Real, the compiler immediately gives me an error. Something like this-\r\nforrtl: severe (64): input conversion error, unit -5, file Internal Formatted Read\r\n\r\nI know this is out of scope for this blogpost, but I was wondering if you had any thoughts. I can email you if you don't want to discuss it here. I would really appreciate any help.\r\n\r\nThanks\r\nDiv"
+date: '2020-10-29T15:47:33.446Z'
