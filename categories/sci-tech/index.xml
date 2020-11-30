@@ -6,10 +6,30 @@
     <description>Recent content in Sci Tech on Dreambooker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 26 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dreambooker.site/categories/sci-tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Integrated Reaction Rates (Part1)</title>
+      <link>https://dreambooker.site/2020/11/27/Integrated-Reaction-Rates-Part1/</link>
+      <pubDate>Fri, 27 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/11/27/Integrated-Reaction-Rates-Part1/</guid>
+      <description>Background Output of Integrated Reaction Rates (IRR) is available in WRF-Chem from V4.0 and IRR can be analyzed with PERMM Analysis Tool. You can check the instruction on the UCAR website.
+The steps of enabling IRR is written in detail but the PERMM document is too simple to follow.
+This post is the part1 which focuses on the basic usage of PERMM for the official test data.
+If you wanna check the application for WRF-Chem, please wait for the upcoming part2.
+Installation It&amp;rsquo;s better to install the latest version of PERMM from the official github repository.
+I have fixed some bugs and improved it for WRF-Chem.
+You can download it from my forked branch and install it from the directory:
+python setup.py install  Note that it won&amp;rsquo;t remind you some necessary packages. You have to install them by yourself.
+conda install -c conda-forge pseudonetcdf yaml  Reactions related to O3 I will focus on Ozone with the cb05_camx mechanism for the rest of this post.
+The O3 has two natural sources:
+Actually, I&amp;rsquo;m interested in both of them! But the lightning one isn&amp;rsquo;t included in the WRF-Chem yet &amp;hellip;
+So, let&amp;rsquo;s talk about the photochemistry related to the O3.</description>
+    </item>
     
     <item>
       <title>Using the ERA5 O3 data in the WRF initial condition</title>
