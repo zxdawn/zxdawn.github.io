@@ -573,17 +573,17 @@ reactant_names = find_rxns(reactants=O3)
 ds = xr.open_dataset('./test.mrg.nc')
 
 # assign the coordinates for index
-da = ds.assign_coords(RXN=['RXN_'+i.zfill(2) for i in ((ds.RXN)+1).values.astype('str')]).sel(RXN=reaction_names)
+da = ds.assign_coords(RXN=['RXN_'+i.zfill(2) for i in ((ds.RXN)+1).values.astype('str')]).sel(RXN=reaction_names)['IRR']
 
 # set the IRR to negative if O3 is the reactant
-for rxn in da['IRR'].RXN.values:
+for rxn in da.RXN.values:
     if rxn in reactant_names:
-        da['IRR'].loc[dict(RXN=rxn)] *= -1
+        da.loc[dict(RXN=rxn)] *= -1
 
 # we only want to plot the large contributions
 # so, sorting the integrated IRR by absolute vlalues and picking the 8 of them for plot
-large_contrib = da['IRR'].sum(dim='TSTEP').sortby(abs(da['IRR']).sum(dim='TSTEP'), ascending=False).RXN[:8].values
-irr_subset = da['IRR'].sel(RXN=large_contrib)
+large_contrib = da.sum(dim='TSTEP').sortby(abs(da).sum(dim='TSTEP'), ascending=False).RXN[:8].values
+irr_subset = da.sel(RXN=large_contrib)
 
 # sort again for plot by real values
 irr_subset = irr_subset.sortby(irr_subset.sum(dim='TSTEP'))
@@ -602,7 +602,7 @@ fig, axs = plot.subplots()
 lines = axs.step(irr_subset, where='post', label=labels, cycle=cycle)
 
 # plot the total IRR
-total_line = axs.step(da['IRR'].sum(dim='RXN'), where='post', label='Total Chem', color='k')
+total_line = axs.step(da.sum(dim='RXN'), where='post', label='Total Chem', color='k')
 
 axs.format(title='Plot of O3 reactions')
 fig.legend(lines+(total_line,), loc='b', ncols=2)
