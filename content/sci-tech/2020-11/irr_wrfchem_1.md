@@ -189,7 +189,9 @@ Attributes:
 
 ### Plot manually
 
-it's easy to plot all reactions with the script below by ourselves.
+The embedded plot function relies on the data structure strictly.
+
+It's better to plot all reactions by ourselves in case the structure of IRR files is different from the CAMX test data.
 
 ```
 python -m permm --mechanism cb05_camx test.mrg.nc --scripts plot_irr.py
@@ -226,9 +228,6 @@ irr_subset = da.sel(RXN=large_contrib)
 # sort again for plot by real values
 irr_subset = irr_subset.sortby(irr_subset.sum(dim='TSTEP'))
 
-# create cycle for plot
-cycle = plot.Cycle('blues', 'reds', 'oranges', 15, left=0.1)
-
 # generate labels based on RXN_**
 labels = []
 for rxn in irr_subset.RXN.values:
@@ -236,14 +235,23 @@ for rxn in irr_subset.RXN.values:
 
 # plot
 fig, axs = plot.subplots()
-# "post": https://matplotlib.org/3.1.1/gallery/lines_bars_and_markers/step_demo.html#sphx-glr-gallery-lines-bars-and-markers-step-demo-py
-lines = axs.step(irr_subset, where='post', label=labels, cycle=cycle)
+cmap = plot.Colormap('viridis')
+
+lines = []
+for i in range(irr_subset.sizes['RXN']):
+    # "step": https://matplotlib.org/3.1.1/gallery/lines_bars_and_markers/step_demo.html#sphx-glr-gallery-lines-bars-and-markers-step-demo-py
+    line = axs.step(irr_subset.TSTEP,
+                    irr_subset.isel(RXN=i),
+                    where='post',
+                    label=labels[i],
+                    color=cmap(i / (len(irr_subset.RXN)-1)),
+                    )
+    lines.append(line)
 
 # plot the total IRR
 total_line = axs.step(da.sum(dim='RXN'), where='post', label='Total Chem', color='k')
-
-axs.format(title='Plot of O3 reactions')
-fig.legend(lines+(total_line,), loc='b', ncols=2)
+axs.format(title='Plot of O3 reactions', grid=False)
+fig.legend(lines.append(total_line), loc='b', ncols=2)
 fig.savefig('irr_o3.png')
 ```
 
@@ -260,6 +268,7 @@ Note that we can present the exact values in the terminal by `print(irr_subset.t
 
 ## Version control
 
-| Version | Action | Time       |
-| ------- | ------ | ---------- |
-| 1.0     | Init   | 2020-11-30 |
+| Version | Action               | Time       |
+| ------- | -------------------- | ---------- |
+| 1.0     | Init                 | 2020-11-30 |
+| 1.1     | Update plot function | 2020-12-01 |
