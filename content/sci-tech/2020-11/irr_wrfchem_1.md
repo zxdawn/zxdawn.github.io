@@ -1,6 +1,6 @@
 ---
 title: Integrated Reaction Rates (Part1)
-date: 2020-11-27
+date: 2020-11-30
 tags: ["wrfchem","python"]
 categories: ["sci-tech"]
 draft: false
@@ -17,7 +17,7 @@ The steps of [enabling IRR](https://www2.acom.ucar.edu/sites/default/files/wrf-c
 
 This post is the part1 which focuses on **the basic usage of PERMM for the official test data**.
 
-If you wanna check the application for WRF-Chem, please wait for the upcoming part2.
+If you wanna learn the application for WRF-Chem, please check [part2](https://dreambooker.site/2020/12/01/Integrated-Reaction-Rates-Part2/).
 
 ## Installation
 
