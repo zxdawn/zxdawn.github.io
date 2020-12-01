@@ -93,15 +93,30 @@
     </item>
     
     <item>
-      <title>Integrated Reaction Rates (Part1)</title>
-      <link>https://dreambooker.site/2020/11/27/Integrated-Reaction-Rates-Part1/</link>
-      <pubDate>Fri, 27 Nov 2020 00:00:00 +0000</pubDate>
+      <title>Integrated Reaction Rates (Part2)</title>
+      <link>https://dreambooker.site/2020/12/01/Integrated-Reaction-Rates-Part2/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://dreambooker.site/2020/11/27/Integrated-Reaction-Rates-Part1/</guid>
+      <guid>https://dreambooker.site/2020/12/01/Integrated-Reaction-Rates-Part2/</guid>
+      <description>Background Output of Integrated Reaction Rates (IRR) is available in WRF-Chem from V4.0 and IRR can be analyzed with PERMM Analysis Tool. You can check the instruction on the UCAR website.
+This post is the part2 which focuses on the application of PERMM for the WRF-Chem IRR* data.
+If you wanna learn the basic usage of PERMM, please check the part1.
+Reactions related to O3 In the WRF-Chem, the reactions are written by the KPP and the IRR outputs are saved as IRR_DIAG_d0*_*** if you enable it.
+We can print the reactions producing O3 using the PERMM without the IRR* files.
+I will focus on the MOZART mechanism:
+$ python -m permm -i --mechanism mozart_wrfchem # all reaction names that create O3 &amp;gt;&amp;gt;&amp;gt; find_rxns(products=O3) [&#39;CH3CO3_HO2_IRR&#39;, &#39;ISOP_O3_IRR&#39;, &#39;MACR_O3_IRR&#39;, &#39;MCO3_HO2_IRR&#39;, &#39;MVK_O3_IRR&#39;, &#39;NO3_HV_IRR&#39;, &#39;O_M_IRR&#39;] # all reaction names related to O3 (either as reactants or products) &amp;gt;&amp;gt;&amp;gt; find_rxns(reactants=O3, products=O3, logical_and=False) [&#39;C2H4_O3_IRR&#39;, &#39;C3H6_O3_IRR&#39;, &#39;CH3CO3_HO2_IRR&#39;, &#39;HO2_O3_IRR&#39;, &#39;ISOP_O3_IRR&#39;, &#39;MACR_O3_IRR&#39;, &#39;MCO3_HO2_IRR&#39;, &#39;MVK_O3_IRR&#39;, &#39;NO3_HV_IRR&#39;, &#39;O3_HV_IRR&#39;, &#39;O3_HV_a_IRR&#39;, &#39;O3_NO2_IRR&#39;, &#39;O3_NO_IRR&#39;, &#39;OH_O3_IRR&#39;, &#39;O_M_IRR&#39;, &#39;O_O3_IRR&#39;] # print all reactions that create O3 &amp;gt;&amp;gt;&amp;gt; print_rxns(products=O3) ISOP_O3_IRR 1.0*ISOP + 1.0*O3 -&amp;gt;[k] 0.6*CH2O + 0.4*MACR + 0.3*CO + 0.27*OH + 0.2*MVK + 0.2*MCO3 + 0.2*CH3COOH + 0.1*O3 + 0.07*C3H6 + 0.06*HO2 MACR_O3_IRR 1.0*MACR + 1.</description>
+    </item>
+    
+    <item>
+      <title>Integrated Reaction Rates (Part1)</title>
+      <link>https://dreambooker.site/2020/11/30/Integrated-Reaction-Rates-Part1/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/11/30/Integrated-Reaction-Rates-Part1/</guid>
       <description>Background Output of Integrated Reaction Rates (IRR) is available in WRF-Chem from V4.0 and IRR can be analyzed with PERMM Analysis Tool. You can check the instruction on the UCAR website.
 The steps of enabling IRR is written in detail but the PERMM document is too simple to follow.
 This post is the part1 which focuses on the basic usage of PERMM for the official test data.
-If you wanna check the application for WRF-Chem, please wait for the upcoming part2.
+If you wanna learn the application for WRF-Chem, please check part2.
 Installation It&amp;rsquo;s better to install the latest version of PERMM from the official github repository.
 I have fixed some bugs and improved it for WRF-Chem.
 You can download it from my forked branch and install it from the directory:
@@ -109,7 +124,7 @@ python setup.py install  Note that it won&amp;rsquo;t remind you some necessary 
 conda install -c conda-forge pseudonetcdf yaml  Reactions related to O3 I will focus on Ozone with the cb05_camx mechanism for the rest of this post.
 The O3 has two natural sources:
 Actually, I&amp;rsquo;m interested in both of them! But the lightning one isn&amp;rsquo;t included in the WRF-Chem yet &amp;hellip;
-So, let&amp;rsquo;s talk about the photochemistry related to the O3.</description>
+So, let&amp;rsquo;s talk about the photochemistry related to the O3. The illustration below clearly explain the main processes:</description>
     </item>
     
     <item>
