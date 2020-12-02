@@ -19,6 +19,8 @@ This post is the part1 which focuses on **the basic usage of PERMM for the offic
 
 If you wanna learn the application for WRF-Chem, please check [part2](https://dreambooker.site/2020/12/01/Integrated-Reaction-Rates-Part2/).
 
+If you wanna define your own mechanism file, please check [part3](https://dreambooker.site/2020/12/02/Integrated-Reaction-Rates-Part3/).
+
 ## Installation
 
 It's better to install the latest version of PERMM from the [official github repository](https://github.com/barronh/permm).
@@ -215,10 +217,9 @@ ds = xr.open_dataset('./test.mrg.nc')
 # assign the coordinates for index
 da = ds.assign_coords(RXN=['RXN_'+i.zfill(2) for i in ((ds.RXN)+1).values.astype('str')]).sel(RXN=reaction_names)['IRR']
 
-# set the IRR to negative if O3 is the reactant
-for rxn in da.RXN.values:
-    if rxn in reactant_names:
-        da.loc[dict(RXN=rxn)] *= -1
+# multiple the irr by net coefficient
+coefficient = [eq['O3'].base.item() for eq in reaction_eqs]
+da *= coefficient
 
 # we only want to plot the large contributions
 # so, sorting the integrated IRR by absolute vlalues and picking the 8 of them for plot
@@ -259,6 +260,30 @@ The result shown below is as same as the former one created using the official p
 
 ![ozone_reactions](/images/sci-tech/2020-11/ozone_reactions_2.png)
 
+It's better to make sure the total chem are correctly calculated.
+
+The official time series of total chem of O3:
+
+```
+>>> make_net_rxn(reactants=O3, products=O3, logical_and=False)['O3']
+Stoic([-4.075653   1.7998352  5.7559814 10.641052  10.435608  12.903931
+  9.884674   7.516403   5.9432373  1.7922287 -1.0577393], role = 'u')
+```
+
+The calculated one:
+
+```
+<xarray.DataArray 'IRR' (TSTEP: 11)>
+array([-4.0756407,  1.799851 ,  5.7559466, 10.641057 , 10.435598 ,
+       12.90391  ,  9.884662 ,  7.5164156,  5.9432254,  1.7922215,
+       -1.0577295], dtype=float32)
+Dimensions without coordinates: TSTEP
+```
+
+It's almost same ... Maybe that's the problem of float accuracy?
+
+---
+
 Actually, I have no experience of CAMX and can't understand why the IRR value at each output time stands for the IRR between that time and **the next one**.
 
 For WRF-Chem, IRRs are saved as **integrated values**. We need to calculate the **difference** and use **`pre`** instead of `post` in the `step` function.
@@ -272,3 +297,4 @@ Note that we can present the exact values in the terminal by `print(irr_subset.t
 | ------- | -------------------- | ---------- |
 | 1.0     | Init                 | 2020-11-30 |
 | 1.1     | Update plot function | 2020-12-01 |
+| 1.2     | Update coefficients  | 2020-12-02 |

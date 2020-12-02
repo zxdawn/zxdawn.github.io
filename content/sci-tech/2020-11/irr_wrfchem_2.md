@@ -15,7 +15,9 @@ Output of Integrated Reaction Rates (IRR) is available in WRF-Chem from V4.0 and
 
 This post is the part2 which focuses on **the application of PERMM for the WRF-Chem IRR* data**.
 
-If you wanna learn the basic usage of PERMM, please check the [part1](https://dreambooker.site/2020/11/30/Integrated-Reaction-Rates-Part1/).
+If you wanna learn the basic usage of PERMM, please check [part1](https://dreambooker.site/2020/11/30/Integrated-Reaction-Rates-Part1/).
+
+If you wanna define your own mechanism file, please check [part3](https://dreambooker.site/2020/12/02/Integrated-Reaction-Rates-Part3/).
 
 ## Reactions related to O3
 
@@ -34,7 +36,7 @@ $ python -m permm -i --mechanism mozart_wrfchem
 
 # all reaction names related to O3 (either as reactants or products)
 >>> find_rxns(reactants=O3, products=O3, logical_and=False)
-['C2H4_O3_IRR', 'C3H6_O3_IRR', 'CH3CO3_HO2_IRR', 'HO2_O3_IRR', 'ISOP_O3_IRR', 'MACR_O3_IRR', 'MCO3_HO2_IRR', 'MVK_O3_IRR', 'NO3_HV_IRR', 'O3_HV_IRR', 'O3_HV_a_IRR', 'O3_NO2_IRR', 'O3_NO_IRR', 'OH_O3_IRR', 'O_M_IRR', 'O_O3_IRR']
+['C10H16_O3_IRR', 'C2H4_O3_IRR', 'C3H6_O3_IRR', 'CH3CO3_HO2_IRR', 'HO2_O3_IRR', 'ISOP_O3_IRR', 'MACR_O3_IRR', 'MCO3_HO2_IRR', 'MVK_O3_IRR', 'NO3_HV_IRR', 'O3_HV_IRR', 'O3_HV_a_IRR', 'O3_NO2_IRR', 'O3_NO_IRR', 'OH_O3_IRR', 'O_M_IRR', 'O_O3_IRR']
 
 # print all reactions that create O3
 >>> print_rxns(products=O3)
@@ -43,12 +45,12 @@ MACR_O3_IRR 1.0*MACR + 1.0*O3 ->[k] 0.8*CH3COCHO + 0.7*CH2O + 0.275*HO2 + 0.215*
 MVK_O3_IRR 1.0*MVK + 1.0*O3 ->[k] 0.95*CH3COCHO + 0.8*CH2O + 0.2*O3 + 0.08*OH + 0.06*HO2 + 0.05*CO + 0.04*CH3CHO
 CH3CO3_HO2_IRR 1.0*CH3CO3 + 1.0*HO2 ->[k] 0.75*CH3COOOH + 0.25*O3 + 0.25*CH3COOH
 MCO3_HO2_IRR 1.0*HO2 + 1.0*MCO3 ->[k] 0.75*CH3COOOH + 0.25*O3 + 0.25*CH3COOH
-NO3_HV_IRR 1.0*NO3 ->[j] 0.89*O3 + 0.89*NO2 + 0.11*NO
+NO3_HV_IRR 1.0*NO3 ->[j] 0.89*O3 + 0.89*NO2
 O_M_IRR 1.0*M + 1.0*O ->[k] 1.0*O3
 
 # print net reaction
 >>> print_net_rxn(products=O3)
-3*O3 + 2*HO2 + 1*CH3CO3 + 1*ISOP + 1*M + 1*MACR + 1*MCO3 + 1*MVK + 1*NO3 + 1*O ->[n] 2.89*O3 + 2.1*CH2O + 1.75*CH3COCHO + 1.5*CH3COOOH + 0.89*NO2 + 0.7*CH3COOH + 0.565*OH + 0.55*CO + 0.4*MACR + 0.395*HO2 + 0.2*MVK + 0.2*MCO3 + 0.11*NO + 0.07*C3H6 + 0.04*CH3CHO
+3*O3 + 2*HO2 + 1*CH3CO3 + 1*ISOP + 1*M + 1*MACR + 1*MCO3 + 1*MVK + 1*NO3 + 1*O ->[n] 2.89*O3 + 2.1*CH2O + 1.75*CH3COCHO + 1.5*CH3COOOH + 0.89*NO2 + 0.7*CH3COOH + 0.565*OH + 0.55*CO + 0.4*MACR + 0.395*HO2 + 0.2*MVK + 0.2*MCO3 + 0.07*C3H6 + 0.04*CH3CHO
 ```
 
 ## IRRs
@@ -71,12 +73,12 @@ irr_dir = '/WORK/nuist_chenq_2/xin/data/history/NJ/chem/20190725/lfr_lnox_waccm2
 irr_file = sorted(glob(irr_dir+'irr/IRR_DIAG_d03_2019-07-25_0[3-6]*'))
 wrfout_file = irr_file[0].replace('irr', 'wrfout').replace('IRR_DIAG', 'wrfout')
 
-reactions = ['C2H4_O3_IRR', 'C3H6_O3_IRR', 'CH3CO3_HO2_IRR', 'HO2_O3_IRR', 'ISOP_O3_IRR', 'MACR_O3_IRR', 'MCO3_HO2_IRR', 'MVK_O3_IRR', 'NO3_HV_IRR', 'O3_HV_IRR', 'O3_HV_a_IRR', 'O3_NO2_IRR', 'O3_NO_IRR', 'OH_O3_IRR', 'O_M_IRR', 'O_O3_IRR']
+reactions = ['C10H16_O3_IRR', 'C2H4_O3_IRR', 'C3H6_O3_IRR', 'CH3CO3_HO2_IRR', 'HO2_O3_IRR', 'ISOP_O3_IRR', 'MACR_O3_IRR', 'MCO3_HO2_IRR', 'MVK_O3_IRR', 'NO3_HV_IRR', 'O3_HV_IRR', 'O3_HV_a_IRR', 'O3_NO2_IRR', 'O3_NO_IRR', 'OH_O3_IRR', 'O_M_IRR', 'O_O3_IRR']
 
 # set the region and height range
 crop_region = [118.98, 119.13, 31.9, 32]
-bottom = 0 #8 # km
-top = 1 #12 # km
+bottom = 0 # km
+top = 1 # km
 
 # open irr and wrfout data
 ds_irr = xr.open_mfdataset(irr_file, combine='nested', concat_dim='Time')
@@ -144,10 +146,10 @@ This is the overview of combined IRR netcdf file by`xarray`:
 >>> ds = xr.open_dataset('test.wrfchem.nc')
 >>> ds
 <xarray.Dataset>
-Dimensions:  (RXN: 16, Time: 23)
+Dimensions:  (RXN: 17, Time: 23)
 Coordinates:
   * Time     (Time) datetime64[ns] 2019-07-25T03:10:00 ... 2019-07-25T06:50:00
-  * RXN      (RXN) object 'C2H4_O3_IRR' 'C3H6_O3_IRR' ... 'O_M_IRR' 'O_O3_IRR'
+  * RXN      (RXN) object 'C10H16_O3_IRR' 'C2H4_O3_IRR' ... 'O_M_IRR' 'O_O3_IRR'
 Data variables:
     IRR      (Time, RXN) float32 ...
 ```
@@ -181,10 +183,9 @@ reactant_names = find_rxns(reactants=O3)
 ds = xr.open_dataset('./test.wrfchem.nc')
 da = ds.sel(RXN=reaction_names)['IRR']
 
-# set the IRR to negative if O3 is the reactant
-for rxn in da.RXN.values:
-    if rxn in reactant_names:
-        da.loc[dict(RXN=rxn)] *= -1
+# multiple the irr by net coefficient
+coefficient = [eq['O3'].base.item()  for eq in reaction_eqs]
+da *= coefficient
 
 # we only want to plot the large contributions
 # so, sorting the integrated IRR by absolute vlalues and picking the 8 of them for plot
@@ -215,16 +216,23 @@ for i in range(irr_subset.sizes['RXN']):
     lines.append(line)
 
 # plot the total IRR
-total_line = axs.step(da.sum(dim='RXN'), where='pre', label='Total Chem', color='k')
+twin_ax = axs.alty(ycolor='gray6')
+total_irr = da.sum(dim='RXN').rename('Total IRR')
+total_irr.attrs['units'] = da.attrs['units']
+total_line = twin_ax.step(total_irr, where='pre', label='Total IRR', color='gray6')
+twin_ax.format(grid=False)
 
+# set axis
 axs.format(xlabel='Time (UTC)',
+           ylabel=f'IRR ({da.attrs["units"]})',
            xlim=(irr_subset.Time.values[0], irr_subset.Time.values[-1]),
            xlocator=('minute', range(0, 60, 30)),
            xminorlocator=('minute', range(0, 60, 10)),
            xformatter='%H:%M',
-           title='Plot of O3 reactions',
+           title='Mean IRRs between the surface and 1 km',
            grid=False,
            )
+
 
 fig.legend(lines.append(total_line), loc='b', ncols=2)
 fig.savefig('irr_o3_wrfchem.png')
@@ -239,6 +247,7 @@ Note that the simulation is for one convection case, so the decrease of O3 at th
 
 ## Version control
 
-| Version | Action | Time       |
-| ------- | ------ | ---------- |
-| 1.0     | Init   | 2020-12-01 |
+| Version | Action              | Time       |
+| ------- | ------------------- | ---------- |
+| 1.0     | Init                | 2020-12-01 |
+| 1.1     | Update coefficients | 2020-12-02 |
