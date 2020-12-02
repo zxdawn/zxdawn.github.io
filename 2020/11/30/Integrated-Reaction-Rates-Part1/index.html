@@ -11,6 +11,7 @@
 The steps of enabling IRR is written in detail but the PERMM document is too simple to follow.
 This post is the part1 which focuses on the basic usage of PERMM for the official test data.
 If you wanna learn the application for WRF-Chem, please check part2.
+If you wanna define your own mechanism file, please check part3.
 Installation It&rsquo;s better to install the latest version of PERMM from the official github repository.
 I have fixed some bugs and improved it for WRF-Chem.
 You can download it from my forked branch and install it from the directory:
@@ -18,13 +19,14 @@ python setup.py install  Note that it won&rsquo;t remind you some necessary pack
 conda install -c conda-forge pseudonetcdf yaml  Reactions related to O3 I will focus on Ozone with the cb05_camx mechanism for the rest of this post.
 The O3 has two natural sources:
 Actually, I&rsquo;m interested in both of them! But the lightning one isn&rsquo;t included in the WRF-Chem yet &hellip;
-So, let&rsquo;s talk about the photochemistry related to the O3. The illustration below clearly explain the main processes:">
+So, let&rsquo;s talk about the photochemistry related to the O3.">
   
   <meta property="og:title" content="Integrated Reaction Rates (Part1)" />
 <meta property="og:description" content="Background Output of Integrated Reaction Rates (IRR) is available in WRF-Chem from V4.0 and IRR can be analyzed with PERMM Analysis Tool. You can check the instruction on the UCAR website.
 The steps of enabling IRR is written in detail but the PERMM document is too simple to follow.
 This post is the part1 which focuses on the basic usage of PERMM for the official test data.
 If you wanna learn the application for WRF-Chem, please check part2.
+If you wanna define your own mechanism file, please check part3.
 Installation It&rsquo;s better to install the latest version of PERMM from the official github repository.
 I have fixed some bugs and improved it for WRF-Chem.
 You can download it from my forked branch and install it from the directory:
@@ -32,7 +34,7 @@ python setup.py install  Note that it won&rsquo;t remind you some necessary pack
 conda install -c conda-forge pseudonetcdf yaml  Reactions related to O3 I will focus on Ozone with the cb05_camx mechanism for the rest of this post.
 The O3 has two natural sources:
 Actually, I&rsquo;m interested in both of them! But the lightning one isn&rsquo;t included in the WRF-Chem yet &hellip;
-So, let&rsquo;s talk about the photochemistry related to the O3. The illustration below clearly explain the main processes:" />
+So, let&rsquo;s talk about the photochemistry related to the O3." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dreambooker.site/2020/11/30/Integrated-Reaction-Rates-Part1/" /><meta property="article:published_time" content="2020-11-30T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2020-11-30T00:00:00&#43;00:00"/>
@@ -390,6 +392,8 @@ So, let&rsquo;s talk about the photochemistry related to the O3. The illustratio
 
 <p>If you wanna learn the application for WRF-Chem, please check <a href="https://dreambooker.site/2020/12/01/Integrated-Reaction-Rates-Part2/">part2</a>.</p>
 
+<p>If you wanna define your own mechanism file, please check <a href="https://dreambooker.site/2020/12/02/Integrated-Reaction-Rates-Part3/">part3</a>.</p>
+
 <h2 id="installation">Installation</h2>
 
 <p>It&rsquo;s better to install the latest version of PERMM from the <a href="https://github.com/barronh/permm">official github repository</a>.</p>
@@ -577,10 +581,9 @@ ds = xr.open_dataset('./test.mrg.nc')
 # assign the coordinates for index
 da = ds.assign_coords(RXN=['RXN_'+i.zfill(2) for i in ((ds.RXN)+1).values.astype('str')]).sel(RXN=reaction_names)['IRR']
 
-# set the IRR to negative if O3 is the reactant
-for rxn in da.RXN.values:
-    if rxn in reactant_names:
-        da.loc[dict(RXN=rxn)] *= -1
+# multiple the irr by net coefficient
+coefficient = [eq['O3'].base.item() for eq in reaction_eqs]
+da *= coefficient
 
 # we only want to plot the large contributions
 # so, sorting the integrated IRR by absolute vlalues and picking the 8 of them for plot
@@ -621,6 +624,28 @@ fig.savefig('irr_o3.png')
 
 <p><img src="https://dreambooker.site/images/sci-tech/2020-11/ozone_reactions_2.png" alt="ozone_reactions" /></p>
 
+<p>It&rsquo;s better to make sure the total chem are correctly calculated.</p>
+
+<p>The official time series of total chem of O3:</p>
+
+<pre><code>&gt;&gt;&gt; make_net_rxn(reactants=O3, products=O3, logical_and=False)['O3']
+Stoic([-4.075653   1.7998352  5.7559814 10.641052  10.435608  12.903931
+  9.884674   7.516403   5.9432373  1.7922287 -1.0577393], role = 'u')
+</code></pre>
+
+<p>The calculated one:</p>
+
+<pre><code>&lt;xarray.DataArray 'IRR' (TSTEP: 11)&gt;
+array([-4.0756407,  1.799851 ,  5.7559466, 10.641057 , 10.435598 ,
+       12.90391  ,  9.884662 ,  7.5164156,  5.9432254,  1.7922215,
+       -1.0577295], dtype=float32)
+Dimensions without coordinates: TSTEP
+</code></pre>
+
+<p>It&rsquo;s almost same &hellip; Maybe that&rsquo;s the problem of float accuracy?</p>
+
+<hr />
+
 <p>Actually, I have no experience of CAMX and can&rsquo;t understand why the IRR value at each output time stands for the IRR between that time and <strong>the next one</strong>.</p>
 
 <p>For WRF-Chem, IRRs are saved as <strong>integrated values</strong>. We need to calculate the <strong>difference</strong> and use <strong><code>pre</code></strong> instead of <code>post</code> in the <code>step</code> function.</p>
@@ -649,6 +674,12 @@ fig.savefig('irr_o3.png')
 <td>1.1</td>
 <td>Update plot function</td>
 <td>2020-12-01</td>
+</tr>
+
+<tr>
+<td>1.2</td>
+<td>Update coefficients</td>
+<td>2020-12-02</td>
 </tr>
 </tbody>
 </table>

@@ -6,10 +6,22 @@
     <description>Recent content in Sci Tech on Dreambooker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dreambooker.site/categories/sci-tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Integrated Reaction Rates (Part3)</title>
+      <link>https://dreambooker.site/2020/12/02/Integrated-Reaction-Rates-Part3/</link>
+      <pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/12/02/Integrated-Reaction-Rates-Part3/</guid>
+      <description>Background Mechanism Syntax The official example is saved on the GitHub:
+--- species_list: CL: Cl O1D: O &#39;NO&#39;: N + O ALK4: 4*C ... reaction_list: IRR_1: O3 + NO -&amp;gt;[k] 1.000*NO2 IRR_2: NO2 -&amp;gt;[j] 1.000*NO + 1.000*O IRR_3: O2 + O -&amp;gt;[k] O3 ... species_group_list: - NOx = NO + NO2 - NOz = HNO3 + RNO3 - PANS = PAN + HPAN + GPAN - NOy = NOx + 2*N2O5 + NO3 + HNO4 + NOz + PANS ...  I don&amp;rsquo;t care about the species_list and set it to ignore:
+species_list: &#39;CL&#39;: IGNORE  The most important part is reaction_list.
+ Reactions are combinations of species, stoichiometry, reaction role, and reaction type. Each reaction is identified by a reaction label, which can be any YAML recognizable string that starts with a letter and contains only letters and numbers. The reaction definition starts with a reactants list containing one or more reactants with optional stoichiometry. The reactants list is followed by an arrow (i.e. -&amp;gt;) with the reaction type enclosed in braces (i.e. [k] or [j]) where j specifies photolysis and k specifies thermal. The reaction arrow and type are followed by an optional products list that has the same syntax as the reactants list.</description>
+    </item>
     
     <item>
       <title>Integrated Reaction Rates (Part2)</title>
@@ -19,11 +31,12 @@
       <guid>https://dreambooker.site/2020/12/01/Integrated-Reaction-Rates-Part2/</guid>
       <description>Background Output of Integrated Reaction Rates (IRR) is available in WRF-Chem from V4.0 and IRR can be analyzed with PERMM Analysis Tool. You can check the instruction on the UCAR website.
 This post is the part2 which focuses on the application of PERMM for the WRF-Chem IRR* data.
-If you wanna learn the basic usage of PERMM, please check the part1.
+If you wanna learn the basic usage of PERMM, please check part1.
+If you wanna define your own mechanism file, please check part3.
 Reactions related to O3 In the WRF-Chem, the reactions are written by the KPP and the IRR outputs are saved as IRR_DIAG_d0*_*** if you enable it.
 We can print the reactions producing O3 using the PERMM without the IRR* files.
 I will focus on the MOZART mechanism:
-$ python -m permm -i --mechanism mozart_wrfchem # all reaction names that create O3 &amp;gt;&amp;gt;&amp;gt; find_rxns(products=O3) [&#39;CH3CO3_HO2_IRR&#39;, &#39;ISOP_O3_IRR&#39;, &#39;MACR_O3_IRR&#39;, &#39;MCO3_HO2_IRR&#39;, &#39;MVK_O3_IRR&#39;, &#39;NO3_HV_IRR&#39;, &#39;O_M_IRR&#39;] # all reaction names related to O3 (either as reactants or products) &amp;gt;&amp;gt;&amp;gt; find_rxns(reactants=O3, products=O3, logical_and=False) [&#39;C2H4_O3_IRR&#39;, &#39;C3H6_O3_IRR&#39;, &#39;CH3CO3_HO2_IRR&#39;, &#39;HO2_O3_IRR&#39;, &#39;ISOP_O3_IRR&#39;, &#39;MACR_O3_IRR&#39;, &#39;MCO3_HO2_IRR&#39;, &#39;MVK_O3_IRR&#39;, &#39;NO3_HV_IRR&#39;, &#39;O3_HV_IRR&#39;, &#39;O3_HV_a_IRR&#39;, &#39;O3_NO2_IRR&#39;, &#39;O3_NO_IRR&#39;, &#39;OH_O3_IRR&#39;, &#39;O_M_IRR&#39;, &#39;O_O3_IRR&#39;] # print all reactions that create O3 &amp;gt;&amp;gt;&amp;gt; print_rxns(products=O3) ISOP_O3_IRR 1.0*ISOP + 1.0*O3 -&amp;gt;[k] 0.6*CH2O + 0.4*MACR + 0.3*CO + 0.27*OH + 0.2*MVK + 0.2*MCO3 + 0.2*CH3COOH + 0.1*O3 + 0.07*C3H6 + 0.06*HO2 MACR_O3_IRR 1.0*MACR + 1.</description>
+$ python -m permm -i --mechanism mozart_wrfchem # all reaction names that create O3 &amp;gt;&amp;gt;&amp;gt; find_rxns(products=O3) [&#39;CH3CO3_HO2_IRR&#39;, &#39;ISOP_O3_IRR&#39;, &#39;MACR_O3_IRR&#39;, &#39;MCO3_HO2_IRR&#39;, &#39;MVK_O3_IRR&#39;, &#39;NO3_HV_IRR&#39;, &#39;O_M_IRR&#39;] # all reaction names related to O3 (either as reactants or products) &amp;gt;&amp;gt;&amp;gt; find_rxns(reactants=O3, products=O3, logical_and=False) [&#39;C10H16_O3_IRR&#39;, &#39;C2H4_O3_IRR&#39;, &#39;C3H6_O3_IRR&#39;, &#39;CH3CO3_HO2_IRR&#39;, &#39;HO2_O3_IRR&#39;, &#39;ISOP_O3_IRR&#39;, &#39;MACR_O3_IRR&#39;, &#39;MCO3_HO2_IRR&#39;, &#39;MVK_O3_IRR&#39;, &#39;NO3_HV_IRR&#39;, &#39;O3_HV_IRR&#39;, &#39;O3_HV_a_IRR&#39;, &#39;O3_NO2_IRR&#39;, &#39;O3_NO_IRR&#39;, &#39;OH_O3_IRR&#39;, &#39;O_M_IRR&#39;, &#39;O_O3_IRR&#39;] # print all reactions that create O3 &amp;gt;&amp;gt;&amp;gt; print_rxns(products=O3) ISOP_O3_IRR 1.0*ISOP + 1.0*O3 -&amp;gt;[k] 0.6*CH2O + 0.4*MACR + 0.3*CO + 0.27*OH + 0.2*MVK + 0.2*MCO3 + 0.</description>
     </item>
     
     <item>
@@ -36,6 +49,7 @@ $ python -m permm -i --mechanism mozart_wrfchem # all reaction names that create
 The steps of enabling IRR is written in detail but the PERMM document is too simple to follow.
 This post is the part1 which focuses on the basic usage of PERMM for the official test data.
 If you wanna learn the application for WRF-Chem, please check part2.
+If you wanna define your own mechanism file, please check part3.
 Installation It&amp;rsquo;s better to install the latest version of PERMM from the official github repository.
 I have fixed some bugs and improved it for WRF-Chem.
 You can download it from my forked branch and install it from the directory:
@@ -43,7 +57,7 @@ python setup.py install  Note that it won&amp;rsquo;t remind you some necessary 
 conda install -c conda-forge pseudonetcdf yaml  Reactions related to O3 I will focus on Ozone with the cb05_camx mechanism for the rest of this post.
 The O3 has two natural sources:
 Actually, I&amp;rsquo;m interested in both of them! But the lightning one isn&amp;rsquo;t included in the WRF-Chem yet &amp;hellip;
-So, let&amp;rsquo;s talk about the photochemistry related to the O3. The illustration below clearly explain the main processes:</description>
+So, let&amp;rsquo;s talk about the photochemistry related to the O3.</description>
     </item>
     
     <item>
