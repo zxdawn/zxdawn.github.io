@@ -24,18 +24,6 @@ species_list: &#39;CL&#39;: IGNORE  The most important part is reaction_list.
     </item>
     
     <item>
-      <title>Integrated Reaction Rates (Part3)</title>
-      <link>https://dreambooker.site/2020/12/02/Integrated-Reaction-Rates-Part3/</link>
-      <pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://dreambooker.site/2020/12/02/Integrated-Reaction-Rates-Part3/</guid>
-      <description>Background Mechanism Syntax The official example is saved on the GitHub:
---- species_list: CL: Cl O1D: O &#39;NO&#39;: N + O ALK4: 4*C ... reaction_list: IRR_1: O3 + NO -&amp;gt;[k] 1.000*NO2 IRR_2: NO2 -&amp;gt;[j] 1.000*NO + 1.000*O IRR_3: O2 + O -&amp;gt;[k] O3 ... species_group_list: - NOx = NO + NO2 - NOz = HNO3 + RNO3 - PANS = PAN + HPAN + GPAN - NOy = NOx + 2*N2O5 + NO3 + HNO4 + NOz + PANS ...  I don&amp;rsquo;t care about the species_list and set it to ignore:
-species_list: &#39;CL&#39;: IGNORE  The most important part is reaction_list.
- Reactions are combinations of species, stoichiometry, reaction role, and reaction type. Each reaction is identified by a reaction label, which can be any YAML recognizable string that starts with a letter and contains only letters and numbers. The reaction definition starts with a reactants list containing one or more reactants with optional stoichiometry. The reactants list is followed by an arrow (i.e. -&amp;gt;) with the reaction type enclosed in braces (i.e. [k] or [j]) where j specifies photolysis and k specifies thermal. The reaction arrow and type are followed by an optional products list that has the same syntax as the reactants list.</description>
-    </item>
-    
-    <item>
       <title>Integrated Reaction Rates (Part2)</title>
       <link>https://dreambooker.site/2020/12/01/Integrated-Reaction-Rates-Part2/</link>
       <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
