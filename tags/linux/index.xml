@@ -6,10 +6,24 @@
     <description>Recent content in Linux on Dreambooker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Tue, 24 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dreambooker.site/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Setting up my Elementary OS</title>
+      <link>https://dreambooker.site/2020/12/04/Setting-up-my-Elementary-OS/</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/12/04/Setting-up-my-Elementary-OS/</guid>
+      <description>Mirror Edit the /etc/apt/sources.list if you live in China:
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse  Update the system:
+sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade  NVIDIA Driver AppCenter &amp;ndash;&amp;gt; NVIDIA X Server Settings &amp;ndash;&amp;gt; restart &amp;ndash;&amp;gt; AppCenter &amp;ndash;&amp;gt; install the newest nvidia driver
+However, it doesn&amp;rsquo;t work for my 4K screen.
+I have to use xrandr to set it manually and restart the PC:
+xrandr # see available screens gsettings set org.gnome.desktop.interface scaling-factor 2 # 2x scale gsettings set org.gnome.desktop.interface scaling-factor 1 # 1x scale xrandr --output DP-1-1 --scale 1x1 --rate 60 # 60Hz at 1x scale. DP-1-1 is the name you see with &amp;quot;xrand&amp;quot;,  Tweaks Installation sudo apt install software-properties-common sudo add-apt-repository ppa:philip.scott/elementary-tweaks sudo apt update sudo apt install elementary-tweaks  Disable single-click System Settings &amp;ndash;&amp;gt; Tweaks &amp;ndash;&amp;gt; Files &amp;ndash;&amp;gt; disable single-click</description>
+    </item>
     
     <item>
       <title>Run sublimetext in WSL</title>

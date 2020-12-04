@@ -6,10 +6,36 @@
     <description>Recent content in Sci-teches on Dreambooker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Wed, 02 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dreambooker.site/sci-tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Setting up my Elementary OS</title>
+      <link>https://dreambooker.site/2020/12/04/Setting-up-my-Elementary-OS/</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/12/04/Setting-up-my-Elementary-OS/</guid>
+      <description>Mirror Edit the /etc/apt/sources.list if you live in China:
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse  Update the system:
+sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade  NVIDIA Driver AppCenter &amp;ndash;&amp;gt; NVIDIA X Server Settings &amp;ndash;&amp;gt; restart &amp;ndash;&amp;gt; AppCenter &amp;ndash;&amp;gt; install the newest nvidia driver
+However, it doesn&amp;rsquo;t work for my 4K screen.
+I have to use xrandr to set it manually and restart the PC:
+xrandr # see available screens gsettings set org.gnome.desktop.interface scaling-factor 2 # 2x scale gsettings set org.gnome.desktop.interface scaling-factor 1 # 1x scale xrandr --output DP-1-1 --scale 1x1 --rate 60 # 60Hz at 1x scale. DP-1-1 is the name you see with &amp;quot;xrand&amp;quot;,  Tweaks Installation sudo apt install software-properties-common sudo add-apt-repository ppa:philip.scott/elementary-tweaks sudo apt update sudo apt install elementary-tweaks  Disable single-click System Settings &amp;ndash;&amp;gt; Tweaks &amp;ndash;&amp;gt; Files &amp;ndash;&amp;gt; disable single-click</description>
+    </item>
+    
+    <item>
+      <title>Integrated Reaction Rates (Part3)</title>
+      <link>https://dreambooker.site/2020/12/02/Integrated-Reaction-Rates-Part3/</link>
+      <pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2020/12/02/Integrated-Reaction-Rates-Part3/</guid>
+      <description>Background Mechanism Syntax The official example is saved on the GitHub:
+--- species_list: CL: Cl O1D: O &#39;NO&#39;: N + O ALK4: 4*C ... reaction_list: IRR_1: O3 + NO -&amp;gt;[k] 1.000*NO2 IRR_2: NO2 -&amp;gt;[j] 1.000*NO + 1.000*O IRR_3: O2 + O -&amp;gt;[k] O3 ... species_group_list: - NOx = NO + NO2 - NOz = HNO3 + RNO3 - PANS = PAN + HPAN + GPAN - NOy = NOx + 2*N2O5 + NO3 + HNO4 + NOz + PANS ...  I don&amp;rsquo;t care about the species_list and set it to ignore:
+species_list: &#39;CL&#39;: IGNORE  The most important part is reaction_list.
+ Reactions are combinations of species, stoichiometry, reaction role, and reaction type. Each reaction is identified by a reaction label, which can be any YAML recognizable string that starts with a letter and contains only letters and numbers. The reaction definition starts with a reactants list containing one or more reactants with optional stoichiometry. The reactants list is followed by an arrow (i.e. -&amp;gt;) with the reaction type enclosed in braces (i.e. [k] or [j]) where j specifies photolysis and k specifies thermal. The reaction arrow and type are followed by an optional products list that has the same syntax as the reactants list.</description>
+    </item>
     
     <item>
       <title>Integrated Reaction Rates (Part3)</title>
