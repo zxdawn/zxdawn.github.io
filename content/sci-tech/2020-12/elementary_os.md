@@ -101,14 +101,14 @@ launch “seahorse” --> Right-click on “Login” and select “Change Passwo
 
 ## Softwares (Linux)
 
-### GDebi
+- GDebi
 
 We can use GDebi to install deb packages easily.
 ```
 sudo apt install gdebi
 ```
 
-### [Typora](https://typora.io/)
+- [Typora](https://typora.io/)
 
 ```
 wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
@@ -121,7 +121,7 @@ sudo apt-get update
 sudo apt-get install typora
 ```
 
-### Git
+- Git
 
 ```
 sudo apt-get install git
@@ -130,7 +130,7 @@ sudo apt-get install git
 git config --global http.proxy 'socks5://127.0.0.1:1089'
 ```
 
-### hugo
+- hugo
 
 As my website is based on the hugo of old version, I installed it as below:
 
@@ -139,13 +139,13 @@ wget -O /tmp/hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.50/h
 sudo dpkg -i /tmp/hugo.deb
 ```
 
-### Texlive
+- Texlive
 
 ```
 sudo apt install texlive latexmk texlive-latex-extra texlive-bibtex-extra
 ```
 
-### [Sublime Text](https://www.sublimetext.com/)
+- [Sublime Text](https://www.sublimetext.com/)
 
 ```
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
@@ -155,21 +155,21 @@ sudo apt-get update
 sudo apt-get install sublime-text
 ```
 
-#### [Package Control](https://packagecontrol.io/installation)
+- [Package Control](https://packagecontrol.io/installation)
 
 Open the command palette --> ctrl+shift+p --> Type Install Package Control, press enter
 
-#### [LaTeXTools](https://latextools.readthedocs.io/en/latest/install/)
+- [LaTeXTools](https://latextools.readthedocs.io/en/latest/install/)
 
 Ctrl+shift+p --> select the Package Control: Install Package --> LaTeXTools
 
-### [Qv2ray](https://github.com/Qv2ray/Qv2ray)
+- [Qv2ray](https://github.com/Qv2ray/Qv2ray)
 
 Run it on Startup:
 
 Applications --> System settings --> Applications --> Startup --> `/home/xin/Softwares/qv2ray/Qv2ray.v2.6.2.linux-x64.AppImage --`
 
-### [Notion](https://www.notion.so/)
+- [Notion](https://www.notion.so/)
 
 Unfortunately, official Notion isn't supported on Linux. I use [Lotion](https://github.com/puneetsl/lotion) instead.
 
