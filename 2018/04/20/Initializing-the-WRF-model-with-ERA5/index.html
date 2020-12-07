@@ -940,7 +940,7 @@ $ rename nc_tmp nc *.nc_tmp
   
 
   
-    <h3>Comments (32)</h3>
+    <h3>Comments (33)</h3>
   
 
   
@@ -963,6 +963,8 @@ $ rename nc_tmp nc *.nc_tmp
         
           
             
+          
+        
           
         
           
@@ -1113,6 +1115,8 @@ why the script download the data every 3hours? The resolution of ERA5 is hourly?
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1150,6 +1154,8 @@ why the script download the data every 3hours? The resolution of ERA5 is hourly?
         
           
             
+          
+        
           
         
           
@@ -1319,6 +1325,8 @@ ERA5-20180101-20180102-ml.grib1: No such file or directory</p>
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1360,6 +1368,8 @@ ERA5-20180101-20180102-ml.grib1: No such file or directory</p>
         
           
             
+          
+        
           
         
           
@@ -1511,6 +1521,8 @@ Xin</p>
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1558,6 +1570,8 @@ Xin</p>
         
           
             
+          
+        
           
         
           
@@ -1700,6 +1714,8 @@ kindly help me out
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1746,6 +1762,8 @@ kindly help me out
         
           
             
+          
+        
           
         
           
@@ -1904,6 +1922,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -1935,6 +1955,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
           <p class="comment-info"><strong>Peter A.</strong><br><small>Wednesday, Jul 29, 2020</small></p>
         </header>
 
+        
+          
         
           
         
@@ -2079,6 +2101,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
           
             
           
+            
+          
 
           
         </div>
@@ -2130,6 +2154,8 @@ Abort(38406864) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_C
         
           
             
+          
+        
           
         
           
@@ -2365,6 +2391,8 @@ exit</p>
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -2434,6 +2462,8 @@ exit</p>
         
           
             
+          
+        
           
         
           
@@ -2561,6 +2591,8 @@ exit</p>
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -2628,6 +2660,8 @@ exit</p>
         
           
             
+          
+        
           
         
           
@@ -2760,6 +2794,8 @@ Xin</p>
           
             
           
+            
+          
 
           
             <div class="comment-reply-button-reply">
@@ -2783,11 +2819,203 @@ Xin</p>
       <article>
         <header class="comment-header">
           <figure class="frame comment-avatar">
+            <img class="comment-avatar" src="https://www.gravatar.com/avatar/d06c92ddfa4eccd96214d093018b8fea?s=70">
+          </figure>
+          <p class="comment-info"><strong>razy</strong><br><small>Sunday, Dec 6, 2020</small></p>
+        </header>
+
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+        <div id="494f6e80-37db-11eb-abfa-1f7339372041" class="comment-thread">
+          <blockquote class="comment">
+            <p>Hi! first, thank you very much for the explanation.</p>
+
+<p>i am having troubles downloading the data on model levels.
+can you please have a quick check on it?</p>
+
+<p>this is my try for the upper layer:</p>
+
+<p>import cdsapi
+c = cdsapi.Client()
+c.retrieve(&lsquo;reanalysis-era5-complete&rsquo;,{
+    &lsquo;class&rsquo;:&lsquo;ea&rsquo;,
+    &lsquo;date&rsquo;:&lsquo;20191024/to/20191027&rsquo;,
+    &lsquo;area&rsquo;:&lsquo;60/0/0/60&rsquo;,
+    &lsquo;expver&rsquo;:&lsquo;1&rsquo;,
+    &lsquo;levelist&rsquo;: &lsquo;1/to/137&rsquo;,
+    &lsquo;levtype&rsquo;:&lsquo;ml&rsquo;,
+    &lsquo;param&rsquo;:&lsquo;129/130/131/132/133/152&rsquo;,
+    &lsquo;stream&rsquo;:&lsquo;oper&rsquo;,
+    &lsquo;time&rsquo;:&lsquo;00:00:00/03:00:00/06:00:00/09:00:00/12:00:00/15:00:00/18:00:00/21:00:00&rsquo;,
+    &lsquo;type&rsquo;:&lsquo;an&rsquo;,
+    &lsquo;grid&rsquo;:&ldquo;0.<sup>25</sup>&frasl;<sub>0</sub>.25&rdquo;,
+},&lsquo;ERA5-20191024-20191027-ml.grb&rsquo;)</p>
+
+          </blockquote>
+
+          
+            <div class="comment-reply-button">
+              <input id="494f6e80-37db-11eb-abfa-1f7339372041" type="button" class="right" value="Reply to razy" onclick="replyTo('494f6e80-37db-11eb-abfa-1f7339372041', 'razy')" />
+            </div>
+          
+
+          <div style="clear: both;"></div>
+
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+
+          
+        </div>
+      </article>
+
+    
+  
+    
+    
+      
+      
+      
+      <article>
+        <header class="comment-header">
+          <figure class="frame comment-avatar">
             <img class="comment-avatar" src="https://www.gravatar.com/avatar/?s=70">
           </figure>
           <p class="comment-info"><strong>Andreas Hilboll</strong><br><small>Thursday, Dec 6, 2018</small></p>
         </header>
 
+        
+          
         
           
         
@@ -2878,6 +3106,8 @@ Xin</p>
 
           <div style="clear: both;"></div>
 
+          
+            
           
             
           
@@ -3082,6 +3312,8 @@ Xin</p>
           
         
           
+        
+          
             
           
         
@@ -3116,6 +3348,8 @@ Xin</p>
 
           <div style="clear: both;"></div>
 
+          
+            
           
             
           
@@ -3282,6 +3516,8 @@ Xin</p>
           
         
           
+        
+          
             
           
         
@@ -3316,6 +3552,8 @@ Xin</p>
 
           <div style="clear: both;"></div>
 
+          
+            
           
             
           
@@ -3484,6 +3722,8 @@ Xin</p>
           
         
           
+        
+          
             
           
         
@@ -3539,6 +3779,8 @@ Xin</p>
 
           <div style="clear: both;"></div>
 
+          
+            
           
             
           
@@ -3759,6 +4001,8 @@ Xin</p>
         
           
         
+          
+        
 
         <div id="35e0a330-be73-434d-8fa5-fa692b833d1a" class="comment-thread">
           <blockquote class="comment">
@@ -3824,6 +4068,8 @@ grib_filter split.rule your/model_level_data/name.grib1</p>
 
                   </div>
                 </article>
+            
+          
             
           
             
