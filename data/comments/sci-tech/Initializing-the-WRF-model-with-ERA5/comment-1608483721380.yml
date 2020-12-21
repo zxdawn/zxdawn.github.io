@@ -1,0 +1,8 @@
+_id: 13ce6710-42e5-11eb-beca-e75c45c1648c
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+botpot: ''
+name: Luiz Filipe
+email: cea7cea58cbdf5d28017430c99569584
+body: "Hi Xin Zhang, \r\n\r\nWhen I run the metgrid step I have that message in metgrid.log:\r\n\r\n2020-12-20 16:51:30.240 --- INFORM: GHT at level 200100.000000 already exists; leaving it alone.\r\n2020-12-20 16:51:30.240 --- INFORM: PRESSURE at level 200100.000000 already exists; leaving it alone.\r\n2020-12-20 16:51:30.240 --- ERROR: For fill_lev specification, level in source field must be an integer, enclosed in parentheses immediately after the fieldname\r\n\r\nCould you help me with solution ?"
+date: '2020-12-20T17:02:01.379Z'
