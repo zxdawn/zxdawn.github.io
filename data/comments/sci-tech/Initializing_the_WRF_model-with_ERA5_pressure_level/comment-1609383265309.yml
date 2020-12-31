@@ -1,0 +1,8 @@
+_id: 7db5a450-4b13-11eb-945c-01fd14c1c8ac
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: ''
+botpot: ''
+name: peng
+email: 0134fc13532cf9718692384db29d712d
+body: "Hi Xin,\r\n\r\nSorry to bother you again.\r\nThanks very much for your wonderful tutorial to enable me to run WRF successfully with ERA5 reanalysis data. But error happened when I used the forecast field data as the boundary forcing condition. Error is as follows when running the ungrib.exe,\r\n\r\n\"Unknown Data Representation Type, ksec2(4)=           50 \"\r\n\r\nDo you have any idea to solve this problem?\r\n\r\nHappy new year!\r\nPeng"
+date: '2020-12-31T02:54:25.299Z'
