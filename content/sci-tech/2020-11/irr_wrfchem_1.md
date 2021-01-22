@@ -1,7 +1,7 @@
 ---
 title: Integrated Reaction Rates (Part1)
 date: 2020-11-30
-tags: ["wrfchem","python"]
+tags: ["wrf-chem","python"]
 categories: ["sci-tech"]
 draft: false
 toc: true

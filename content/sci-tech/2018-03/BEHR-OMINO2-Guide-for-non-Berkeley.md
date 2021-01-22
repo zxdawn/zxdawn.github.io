@@ -1,7 +1,7 @@
 ---
 title: BEHR_OMINO2 Guide for non_Berkeley
 date: 2018-03-11
-tags: ["BEHR", "OMI", "WRF-Chem"]
+tags: ["OMI", "WRF-Chem"]
 categories: ["sci-tech"]
 draft: false
 toc: true
