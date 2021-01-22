@@ -6,10 +6,34 @@
     <description>Recent content in Sci-teches on Dreambooker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dreambooker.site/sci-tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The best reference manager</title>
+      <link>https://dreambooker.site/2021/01/21/The-best-reference-manager/</link>
+      <pubDate>Thu, 21 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://dreambooker.site/2021/01/21/The-best-reference-manager/</guid>
+      <description>Experience I have used much software for writing my papers from the undergraduate period.
+Here&amp;rsquo;s the timeline: (I suppose I won&amp;rsquo;t change any more &amp;hellip;)
+**Reference manager **: EndNote &amp;ndash;&amp;gt; Mendeley &amp;ndash;&amp;gt; Citavi &amp;ndash;&amp;gt; Zotero
+Writing: Word &amp;ndash;&amp;gt; Markdown (Typora+Notion) + LaTeX (Sublime Text)
+This post focuses on the reference manager called Zotero
+Zotero  Zotero is a free, easy-to-use tool to help youcollect, organize, cite, and share research.
+Available for Mac, Windows, and Linux
+ Free, All platforms, and high Flexibility are the main reason why I choose Zotero.
+As I don&amp;rsquo;t wanna compare different software here, you can try anyone you like.
+Actually I bought Citavi more than one year ago, it&amp;rsquo;s only available for Windows until the Web version is released last year.
+I was addicted to so many functions of Citavi, but I just used the annotation, organization and exportation.
+Finally, I switched to Zotero which is clean and small.
+Importation Because I used Citavi for a long time, I need to import all references into Zotero.
+The Zotero official website gives the methods for importing references from popular managers like EndNote, Mendeley, and Citavi.
+Don&amp;rsquo;t be afraid. That&amp;rsquo;s easy and quick ;)
+Settings, Sync and Plugins I always use MEGA to sync my files across multiple devices and found this awesome tutorial on ResearchGate.</description>
+    </item>
     
     <item>
       <title>Setting up my Elementary OS</title>
