@@ -1,0 +1,8 @@
+_id: c71087f0-9af0-11eb-9eba-b12b45be727a
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: ''
+botpot: ''
+name: Vinayak
+email: 5466b7e1600f003cf047edcf969c60d1
+body: "Hi Xin, \r\nI came across your very informative blog recently. I wanted to know whether we can use ERA-Interim Subsets to force WRF. When I tried forcing the subset from rda ucar website. metgrid.exe throws \"Gaussian Latittude Computation Error\". Other blogs are suggesting to download global data which is humongous and takes a lot of time. I want simulations only on my study region. Can you suggest any alternative or detailed tutorial to use ERA-INterim subsets with WRF??"
+date: '2021-04-11T18:07:28.908Z'
