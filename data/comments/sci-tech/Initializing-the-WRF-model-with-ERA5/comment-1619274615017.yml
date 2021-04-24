@@ -1,0 +1,8 @@
+_id: 95a0bc80-a509-11eb-93a2-5f75567a27af
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: 158ce640-ac53-11ea-8b0d-eb4f639fffeb
+botpot: ''
+name: Zhang Murez
+email: 24468c5deb27af5f217775d6527618f0
+body: "This may related to permission issues.\r\n`LD_LIBRARY_PATH=/home/****/usr/local//lib/ `which mpirun` /home/***/WRF_ISC21/practice/WRF_practice_kit/wrf.exe`"
+date: '2021-04-24T14:30:15.012Z'
