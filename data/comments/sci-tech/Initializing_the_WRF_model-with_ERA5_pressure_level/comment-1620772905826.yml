@@ -1,0 +1,8 @@
+_id: 108be480-b2aa-11eb-a7d9-d316766566dc
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: ''
+botpot: ''
+name: Rocio
+email: 57f49714fbca0922598d5908da4ae501
+body: "Hi! \r\nI'm having this error after I run the metgrid.exe. Do you know what could be the reason?\r\n\r\nARNING: Field PRES has missing values at level 200100 at (i,j)=(1,1)\r\nWARNING: Field PMSL has missing values at level 200100 at (i,j)=(1,1)\r\nWARNING: Field PSFC has missing values at level 200100 at (i,j)=(1,1)\r\n\r\nRegards,\r\nRocío"
+date: '2021-05-11T22:41:45.822Z'
