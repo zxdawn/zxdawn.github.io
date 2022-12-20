@@ -1250,3 +1250,161 @@ toc-nav  scrollspy
   color: #666 !important;
   font-style: normal;
 }
+
+/* Forms */
+
+input, textarea
+{
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  /*color: var(--dark-color);*/
+  background-color: white; /*change*/
+  background-clip: padding-box;
+  border: 1px solid;
+  border-color: var(--dark-border-color-secondary);
+  border-radius: 5px;
+  font-family: inherit;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,background .5s ease-in-out;
+  box-sizing: border-box;
+}
+
+textarea
+{
+  height: auto;
+}
+
+input:focus, textarea:focus
+{
+  outline: 0;
+  border-color: var(--dark-border-color);
+  box-shadow: 0 0 0 0.2rem rgba(var(--dark-border-color-secondary), 0.33);
+}
+
+input[type=submit], input[type=reset], input[type=button]
+{
+  cursor: pointer;
+  display: inline-block;
+  width: auto;
+  margin-left: 5px;
+  background-color: var(--dark-background-secondary);
+  color: var(--dark-color);
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+input[type='checkbox']
+{
+  float: left;
+  width: 20px;
+  margin-right: 8px;
+}
+
+input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover{
+  background-color: var(--dark-background);
+}
+
+input[type=reset]
+{
+  background-color: var(--dark-background-secondary);
+  color: var(--dark-color);
+}
+
+input[type=reset]:hover{
+  background-color: var(--dark-background);
+}
+
+fieldset
+{
+  margin-bottom: 0.5rem;
+  padding: 0;
+  border: none;
+}
+
+/* Comments */
+
+.comment-avatar
+{
+  margin: 0;
+  border-radius: 50%;
+}
+
+.comment-avatar, .comment-info
+{
+  float: left;
+}
+
+.comment-header
+{
+  display: inline-block;
+}
+
+.comment-info
+{
+  margin-left: 1em;
+  margin-top: 0;
+  margin-bottom:0;
+}
+
+.comment
+{
+  /*-webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);*/
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.18), 0 2px 10px 0 rgba(0,0,0,.15);
+  -webkit-border-radius: .25rem;
+  border-radius: .25rem;
+  margin-top: 10px;
+  margin-left: 2em;
+  padding: 10px;
+}
+
+.comment-reply
+{
+  margin-left: 2em;
+  margin-top: 1em;
+}
+
+.comment-reply-button
+{
+  margin-bottom: 1em;
+}
+
+.comment-reply-button-reply
+{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.comment-thread
+{
+  margin-left: 1em;
+  margin-top: -1em;
+  margin-bottom: 1em;
+  padding-top: 1em;
+  /*border-left: 1px solid var(--dark-border-color);*/
+}
+
+.right {
+  float: right;
+}
+
+.dialog {
+  display: none;
+  position: fixed;
+  background-color: rgba(238, 238, 238, 1);
+  padding: 25px;
+  padding-top: 20%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.dialog:target {
+  display: block;
+}
