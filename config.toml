@@ -60,7 +60,7 @@ pygmentsuseclasses         = true
   welcome_head             = "Hello, Dreambooker!"
   welcome_word             = "~ Chase your dream ~"
 
-  latestpostscount         = 8                             # how many posts to display on the home page
+  latestpostscount         = 5                             # how many posts to display on the home page
   bloggroupby              = 'month'
   dateform                 = "Jan 2, 2006"
   dateformfull             = "2006-01-02  Monday  15:04:05"
@@ -123,6 +123,6 @@ pygmentsuseclasses         = true
   endpoint = "https://dreambooker-staticman.herokuapp.com/v3/entry/github"
   username = "zxdawn"
   repository = "zxdawn.github.io"
-  branch = "source"
+  branch = "main"
   githubPullURL = true
   notifications = true
