@@ -1,0 +1,8 @@
+_id: 92bba4b0-d847-11ea-a74c-3be975a6e4b3
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: ''
+botpot: ''
+name: Jason
+email: 76291b429754b2cf4c7254605db18e9a
+body: "Hi Xin! your tutorial did help me a lot!\r\nI used WRFdomainWizard to run WRF, and I found that, in the namelist.wps, the levels seem to be strange:\r\n\r\n&mod_levs\r\npress_pa = 201300 , 200100 , 100000 ,\r\n             95000 ,  90000 ,\r\n             85000 ,  80000 ,\r\n             75000 ,  70000 ,\r\n             65000 ,  60000 ,\r\n             55000 ,  50000 ,\r\n             45000 ,  40000 ,\r\n             35000 ,  30000 ,\r\n             25000 ,  20000 ,\r\n             15000 ,  10000 ,\r\n              5000 ,   1000\r\n\r\nIf I don't use WRFdomainWizard to run WRF, the original namelist.wps doesn't have content about &mod_levs. Should I set this before run WPS? If I should set this, what array should I input (pressure data)?"
+date: '2020-08-07T00:47:30.624Z'

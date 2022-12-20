@@ -1,0 +1,8 @@
+_id: 973ce810-12d4-11eb-beeb-979d191e7a1c
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: ''
+botpot: ''
+name: He Ming
+email: 216deb41dbefd272ac3b188eb2fb65c6
+body: "hi Xin~\r\ni have meet some troubles when i wrong WRF3.8. i followed all of the steps to download ERA5 data and it wroks. But it only runs several seconds and then stopped after i submit the job.\r\ni check .err file and found:\r\nmpirun has exited due to process rank 13 with PID 60264 on\r\nnode h2ocn16 exiting improperly. There are two reasons this could occur:\r\n\r\n1. this process did not call \"init\" before exiting, but others in\r\nthe job did. This can cause a job to hang indefinitely while it waits\r\nfor all processes to call \"init\". By rule, if one process calls \"init\",\r\nthen ALL processes must call \"init\" prior to termination.\r\n\r\n2. this process called \"init\", but exited without calling \"finalize\".\r\nBy rule, all processes that call \"init\" MUST call \"finalize\" prior to\r\nexiting or it will be considered an \"abnormal termination\"\r\n\r\nThis may have caused other processes in the application to be\r\nterminated by signals sent by mpirun (as reported here).\r\n\r\nhow can fix this problem ? \r\nthanks !"
+date: '2020-10-20T13:03:04.736Z'

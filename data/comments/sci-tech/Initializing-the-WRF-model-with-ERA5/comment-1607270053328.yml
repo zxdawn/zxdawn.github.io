@@ -1,0 +1,8 @@
+_id: 494f6e80-37db-11eb-abfa-1f7339372041
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+botpot: ''
+name: razy
+email: d06c92ddfa4eccd96214d093018b8fea
+body: "Hi! first, thank you very much for the explanation.\r\n\r\ni am having troubles downloading the data on model levels.\r\ncan you please have a quick check on it?\r\n\r\nthis is my try for the upper layer:\r\n\r\nimport cdsapi\r\nc = cdsapi.Client()\r\nc.retrieve('reanalysis-era5-complete',{\r\n    'class':'ea',\r\n    'date':'20191024/to/20191027',\r\n    'area':'60/0/0/60',\r\n    'expver':'1',\r\n    'levelist': '1/to/137',\r\n    'levtype':'ml',\r\n    'param':'129/130/131/132/133/152',\r\n    'stream':'oper',\r\n    'time':'00:00:00/03:00:00/06:00:00/09:00:00/12:00:00/15:00:00/18:00:00/21:00:00',\r\n    'type':'an',\r\n    'grid':\"0.25/0.25\",\r\n},'ERA5-20191024-20191027-ml.grb')"
+date: '2020-12-06T15:54:13.327Z'

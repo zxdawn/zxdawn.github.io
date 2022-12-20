@@ -1,0 +1,8 @@
+_id: 347ad600-d8bf-11ea-b408-6bcca38cf5cb
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: ''
+botpot: ''
+name: Sumitra
+email: db2f676a1260798d255cb762a5a4a960
+body: "HI Xin!\r\nI followed the steps you mentioned in this post, now I am getting error while running the command ./real.exe.\r\n -------------- FATAL CALLED ---------------\r\nFATAL CALLED FROM FILE:  <stdin>  LINE:    3388\r\nmismatch_landmask_ivgtyp\r\n-------------------------------------------\r\nThank you"
+date: '2020-08-07T15:03:52.066Z'

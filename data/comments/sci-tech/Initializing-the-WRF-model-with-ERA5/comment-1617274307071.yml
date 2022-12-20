@@ -1,0 +1,8 @@
+_id: 411ef070-92d8-11eb-8db4-b1a89621c582
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+botpot: ''
+name: Vinod Kumar
+email: e6e5c7c2ec268a653a2d86a7eb2b3a09
+body: "Hi,\r\nThanks a lot for the tutorial. I was wondering, why do we need the parameters 129 (Geopotential) and 152 (logarithm of Surface pressure) at model levels. As far as I understand, these are available on single levels only.\r\n\r\nBest regards,\r\nVinod"
+date: '2021-04-01T10:51:47.059Z'

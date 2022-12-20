@@ -1,0 +1,8 @@
+_id: ceb42690-889c-11ea-9c6e-8122a77374ad
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+botpot: ''
+name: Soklin
+email: feaf7e80999e11b41ba0eb37c5179605
+body: "Hi! I am so new to WRF and I want to run it with ERA5. I created a bash file for \"Automatic download\" as shown above. When I ran ./file_name.bash, I got the following error: \r\n./GetERA5.bash: line 8: activate: No such file or directory\r\nTraceback (most recent call last):\r\n  File \"GetERA5-20180101-20180102-sfc.py\", line 1, in <module>\r\n    import cdsapi\r\nImportError: No module named cdsapi\r\nTraceback (most recent call last):\r\n  File \"GetERA5-20180101-20180102-ml.py\", line 1, in <module>\r\n    import cdsapi\r\nImportError: No module named cdsapi\r\nmv: cannot stat 'ERA5-20180101-20180102-sfc.grb': No such file or directory\r\nmv: cannot stat 'ERA5-20180101-20180102-ml.grb': No such file or directory\r\nERA5-20180101-20180102-sfc.grb: No such file or directory\r\nERA5-20180101-20180102-ml.grb: No such file or directory\r\nERA5-20180101-20180102-ml.grib1: No such file or directory\r\n\r\nWhat could be the solution?"
+date: '2020-04-27T15:36:05.476Z'

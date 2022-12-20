@@ -1,0 +1,8 @@
+_id: a34aee40-f24a-11ea-bcf0-bd986a5b2e26
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: ''
+botpot: ''
+name: Josué Arellano Palacios
+email: eebf4c2850298fe5549d62125d848694
+body: "Hi Xin! How are you? first thanks for the tutorial, so I have followed all steps and when I do wrf.exe I get this:\r\n\r\nFATAL CALLED FROM FILE:  <stdin>  LINE:     242\r\nprogram wrf: error opening   wrfrst_d01_2001-10-01_00:00:00 for reading\r\n\r\nWhat could have gone wrong?"
+date: '2020-09-09T03:14:57.043Z'

@@ -1,0 +1,12 @@
+_id: 149f4eac-3820-49dd-b6fe-cd04dc7be2ba
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+name: omid
+email: 
+body: "Hi, Thanks for sharing.\n\n
+      As @Andreas Hilboll said, I want to take surface pressure directly from ERA5.\n\n
+      So I added the parameter code 134.128 to GetERA5-sfc.py.
+      Both ungrib.exe and calc_ecmwf_p.exe work fine.
+      But metgrid.exe fails saying `ERROR: Error in ext_pkg_write_field`.\n\n
+      Can you please let me know how to add surface pressure to grib files."
+date: 2018-12-06T07:30:00Z

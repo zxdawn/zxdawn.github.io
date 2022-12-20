@@ -1,0 +1,8 @@
+_id: 2ff99590-f1d7-11ea-b51d-89314f11f413
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: 86ec91c0-f1ca-11ea-a117-4914f65d6c87
+botpot: ''
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "Thanks for the two comments, Ray.\r\n\r\nI can't understand the method of extracting data;\r\n\r\n> You just need to amend the list of A, B values, and reorder the level numbers in the GRIB.\r\n\r\nCould you give an example?\r\n\r\nRegards,\r\n\r\nXin"
+date: '2020-09-08T13:28:31.507Z'

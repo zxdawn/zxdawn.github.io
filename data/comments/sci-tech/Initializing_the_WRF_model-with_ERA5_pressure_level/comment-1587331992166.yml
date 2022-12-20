@@ -1,0 +1,8 @@
+_id: 5eb8ebe0-8285-11ea-9b82-c5048cc5491f
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: ''
+botpot: ''
+name: Yasmin
+email: c8a21dc00051f8ff072b9a35abe2d75d
+body: "Hi again Xin,\r\nSo I just downloaded my data and performed a test, however I got the error relate to the Pressure levels, I guess I need to use the calc_ecmwf_p.exe \r\nDo you know where I can find the ecmwf_coeffs table for 38 pressure levels?\r\n\r\nWARNING: Couldn't open file PRES:2019-11-02_00 for input.\r\n Processing 2019-11-02_06\r\n    FILE\r\n    PRES"
+date: '2020-04-19T21:33:12.159Z'

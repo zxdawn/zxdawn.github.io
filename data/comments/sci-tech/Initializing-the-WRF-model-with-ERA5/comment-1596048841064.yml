@@ -1,0 +1,20 @@
+_id: dd94ee00-d1cc-11ea-a214-6b5076d82fe6
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+botpot: ''
+name: Peter A.
+email: d2eb3c2a6842c91d66d6b91740798503
+body: >-
+  Hi Xin, thank you very much for your explanation. Everything was perfect up to
+  ungrib with ERA5 surface and model levels. My ungrib was generating PFILES but
+  was never able to generate all the corresponding FILES. Some strange error
+  messages appeared in the log file ("unknown out_format, ifv = 1133007385" or
+  "Unrecognized map%igrid: 39936 in RRPR 2" or "Read error 1 in PARSE_TABLE"). I
+  then assumed a memory issue as the number of generated FILES or PFILES was not
+  always the same. I increased node memory up to 125GB ! Then I obtained
+  successful completion. Every FILE or PFILE has around 100MB size so the
+  situation does not seem to be a logical one. I am using 137 levels 0.25 deg x
+  0.25 deg in an area of 35 deg x 70 deg for 32 times every hour. My command is
+  srun -N1 -n8 --mpi=pmi2 --mem=125G /home/peter/Build_WRF/WPS-4.2/ungrib.exe 
+  Do you have a common sense explanation for the need of 125 GB?
+date: '2020-07-29T18:54:01.058Z'

@@ -1,0 +1,8 @@
+_id: d068e9e0-82a6-11ea-b1ad-1786fbe2fe99
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: 5eb8ebe0-8285-11ea-9b82-c5048cc5491f
+botpot: ''
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "Hi Yasmin,\r\n\r\nI've used the ERA5 pressure level data several times and it always works well. So, I suppose there's something wrong in your step of `./link_grib.csh` or `ungrib.exe`. You need to check files (`GRIBFILE.AAA` ......) and logs (`ungrib.log`) related to these two command.  If these steps are successful, then you should see the `FILE:**` files which cover the simulation time duration.\r\n\r\nThe most possible cause is the `namelist.wps`, you don't need `PRES`. Here's an example:\r\n\r\n```\r\n&ungrib\r\n out_format                         = 'WPS',\r\n prefix                             = 'FILE',\r\n /\r\n\r\n&metgrid\r\n fg_name                            = 'FILE',\r\n io_form_metgrid                    = 2,\r\n /\r\n```\r\n\r\nXin"
+date: '2020-04-20T01:32:36.262Z'
