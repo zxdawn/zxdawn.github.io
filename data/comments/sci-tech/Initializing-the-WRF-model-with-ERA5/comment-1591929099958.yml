@@ -1,0 +1,8 @@
+_id: d88274c0-ac54-11ea-8b0d-eb4f639fffeb
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: 8af4d400-a812-11ea-b157-813291e5e125
+botpot: ''
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "Hi Victor,\r\n\r\nPlease make sure you compile the WPS successfully and the `METGRID.TBL` exists.\r\n\r\nXin"
+date: '2020-06-12T02:31:39.957Z'

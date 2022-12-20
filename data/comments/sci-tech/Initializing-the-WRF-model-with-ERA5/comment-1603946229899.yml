@@ -1,0 +1,8 @@
+_id: 68224430-19a0-11eb-8022-6dfae19cbe2a
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: 9ad20e10-1969-11eb-8798-811954e27bba
+botpot: ''
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "Hi Divyansh,\r\n\r\nIt's better to do that before running `calc_ecmwf`. The process shown in the blog is the complete step that records all my attempts.\r\n\r\nXin"
+date: '2020-10-29T04:37:09.895Z'

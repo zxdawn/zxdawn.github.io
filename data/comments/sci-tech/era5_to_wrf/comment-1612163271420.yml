@@ -1,0 +1,8 @@
+_id: 328afb30-645c-11eb-a2a4-c3c3a9ea0324
+_parent: era5_to_wrf
+reply_to: e1b63e50-598d-11eb-b684-bb243037402a
+botpot: ''
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "你好，\r\n\r\n这个网格是WRF生成的。\r\n\r\n如果你想自己生成网格，建议使用[pyresample](https://pyresample.readthedocs.io/en/latest/)或者[xESMF](https://xesmf.readthedocs.io/en/latest/)"
+date: '2021-02-01T07:07:51.415Z'

@@ -1,0 +1,8 @@
+_id: be9c0780-838f-11ea-93df-47d6a15ced23
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: 8952af00-836e-11ea-bcb0-73c9c53a4565
+botpot: ''
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "Hi,\r\n\r\nNote that the step of `calc_ecmwf_p.exe` is necessary for model level data, not pressure data.\r\n\r\nIf you're using model level data, you need to create `ecmwf_coeffs` by yourself. Please check my [another tutorial](https://dreambooker.site/2018/04/20/Initializing-the-WRF-model-with-ERA5/).\r\n\r\nXin"
+date: '2020-04-21T05:19:59.130Z'

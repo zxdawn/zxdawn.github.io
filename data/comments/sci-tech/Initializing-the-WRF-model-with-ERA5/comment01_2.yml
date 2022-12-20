@@ -1,0 +1,10 @@
+_id: c533c953-b4ea-4c46-86b0-5ca298c84e56
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: 98efd4f4-030f-494a-b880-e0c5f387bc3d
+botpot: ''
+name: Andreas Hilboll
+email: 
+body: "just talked to ECMWF Service Desk, here's their answer:\n\n
+      It is more complex than doing `exp(lnsp) -> sp`. As a general rule, you should use lnsp if you work with the model level data. Otherwise you should get surface pressure directly from surface level.\n\n
+      So it seems you did the correct thing."
+date: 2018-12-10T06:25:00Z

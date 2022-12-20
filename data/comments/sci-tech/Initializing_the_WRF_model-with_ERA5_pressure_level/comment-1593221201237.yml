@@ -1,0 +1,8 @@
+_id: 40dc12d0-b815-11ea-927f-e5f84e99aabc
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: 75ed8750-b7c6-11ea-93e1-dda4b3474453
+botpot: ''
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "Dear Stefan,\r\n\r\nThe resource is from CDS which contains ERA5 [Pressure level data](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-pressure-levels?tab=overview) and [Single level data](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels?tab=overview).\r\n\r\nSince you need 40-year data, you can choose either method: using the above scripts or just clicking the boxes on the CDS web page.\r\n\r\nRegards,\r\nXin"
+date: '2020-06-27T01:26:41.232Z'

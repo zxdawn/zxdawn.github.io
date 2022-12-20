@@ -1,0 +1,10 @@
+_id: ce539e90-6d96-11ea-9d43-db10d1b1338d
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: ''
+botpot: ''
+name: Sam
+email: 48f6b80bca28cd769e4cd6ceaa87f16e
+body: >-
+  Do I need to merge both dataset before running ungrib? If not what name I
+  should give to each? GRIBFILE.AAA and GRIBFILE.AAB?
+date: '2020-03-24T06:15:06.440Z'

@@ -1,0 +1,8 @@
+_id: c2faeeb0-b89e-11ea-a542-ed1c01cdc357
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: 9f17e990-b7cb-11ea-9e0b-bbcb9fdcfd5a
+botpot: ''
+name: Bara
+email: 42665cb945b43c65c85b82d1e5f8865f
+body: "Hi Xin!\r\nThank you for your quick reply\r\nI checked the downloaded files but they contain pressure levels for  UU, TT ....\r\nBut the problem in coming from ungrib.exe and metgrid.exe. Files created by these both executables have not  pressure levels. \r\nDo you have any idea please"
+date: '2020-06-27T17:51:00.534Z'

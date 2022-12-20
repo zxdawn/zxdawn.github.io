@@ -1,0 +1,11 @@
+_id: 98efd4f4-030f-494a-b880-e0c5f387bc3d
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+name: Andreas Hilboll
+email: 
+body: "Hi, thanks for this writeup!\n\n
+      Can you please elaborate why you need to create PSFC in the last step?\n\n
+      My met_em files already contain a PSFC field (I download it as field\"134\" or \"sp\" from ECMWF).\n\n
+      Interestingly, the original PSFC values I download are significantly different from what I get by re-creating PSFC from LOGSFP as you do it.\n\n
+      Can you shed some light on this issue? I' really appreciate!"
+date: 2018-12-06T07:30:00Z

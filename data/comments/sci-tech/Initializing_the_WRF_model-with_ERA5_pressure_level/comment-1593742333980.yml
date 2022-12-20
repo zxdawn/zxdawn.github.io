@@ -1,0 +1,8 @@
+_id: 9c2a8dd0-bcd2-11ea-941d-cde4e256f700
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: ''
+botpot: ''
+name: Chi
+email: 3c30eb5b3996b4a1e77ef76a1f6de341
+body: "Hi Xin, thanks for your tutorial,  and I have some questions.\r\nI'm ungribbing ERA-Interim data(pressure level), can I use SH, 2m T and 2m dewpoint T to calculate RH by adding SPECHUMD to the Vtable.ECMWF?\r\nI noticed this RH data are different from ungribbing it directly with ERA-Interim RH data in met files, what could be the problem?\r\n\r\nChi"
+date: '2020-07-03T02:12:13.974Z'

@@ -1,0 +1,8 @@
+_id: 75ed8750-b7c6-11ea-93e1-dda4b3474453
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: ''
+botpot: ''
+name: Stefan Rahimi
+email: d22e0f8a206d8bee7ca12d2c1afebac1
+body: "Dear Xin,\r\n\r\nThank you for this wonderful tutorial. I just have one question.\r\n\r\nWhere are you downloading these data from? ERA5 data are on the CISL RDA (https://rda.ucar.edu/datasets/ds630.0/), but the data are not in discrete time slices as required by ungrib.exe. I am planning to downscale ERA5 for a 40-year period, so I am trying to find grb files that are date-time specific...\r\n\r\nIt looks like the above scripts nicely subset the data and pull relevant variables into new grb files?\r\n\r\nThanks,\r\n-Stefan Rahimi, UCLA"
+date: '2020-06-26T16:02:39.967Z'

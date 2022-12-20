@@ -1,0 +1,8 @@
+_id: fd17a7a0-bf56-11ea-99e5-edd9ad172cb8
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: ''
+botpot: ''
+name: Du Xin-guan
+email: 8eb505a449d0cf56e83381b4edcf54b7
+body: "Dear Xin,\r\n\r\nWhen i do ungrib.exe, I can ungrib pressure-level ERA5 data, but I can not ungrib surface ERA5 data. It was said that 'was expecting a Grib1 file , but this is a Grib2 file. It is possible this is because your GRIBFILE.XXX files are not all of the same type. '\r\n\r\nI will appreciate your any suggestions.\r\n\r\nDu"
+date: '2020-07-06T07:04:52.364Z'

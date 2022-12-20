@@ -1,0 +1,8 @@
+_id: 86ec91c0-f1ca-11ea-a117-4914f65d6c87
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+botpot: ''
+name: Ray
+email: fe1ebf9ed20a33f87e91fbcdc6b1c304
+body: "Two comments:\r\n\r\n(2) Not sure that you should have\r\n\r\nfg_name = 'FILE','PRES' \r\n\r\nin the namelist. \r\ncalc_ecmwf_p.exe will open 'FILE' and 'PRES' to read the ERA5 data in these files (produced by ungrib); if the files don't exist they are skipped. The calc_ecmwf_p.exe then WRITES a file 'PRES' (with time/date appended after the colon); this is hardcoded in the program and represents the output of the .exe.  I suggest that you should ONLY have \r\n\r\nfg_name = 'FILE',\r\n\r\nto avoid overwriting of the 'PRES' output file, or (as I found in the situation with multiple dates in the input file) you may get a 'PRES' file with only pressures but no HGT or RH; in the latter case metgrid.exe rescued the situation by silently interpolating the missing data but this not what you want (less accurate ...). You should check the 'PRES' output files to confirm you have pressure, height and RH - e.g. using WPS/util/plotfmt.ncl\r\n\r\nNote that you DO need fg_name = 'FILE','PRES' in the namelist when running metgrid.exe - it expects to read 'PRES' (and any other such file e.g. a 'SURF' file, if you have one).\r\n\r\n\r\n(2) WRF rarely needs 137 levels. For example if PTOT=50hPa then model levels 45-137 are quite sufficient. It saves extracting a lot of data. You just need to amend the list of A,B values and reorder the level numbers in the GRIB."
+date: '2020-09-08T11:57:53.943Z'

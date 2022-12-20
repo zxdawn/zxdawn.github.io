@@ -1,0 +1,8 @@
+_id: e1b63e50-598d-11eb-b684-bb243037402a
+_parent: era5_to_wrf
+reply_to: ''
+botpot: ''
+name: 高厉害
+email: 5e7a1a3724f9632f93fba9ac299c70b9
+body: "### 你好，\r\n想请教一下，请问这篇博客中的这种图片：\r\n![desc](https://gaolihaiimg.oss-cn-beijing.aliyuncs.com/izvarlpnbt)\r\n这种规整的坐标网格是通过什么方法获得的？\r\n\r\n我想要基于一个点，生成一个 1km 步长的坐标网，然后拿到坐标网中每个点的经纬度。\r\n\r\n目前我得到的坐标网，越靠近极点，在维线方向上的距离会变得稠密或稀疏。"
+date: '2021-01-18T13:05:47.897Z'

@@ -1,0 +1,38 @@
+_id: 46267831-93ef-4baf-b1b7-0949cac933b4
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: ''
+name: NO NICKNAME
+email: 
+body: "Hi, sorry to bother again.\r\n\r\n
+I use WPS V3.8.1 to handle the ml-data.\r\n\r\n
+It's all ok before the last step metgrid.exe.\r\n\r\n
+I got the error message:\r\n\r\n
+<pre><code>
+Processing domain 1 of 3\r\n
+Processing 2013-06-03_00\r\n
+FILE\r\n
+PRES\r\n
+ERROR: Error in ext_pkg_write_field\r\n
+Abort(37489184) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 37489184) - process 0.\r\n
+If the delete \r\n
+========================================\r\n
+name=LOGSFP\r\n
+interp_option=four_pt+average_4pt\r\n
+fill_lev=200100:PSFC(200100.)\r\n
+flag_in_output=FLAG_LOGSFP\r\n
+========================================\r\n
+</code></pre>
+in metgrid.tbl, I will get a warning message
+`WARNING: Entry in METGRID.TBL not found for field LOGSFP. Default options will be used for this field!`
+and I could get the met_em* files.\r\n\r\n
+Once I add\r\n\r\n
+<pre><code>
+========================================\r\n
+name=LOGSFP\r\n
+interp_option=four_pt+average_4pt\r\n
+fill_lev=200100:PSFC(200100.)\r\n
+flag_in_output=FLAG_LOGSFP\r\n
+========================================.\r\n
+</code></pre>
+I will get the error message i mentioned before."
+date: 2019-06-19T04:33:00Z

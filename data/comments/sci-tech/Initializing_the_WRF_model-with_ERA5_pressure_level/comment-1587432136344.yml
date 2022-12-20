@@ -1,0 +1,8 @@
+_id: 8952af00-836e-11ea-bcb0-73c9c53a4565
+_parent: Initializing_the_WRF_model-with_ERA5_pressure_level
+reply_to: ''
+botpot: ''
+name: Guilherme
+email: f534b138894289dde29801ca01120947
+body: "Hi Xin,\r\nAfter i run the command \"calc_ecmwf_p.exe\", the following error appears:\r\n\r\n ERROR: Error opening ecmwf_coeffs\r\nReading from FILE at time 2016-10-17_00\r\nFound PSFC field in FILE:2016-10-17_00\r\nWARNING: Either TT or SPECHUMD not found. No RH will be computed...\r\n...\r\n...\r\n...\r\nAny idea?\r\nThank you!"
+date: '2020-04-21T01:22:16.343Z'

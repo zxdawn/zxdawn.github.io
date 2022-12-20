@@ -1,0 +1,8 @@
+_id: 01de7bd0-a0c9-11ea-83b7-ab645bcef2d8
+_parent: Initializing-the-WRF-model-with-ERA5
+reply_to: 65d64390-a09a-11ea-9761-cd5b7f12042b
+botpot: ''
+name: Xin Zhang
+email: 8dc0f26bcc80769c2e9117e17c12a212
+body: "Hi Kiran,\r\n\r\nWhy do you need 27 metgrid levels?\r\n\r\nIf you decide to use met_em* files to run WRF, WRF will interpolate data to the levels you set in the namelist (`eta_levels`)  for you automatically.\r\n\r\nRegards,\r\nXin"
+date: '2020-05-28T09:52:57.042Z'
