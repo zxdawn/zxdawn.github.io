@@ -1,0 +1,125 @@
+<!doctype html><html lang=zn-hans><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=1"><meta name=author content="Xin Zhang"><meta name=description content="Using Satpy to read and plot FY4A data"><meta property="og:title" content="Satpy Basic (FY4A)"><meta property="og:description" content="Using Satpy to read and plot FY4A data"><meta property="og:type" content="article"><meta property="og:url" content="https://zxdawn.github.io/2020/02/06/satpy-basic-fy4a/"><meta property="article:section" content="sci-tech"><meta property="article:published_time" content="2020-02-06T00:00:00+00:00"><meta property="article:modified_time" content="2020-02-06T00:00:00+00:00"><title>Satpy Basic (FY4A) | Dreambooker</title><link rel=canonical href=https://zxdawn.github.io/2020/02/06/satpy-basic-fy4a/><link href=https://zxdawn.github.io/vendors/fontawesome-free-5.14.0-web/css/all.min.css rel=stylesheet><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600"><link href=https://zxdawn.github.io/css/font.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/bootstrap4/bootstrap.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors-extensions/mdb/mdb.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/mdb/style.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/main.css rel=stylesheet><link rel="shortcut icon" href=https://zxdawn.github.io/img/logo.jpg><style type=text/css>@media(min-width:800px) and (max-width:850px){.navbar:not(.top-nav-collapse){background:#1c2331!important}}</style><link rel=stylesheet href=https://zxdawn.github.io/css/vendors/highlight/github-gist.css></head><body class=bg-light data-spy=scroll data-target=#page-scrollspy data-offset=90><nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class=container><a class=navbar-brand href=https://zxdawn.github.io><img class=avatar src=https://zxdawn.github.io/img/logo.jpg style=width:40px!important;height:auto class="d-inline-block align-top" alt>
+<strong>Xin Zhang</strong></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav mr-auto"><li class=nav-item><a class=nav-link href=https://zxdawn.github.io>Home</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/sci-tech/>Sci-Tech</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/essay/>Essay</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/about/>About</a></li></ul></div></div></nav><div id=site-header class="carousel slide carousel-fade" data-ride=carousel style=height:18rem><div class=carousel-inner role=listbox><div class="carousel-item active"><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides/0.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//1.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//2.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//3.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//4.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div></div><div class="carousel-content text-center white-text wow fadeIn"><div class="row mx-0 headfont mt-3 pt-4"><div class="col-12 col-sm-5 align-middle"><a href=https://zxdawn.github.io><img class="pull-right avatar avatar-md" src=https://zxdawn.github.io/img/me.jpg alt></a></div><div class="col-12 col-sm-7 text-left pl-2"><a href=https://zxdawn.github.io><h1 class="mb-2 h1" style=font-weight:300><strong>Dreambooker</strong></h1></a><div class=mt-2 style=font-size:1rem;color:#fff><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div></div></div></div></div><main class=post-main-wrapper><div class=row><div class=col-md-10><div class="z-depth-1 post-wrapper white-bg single-post dont-break-out"><div class="post-header text-center"><ul class="post-meta li-x"><li><a href=https://zxdawn.github.io/categories/sci-tech><i class="fas fa-folder-open pr-1" aria-hidden=true></i> sci-tech</a></li></ul><div class="px-4 post-heading">Satpy Basic (FY4A)</div><ul class="post-meta li-x mt-1"><li>Feb 6, 2020</li><li class=middot></li><li>3 minute read</li></ul><div class=view><img src=https://zxdawn.github.io/images/sci-tech/2020-02/pytroll_light_small.png></div></div><div class="post-content markdown"><h2 id=1-support-files>1. Support Files</h2><p>FY4A AGRI data in NetCDF format. Both Full DISK and regional images are supported.</p><p>Example filenames:</p><p><strong>Full DISK:</strong></p><pre><code>FY4A-_AGRI--_N_DISK_1047E_L1-_FDI-_MULT_NOM_20190807060000_20190807061459_4000M_V0001.HDF
+</code></pre><p><strong>REGC:</strong></p><pre><code>FY4A-_AGRI--_N_REGC_1047E_L1-_FDI-_MULT_NOM_20190807045334_20190807045750_1000M_V0001.HDF
+</code></pre><p><em>Full disk scans are identified by DISK , regional scans by REGC.</em></p><p><em>Data Links:</em></p><pre><code>Real Time Data Service (30 days) and Introduction Files:
+    https://fy4.nsmc.org.cn/data/en/data/realtime.html
+History data (2018-03-12 -- ):
+    http://satellite.nsmc.org.cn/PortalSite/Data/Satellite.aspx
+FY4A official weather application platform:
+    http://rsapp.nsmc.org.cn/geofy/
+</code></pre><h2 id=2-calibration>2. Calibration</h2><p>You have three options:</p><ol><li><p>The raw detector counts (All channels)</p></li><li><p>Reflectance (C01 - C06)</p></li><li><p>Radiance and Brightness Temperature (C07 - C14)</p></li></ol><h2 id=3-examples>3. Examples</h2><h3 id=installation>Installation</h3><pre tabindex=0><code>conda install -c conda-forge satpy
+</code></pre><h3 id=loading-data>Loading data</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>os</span><span class=o>,</span> <span class=nn>glob</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>satpy.scene</span> <span class=kn>import</span> <span class=n>Scene</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>satpy.utils</span> <span class=kn>import</span> <span class=n>debug_on</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>trollimage.colormap</span> <span class=kn>import</span> <span class=n>greys</span><span class=p>,</span> <span class=n>spectral</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># load FY4A filenames</span>
+</span></span><span class=line><span class=cl><span class=n>filenames</span> <span class=o>=</span> <span class=n>glob</span><span class=o>.</span><span class=n>glob</span><span class=p>(</span><span class=s1>&#39;/xin/data/FY4A/20190807/FY4A-_AGRI*4000M_V0001.HDF&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># create the scene object</span>
+</span></span><span class=line><span class=cl><span class=n>scn</span> <span class=o>=</span> <span class=n>Scene</span><span class=p>(</span><span class=n>filenames</span><span class=p>,</span> <span class=n>reader</span><span class=o>=</span><span class=s1>&#39;agri_l1&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># check available channels</span>
+</span></span><span class=line><span class=cl><span class=n>scn</span><span class=o>.</span><span class=n>available_dataset_names</span><span class=p>()</span>
+</span></span></code></pre></div><p><em>Output</em>:</p><pre><code>['C01',
+ 'C02',
+ 'C03',
+ 'C04',
+ 'C05',
+ 'C06',
+ 'C07',
+ 'C08',
+ 'C09',
+ 'C10',
+ 'C11',
+ 'C12',
+ 'C13',
+ 'C14',
+ 'satellite_azimuth_angle',
+ 'satellite_zenith_angle',
+ 'solar_azimuth_angle',
+ 'solar_glint_angle',
+ 'solar_zenith_angle']
+</code></pre><p>Loading <code>ir_channel</code> data:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># take the ir channel as example</span>
+</span></span><span class=line><span class=cl><span class=n>ir_channel</span> <span class=o>=</span> <span class=s1>&#39;C12&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>scn</span><span class=o>.</span><span class=n>load</span><span class=p>([</span><span class=n>ir_channel</span><span class=p>],</span> <span class=n>generate</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>calibration</span><span class=o>=</span><span class=s1>&#39;brightness_temperature&#39;</span><span class=p>)</span>
+</span></span></code></pre></div><h3 id=full-disk-image>Full Disk Image</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># display in notebook</span>
+</span></span><span class=line><span class=cl><span class=n>scn</span><span class=o>.</span><span class=n>show</span><span class=p>(</span><span class=n>ir_channel</span><span class=p>)</span>
+</span></span></code></pre></div><p><img src=https://zxdawn.github.io/images/sci-tech/2020-02/agri_C12.png alt=agri_C12></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># save to file</span>
+</span></span><span class=line><span class=cl><span class=c1># scn.save_dataset(ir_channel, filename=&#39;{sensor}_{name}.png&#39;)</span>
+</span></span></code></pre></div><h3 id=true-color-image>True color Image</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># get a list of all available composites for the current scene</span>
+</span></span><span class=line><span class=cl><span class=n>scn</span><span class=o>.</span><span class=n>available_composite_names</span><span class=p>()</span>
+</span></span></code></pre></div><p><em>Output</em>:</p><pre><code>['ash',
+ 'dust',
+ 'fog',
+ 'green',
+ 'green_snow',
+ 'ir108_3d',
+ 'ir_cloud_day',
+ 'natural_color',
+ 'natural_color_sun',
+ 'night_background',
+ 'night_background_hires',
+ 'overview',
+ 'overview_sun',
+ 'true_color']
+</code></pre><p>Loading <code>true_color</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1>#Beware that this step might need much memory available on the processing machine (depending on the number of cpu cores)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>composite</span> <span class=o>=</span> <span class=s1>&#39;true_color&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>scn</span><span class=o>.</span><span class=n>load</span><span class=p>([</span><span class=n>composite</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>scn</span><span class=o>.</span><span class=n>show</span><span class=p>(</span><span class=n>composite</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># scn.save_dataset(composite, filename=&#39;{sensor}_{name}.png&#39;)</span>
+</span></span></code></pre></div><pre><code>Required file type 'agri_l1_4000m_geo' not found or loaded for 'satellite_zenith_angle'
+Required file type 'agri_l1_4000m_geo' not found or loaded for 'satellite_azimuth_angle'
+Required file type 'agri_l1_4000m_geo' not found or loaded for 'solar_azimuth_angle'
+Required file type 'agri_l1_4000m_geo' not found or loaded for 'solar_zenith_angle'
+</code></pre><p><img src=https://zxdawn.github.io/images/sci-tech/2020-02/agri_true_color.png alt=agri_true_color></p><h3 id=region-of-interest>Region of Interest</h3><p>I take the typhoon <strong>LEKIMA</strong> as an example.</p><p>We can define a <code>map-projection</code> and a sub <code>area</code>, and project the data on this area.</p><p><code>Pyresample</code> can be used to define the area easily.</p><p>This definition can also be put in the <code>area.yaml</code> configuration file.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>pyresample</span> <span class=kn>import</span> <span class=n>get_area_def</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>area_id</span> <span class=o>=</span> <span class=s1>&#39;lekima&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>x_size</span> <span class=o>=</span> <span class=mi>549</span>
+</span></span><span class=line><span class=cl><span class=n>y_size</span> <span class=o>=</span> <span class=mi>499</span>
+</span></span><span class=line><span class=cl><span class=n>area_extent</span> <span class=o>=</span> <span class=p>(</span><span class=o>-</span><span class=mf>1098006.560556</span><span class=p>,</span> <span class=o>-</span><span class=mf>967317.140452</span><span class=p>,</span> <span class=mf>1098006.560556</span><span class=p>,</span> <span class=mf>1026777.426728</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>projection</span> <span class=o>=</span> <span class=s1>&#39;+proj=laea +lat_0=19.0 +lon_0=128.0 +ellps=WGS84&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;Typhoon Lekima&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>proj_id</span> <span class=o>=</span> <span class=s1>&#39;laea_128.0_19.0&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>areadef</span> <span class=o>=</span> <span class=n>get_area_def</span><span class=p>(</span><span class=n>area_id</span><span class=p>,</span> <span class=n>description</span><span class=p>,</span> <span class=n>proj_id</span><span class=p>,</span> <span class=n>projection</span><span class=p>,</span><span class=n>x_size</span><span class=p>,</span> <span class=n>y_size</span><span class=p>,</span> <span class=n>area_extent</span><span class=p>)</span>
+</span></span></code></pre></div><p>You can generate the area easily by <a href=https://github.com/pytroll/satpy/blob/master/utils/coord2area_def.py>coord2area_def.py</a></p><p>Here&rsquo;s the output of <code>python coord2area_def.py lekima_4km laea 10 28 118 138 4</code>:</p><pre tabindex=0><code>lekima_4km:
+  description: lekima_4km
+  projection:
+    proj: laea
+    ellps: WGS84
+    lat_0: 19.0
+    lon_0: 128.0
+  shape:
+    height: 499
+    width: 549
+  area_extent:
+    lower_left_xy: [-1098006.560556, -967317.140452]
+    upper_right_xy: [1098006.560556, 1026777.426728]
+</code></pre><p>Now, you can add the configuration to <code>$PPP_CONFIG_DIR/areas.yaml</code> and use it directly</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># If you have added it to areas.yaml, you can use the name directly:</span>
+</span></span><span class=line><span class=cl><span class=n>os</span><span class=o>.</span><span class=n>environ</span><span class=p>[</span><span class=s1>&#39;PPP_CONFIG_DIR&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;/yin_raid/xin/satpy_config/&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>lekima_scene</span> <span class=o>=</span> <span class=n>scn</span><span class=o>.</span><span class=n>resample</span><span class=p>(</span><span class=s1>&#39;lekima_4km&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Otherwise, you need to use the areadef defined above:</span>
+</span></span><span class=line><span class=cl><span class=c1># lekima_scene = scn.resample(areadef)</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>lekima_scene</span><span class=o>.</span><span class=n>show</span><span class=p>(</span><span class=n>composite</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1># lekima_scene.save_dataset(composite, filename=&#39;{sensor}_{name}_resampled.png&#39;)</span>
+</span></span></code></pre></div><p><img src=https://zxdawn.github.io/images/sci-tech/2020-02/agri_true_color_resampled.png alt=agri_true_color_resampled></p><p>If you want to generate pictures with <strong>specific colormap</strong> like the figure below,</p><p>please check another notebook about <code>enhancement</code>.</p><p><img src=https://zxdawn.github.io/images/sci-tech/2020-02/agri_C12_resampled_colorize.png alt=agri_C12_resampled_colorize></p><h2 id=references>References</h2><ol><li>Notebooks: <a href=https://github.com/zxdawn/FY-4/tree/master/satpy/examples>https://github.com/zxdawn/FY-4/tree/master/satpy/examples</a></li><li>Satpy examples: <a href=https://satpy.readthedocs.io/en/latest/examples.html>https://satpy.readthedocs.io/en/latest/examples.html</a></li><li>Presample: <a href=http://pyresample.readthedocs.org/>http://pyresample.readthedocs.org/</a></li><li>Pytroll: <a href=http://pytroll.github.io/>http://pytroll.github.io/</a></li></ol><h2 id=version-control>Version control</h2><table><thead><tr><th>Version</th><th>Action</th><th>Time</th></tr></thead><tbody><tr><td>1.0</td><td>Init</td><td>2020-02-06</td></tr></tbody></table></div><div class=row><div class=col-md-8><div class=mb-5><div class="li-x div-x post-meta"><li class=pr-0><a href=https://zxdawn.github.io/tags/><i class="fas fa-tags"></i></a></li><div class=tags-sm><li><a href=https://zxdawn.github.io/tags/satpy role=button>Satpy</a></li><li><a href=https://zxdawn.github.io/tags/satellite role=button>Satellite</a></li><li><a href=https://zxdawn.github.io/tags/python role=button>Python</a></li></div></div></div></div></div><div class="row pt-3"><div class=col-md-6><a href=https://zxdawn.github.io/2019/12/20/ielts-notes/ class=post-meta>Previous<div class="pt-2 pb-5 d-flex"><i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+<span>IELTS Notes</span></div></a></div><div class="col-md-6 text-right"><a href=https://zxdawn.github.io/2020/02/22/plot-tropomi-data-using-pcolormesh-or-imshow/ class=post-meta>Next<div class="pt-2 pb-5 flex-reverse"><i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+<span>Plot TROPOMI data using pcolormesh or imshow?</span></div></a></div></div></div></div><div class="col-md-2 pl-0"><div id=page-scrollspy class=toc-nav><ul class="nav nav-pills ml-0"><li class="nav-item pb-3 text-center"><span class="font-weight-bold mb-2">- CATALOG -</span></li><ul class=nav><li class=nav-item><a class=nav-link href=#1-support-files>1. Support Files</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#2-calibration>2. Calibration</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#3-examples>3. Examples</a></li></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#installation>Installation</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#loading-data>Loading data</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#full-disk-image>Full Disk Image</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#true-color-image>True color Image</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#region-of-interest>Region of Interest</a></li></ul></ul><ul class=nav><li class=nav-item><a class=nav-link href=#references>References</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#version-control>Version control</a></li></ul></ul></div></div></div></main><footer class="page-footer text-center font-small mt-4 wow fadeIn"><div class="pb-2 mt-5 pt-5"><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div><div class="copyright py-4"><span>2016 - 2022 &copy; | Theme <a href=https://github.com/EliiseS/AllinOne target=_blank>AllinOne</a></span></div></footer><script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery-3.3.1.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/popper.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/holder.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors-extensions/bootstrap4/bootstrap.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/mdb/mdb.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/main.js></script>
+<script src=https://zxdawn.github.io/js/vendors/highlight.pack.js></script><script>hljs.initHighlightingOnLoad()</script><script type=text/javascript>(new WOW).init()</script></body></html>

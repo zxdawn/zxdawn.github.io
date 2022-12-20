@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>hexo on Dreambooker</title><link>https://zxdawn.github.io/tags/hexo/</link><description>Recent content in hexo on Dreambooker</description><generator>Hugo -- gohugo.io</generator><language>zn-Hans</language><lastBuildDate>Fri, 18 May 2018 17:38:12 +0000</lastBuildDate><atom:link href="https://zxdawn.github.io/tags/hexo/index.xml" rel="self" type="application/rss+xml"/><item><title>Migrate blog to Github(HTTPS) and add continuous integration</title><link>https://zxdawn.github.io/2018/05/18/migrate-blog-to-githubhttps-and-add-continuous-integration/</link><pubDate>Fri, 18 May 2018 17:38:12 +0000</pubDate><guid>https://zxdawn.github.io/2018/05/18/migrate-blog-to-githubhttps-and-add-continuous-integration/</guid><description>&lt;h1 id="reference">Reference&lt;/h1>
+&lt;p>&lt;a href="https://molunerfinn.com/hexo-travisci-https/#%E6%8C%81%E4%B9%85%E5%8C%96%E6%9E%84%E5%BB%BA">MARKSZのBlog&lt;/a>&lt;/p>
+&lt;h1 id="continuous-integration">Continuous integration&lt;/h1>
+&lt;h2 id="set-travis-ci-account-and-token">Set Travis-CI account and Token&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Sign up &lt;a href="https://travis-ci.org/">Travis-CI&lt;/a> and sync your Git-hub account:&lt;/p>
+&lt;p>&lt;img src="http://ox58se1xg.bkt.clouddn.com/integration/Travis-CI_sign_up.png" alt="Sign_up">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Choose your *github.io:&lt;/p>
+&lt;p>&lt;img src="http://ox58se1xg.bkt.clouddn.com/integration/repo.png" alt="repo">&lt;/p>
+&lt;/li>
+&lt;/ol></description></item><item><title>How to set up Hexo</title><link>https://zxdawn.github.io/2017/10/02/how-to-set-up-hexo/</link><pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2017/10/02/how-to-set-up-hexo/</guid><description>&lt;h2 id="install-nodejs-and-npm-on-my-local-linux-computer">Install &lt;strong>Node.js and npm&lt;/strong> on my local Linux computer:&lt;/h2></description></item></channel></rss>

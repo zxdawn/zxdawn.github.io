@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ERA5 on Dreambooker</title><link>https://zxdawn.github.io/tags/era5/</link><description>Recent content in ERA5 on Dreambooker</description><generator>Hugo -- gohugo.io</generator><language>zn-Hans</language><lastBuildDate>Mon, 26 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://zxdawn.github.io/tags/era5/index.xml" rel="self" type="application/rss+xml"/><item><title>Using the ERA5 O3 data in the WRF initial condition</title><link>https://zxdawn.github.io/2020/10/26/using-the-era5-o3-data-in-the-wrf-initial-condition/</link><pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2020/10/26/using-the-era5-o3-data-in-the-wrf-initial-condition/</guid><description>How to edit the WRF IC</description></item><item><title>Initializing the WRF model with ERA5 (pressure level)</title><link>https://zxdawn.github.io/2019/10/03/initializing-the-wrf-model-with-era5-pressure-level/</link><pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2019/10/03/initializing-the-wrf-model-with-era5-pressure-level/</guid><description>Downloading ERA5 pressure level data by Python and initialize WRF model</description></item><item><title>Initializing the WRF model with ERA5</title><link>https://zxdawn.github.io/2018/04/20/initializing-the-wrf-model-with-era5/</link><pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2018/04/20/initializing-the-wrf-model-with-era5/</guid><description>&lt;h2 id="note">Note&lt;/h2>
+&lt;p>This is the tutorial of using WRF with &lt;strong>ERA5 model level&lt;/strong> (138 vertical levels) data.&lt;/p>
+&lt;p>If you prefer &lt;strong>pressure level&lt;/strong> (38 vertical levels), please check another &lt;a href="https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/">tutorial&lt;/a>.&lt;/p>
+&lt;p>I recommend the pressure level data, because the download speed is much faster.&lt;/p>
+&lt;p>If you don’t have cdsapi, please check this official &lt;a href="https://cds.climate.copernicus.eu/api-how-to">tutorial&lt;/a>.&lt;/p>
+&lt;h2 id="summarization">Summarization&lt;/h2>
+&lt;ol>
+&lt;li>Download&lt;/li>
+&lt;li>Preprocess&lt;/li>
+&lt;li>Automation&lt;/li>
+&lt;li>Geogrid&lt;/li>
+&lt;li>Ungrib&lt;/li>
+&lt;li>Produce additional intermediate files&lt;/li>
+&lt;li>Metgrid&lt;/li>
+&lt;/ol></description></item></channel></rss>

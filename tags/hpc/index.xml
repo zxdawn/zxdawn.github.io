@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HPC on Dreambooker</title><link>https://zxdawn.github.io/tags/hpc/</link><description>Recent content in HPC on Dreambooker</description><generator>Hugo -- gohugo.io</generator><language>zn-Hans</language><lastBuildDate>Sun, 29 Apr 2018 21:20:50 +0000</lastBuildDate><atom:link href="https://zxdawn.github.io/tags/hpc/index.xml" rel="self" type="application/rss+xml"/><item><title>ssh内网穿透</title><link>https://zxdawn.github.io/2018/04/29/ssh%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link><pubDate>Sun, 29 Apr 2018 21:20:50 +0000</pubDate><guid>https://zxdawn.github.io/2018/04/29/ssh%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid><description>&lt;p>机房电脑，通过远程端口映射，使得VPS：2222 映射到机房电脑：22：&lt;/p>
+&lt;pre tabindex="0">&lt;code>ssh -N -f -R 2222:127.0.0.1:22 root@vpsIP
+&lt;/code>&lt;/pre>&lt;p>VPS则可以ssh到机房电脑:&lt;/p>
+&lt;pre tabindex="0">&lt;code>ssh -p 2222 username@localhost
+&lt;/code>&lt;/pre>&lt;p>用ssh代理来浏览内网:&lt;/p>
+&lt;p>在校外电脑上，通过本地端口映射，使得校外电脑：2222 映射到VPS: 2222&lt;/p>
+&lt;pre tabindex="0">&lt;code>ssh -N -f -L 2222:127.0.0.1:2222 root@vpsIP
+&lt;/code>&lt;/pre></description></item></channel></rss>

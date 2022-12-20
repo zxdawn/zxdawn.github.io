@@ -1,0 +1,217 @@
+<!doctype html><html lang=zn-hans><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=1"><meta name=author content="Xin Zhang"><meta name=description content="Methods to plot Swath data correctly"><meta property="og:title" content="Plot TROPOMI data using pcolormesh or imshow?"><meta property="og:description" content="Methods to plot Swath data correctly"><meta property="og:type" content="article"><meta property="og:url" content="https://zxdawn.github.io/2020/02/22/plot-tropomi-data-using-pcolormesh-or-imshow/"><meta property="article:section" content="sci-tech"><meta property="article:published_time" content="2020-02-22T00:00:00+00:00"><meta property="article:modified_time" content="2020-02-22T00:00:00+00:00"><title>Plot TROPOMI data using pcolormesh or imshow? | Dreambooker</title><link rel=canonical href=https://zxdawn.github.io/2020/02/22/plot-tropomi-data-using-pcolormesh-or-imshow/><link href=https://zxdawn.github.io/vendors/fontawesome-free-5.14.0-web/css/all.min.css rel=stylesheet><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600"><link href=https://zxdawn.github.io/css/font.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/bootstrap4/bootstrap.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors-extensions/mdb/mdb.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/mdb/style.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/main.css rel=stylesheet><link rel="shortcut icon" href=https://zxdawn.github.io/img/logo.jpg><style type=text/css>@media(min-width:800px) and (max-width:850px){.navbar:not(.top-nav-collapse){background:#1c2331!important}}</style><link rel=stylesheet href=https://zxdawn.github.io/css/vendors/highlight/github-gist.css></head><body class=bg-light data-spy=scroll data-target=#page-scrollspy data-offset=90><nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class=container><a class=navbar-brand href=https://zxdawn.github.io><img class=avatar src=https://zxdawn.github.io/img/logo.jpg style=width:40px!important;height:auto class="d-inline-block align-top" alt>
+<strong>Xin Zhang</strong></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav mr-auto"><li class=nav-item><a class=nav-link href=https://zxdawn.github.io>Home</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/sci-tech/>Sci-Tech</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/essay/>Essay</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/about/>About</a></li></ul></div></div></nav><div id=site-header class="carousel slide carousel-fade" data-ride=carousel style=height:18rem><div class=carousel-inner role=listbox><div class="carousel-item active"><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides/0.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//1.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//2.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//3.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//4.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div></div><div class="carousel-content text-center white-text wow fadeIn"><div class="row mx-0 headfont mt-3 pt-4"><div class="col-12 col-sm-5 align-middle"><a href=https://zxdawn.github.io><img class="pull-right avatar avatar-md" src=https://zxdawn.github.io/img/me.jpg alt></a></div><div class="col-12 col-sm-7 text-left pl-2"><a href=https://zxdawn.github.io><h1 class="mb-2 h1" style=font-weight:300><strong>Dreambooker</strong></h1></a><div class=mt-2 style=font-size:1rem;color:#fff><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div></div></div></div></div><main class=post-main-wrapper><div class=row><div class=col-md-10><div class="z-depth-1 post-wrapper white-bg single-post dont-break-out"><div class="post-header text-center"><ul class="post-meta li-x"><li><a href=https://zxdawn.github.io/categories/sci-tech><i class="fas fa-folder-open pr-1" aria-hidden=true></i> sci-tech</a></li></ul><div class="px-4 post-heading">Plot TROPOMI data using pcolormesh or imshow?</div><ul class="post-meta li-x mt-1"><li>Feb 22, 2020</li><li class=middot></li><li>7 minute read</li></ul><div class=view><img src=https://zxdawn.github.io/images/sci-tech/2020-02/tropomi_logo.png></div></div><div class="post-content markdown"><h2 id=1-background>1. Background</h2><p>There&rsquo;re three ways to plot Polar satellite swaths data: <a href=https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.pcolor.html#matplotlib.axes.Axes.pcolor>pcolor</a>, <a href=https://matplotlib.org/api/_as_gen/matplotlib.pyplot.pcolormesh.html>pcolormesh</a> and <a href=https://matplotlib.org/api/_as_gen/matplotlib.pyplot.imshow.html>imshow</a></p><p>I don&rsquo;t recommend <a href=https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.contourf.html>contourf</a> because I want to keep the <strong>original data without interpolation</strong>.</p><p>The User Guide of matplotlib illustrates the differences between them in detail.</p><p>Here, I&rsquo;ll show you the effects by some simple examples .</p><h2 id=2-definitions>2. Definitions</h2><h3 id=pcolormesh>pcolormesh</h3><p>The definition of <code>pcolormesh</code> is plotting the C values with X,Y corners:</p><pre tabindex=0><code>(X[i+1, j], Y[i+1, j])          (X[i+1, j+1], Y[i+1, j+1])
+                      +--------+
+                      | C[i,j] |
+                      +--------+
+    (X[i, j], Y[i, j])          (X[i, j+1], Y[i, j+1])
+</code></pre><p>The figure below could help us understand that &mldr;</p><pre tabindex=0><code>import pylab as pl
+import matplotlib.pyplot as plt
+import numpy as np
+
+# values x and y give values at z
+xmin = 1; xmax = 8; dx = 2
+ymin = 1; ymax = 6; dy = 1
+x,y = np.meshgrid(np.arange(xmin,xmax,dx),np.arange(ymin,ymax,dy))
+z = x*y
+
+# transform x and y to boundaries of x and y
+x2,y2 = np.meshgrid(np.arange(xmin,xmax+dx,dx)-dx/2.,np.arange(ymin,ymax+dy,dy)-dy/2.)
+
+fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
+# pcolormesh without x and y just uses indexing as labels
+ax1.pcolormesh(z)
+ax1.set_title(&#34;Wrong ticks&#34;)
+
+# pcolormesh with x and y values gives a wrong plot, x and y are treated as boundaries
+ax2.set_title(&#34;Wrong: x,y as values&#34;)
+ax2.pcolormesh(x,y,z)
+
+ax3.set_title(&#34;Right: x,y as boundaries&#34;)
+ax3.pcolormesh(x2,y2,z)
+ax3.axis([x2.min(),x2.max(),y2.min(),y2.max()])
+
+# using the boundaries gives correct plot
+ax4.set_title(&#34;Correct ticks&#34;)
+ax4.pcolormesh(x2,y2,z)
+ax4.axis([x2.min(),x2.max(),y2.min(),y2.max()])
+ax4.set_xticks(np.arange(xmin,xmax,dx))
+ax4.set_yticks(np.arange(ymin,ymax,dy))
+
+plt.tight_layout()
+plt.show()
+</code></pre><p><img src=https://zxdawn.github.io/images/sci-tech/2020-02/pcolormesh.png alt=pcolormesh></p><h3 id=pcolor>pcolor</h3><blockquote><p>Both methods are used to create a pseudocolor plot of a 2-D array using quadrilaterals.</p><p>The main difference lies in the created object and internal data handling: While <a href=https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.pcolor.html#matplotlib.axes.Axes.pcolor><code>pcolor</code></a> returns a <a href=https://matplotlib.org/api/collections_api.html#matplotlib.collections.PolyCollection><code>PolyCollection</code></a>, <a href=https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.pcolormesh.html#matplotlib.axes.Axes.pcolormesh><code>pcolormesh</code></a> returns a <a href=https://matplotlib.org/api/collections_api.html#matplotlib.collections.QuadMesh><code>QuadMesh</code></a>. The latter is more specialized for the given purpose and thus is faster. It should almost always be preferred.</p><p>There is also a slight difference in the handling of masked arrays. Both <a href=https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.pcolor.html#matplotlib.axes.Axes.pcolor><code>pcolor</code></a> and <a href=https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.pcolormesh.html#matplotlib.axes.Axes.pcolormesh><code>pcolormesh</code></a> support masked arrays for <em>C</em>. However, only <a href=https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.pcolor.html#matplotlib.axes.Axes.pcolor><code>pcolor</code></a> supports masked arrays for <em>X</em> and <em>Y</em>. The reason lies in the internal handling of the masked values. <a href=https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.pcolor.html#matplotlib.axes.Axes.pcolor><code>pcolor</code></a> leaves out the respective polygons from the PolyCollection. <a href=https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.pcolormesh.html#matplotlib.axes.Axes.pcolormesh><code>pcolormesh</code></a> sets the facecolor of the masked elements to transparent. You can see the difference when using edgecolors. While all edges are drawn irrespective of masking in a QuadMesh, the edge between two adjacent masked quadrilaterals in <a href=https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.pcolor.html#matplotlib.axes.Axes.pcolor><code>pcolor</code></a> is not drawn as the corresponding polygons do not exist in the PolyCollection.</p><p>Another difference is the support of Gouraud shading in <a href=https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.pcolormesh.html#matplotlib.axes.Axes.pcolormesh><code>pcolormesh</code></a>, which is not available with <a href=https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.pcolor.html#matplotlib.axes.Axes.pcolor><code>pcolor</code></a>.</p></blockquote><h3 id=imshow>imshow</h3><p>If we use <code>imshow</code> to plot Swath data, we need to set <code>extent</code> and <code>origin</code> in the function.</p><blockquote><p><strong>extent</strong> : scalars (left, right, bottom, top), optional</p><p>The bounding box in data coordinates that the image will fill. The image is stretched individually along x and y to fill the box.</p><p>The default extent is determined by the following conditions. Pixels have unit size in data coordinates. Their centers are on integer coordinates, and their center coordinates range from 0 to columns-1 horizontally and from 0 to rows-1 vertically.</p><p>Note that the direction of the vertical axis and thus the default values for top and bottom depend on <em>origin</em>:</p><ul><li>For <code>origin == 'upper'</code> the default is <code>(-0.5, numcols-0.5, numrows-0.5, -0.5)</code>.</li><li>For <code>origin == 'lower'</code> the default is <code>(-0.5, numcols-0.5, -0.5, numrows-0.5)</code>.</li></ul></blockquote><h2 id=3-comparison>3. Comparison</h2><p>Because <code>pcolor</code> and <code>pcolromesh</code> is similar, I will compare <code>pcolormesh</code> with <code>imshow</code>.</p><p>For <code>imshow</code> method, we need to use <a href=https://pyresample.readthedocs.io/en/latest/>Pyresample</a> to get the <strong>monotonous</strong> coordinates X and Y for <code>extent</code>.</p><p>I checked several tutorials online and find that they always use the <strong>center lons and lats</strong> as X and Y in <code>pcolormesh</code>.</p><p>That&rsquo;s <strong>absolutely wrong !!!</strong> (If we care about the <strong>true values</strong>)</p><p>I choose one specific TROPOMI data which has an obvious region of low value.</p><p>Here&rsquo;s the result with <code>lcc projectoin</code>:</p><p><img src=https://zxdawn.github.io/images/sci-tech/2020-02/comparison_lcc.png alt=comparison></p><p>The difference between <code>pcolormesh</code> based on lons/lats <strong>centers</strong> and lons/lats <strong>bounds</strong> is <strong>half pixel</strong>.</p><p>It looks fine for TROPOMI if you just want check the overall distribution.</p><p>The resolution of TROPOMI is 7 km * 3.5 km (2018 &ndash; 2019/08/06) and 5.6 km * 3.5 km (2019/08/06 &ndash; now)</p><p>But, when you use this method to plot OMI data, that could result in <strong>big difference</strong> because of the lower resolution (24 km * 13 km).</p><p>BTW, if the resampling resolution is high enough, the result is almost as same as the &ldquo;true&rdquo; one.</p><h2 id=4-code>4. Code</h2><p>I use <a href=https://satpy.readthedocs.io/en/latest/>Satpy</a> to read the TROPOMI data and <a href=https://scitools.org.uk/cartopy/docs/latest/>cartopy</a> to plot NO2 Vertical Column Densities (VCDs) on the map.</p><pre tabindex=0><code>import sys
+import os, glob
+import numpy as np
+import cartopy.crs as ccrs
+from satpy.scene import Scene
+import matplotlib.pyplot as plt
+import cartopy.crs as ccrs
+from pyresample.geometry import DynamicAreaDefinition
+
+# My own modules
+#   You can check it on the GitHub:
+#   https://github.com/zxdawn/pyXZ
+sys.path.append(&#39;../../XZ_maps/&#39;)
+from xin_cartopy import add_grid, load_province, load_city
+
+date = &#39;20200219&#39;
+data_dir = &#39;../data/tropomi/WH/&#39;
+file_pattern = &#39;*{}*&#39;.format(date)
+filenames = glob.glob(data_dir + file_pattern)
+
+def add_province(ax, provinces,
+              west, east,
+              south, north,
+              lon_d, lat_d):
+    ax.add_feature(provinces, edgecolor=&#39;k&#39;, linewidth=.3)
+    add_grid(ax, ccrs.PlateCarree(),
+              west, east,
+              south, north,
+              lon_d, lat_d,
+              xlabel_size=10, ylabel_size=10,
+              grid_color=&#39;whitesmoke&#39;)
+
+def prepare_geo(latb, lonb, selection=&#34;both&#34;):
+    # Copy from PyCAMA:
+    #    https://dev.knmi.nl/projects/pycama
+    if latb.shape[0] == 1:
+        dest_shape = (latb.shape[1]+1, latb.shape[2]+1)
+    else:
+        dest_shape = (latb.shape[0]+1, latb.shape[1]+1)
+
+    dest_lat = np.zeros(dest_shape, dtype=np.float64)
+    dest_lon = np.zeros(dest_shape, dtype=np.float64)
+
+    if latb.shape[0] == 1:
+        dest_lat[0:-1, 0:-1] = latb[0, :, :, 0]
+        dest_lon[0:-1, 0:-1] = lonb[0, :, :, 0]
+        dest_lat[-1, 0:-1] = latb[0, -1, :, 3]
+        dest_lon[-1, 0:-1] = lonb[0, -1, :, 3]
+        dest_lat[0:-1, -1] = latb[0, :, -1, 1]
+        dest_lon[0:-1, -1] = lonb[0, :, -1, 1]
+        dest_lat[-1, -1] = latb[0, -1, -1, 2]
+        dest_lon[-1, -1] = lonb[0, -1, -1, 2]
+    else:
+        dest_lat[0:-1, 0:-1] = latb[:, :, 0]
+        dest_lon[0:-1, 0:-1] = lonb[:, :, 0]
+        dest_lat[-1, 0:-1] = latb[-1, :, 3]
+        dest_lon[-1, 0:-1] = lonb[-1, :, 3]
+        dest_lat[0:-1, -1] = latb[:, -1, 1]
+        dest_lon[0:-1, -1] = lonb[:, -1, 1]
+        dest_lat[-1, -1] = latb[-1, -1, 2]
+        dest_lon[-1, -1] = lonb[-1, -1, 2]
+
+    boolarray = np.logical_or((dest_lon[0:-1, 0:-1]*dest_lon[1:, 0:-1]) &lt; -100.0,
+                              (dest_lon[0:-1, 0:-1]*dest_lon[0:-1, 1:]) &lt; -100.0)
+
+    if selection == &#34;ascending&#34;:
+        boolarray = np.logical_or(boolarray, dest_lat[0:-1, 0:-1] &gt; dest_lat[1:, 0:-1])
+    elif selection == &#34;descending&#34;:
+        boolarray = np.logical_or(boolarray, dest_lat[0:-1, 0:-1] &lt; dest_lat[1:, 0:-1])
+    else: # &#34;both&#34;
+        pass
+
+    dest_lon[0:-1, 0:-1] = np.where(boolarray, 2e20, dest_lon[0:-1, 0:-1])
+
+    return dest_lat, dest_lon
+
+# ---------------- read data ---------------- #
+scn = Scene(filenames, reader=&#39;tropomi_l2&#39;)
+scn.load([&#39;nitrogendioxide_tropospheric_column&#39;, &#39;qa_value&#39;, 
+        &#39;longitude&#39;, &#39;latitude&#39;, &#39;latitude_bounds&#39;, &#39;longitude_bounds&#39;])
+
+attrs = scn[&#39;nitrogendioxide_tropospheric_column&#39;].attrs
+# convert units
+scn[&#39;VCD&#39;] = 6.02214*1e4*scn[&#39;nitrogendioxide_tropospheric_column&#39;]
+scn[&#39;VCD&#39;].attrs = attrs
+scn[&#39;VCD&#39;].attrs[&#39;units&#39;] = r&#39;10$^{15}$ molec. /cm$^2$&#39;
+
+latb, lonb = prepare_geo(scn[&#39;latitude_bounds&#39;], scn[&#39;longitude_bounds&#39;], selection=&#39;both&#39;)
+# ---------------- define map projection and lim ---------------- #
+projection = {&#39;proj&#39;: &#39;lcc&#39;, &#39;lat_0&#39;: 28.73997, &#39;lon_0&#39;: 116.3502, \
+            &#39;lat_1&#39;: 30, &#39;lat_2&#39;: 60, &#39;units&#39;: &#39;km&#39;}
+
+west = 115; east = 118
+north = 30; south = 28
+lon_d = 0.5; lat_d = 0.5
+
+# ---------------- resample ---------------- #
+low_res  = DynamicAreaDefinition(&#39;low_res&#39;, &#39;A low resolution area&#39;, projection, resolution = (7, 3.5))
+scn_low  = scn.resample(low_res, radius_of_influence=10000)
+crs_low  = scn_low[&#39;VCD&#39;].attrs[&#39;area&#39;].to_cartopy_crs()
+
+high_res = DynamicAreaDefinition(&#39;high_res&#39;, &#39;A high resolution area&#39;, projection, resolution = (2, 2))
+scn_high = scn.resample(high_res, radius_of_influence=10000)
+crs_high = scn_high[&#39;VCD&#39;].attrs[&#39;area&#39;].to_cartopy_crs()
+
+# ---------------- PLOT ---------------- #
+fig = plt.figure(figsize=[15, 12])
+provinces = load_province(ccrs.PlateCarree())
+projection = crs_low
+
+# ---------------- pcolormesh with cartopy ---------------- #
+# -------- wrong pcolormesh -------- #
+ax1 = plt.subplot(2, 2, 1, projection=projection)
+add_province(ax1, provinces,
+              west, east,
+              south, north,
+              lon_d, lat_d)
+
+im = ax1.pcolormesh(scn[&#39;longitude&#39;], scn[&#39;latitude&#39;], scn[&#39;VCD&#39;], transform=ccrs.PlateCarree())
+ax1.set_title(&#39;cartopy_pcolormesh_wrong&#39;)
+
+# -------- correct pcolormesh -------- #
+ax2 = plt.subplot(2, 2, 2, projection=projection)
+add_province(ax2, provinces,
+              west, east,
+              south, north,
+              lon_d, lat_d)
+
+im = ax2.pcolormesh(lonb, latb, scn[&#39;VCD&#39;], transform=ccrs.PlateCarree())
+ax2.set_title(&#39;cartopy_pcolormesh_correct&#39;)
+
+# ---------------- imshow with pyresample ---------------- #
+# --- imshow with pyresample (low resolution) --- #
+ax3 = plt.subplot(2, 2, 3, projection=projection)
+add_province(ax3, provinces,
+              west, east,
+              south, north,
+              lon_d, lat_d)
+
+ax3.imshow(scn_low[&#39;VCD&#39;], transform=projection, extent=projection.bounds,
+        origin=&#39;upper&#39;,interpolation=&#39;none&#39;)
+ax3.set_title(&#39;pyresample_7km*3.5km_imshow&#39;)
+
+# --- imshow with pyresample (high resolution) --- #
+ax4 = plt.subplot(2, 2, 4, projection=projection)
+add_province(ax4, provinces,
+              west, east,
+              south, north,
+              lon_d, lat_d)
+
+ax4.imshow(scn_high[&#39;VCD&#39;], transform=crs_high, extent=crs_high.bounds,
+        origin=&#39;upper&#39;,interpolation=&#39;none&#39;)
+ax4.set_title(&#39;pyresample_1km*1km_imshow&#39;)
+
+# ---- save fig ---- #
+plt.subplots_adjust(wspace=0.3)
+plt.tight_layout()
+plt.show()
+</code></pre><h2 id=5-conclusion>5. Conclusion</h2><p>Overall, <code>pcolormesh</code> is the best tool to show the <strong>original/true</strong> data (if the lons and lats bounds are used).</p><p>But, if you want to compare Swath data with other sources like ground observations, other satellites data and model results, using <code>pyresample</code> with <code>imshow</code> or <code>pcolormesh</code> is the good option!</p><h2 id=version-control>Version control</h2><table><thead><tr><th>Version</th><th>Action</th><th>Time</th></tr></thead><tbody><tr><td>1.0</td><td>Init</td><td>2020-02-22</td></tr></tbody></table></div><div class=row><div class=col-md-8><div class=mb-5><div class="li-x div-x post-meta"><li class=pr-0><a href=https://zxdawn.github.io/tags/><i class="fas fa-tags"></i></a></li><div class=tags-sm><li><a href=https://zxdawn.github.io/tags/satpy role=button>Satpy</a></li><li><a href=https://zxdawn.github.io/tags/satellite role=button>Satellite</a></li><li><a href=https://zxdawn.github.io/tags/tropomi role=button>TROPOMI</a></li><li><a href=https://zxdawn.github.io/tags/python role=button>Python</a></li></div></div></div></div></div><div class="row pt-3"><div class=col-md-6><a href=https://zxdawn.github.io/2020/02/06/satpy-basic-fy4a/ class=post-meta>Previous<div class="pt-2 pb-5 d-flex"><i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+<span>Satpy Basic (FY4A)</span></div></a></div><div class="col-md-6 text-right"><a href=https://zxdawn.github.io/2020/02/24/satpy%E4%B8%AD%E8%8B%B1%E5%8F%8C%E8%AF%AD%E7%AE%80%E4%BB%8B/ class=post-meta>Next<div class="pt-2 pb-5 flex-reverse"><i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+<span>Satpy中英双语简介</span></div></a></div></div></div></div><div class="col-md-2 pl-0"><div id=page-scrollspy class=toc-nav><ul class="nav nav-pills ml-0"><li class="nav-item pb-3 text-center"><span class="font-weight-bold mb-2">- CATALOG -</span></li><ul class=nav><li class=nav-item><a class=nav-link href=#1-background>1. Background</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#2-definitions>2. Definitions</a></li></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#pcolormesh>pcolormesh</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#pcolor>pcolor</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#imshow>imshow</a></li></ul></ul><ul class=nav><li class=nav-item><a class=nav-link href=#3-comparison>3. Comparison</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#4-code>4. Code</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#5-conclusion>5. Conclusion</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#version-control>Version control</a></li></ul></ul></div></div></div></main><footer class="page-footer text-center font-small mt-4 wow fadeIn"><div class="pb-2 mt-5 pt-5"><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div><div class="copyright py-4"><span>2016 - 2022 &copy; | Theme <a href=https://github.com/EliiseS/AllinOne target=_blank>AllinOne</a></span></div></footer><script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery-3.3.1.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/popper.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/holder.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors-extensions/bootstrap4/bootstrap.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/mdb/mdb.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/main.js></script>
+<script src=https://zxdawn.github.io/js/vendors/highlight.pack.js></script><script>hljs.initHighlightingOnLoad()</script><script type=text/javascript>(new WOW).init()</script></body></html>

@@ -1,0 +1,114 @@
+<!doctype html><html lang=zn-hans><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=1"><meta name=author content="Xin Zhang"><meta name=description content="Downloading ERA5 pressure level data by Python and initialize WRF model"><meta property="og:title" content="Initializing the WRF model with ERA5 (pressure level)"><meta property="og:description" content="Downloading ERA5 pressure level data by Python and initialize WRF model"><meta property="og:type" content="article"><meta property="og:url" content="https://zxdawn.github.io/2019/10/03/initializing-the-wrf-model-with-era5-pressure-level/"><meta property="article:section" content="sci-tech"><meta property="article:published_time" content="2019-10-03T00:00:00+00:00"><meta property="article:modified_time" content="2019-10-03T00:00:00+00:00"><title>Initializing the WRF model with ERA5 (pressure level) | Dreambooker</title><link rel=canonical href=https://zxdawn.github.io/2019/10/03/initializing-the-wrf-model-with-era5-pressure-level/><link href=https://zxdawn.github.io/vendors/fontawesome-free-5.14.0-web/css/all.min.css rel=stylesheet><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600"><link href=https://zxdawn.github.io/css/font.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/bootstrap4/bootstrap.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors-extensions/mdb/mdb.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/mdb/style.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/main.css rel=stylesheet><link rel="shortcut icon" href=https://zxdawn.github.io/img/logo.jpg><style type=text/css>@media(min-width:800px) and (max-width:850px){.navbar:not(.top-nav-collapse){background:#1c2331!important}}</style><link rel=stylesheet href=https://zxdawn.github.io/css/vendors/highlight/github-gist.css></head><body class=bg-light data-spy=scroll data-target=#page-scrollspy data-offset=90><nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class=container><a class=navbar-brand href=https://zxdawn.github.io><img class=avatar src=https://zxdawn.github.io/img/logo.jpg style=width:40px!important;height:auto class="d-inline-block align-top" alt>
+<strong>Xin Zhang</strong></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav mr-auto"><li class=nav-item><a class=nav-link href=https://zxdawn.github.io>Home</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/sci-tech/>Sci-Tech</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/essay/>Essay</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/about/>About</a></li></ul></div></div></nav><div id=site-header class="carousel slide carousel-fade" data-ride=carousel style=height:18rem><div class=carousel-inner role=listbox><div class="carousel-item active"><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides/0.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//1.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//2.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//3.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//4.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div></div><div class="carousel-content text-center white-text wow fadeIn"><div class="row mx-0 headfont mt-3 pt-4"><div class="col-12 col-sm-5 align-middle"><a href=https://zxdawn.github.io><img class="pull-right avatar avatar-md" src=https://zxdawn.github.io/img/me.jpg alt></a></div><div class="col-12 col-sm-7 text-left pl-2"><a href=https://zxdawn.github.io><h1 class="mb-2 h1" style=font-weight:300><strong>Dreambooker</strong></h1></a><div class=mt-2 style=font-size:1rem;color:#fff><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div></div></div></div></div><main class=post-main-wrapper><div class=row><div class=col-md-10><div class="z-depth-1 post-wrapper white-bg single-post dont-break-out"><div class="post-header text-center"><ul class="post-meta li-x"><li><a href=https://zxdawn.github.io/categories/sci-tech><i class="fas fa-folder-open pr-1" aria-hidden=true></i> sci-tech</a></li></ul><div class="px-4 post-heading">Initializing the WRF model with ERA5 (pressure level)</div><ul class="post-meta li-x mt-1"><li>Oct 3, 2019</li><li class=middot></li><li>2 minute read</li></ul><div class=view><img src=https://zxdawn.github.io/images/sci-tech/2017-12/ECMWF.png></div></div><div class="post-content markdown"><h2 id=note>Note</h2><p>This is the tutorial of using WRF with <strong>ERA5 pressure level</strong> (38 vertical levels) data.</p><p>If you prefer <strong>model level</strong> (138 vertical levels), please check another <a href=https://dreambooker.site/2018/04/20/Initializing-the-WRF-model-with-ERA5>tutorial</a>.</p><p>I recommend the pressure level data, because the download speed is much faster.</p><p>If you don&rsquo;t have cdsapi, please check this official <a href=https://cds.climate.copernicus.eu/api-how-to>tutorial</a>.</p><h2 id=required-fields>Required Fields</h2><blockquote><p>WRF requires a number of fields as input.</p><ul><li><p>3D Data (e.g. data on pressure levels)</p><ul><li>Temperature</li><li>U and V components of Wind</li><li>Geopotential Height</li><li>Relative Humidity
+(<em>the code can calculate RH if Specific Humidity is available;this is controlled in the Vtable</em>)</li></ul></li><li><p>2D Data</p><ul><li>Surface Pressure</li><li>Mean Sea Level Pressure</li><li>Skin Temperature/SST</li><li>2-meter Temperature</li><li>2-meter Relative or Specific Humidity</li><li>10-meter U and V components of wind</li><li>Soil data (temperature and moisture) and soil height</li></ul></li></ul><p>If any masked field is ingested, then a <strong>LANDSEA</strong> field is recommended</p><p>Water equivalent snow depth (<strong>SNOW</strong>) is a nice field to have, but not required.</p><p><strong>SEAICE</strong> is good to have for a high latitude winter case, but it is not required.</p></blockquote><h3 id=single-level-data-getera5-slpy>Single level data (GetERA5-sl.py)</h3><pre tabindex=0><code>import cdsapi
+
+c = cdsapi.Client()
+
+c.retrieve(
+    &#39;reanalysis-era5-single-levels&#39;,
+    {
+        &#39;product_type&#39;:&#39;reanalysis&#39;,
+        &#39;format&#39;:&#39;grib&#39;,
+        &#39;variable&#39;:[
+            &#39;10m_u_component_of_wind&#39;,&#39;10m_v_component_of_wind&#39;,&#39;2m_dewpoint_temperature&#39;,
+            &#39;2m_temperature&#39;,&#39;land_sea_mask&#39;,&#39;mean_sea_level_pressure&#39;,
+            &#39;sea_ice_cover&#39;,&#39;sea_surface_temperature&#39;,&#39;skin_temperature&#39;,
+            &#39;snow_depth&#39;,&#39;soil_temperature_level_1&#39;,&#39;soil_temperature_level_2&#39;,
+            &#39;soil_temperature_level_3&#39;,&#39;soil_temperature_level_4&#39;,&#39;surface_pressure&#39;,
+            &#39;volumetric_soil_water_layer_1&#39;,&#39;volumetric_soil_water_layer_2&#39;,&#39;volumetric_soil_water_layer_3&#39;,
+            &#39;volumetric_soil_water_layer_4&#39;
+        ],
+        &#39;date&#39;:&#39;DATE1/DATE2&#39;,
+        &#39;area&#39;:&#39;Nort/West/Sout/East&#39;,
+        &#39;time&#39;:&#39;00/to/23/by/1&#39;,
+    },
+    &#39;ERA5-DATE1-DATE2-sl.grib&#39;)
+</code></pre><h3 id=pressure-level-data-getera5-plpy>Pressure level data (GetERA5-pl.py)</h3><pre tabindex=0><code>import cdsapi
+
+c = cdsapi.Client()
+
+c.retrieve(
+    &#39;reanalysis-era5-pressure-levels&#39;,
+    {
+        &#39;product_type&#39;:&#39;reanalysis&#39;,
+        &#39;format&#39;:&#39;grib&#39;,
+        &#39;pressure_level&#39;:[
+            &#39;1&#39;,&#39;2&#39;,&#39;3&#39;,
+            &#39;5&#39;,&#39;7&#39;,&#39;10&#39;,
+            &#39;20&#39;,&#39;30&#39;,&#39;50&#39;,
+            &#39;70&#39;,&#39;100&#39;,&#39;125&#39;,
+            &#39;150&#39;,&#39;175&#39;,&#39;200&#39;,
+            &#39;225&#39;,&#39;250&#39;,&#39;300&#39;,
+            &#39;350&#39;,&#39;400&#39;,&#39;450&#39;,
+            &#39;500&#39;,&#39;550&#39;,&#39;600&#39;,
+            &#39;650&#39;,&#39;700&#39;,&#39;750&#39;,
+            &#39;775&#39;,&#39;800&#39;,&#39;825&#39;,
+            &#39;850&#39;,&#39;875&#39;,&#39;900&#39;,
+            &#39;925&#39;,&#39;950&#39;,&#39;975&#39;,
+            &#39;1000&#39;
+        ],
+        &#39;date&#39;:&#39;DATE1/DATE2&#39;,
+        &#39;area&#39;:&#39;Nort/West/Sout/East&#39;,
+        &#39;time&#39;:&#39;00/to/23/by/1&#39;,
+        &#39;variable&#39;:[
+            &#39;geopotential&#39;,&#39;relative_humidity&#39;,&#39;specific_humidity&#39;,
+            &#39;temperature&#39;,&#39;u_component_of_wind&#39;,&#39;v_component_of_wind&#39;
+        ]
+    },
+    &#39;ERA5-DATE1-DATE2-pl.grib&#39;)
+</code></pre><h2 id=automation-script-download>Automation script (Download)</h2><p>You can automate the script rather than change elements one by one.</p><pre tabindex=0><code>#!/bin/bash -l
+
+CODEDIR=/nuist/u/home/yinyan/xin/scratch/data/ERA5/code
+DATADIR=/nuist/u/home/yinyan/xin/scratch/data/ERA5/data
+
+# Set your python environment
+export PATH=~/xin/work/anaconda3/bin:$PATH
+source activate root
+cd $CODEDIR
+
+DATE1=20170419
+DATE2=20170420
+YY1=`echo $DATE1 | cut -c1-4`
+MM1=`echo $DATE1 | cut -c5-6`
+DD1=`echo $DATE1 | cut -c7-8`
+YY2=`echo $DATE2 | cut -c1-4`
+MM2=`echo $DATE2 | cut -c5-6`
+DD2=`echo $DATE2 | cut -c7-8`
+Nort=60
+West=80
+Sout=15
+East=150
+
+sed -e &#34;s/DATE1/${DATE1}/g;s/DATE2/${DATE2}/g;s/Nort/${Nort}/g;s/West/${West}/g;s/Sout/${Sout}/g;s/East/${East}/g;&#34; GetERA5-sl.py &gt; GetERA5-${DATE1}-${DATE2}-sl.py
+
+python GetERA5-${DATE1}-${DATE2}-sl.py
+
+sed -e &#34;s/DATE1/${DATE1}/g;s/DATE2/${DATE2}/g;s/Nort/${Nort}/g;s/West/${West}/g;s/Sout/${Sout}/g;s/East/${East}/g;&#34; GetERA5-pl.py &gt; GetERA5-${DATE1}-${DATE2}-pl.py
+
+python GetERA5-${DATE1}-${DATE2}-pl.py
+
+mkdir -p ${DATADIR}/$YY1
+
+mv ERA5-${DATE1}-${DATE2}-sl.grib ERA5-${DATE1}-${DATE2}-pl.grib ${DATADIR}/$YY1/
+
+
+exit 0
+</code></pre><h2 id=geogrid>geogrid</h2><p>Run geogrid.exe as usual.</p><p>If you&rsquo;re not familiar with WRF, please check the <a href=http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Basics/index.php>online tutorial</a> in detail.</p><h2 id=ungrib>ungrib</h2><p>Run ungrib.exe by using the <code>Vtable.ERA-interim.pl</code> table:</p><pre tabindex=0><code>$ ln -s ./ungrib/Variable_Tables/Vtable.ERA-interim.pl Vtable
+</code></pre><h2 id=metgrid>metgrid</h2><p>Run metgrid.exe as usual.</p><h2 id=references>References</h2><ol><li><a href="https://valcap74.blogspot.com/2017/10/how-to-run-wrf-model-driven-by-era5-on.html?showComment=1524140953190#c5741939636532233503">How to run the WRF model using ERA5 (on model levels) as initial and boundary conditions</a></li><li><a href=https://software.ecmwf.int/wiki/display/OIFSUF/Grib+to+Netcdf+conversion>Grib to Netcdf conversion</a></li><li><a href=http://conorsweeneyucd.blogspot.com/2015/01/download-era-interim-data.html>Download ERA-Interim data</a></li><li><a href=http://www2.mmm.ucar.edu/wrf/OnLineTutorial/Basics/UNGRIB/ungrib_req_fields.php>UNGRIB: Required Fields</a></li></ol><h2 id=version-control>Version control</h2><table><thead><tr><th>Version</th><th>Action</th><th>Time</th></tr></thead><tbody><tr><td>1.0</td><td>Init</td><td>2019-10-03</td></tr><tr><td>1.1</td><td>Add support of selecting area</td><td>2019-10-04</td></tr><tr><td>1.2</td><td>Update the method of assigning &rsquo;time'</td><td>2020-03-27</td></tr></tbody></table></div><div class=row><div class=col-md-8><div class=mb-5><div class="li-x div-x post-meta"><li class=pr-0><a href=https://zxdawn.github.io/tags/><i class="fas fa-tags"></i></a></li><div class=tags-sm><li><a href=https://zxdawn.github.io/tags/era5 role=button>ERA5</a></li><li><a href=https://zxdawn.github.io/tags/wrf-chem role=button>WRF-Chem</a></li></div></div></div></div></div><div class="row pt-3"><div class=col-md-6><a href=https://zxdawn.github.io/2019/08/17/hugo-staticman-travis/ class=post-meta>Previous<div class="pt-2 pb-5 d-flex"><i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+<span>Hugo+Staticman+Travis</span></div></a></div><div class="col-md-6 text-right"><a href=https://zxdawn.github.io/2019/12/20/ielts-notes/ class=post-meta>Next<div class="pt-2 pb-5 flex-reverse"><i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+<span>IELTS Notes</span></div></a></div></div></div></div><div class="col-md-2 pl-0"><div id=page-scrollspy class=toc-nav><ul class="nav nav-pills ml-0"><li class="nav-item pb-3 text-center"><span class="font-weight-bold mb-2">- CATALOG -</span></li><ul class=nav><li class=nav-item><a class=nav-link href=#note>Note</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#required-fields>Required Fields</a></li></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#single-level-data-getera5-slpy>Single level data (GetERA5-sl.py)</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#pressure-level-data-getera5-plpy>Pressure level data (GetERA5-pl.py)</a></li></ul></ul><ul class=nav><li class=nav-item><a class=nav-link href=#automation-script-download>Automation script (Download)</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#geogrid>geogrid</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#ungrib>ungrib</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#metgrid>metgrid</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#references>References</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#version-control>Version control</a></li></ul></ul></div></div></div></main><footer class="page-footer text-center font-small mt-4 wow fadeIn"><div class="pb-2 mt-5 pt-5"><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div><div class="copyright py-4"><span>2016 - 2022 &copy; | Theme <a href=https://github.com/EliiseS/AllinOne target=_blank>AllinOne</a></span></div></footer><script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery-3.3.1.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/popper.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/holder.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors-extensions/bootstrap4/bootstrap.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/mdb/mdb.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/main.js></script>
+<script src=https://zxdawn.github.io/js/vendors/highlight.pack.js></script><script>hljs.initHighlightingOnLoad()</script><script type=text/javascript>(new WOW).init()</script></body></html>

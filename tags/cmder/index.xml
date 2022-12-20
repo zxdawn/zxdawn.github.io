@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cmder on Dreambooker</title><link>https://zxdawn.github.io/tags/cmder/</link><description>Recent content in Cmder on Dreambooker</description><generator>Hugo -- gohugo.io</generator><language>zn-Hans</language><lastBuildDate>Sat, 05 May 2018 15:21:53 +0000</lastBuildDate><atom:link href="https://zxdawn.github.io/tags/cmder/index.xml" rel="self" type="application/rss+xml"/><item><title>Running Win10 Debian Zsh in Cmder</title><link>https://zxdawn.github.io/2018/05/05/running-win10-debian-zsh-in-cmder/</link><pubDate>Sat, 05 May 2018 15:21:53 +0000</pubDate><guid>https://zxdawn.github.io/2018/05/05/running-win10-debian-zsh-in-cmder/</guid><description>&lt;h1 id="references">References&lt;/h1>
+&lt;p>&lt;a href="https://gingter.org/2016/11/16/running-windows-10-ubuntu-bash-in-cmder/">Running Windows 10 Ubuntu Bash in Cmder&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/">How to Install and Use the Linux Bash Shell on Windows 10&lt;/a>&lt;/p>
+&lt;h1 id="prerequisites">Prerequisites&lt;/h1>
+&lt;ol>
+&lt;li>
+&lt;p>Bash on Debian on Windows enabled&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Cmder.&lt;/p>
+&lt;p>If you don’t have that, you can simply follow these instructions:&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>&lt;a href="https://msdn.microsoft.com/de-de/commandline/wsl/install_guide">Install Bash On Ubuntu on Windows&lt;/a> (the same way to install Debian)&lt;/p>
+&lt;p>Download and unzip &lt;a href="http://cmder.net/">Cmder&lt;/a> to a convenient place on your disk. Then start &lt;em>Cmder.exe&lt;/em>.&lt;/p>
+&lt;p>&lt;a href="https://gingter.org/2016/08/17/install-and-run-zsh-on-windows/">Install (Oh-my-) Zsh on Bash on Ubuntu on Windows&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h1 id="set-up-zsh-in-cmder">Set up Zsh in Cmder&lt;/h1></description></item></channel></rss>

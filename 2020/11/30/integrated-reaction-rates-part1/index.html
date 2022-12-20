@@ -1,0 +1,173 @@
+<!doctype html><html lang=zn-hans><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=1"><meta name=author content="Xin Zhang"><meta name=description content="Useful tool: PERMM"><meta property="og:title" content="Integrated Reaction Rates (Part1)"><meta property="og:description" content="Useful tool: PERMM"><meta property="og:type" content="article"><meta property="og:url" content="https://zxdawn.github.io/2020/11/30/integrated-reaction-rates-part1/"><meta property="article:section" content="sci-tech"><meta property="article:published_time" content="2020-11-30T00:00:00+00:00"><meta property="article:modified_time" content="2020-11-30T00:00:00+00:00"><title>Integrated Reaction Rates (Part1) | Dreambooker</title><link rel=canonical href=https://zxdawn.github.io/2020/11/30/integrated-reaction-rates-part1/><link href=https://zxdawn.github.io/vendors/fontawesome-free-5.14.0-web/css/all.min.css rel=stylesheet><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600"><link href=https://zxdawn.github.io/css/font.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/bootstrap4/bootstrap.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors-extensions/mdb/mdb.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/mdb/style.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/main.css rel=stylesheet><link rel="shortcut icon" href=https://zxdawn.github.io/img/logo.jpg><style type=text/css>@media(min-width:800px) and (max-width:850px){.navbar:not(.top-nav-collapse){background:#1c2331!important}}</style><link rel=stylesheet href=https://zxdawn.github.io/css/vendors/highlight/github-gist.css></head><body class=bg-light data-spy=scroll data-target=#page-scrollspy data-offset=90><nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class=container><a class=navbar-brand href=https://zxdawn.github.io><img class=avatar src=https://zxdawn.github.io/img/logo.jpg style=width:40px!important;height:auto class="d-inline-block align-top" alt>
+<strong>Xin Zhang</strong></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav mr-auto"><li class=nav-item><a class=nav-link href=https://zxdawn.github.io>Home</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/sci-tech/>Sci-Tech</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/essay/>Essay</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/about/>About</a></li></ul></div></div></nav><div id=site-header class="carousel slide carousel-fade" data-ride=carousel style=height:18rem><div class=carousel-inner role=listbox><div class="carousel-item active"><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides/0.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//1.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//2.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//3.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//4.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div></div><div class="carousel-content text-center white-text wow fadeIn"><div class="row mx-0 headfont mt-3 pt-4"><div class="col-12 col-sm-5 align-middle"><a href=https://zxdawn.github.io><img class="pull-right avatar avatar-md" src=https://zxdawn.github.io/img/me.jpg alt></a></div><div class="col-12 col-sm-7 text-left pl-2"><a href=https://zxdawn.github.io><h1 class="mb-2 h1" style=font-weight:300><strong>Dreambooker</strong></h1></a><div class=mt-2 style=font-size:1rem;color:#fff><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div></div></div></div></div><main class=post-main-wrapper><div class=row><div class=col-md-10><div class="z-depth-1 post-wrapper white-bg single-post dont-break-out"><div class="post-header text-center"><ul class="post-meta li-x"><li><a href=https://zxdawn.github.io/categories/sci-tech><i class="fas fa-folder-open pr-1" aria-hidden=true></i> sci-tech</a></li></ul><div class="px-4 post-heading">Integrated Reaction Rates (Part1)</div><ul class="post-meta li-x mt-1"><li>Nov 30, 2020</li><li class=middot></li><li>6 minute read</li></ul><div class=view><img src=https://zxdawn.github.io/images/sci-tech/2020-11/cover.png></div></div><div class="post-content markdown"><h2 id=background>Background</h2><p>Output of Integrated Reaction Rates (IRR) is available in WRF-Chem from V4.0 and IRR can be analyzed with PERMM Analysis Tool. You can check the instruction on the <a href=https://www2.acom.ucar.edu/wrf-chem>UCAR website</a>.</p><p>The steps of <a href=https://www2.acom.ucar.edu/sites/default/files/wrf-chem/wrfchemV4_IRR.pdf>enabling IRR</a> is written in detail but the PERMM document is too simple to follow.</p><p>This post is the part1 which focuses on <strong>the basic usage of PERMM for the official test data</strong>.</p><p>If you wanna learn the application for WRF-Chem, please check <a href=https://dreambooker.site/2020/12/01/Integrated-Reaction-Rates-Part2/>part2</a>.</p><p>If you wanna define your own mechanism file, please check <a href=https://dreambooker.site/2020/12/02/Integrated-Reaction-Rates-Part3/>part3</a>.</p><h2 id=installation>Installation</h2><p>It&rsquo;s better to install the latest version of PERMM from the <a href=https://github.com/barronh/permm>official github repository</a>.</p><p>I have fixed some bugs and improved it for WRF-Chem.</p><p>You can download it from my <a href=https://github.com/zxdawn/permm>forked branch</a> and install it from the directory:</p><pre tabindex=0><code>python setup.py install
+</code></pre><p>Note that it won&rsquo;t remind you some necessary packages. You have to install them by yourself.</p><pre tabindex=0><code>conda install -c conda-forge pseudonetcdf yaml
+</code></pre><h2 id=reactions-related-to-o3>Reactions related to O3</h2><p>I will focus on <strong>Ozone</strong> with the <strong>cb05_camx</strong> mechanism for the rest of this post.</p><p>The O3 has two natural sources:</p><p><img src=https://zxdawn.github.io/images/sci-tech/2020-11/ozone_1.jpg alt=https://www.uvonair.com/uploads/upload/How_Ozone_Is_Made_Graphic1.jpg></p><p>Actually, I&rsquo;m interested in both of them! But the lightning one isn&rsquo;t included in the WRF-Chem yet &mldr;</p><p>So, let&rsquo;s talk about the <strong>photochemistry</strong> related to the O3. The illustration below clearly explain the main processes:</p><p><img src=https://zxdawn.github.io/images/sci-tech/2020-11/ozone_2.png alt=https://doi.org/10.1525/ELEMENTA.265></p><p>We can print the reactions producing O3 using the PERMM without the IRR files:</p><pre tabindex=0><code>$ python -m permm -i --mechanism cb05_camx
+
+#  all reaction names that create O3
+&gt;&gt;&gt; find_rxns(products=O3)
+[&#39;RXN_02&#39;, &#39;RXN_108&#39;, &#39;RXN_92&#39;]
+
+# all reaction names related to O3 (either as reactants or products)
+&gt;&gt;&gt; find_rxns(reactants=O3, products=O3, logical_and=False)
+[&#39;RXN_02&#39;, &#39;RXN_03&#39;, &#39;RXN_07&#39;, &#39;RXN_08&#39;, &#39;RXN_09&#39;, &#39;RXN_108&#39;, &#39;RXN_12&#39;, &#39;RXN_121&#39;, &#39;RXN_125&#39;, &#39;RXN_129&#39;, &#39;RXN_13&#39;, &#39;RXN_140&#39;, &#39;RXN_146&#39;, &#39;RXN_150&#39;, &#39;RXN_155&#39;, &#39;RXN_49&#39;, &#39;RXN_92&#39;]
+
+# print all reactions that create O3
+&gt;&gt;&gt; print_rxns(products=O3)
+RXN_108 1.0*CXO3 + 1.0*HO2 -&gt;[k] 0.8*PACD + 0.2*O3 + 0.2*AACD
+RXN_92 1.0*C2O3 + 1.0*HO2 -&gt;[k] 0.8*PACD + 0.2*O3 + 0.2*AACD
+RXN_02 1.0*M + 1.0*O + 1.0*O2 -&gt;[k] 1.0*O3 + 1.0*M
+
+# print net reaction
+&gt;&gt;&gt; print_net_rxn(products=O3)
+2*HO2 + 1*C2O3 + 1*CXO3 + 1*M + 1*O + 1*O2 -&gt;[k] 1.6*PACD + 1.4*O3 + 1*M + 0.4*AACD
+</code></pre><h2 id=irrs>IRRs</h2><h3 id=quickview>Quickview</h3><p>Let&rsquo;s change the directory to the testdata directory (<code>permm/src/permm/testdata</code>) and use the example data.</p><pre tabindex=0><code>$ python -m permm -i --mechanism cb05_camx test.mrg.nc
+
+&gt;&gt;&gt; plot_rxns(reactants = O3, products=O3, logical_and=False)
+</code></pre><p>You will see this figure from the popup window:</p><p><img src=https://zxdawn.github.io/images/sci-tech/2020-11/ozone_reactions.png alt=ozone_reactions></p><p>The quickview of the reactions can show us the overview, but we need to check the exact data and use it for our own plots.</p><h3 id=data-structure>Data structure</h3><p>It&rsquo;s easy to check the structure of the test file (test.mrg.nc).</p><pre tabindex=0><code>&gt;&gt;&gt; import xarray as xr
+
+&gt;&gt;&gt; ds = xr.open_dataset(&#39;./test.mrg.nc&#39;)
+
+&gt;&gt;&gt; ds
+&lt;xarray.Dataset&gt;
+Dimensions:  (COL: 26, DATE-TIME: 2, LAY: 20, PROCESS: 38, ROW: 12, RXN: 156, SPECIES: 21, TSTEP: 11, TSTEP_STAG: 25, VAR: 3)
+Dimensions without coordinates: COL, DATE-TIME, LAY, PROCESS, ROW, RXN, SPECIES, TSTEP, TSTEP_STAG, VAR
+Data variables:
+    IPR      (TSTEP, SPECIES, PROCESS) float32 ...
+    IRR      (TSTEP, RXN) float32 ...
+    SHAPE    (TSTEP_STAG, LAY, ROW, COL) int32 ...
+    TFLAG    (TSTEP, VAR, DATE-TIME) int32 ...
+Attributes:
+    irrfile:    camx451_cb05.20050623.hgb8h2.bc05jun.reg8_pscfv2.2005ep1_eta_...
+    Reactions:  RXN_01          RXN_02          RXN_03          RXN_04       ...
+    SDATE:      5174
+    Process:    DIL             DDEP            DATE            AQACHEM      ...
+    iprfile:    camx451_cb05.20050623.hgb8h2.bc05jun.reg8_pscfv2.2005ep1_eta_...
+    STIME:      100.0
+    Species:    H2O2            PAR             CO              OLE          ...
+    TSTEP:      100.0
+    history:    Tue Dec 30 14:16:42 2008: ncks -F -d TSTEP,8,18 test24.mrg.nc...
+</code></pre><p><code>IRR</code> is a variable of two dimensions (TSTEP, RXN) and the length of RXN is 156.</p><p>This is related to the reaction list defined in the yaml file.</p><p>Since it&rsquo;s based on cb05_camx, let&rsquo;s see the content of <code>src/permm/mechanisms/cb05_camx.yaml</code>:</p><pre tabindex=0><code>---
+comment: &#34;Carbon Bond 05 (CB05) chemical mechanism as implemented in CAMx v4&#34;
+species_list:
+    AACD: 2C + 1O + 1H
+    ALD2: 2C + 1O + 4H
+    .................
+    .................
+
+reaction_list:
+    RXN_01: NO2 -&gt;[j] NO + O
+    RXN_02: O + O2 + M -&gt;[k] O3 + M
+    RXN_03: O3 + NO -&gt;[k] NO2
+    RXN_04: O + NO2 -&gt;[k] NO
+    .................
+    .................
+
+    RXN_154: TERP + OH -&gt;[k] 0.75*HO2 + 1.25*XO2 + 0.25*XO2N + 0.28*FORM + 1.66*PAR + 0.47*ALDX
+    RXN_155: TERP + O3 -&gt;[k] 0.57*OH + 0.07*HO2 + 0.76*XO2 + 0.18*XO2N + 0.24*FORM + 0.001*CO + 7*PAR + 0.21*ALDX + 0.39*CXO3
+    RXN_156: TERP + NO3 -&gt;[k] 0.47*NO2 + 0.28*HO2 + 1.03*XO2 + 0.25*XO2N + 0.47*ALDX + 0.53*NTR
+
+.................
+</code></pre><p>So, <code>['RXN_02', 'RXN_108', 'RXN_92']</code> is the list of reaction names.</p><p>Unfortunately, the dimension of the test data doesn&rsquo;t have coordinates &mldr;</p><p>Let create it by ourself for the simpler index later.</p><pre tabindex=0><code>&gt;&gt;&gt; reactions_name = find_rxns(reactants=O3, products=O3, logical_and=False)
+
+&gt;&gt;&gt; da = ds.assign_coords(RXN=[&#39;RXN_&#39;+i.zfill(2) for i in ((ds.RXN)+1).values.astype(&#39;str&#39;)]).sel(RXN=reactions_name)
+
+&gt;&gt;&gt; da
+&lt;xarray.Dataset&gt;
+Dimensions:  (COL: 26, DATE-TIME: 2, LAY: 20, PROCESS: 38, ROW: 12, RXN: 17, SPECIES: 21, TSTEP: 11, TSTEP_STAG: 25, VAR: 3)
+Coordinates:
+  * RXN      (RXN) &lt;U7 &#39;RXN_02&#39; &#39;RXN_03&#39; &#39;RXN_07&#39; ... &#39;RXN_49&#39; &#39;RXN_92&#39;
+Dimensions without coordinates: COL, DATE-TIME, LAY, PROCESS, ROW, SPECIES, TSTEP, TSTEP_STAG, VAR
+Data variables:
+    IPR      (TSTEP, SPECIES, PROCESS) float32 ...
+    IRR      (TSTEP, RXN) float32 ...
+    SHAPE    (TSTEP_STAG, LAY, ROW, COL) int32 ...
+    TFLAG    (TSTEP, VAR, DATE-TIME) int32 ...
+Attributes:
+    irrfile:    camx451_cb05.20050623.hgb8h2.bc05jun.reg8_pscfv2.2005ep1_eta_...
+    Reactions:  RXN_01          RXN_02          RXN_03          RXN_04       ...
+    SDATE:      5174
+    Process:    DIL             DDEP            DATE            AQACHEM      ...
+    iprfile:    camx451_cb05.20050623.hgb8h2.bc05jun.reg8_pscfv2.2005ep1_eta_...
+    STIME:      100.0
+    Species:    H2O2            PAR             CO              OLE          ...
+    TSTEP:      100.0
+    history:    Tue Dec 30 14:16:42 2008: ncks -F -d TSTEP,8,18 test24.mrg.nc...
+</code></pre><h3 id=plot-manually>Plot manually</h3><p>The embedded plot function relies on the data structure strictly.</p><p>It&rsquo;s better to plot all reactions by ourselves in case the structure of IRR files is different from the CAMX test data.</p><pre tabindex=0><code>python -m permm --mechanism cb05_camx test.mrg.nc --scripts plot_irr.py
+</code></pre><p>Here&rsquo;s the content of the script called <code>plot_irr.py</code>:</p><pre tabindex=0><code>import xarray as xr
+import proplot as plot
+
+# get the basic info of reactions
+reaction_names = find_rxns(reactants=O3, products=O3, logical_and=False)
+reaction_eqs = get_rxns(reactants=O3, products=O3, logical_and=False)
+reaction_dict = dict(zip(reaction_names, [eq.display(digits = None) for eq in reaction_eqs]))
+reactant_names = find_rxns(reactants=O3)
+
+# read the reaction file
+ds = xr.open_dataset(&#39;./test.mrg.nc&#39;)
+
+# assign the coordinates for index
+da = ds.assign_coords(RXN=[&#39;RXN_&#39;+i.zfill(2) for i in ((ds.RXN)+1).values.astype(&#39;str&#39;)]).sel(RXN=reaction_names)[&#39;IRR&#39;]
+
+# multiple the irr by net coefficient
+coefficient = [eq[&#39;O3&#39;].base.item() for eq in reaction_eqs]
+da *= coefficient
+
+# we only want to plot the large contributions
+# so, sorting the integrated IRR by absolute vlalues and picking the 8 of them for plot
+large_contrib = da.sum(dim=&#39;TSTEP&#39;).sortby(abs(da).sum(dim=&#39;TSTEP&#39;), ascending=False).RXN[:8].values
+irr_subset = da.sel(RXN=large_contrib)
+
+# sort again for plot by real values
+irr_subset = irr_subset.sortby(irr_subset.sum(dim=&#39;TSTEP&#39;))
+
+# generate labels based on RXN_**
+labels = []
+for rxn in irr_subset.RXN.values:
+    labels.append(reaction_dict[rxn])
+
+# plot
+fig, axs = plot.subplots()
+cmap = plot.Colormap(&#39;viridis&#39;)
+
+lines = []
+for i in range(irr_subset.sizes[&#39;RXN&#39;]):
+    # &#34;step&#34;: https://matplotlib.org/3.1.1/gallery/lines_bars_and_markers/step_demo.html#sphx-glr-gallery-lines-bars-and-markers-step-demo-py
+    line = axs.step(irr_subset.TSTEP,
+                    irr_subset.isel(RXN=i),
+                    where=&#39;post&#39;,
+                    label=labels[i],
+                    color=cmap(i / (len(irr_subset.RXN)-1)),
+                    )
+    lines.append(line)
+
+# plot the total IRR
+total_line = axs.step(da.sum(dim=&#39;RXN&#39;), where=&#39;post&#39;, label=&#39;Total Chem&#39;, color=&#39;k&#39;)
+axs.format(title=&#39;Plot of O3 reactions&#39;, grid=False)
+fig.legend(lines.append(total_line), loc=&#39;b&#39;, ncols=2)
+fig.savefig(&#39;irr_o3.png&#39;)
+</code></pre><p>The result shown below is as same as the former one created using the official plot function.</p><p><img src=https://zxdawn.github.io/images/sci-tech/2020-11/ozone_reactions_2.png alt=ozone_reactions></p><p>It&rsquo;s better to make sure the total chem are correctly calculated.</p><p>The official time series of total chem of O3:</p><pre tabindex=0><code>&gt;&gt;&gt; make_net_rxn(reactants=O3, products=O3, logical_and=False)[&#39;O3&#39;]
+Stoic([-4.075653   1.7998352  5.7559814 10.641052  10.435608  12.903931
+  9.884674   7.516403   5.9432373  1.7922287 -1.0577393], role = &#39;u&#39;)
+</code></pre><p>The calculated one:</p><pre tabindex=0><code>&lt;xarray.DataArray &#39;IRR&#39; (TSTEP: 11)&gt;
+array([-4.0756407,  1.799851 ,  5.7559466, 10.641057 , 10.435598 ,
+       12.90391  ,  9.884662 ,  7.5164156,  5.9432254,  1.7922215,
+       -1.0577295], dtype=float32)
+Dimensions without coordinates: TSTEP
+</code></pre><p>It&rsquo;s almost same &mldr; Maybe that&rsquo;s the problem of float accuracy?</p><hr><p>Actually, I have no experience of CAMX and can&rsquo;t understand why the IRR value at each output time stands for the IRR between that time and <strong>the next one</strong>.</p><p>For WRF-Chem, IRRs are saved as <strong>integrated values</strong>. We need to calculate the <strong>difference</strong> and use <strong><code>pre</code></strong> instead of <code>post</code> in the <code>step</code> function.</p><p>Note that we can present the exact values in the terminal by <code>print(irr_subset.to_series().to_string())</code> or <code>print(irr_subset.to_series().to_markdown())</code> in markdown at the end of <code>plot_irr.py</code> to show the data.</p><h2 id=version-control>Version control</h2><table><thead><tr><th>Version</th><th>Action</th><th>Time</th></tr></thead><tbody><tr><td>1.0</td><td>Init</td><td>2020-11-30</td></tr><tr><td>1.1</td><td>Update plot function</td><td>2020-12-01</td></tr><tr><td>1.2</td><td>Update coefficients</td><td>2020-12-02</td></tr></tbody></table></div><div class=row><div class=col-md-8><div class=mb-5><div class="li-x div-x post-meta"><li class=pr-0><a href=https://zxdawn.github.io/tags/><i class="fas fa-tags"></i></a></li><div class=tags-sm><li><a href=https://zxdawn.github.io/tags/wrf-chem role=button>wrf-chem</a></li><li><a href=https://zxdawn.github.io/tags/python role=button>python</a></li></div></div></div></div></div><div class="row pt-3"><div class=col-md-6><a href=https://zxdawn.github.io/2020/10/26/using-the-era5-o3-data-in-the-wrf-initial-condition/ class=post-meta>Previous<div class="pt-2 pb-5 d-flex"><i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+<span>Using the ERA5 O3 data in the WRF initial condition</span></div></a></div><div class="col-md-6 text-right"><a href=https://zxdawn.github.io/2020/12/01/integrated-reaction-rates-part2/ class=post-meta>Next<div class="pt-2 pb-5 flex-reverse"><i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+<span>Integrated Reaction Rates (Part2)</span></div></a></div></div></div></div><div class="col-md-2 pl-0"><div id=page-scrollspy class=toc-nav><ul class="nav nav-pills ml-0"><li class="nav-item pb-3 text-center"><span class="font-weight-bold mb-2">- CATALOG -</span></li><ul class=nav><li class=nav-item><a class=nav-link href=#background>Background</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#installation>Installation</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#reactions-related-to-o3>Reactions related to O3</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#irrs>IRRs</a></li></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#quickview>Quickview</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#data-structure>Data structure</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#plot-manually>Plot manually</a></li></ul></ul><ul class=nav><li class=nav-item><a class=nav-link href=#version-control>Version control</a></li></ul></ul></div></div></div></main><footer class="page-footer text-center font-small mt-4 wow fadeIn"><div class="pb-2 mt-5 pt-5"><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div><div class="copyright py-4"><span>2016 - 2022 &copy; | Theme <a href=https://github.com/EliiseS/AllinOne target=_blank>AllinOne</a></span></div></footer><script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery-3.3.1.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/popper.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/holder.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors-extensions/bootstrap4/bootstrap.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/mdb/mdb.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/main.js></script>
+<script src=https://zxdawn.github.io/js/vendors/highlight.pack.js></script><script>hljs.initHighlightingOnLoad()</script><script type=text/javascript>(new WOW).init()</script></body></html>

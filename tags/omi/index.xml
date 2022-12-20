@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OMI on Dreambooker</title><link>https://zxdawn.github.io/tags/omi/</link><description>Recent content in OMI on Dreambooker</description><generator>Hugo -- gohugo.io</generator><language>zn-Hans</language><lastBuildDate>Sun, 11 Mar 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://zxdawn.github.io/tags/omi/index.xml" rel="self" type="application/rss+xml"/><item><title>BEHR_OMINO2 Guide for non_Berkeley</title><link>https://zxdawn.github.io/2018/03/11/behr_omino2-guide-for-non_berkeley/</link><pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2018/03/11/behr_omino2-guide-for-non_berkeley/</guid><description>&lt;h1 id="behr_omino2-guide-for-non_berkeley">BEHR_OMINO2 Guide for non_Berkeley&lt;/h1>
+&lt;h2 id="clone-behr_corehttpsgithubcomcohenberkeleylabbehr-coregit-and-other-repositories">Clone &lt;a href="https://github.com/CohenBerkeleyLab/BEHR-core.git">BEHR_Core&lt;/a> and other repositories&lt;/h2>
+&lt;pre tabindex="0">&lt;code>mkdir BEHR
+cd BEHR
+git clone https://github.com/CohenBerkeleyLab/BEHR-core.git
+cd BEHR-core
+./setup.sh # if you want to use develop branch, add --develop
+&lt;/code>&lt;/pre></description></item></channel></rss>

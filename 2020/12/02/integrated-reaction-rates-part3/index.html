@@ -1,0 +1,98 @@
+<!doctype html><html lang=zn-hans><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=1"><meta name=author content="Xin Zhang"><meta name=description content="Generate the yaml file of specific mechanism for PERMM"><meta property="og:title" content="Integrated Reaction Rates (Part3)"><meta property="og:description" content="Generate the yaml file of specific mechanism for PERMM"><meta property="og:type" content="article"><meta property="og:url" content="https://zxdawn.github.io/2020/12/02/integrated-reaction-rates-part3/"><meta property="article:section" content="sci-tech"><meta property="article:published_time" content="2020-12-02T00:00:00+00:00"><meta property="article:modified_time" content="2020-12-02T00:00:00+00:00"><title>Integrated Reaction Rates (Part3) | Dreambooker</title><link rel=canonical href=https://zxdawn.github.io/2020/12/02/integrated-reaction-rates-part3/><link href=https://zxdawn.github.io/vendors/fontawesome-free-5.14.0-web/css/all.min.css rel=stylesheet><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600"><link href=https://zxdawn.github.io/css/font.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/bootstrap4/bootstrap.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors-extensions/mdb/mdb.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/mdb/style.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/main.css rel=stylesheet><link rel="shortcut icon" href=https://zxdawn.github.io/img/logo.jpg><style type=text/css>@media(min-width:800px) and (max-width:850px){.navbar:not(.top-nav-collapse){background:#1c2331!important}}</style><link rel=stylesheet href=https://zxdawn.github.io/css/vendors/highlight/github-gist.css></head><body class=bg-light data-spy=scroll data-target=#page-scrollspy data-offset=90><nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class=container><a class=navbar-brand href=https://zxdawn.github.io><img class=avatar src=https://zxdawn.github.io/img/logo.jpg style=width:40px!important;height:auto class="d-inline-block align-top" alt>
+<strong>Xin Zhang</strong></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav mr-auto"><li class=nav-item><a class=nav-link href=https://zxdawn.github.io>Home</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/sci-tech/>Sci-Tech</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/essay/>Essay</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/about/>About</a></li></ul></div></div></nav><div id=site-header class="carousel slide carousel-fade" data-ride=carousel style=height:18rem><div class=carousel-inner role=listbox><div class="carousel-item active"><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides/0.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//1.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//2.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//3.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//4.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div></div><div class="carousel-content text-center white-text wow fadeIn"><div class="row mx-0 headfont mt-3 pt-4"><div class="col-12 col-sm-5 align-middle"><a href=https://zxdawn.github.io><img class="pull-right avatar avatar-md" src=https://zxdawn.github.io/img/me.jpg alt></a></div><div class="col-12 col-sm-7 text-left pl-2"><a href=https://zxdawn.github.io><h1 class="mb-2 h1" style=font-weight:300><strong>Dreambooker</strong></h1></a><div class=mt-2 style=font-size:1rem;color:#fff><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div></div></div></div></div><main class=post-main-wrapper><div class=row><div class=col-md-10><div class="z-depth-1 post-wrapper white-bg single-post dont-break-out"><div class="post-header text-center"><ul class="post-meta li-x"><li><a href=https://zxdawn.github.io/categories/sci-tech><i class="fas fa-folder-open pr-1" aria-hidden=true></i> sci-tech</a></li></ul><div class="px-4 post-heading">Integrated Reaction Rates (Part3)</div><ul class="post-meta li-x mt-1"><li>Dec 2, 2020</li><li class=middot></li><li>3 minute read</li></ul><div class=view><img src=https://zxdawn.github.io/images/sci-tech/2020-12/cover_p3.png></div></div><div class="post-content markdown"><h2 id=background>Background</h2><h2 id=mechanism-syntax>Mechanism Syntax</h2><p>The <a href=https://github.com/barronh/permm/blob/wiki/MechanismSyntax.md>official example</a> is saved on the GitHub:</p><pre tabindex=0><code>---
+species_list:
+    CL: Cl
+    O1D: O
+    &#39;NO&#39;: N + O
+    ALK4: 4*C
+    ...
+reaction_list:
+    IRR_1:  O3 + NO -&gt;[k] 1.000*NO2
+    IRR_2:  NO2 -&gt;[j] 1.000*NO + 1.000*O
+    IRR_3:  O2 + O -&gt;[k] O3
+    ...
+
+species_group_list:
+- NOx = NO + NO2
+- NOz = HNO3 + RNO3
+- PANS = PAN + HPAN + GPAN
+- NOy = NOx + 2*N2O5 + NO3 + HNO4 + NOz + PANS
+...
+</code></pre><p>I don&rsquo;t care about the species_list and set it to ignore:</p><pre tabindex=0><code>species_list:
+    &#39;CL&#39;: IGNORE
+</code></pre><p>The most important part is <code>reaction_list</code>.</p><blockquote><p>Reactions are combinations of species, stoichiometry, reaction role, and reaction type. Each reaction is identified by a reaction label, which can be any YAML recognizable string that starts with a letter and contains only letters and numbers. The reaction definition starts with a reactants list containing one or more reactants with optional stoichiometry. The reactants list is followed by an arrow (i.e. <code>-></code>) with the reaction type enclosed in braces (i.e. <code>[k]</code> or <code>[j]</code>) where j specifies photolysis and k specifies thermal. The reaction arrow and type are followed by an optional products list that has the same syntax as the reactants list.</p></blockquote><p>The <code>reaction label</code> should be the variable names saved in the IRR* files. For WRF-Chem, the name list is saved in <code>Registry/registry.irr_diag</code>:</p><pre tabindex=0><code>state  real  -  ikjf  irr_diag_mozcart  -  -  -  - &#34;Integrated Reaction Rate&#34;  &#34;&#34;
+state  real  M_HV_IRR  ikjf  irr_diag_mozcart  1  -  rh9  &#34;M_HV_IRR&#34;  &#34;M+HV Integrated Reaction Rate&#34;  &#34;ppmv&#34;
+state  real  O3_HV_IRR  ikjf  irr_diag_mozcart  1  -  rh9  &#34;O3_HV_IRR&#34;  &#34;O3+HV Integrated Reaction Rate&#34;  &#34;ppmv&#34;
+state  real  O3_HV_a_IRR  ikjf  irr_diag_mozcart  1  -  rh9  &#34;O3_HV_a_IRR&#34;  &#34;O3+HV_a Integrated Reaction Rate&#34;  &#34;ppmv&#34;
+state  real  N2O_HV_IRR  ikjf  irr_diag_mozcart  1  -  rh9  &#34;N2O_HV_IRR&#34;  &#34;N2O+HV Integrated Reaction Rate&#34;  &#34;ppmv&#34;
+state  real  NO2_HV_IRR  ikjf  irr_diag_mozcart  1  -  rh9  &#34;NO2_HV_IRR&#34;  &#34;NO2+HV Integrated Reaction Rate&#34;  &#34;ppmv&#34;
+state  real  N2O5_HV_IRR  ikjf  irr_diag_mozcart  1  -  rh9  &#34;N2O5_HV_IRR&#34;  &#34;N2O5+HV Integrated Reaction Rate&#34;  &#34;ppmv&#34;
+...........
+</code></pre><p>The rest part is the reaction equations in <code>chem/KPP/mechanisms/</code>.</p><p>I will focus on <code>mozcart</code> mechanism which corresponds to the eqn file called <code>chem/KPP/mechanisms/mozcart/mozcart.eqn</code>:</p><pre tabindex=0><code>#EQUATIONS {MOZART, check troee, usr5, usr17, rc_n2o5 }
+// photorates
+ {001:J01} M{=O2}+hv=O+O        : .20946_dp*j(Pj_o2)  ;
+ {002:J02} O3+hv=O1D_CB4{+O2}       : j(Pj_o31d) ;
+ {003:J03} O3+hv=O{+O2}         : j(Pj_o33p) ;
+ {004:J04} N2O+hv=O1D_CB4{+N2}          : j(Pj_n2o)  ;
+ {005:J05} NO2+hv=O+NO          : j(Pj_no2)  ;
+ {006:J06} N2O5+hv=NO2+NO3          : j(Pj_n2o5) ;
+ {007:J07} HNO3+hv=OH+NO2       : j(Pj_hno3) ;
+ {009:J09} NO3+hv=.89 NO2+ .11 NO + .89 O3: j(Pj_no3o) ; 
+................
+</code></pre><h2 id=set-up-the-reaction_list>Set up the reaction_list</h2><h3 id=steps>Steps</h3><ol><li>Get the reaction label from the <code>registry.irr_diag</code> directly, as they&rsquo;re in the same order.</li><li>Generate the equation from the texts between the first <code>}</code> and the second <code>:</code> from the <code>mozcart.eqn</code>:<ul><li>Drop spaces which are not in the equation part</li><li>Replacing the spaces with <code>*</code></li><li>Neglect <code>{***}</code> in the texts</li><li>Replace <code>+hv=</code> with <code>->[j]</code></li><li>Replace <code>=</code> with <code>->[k]</code></li></ul></li></ol><h3 id=script>Script</h3><pre tabindex=0><code>import pandas as pd
+
+eqn = pd.read_csv(&#39;./mozcart.eqn&#39;, header=None, sep=&#39;:&#39;, comment=&#39;/&#39;, skiprows=1)
+registry = pd.read_csv(&#39;./registry.irr_diag&#39;, header=None, delim_whitespace=True, skiprows=1)
+
+eqn_clean = eqn[1].str.replace(r&#34;\{.*?\}&#34;,&#34;&#34;).str.replace(r&#34;.*?\}&#34;,&#34;&#34;)\
+            .str.strip().str.replace(&#34; &#34;, &#34;*&#34;)\
+            .str.replace(&#34;\+hv=&#34;, &#34;-&gt;[j]&#34;)\
+            .str.replace(&#34;=&#34;, &#34;-&gt;[k]&#34;)
+
+registry_mozcart = registry[registry[4] == &#39;irr_diag_mozcart&#39;]
+
+eqn[0] = registry_mozcart[8]
+eqn[1] = eqn_clean
+eqn = eqn.drop(columns=[2])
+
+tsv = eqn.to_csv(sep=&#39;:&#39;, header=False, index=False)
+psv = tsv.replace(&#39;:&#39;, &#39;: &#39;)
+with open(&#39;./mozart_wrfchem.yaml&#39;, &#39;w&#39;) as outfile:
+    outfile.write(psv)
+</code></pre><h3 id=result>Result</h3><pre tabindex=0><code>M_HV_IRR: M-&gt;[j]O+O
+O3_HV_IRR: O3-&gt;[j]O1D_CB4
+O3_HV_a_IRR: O3-&gt;[j]O
+N2O_HV_IRR: N2O-&gt;[j]O1D_CB4
+NO2_HV_IRR: NO2-&gt;[j]O+NO
+N2O5_HV_IRR: N2O5-&gt;[j]NO2+NO3
+HNO3_HV_IRR: HNO3-&gt;[j]OH+NO2
+NO3_HV_IRR: NO3-&gt;[j].89*NO2+*.11*NO*+*.89*O3
+HO2NO2_HV_IRR: HO2NO2-&gt;[j]0.66*HO2+0.66*NO2+0.33*OH+0.33*NO3
+CH3OOH_HV_IRR: CH3OOH-&gt;[j]CH2O+HO2+OH
+CH2O_HV_IRR: CH2O-&gt;[j]HO2+HO2+CO
+CH2O_HV_a_IRR: CH2O-&gt;[j]CO+H2
+H2O2_HV_IRR: H2O2-&gt;[j]OH+OH
+CH3CHO_HV_IRR: CH3CHO-&gt;[j]CH3O2+CO+HO2
+POOH_HV_IRR: POOH-&gt;[j]CH3CHO+CH2O+HO2+OH
+CH3COOOH_HV_IRR: CH3COOOH-&gt;[j]CH3O2+OH
+PAN_HV_IRR: PAN-&gt;[j]0.6*CH3CO3+0.6*NO2+0.4*CH3O2+0.4*NO3
+MPAN_HV_IRR: MPAN-&gt;[j]MCO3+NO2
+.....................
+</code></pre><p>You just need to add the <code>comment</code>, <code>species_list</code> and <code>species_group_list</code> to the yaml file.</p><p>For more mechanism yaml files, please check the <a href=https://github.com/zxdawn/permm/tree/wrfchem/src/permm/mechanisms>my forked branch</a>.</p><h2 id=version-control>Version control</h2><table><thead><tr><th>Version</th><th>Action</th><th>Time</th></tr></thead><tbody><tr><td>1.0</td><td>Init</td><td>2020-12-02</td></tr></tbody></table></div><div class=row><div class=col-md-8><div class=mb-5><div class="li-x div-x post-meta"><li class=pr-0><a href=https://zxdawn.github.io/tags/><i class="fas fa-tags"></i></a></li><div class=tags-sm><li><a href=https://zxdawn.github.io/tags/wrf-chem role=button>wrf-chem</a></li><li><a href=https://zxdawn.github.io/tags/python role=button>python</a></li></div></div></div></div></div><div class="row pt-3"><div class=col-md-6><a href=https://zxdawn.github.io/2020/12/01/integrated-reaction-rates-part2/ class=post-meta>Previous<div class="pt-2 pb-5 d-flex"><i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+<span>Integrated Reaction Rates (Part2)</span></div></a></div><div class="col-md-6 text-right"><a href=https://zxdawn.github.io/2020/12/04/setting-up-my-elementary-os/ class=post-meta>Next<div class="pt-2 pb-5 flex-reverse"><i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+<span>Setting up my Elementary OS</span></div></a></div></div></div></div><div class="col-md-2 pl-0"><div id=page-scrollspy class=toc-nav><ul class="nav nav-pills ml-0"><li class="nav-item pb-3 text-center"><span class="font-weight-bold mb-2">- CATALOG -</span></li><ul class=nav><li class=nav-item><a class=nav-link href=#background>Background</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#mechanism-syntax>Mechanism Syntax</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#set-up-the-reaction_list>Set up the reaction_list</a></li></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#steps>Steps</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#script>Script</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#result>Result</a></li></ul></ul><ul class=nav><li class=nav-item><a class=nav-link href=#version-control>Version control</a></li></ul></ul></div></div></div></main><footer class="page-footer text-center font-small mt-4 wow fadeIn"><div class="pb-2 mt-5 pt-5"><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div><div class="copyright py-4"><span>2016 - 2022 &copy; | Theme <a href=https://github.com/EliiseS/AllinOne target=_blank>AllinOne</a></span></div></footer><script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery-3.3.1.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/popper.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/holder.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors-extensions/bootstrap4/bootstrap.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/mdb/mdb.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/main.js></script>
+<script src=https://zxdawn.github.io/js/vendors/highlight.pack.js></script><script>hljs.initHighlightingOnLoad()</script><script type=text/javascript>(new WOW).init()</script></body></html>

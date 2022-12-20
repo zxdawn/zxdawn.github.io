@@ -1,0 +1,227 @@
+<!doctype html><html lang=zn-hans><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=1"><meta name=author content="Xin Zhang"><meta name=description content="Backgroud
+NETCDF version (netcdf/4.5.0/02-CF-17-par) on TH-2 seems something wrong. This results in error when  NETCDF4 of WRF-Chem enabled (NETCDF4=1). So, I decide to compile NETCDF on my own.
+Prerequisite
+According to NetCDF&rsquo;s instruction , we need zlib and hdf5 first. For zlib, I use the version zlib/1.2.11-icc17 originally compiled by TH-2.
+HDF5
+The newest version is 1.10.4.
+$ ./configure --prefix=/HOME/nuist_chenq_2/WORKSPACE/xin/software/hdf5-1.10.4 --enable-fortran --enable-static-exec
+But, I got this error:"><meta property="og:title" content="Installing libraries and automating WRF-Chem"><meta property="og:description" content="Backgroud
+NETCDF version (netcdf/4.5.0/02-CF-17-par) on TH-2 seems something wrong. This results in error when  NETCDF4 of WRF-Chem enabled (NETCDF4=1). So, I decide to compile NETCDF on my own.
+Prerequisite
+According to NetCDF&rsquo;s instruction , we need zlib and hdf5 first. For zlib, I use the version zlib/1.2.11-icc17 originally compiled by TH-2.
+HDF5
+The newest version is 1.10.4.
+$ ./configure --prefix=/HOME/nuist_chenq_2/WORKSPACE/xin/software/hdf5-1.10.4 --enable-fortran --enable-static-exec
+But, I got this error:"><meta property="og:type" content="article"><meta property="og:url" content="https://zxdawn.github.io/2018/12/13/installing-libraries-and-automating-wrf-chem/"><meta property="article:section" content="sci-tech"><meta property="article:published_time" content="2018-12-13T00:00:00+00:00"><meta property="article:modified_time" content="2018-12-13T00:00:00+00:00"><title>Installing libraries and automating WRF-Chem | Dreambooker</title><link rel=canonical href=https://zxdawn.github.io/2018/12/13/installing-libraries-and-automating-wrf-chem/><link href=https://zxdawn.github.io/vendors/fontawesome-free-5.14.0-web/css/all.min.css rel=stylesheet><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600"><link href=https://zxdawn.github.io/css/font.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/bootstrap4/bootstrap.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors-extensions/mdb/mdb.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/mdb/style.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/main.css rel=stylesheet><link rel="shortcut icon" href=https://zxdawn.github.io/img/logo.jpg><style type=text/css>@media(min-width:800px) and (max-width:850px){.navbar:not(.top-nav-collapse){background:#1c2331!important}}</style><link rel=stylesheet href=https://zxdawn.github.io/css/vendors/highlight/github-gist.css></head><body class=bg-light data-spy=scroll data-target=#page-scrollspy data-offset=90><nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class=container><a class=navbar-brand href=https://zxdawn.github.io><img class=avatar src=https://zxdawn.github.io/img/logo.jpg style=width:40px!important;height:auto class="d-inline-block align-top" alt>
+<strong>Xin Zhang</strong></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav mr-auto"><li class=nav-item><a class=nav-link href=https://zxdawn.github.io>Home</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/sci-tech/>Sci-Tech</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/essay/>Essay</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/about/>About</a></li></ul></div></div></nav><div id=site-header class="carousel slide carousel-fade" data-ride=carousel style=height:18rem><div class=carousel-inner role=listbox><div class="carousel-item active"><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides/0.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//1.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//2.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//3.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//4.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div></div><div class="carousel-content text-center white-text wow fadeIn"><div class="row mx-0 headfont mt-3 pt-4"><div class="col-12 col-sm-5 align-middle"><a href=https://zxdawn.github.io><img class="pull-right avatar avatar-md" src=https://zxdawn.github.io/img/me.jpg alt></a></div><div class="col-12 col-sm-7 text-left pl-2"><a href=https://zxdawn.github.io><h1 class="mb-2 h1" style=font-weight:300><strong>Dreambooker</strong></h1></a><div class=mt-2 style=font-size:1rem;color:#fff><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div></div></div></div></div><main class=post-main-wrapper><div class=row><div class=col-md-10><div class="z-depth-1 post-wrapper white-bg single-post dont-break-out"><div class="post-header text-center"><ul class="post-meta li-x"><li><a href=https://zxdawn.github.io/categories/sci-tech><i class="fas fa-folder-open pr-1" aria-hidden=true></i> sci-tech</a></li></ul><div class="px-4 post-heading">Installing libraries and automating WRF-Chem</div><ul class="post-meta li-x mt-1"><li>Dec 13, 2018</li><li class=middot></li><li>8 minute read</li></ul><div class=view><img src=https://zxdawn.github.io/images/sci-tech/2017-10/wrfchem_logo.png></div></div><div class="post-content markdown"><h2 id=backgroud>Backgroud</h2><p>NETCDF version (<code>netcdf/4.5.0/02-CF-17-par</code>) on <a href=https://en.wikipedia.org/wiki/Tianhe-2>TH-2</a> seems something wrong. This results in error when <strong>NETCDF4</strong> of WRF-Chem enabled (NETCDF4=1). So, I decide to compile <code>NETCDF</code> on my own.</p><h2 id=prerequisite>Prerequisite</h2><p>According to NetCDF&rsquo;s <a href=https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html>instruction </a>, we need <a href=http://www.zlib.net/>zlib</a> and <a href=https://www.hdfgroup.org/downloads/>hdf5</a> first. For zlib, I use the version <code>zlib/1.2.11-icc17</code> originally compiled by TH-2.</p><h3 id=hdf5>HDF5</h3><p>The newest version is <strong>1.10.4</strong>.</p><pre tabindex=0><code>$ ./configure --prefix=/HOME/nuist_chenq_2/WORKSPACE/xin/software/hdf5-1.10.4 --enable-fortran --enable-static-exec
+</code></pre><p>But, I got this error:</p><pre tabindex=0><code>checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+: command not found/WORKSPACE/xin/software/sources/hdf5-1.10.4/bin/missing: line 3: 
+: command not found/WORKSPACE/xin/software/sources/hdf5-1.10.4/bin/missing: line 5: 
+: command not found/WORKSPACE/xin/software/sources/hdf5-1.10.4/bin/missing: line 8: 
+: command not found/WORKSPACE/xin/software/sources/hdf5-1.10.4/bin/missing: line 13: 
+: command not found/WORKSPACE/xin/software/sources/hdf5-1.10.4/bin/missing: line 18: 
+: command not found/WORKSPACE/xin/software/sources/hdf5-1.10.4/bin/missing: line 21: 
+: command not found/WORKSPACE/xin/software/sources/hdf5-1.10.4/bin/missing: line 26: 
+&#39;HOME/nuist_chenq_2/WORKSPACE/xin/software/sources/hdf5-1.10.4/bin/missing: line 32: syntax error near unexpected token `in
+&#39;HOME/nuist_chenq_2/WORKSPACE/xin/software/sources/hdf5-1.10.4/bin/missing: line 32: `case $1 in
+configure: WARNING: &#39;missing&#39; script is too old or missing
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+configure: error: cannot run /bin/sh bin/config.sub
+</code></pre><p>It seems the newest version of hdf5 1.10 is not compatiable with the system.</p><p>I returned back to hdf5 1.8.21 and it works fine.</p><pre tabindex=0><code>$ ./configure --prefix=/HOME/nuist_chenq_2/WORKSPACE/xin/software/hdf5-1.10.4 --enable-fortran --enable-static-exec
+$ make -j 8 install &amp;&gt; make.log&amp;
+</code></pre><p>Edit <code>~/.bashrc</code> for installation of <code>NetCDF-c and NetCDF-fortran</code>:</p><pre tabindex=0><code>module load intel-compilers/2017_update4 MPI/Intel/MPICH/3.2-icc2017-dyn zlib/1.2.11-icc17 jasper/1.900.1/01-CF-15-libpng
+export CC=icc
+export FC=ifort
+
+# hdf5 and netcdf
+software=/HOME/nuist_chenq_2/WORKSPACE/xin/software
+export HDF5=${software}/hdf5-1.8.21
+export NETCDF=${software}/netcdf-4.6.2
+export PATH=&#34;${HDF5}/bin:${NETCDF}/bin:${PATH}&#34;
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH=}:${HDF5}/lib:${NETCDF}/lib
+export LIBRARY_PATH=${LIBRARY_PATH}:${NETCDF}/lib
+
+# WRF-Chem
+((EM_CORE=WRF_EM_CORE=WRF_CHEM=1))
+((NMM_CORE=WRF_NMM_CORE=0))
+export EM_CORE WRF_EM_CORE WRF_CHEM
+export NMM_CORE WRF_NMM_CORE
+
+export NETCDF4=1
+export WRFIO_NCD_LARGE_FILE_SUPPORT=1
+export PATH=&#34;${software}/byacc-20180609:${software}/flex-2.5.3/bin:$PATH&#34;
+export YACC=&#34;${software}/byacc-20180609/yacc -d&#34;
+export FLEX=${software}/flex-2.5.3/bin/flex
+export FLEX_LIB_DIR=${software}/flex-2.5.3/lib
+</code></pre><h3 id=netcdf-c>NetCDF-c</h3><pre tabindex=0><code>$ CPPFLAGS=-I${HDF5}/include LDFLAGS=-L${HDF5}/lib ./configure --prefix=${NETCDF}
+$ make -j 8 install &amp;&gt; make.log&amp;
+</code></pre><h3 id=netcdf-fortran>NetCDF-fortran</h3><pre tabindex=0><code>$ CPPFLAGS=-I${NETCDF}/include LDFLAGS=-L${NETCDF}/lib ./configure --prefix=${NETCDF}
+$ make -j 8 install &amp;&gt; make.log&amp;
+</code></pre><h2 id=wrf-chem>WRF-Chem</h2><h3 id=configure-and-compile>Configure and compile</h3><p>Auto-script see <a href=https://github.com/zxdawn/AutoWRFChem-R2SMH>AutoWRFChem-R2SMH</a>.</p><pre tabindex=0><code>$ ./autowrfchem config
+Use KPP (kinetic preprocessor)? Default is Y. [y/n]: y
+
+24.  Linux x86_64 i486 i586 i686, Xeon (SNB with AVX mods) ifort compiler with icc  (dmpar)
+19.  Linux x86_64, Intel compiler    (dmpar)
+Choose the meterology type:
+  1: NARR
+  2: Other
+Enter choice (1-2):1
+What would you like to do?
+   1: Create or modify namelists
+   2: Show help
+   3: Quit
+Enter 1-3: 1
+What namelist would you like to load?
+A empty answer will cancel.
+   1: Load standard templates
+   2: Load existing namelists
+   3: Modify the current namelists
+   4: Quit
+Enter 1-4: 1
+Choose what to modify or do:
+   1: Start/end date
+   2: Domain (common opts only)
+   3: Meterology
+   4: Chemistry
+   5: Other WRF options
+   6: Other WPS options
+   7: Check for NEI compatibility
+   8: Select MOZBC file
+   9: Display WRF options
+   10: Display WPS options
+   11: Save and exit
+Enter 1-11: 11
+Save the namelists?
+A empty answer will cancel.
+   1: Write namelist regularly (namelist files and pickle)
+   2: Write just the namelist files (not pickle - i.e. temporary namelists)
+   3: Save namelists to NAMELISTS folder for later
+   4: Do not save
+Enter 1-4: 1
+Goodbye
+ Configuration complete! 
+
+*****************************************************************************
+Configuration files generated. Run autowrfchem with &#39;compile&#39; to begin compilation
+*****************************************************************************
+</code></pre><p><strong>Note</strong>: Please make sure the absolute path of <code>WRFV3</code> is shorter than 40. Otherwise, the compilation of kpp will fail (Line 105 - 107):</p><pre tabindex=0><code>   if (  `echo $WRFC_ROOT | awk &#39;{print ( length ( $1 ) &gt; 40 ) }&#39; `) then
+   echo WARNING: If kpp fails here the path to WRF-Chem might be too long for yacc ...
+   endif
+</code></pre><p>Edit <code>configure.wrf</code> according to this <a href=https://software.intel.com/en-us/articles/wrf-conus12km-on-intel-xeon-phi-coprocessors-and-intel-xeon-processors>suggestion</a> and <a href=http://www.nscc-gz.cn/newsdetail.html?6137>suggestion_2</a>:</p><pre tabindex=0><code>1. Remove -DUSE_NETCDF4_FEATURES and replace –O3 with –O2.
+2. Replace !DEC$ vector always with !DEC$ SIMD on line 7578 in the dyn_em/module_advect_em.F source file.
+
+To speed up compile times, set the environment variable J to &#34;-j 8&#34; or whatever number of parallel make tasks you wish to use.
+</code></pre><p>However, I got an error when running wrf.exe by this configuration:</p><pre tabindex=0><code>  photolysis_driver: called for domain            1
+ Forced exit from Rosenbrock due to the following error:
+ No of steps exceeds maximum bound
+ T=   72.0000000000000      and H=   72.0000000000000
+ Forced exit from Rosenbrock due to the following error:
+ No of steps exceeds maximum bound
+ T=   72.0000000000000      and H=   72.0000000000000
+ Forced exit from Rosenbrock due to the following error:
+ No of steps exceeds maximum bound
+ T=   72.0000000000000      and H=   72.0000000000000
+</code></pre><p>After talking on the <a href="http://forum.mmm.ucar.edu/phpBB3/viewtopic.php?f=83&t=502&sid=396fc1435fec08cb4a0fc7393d230b65#p1576">WRF-Chem forum</a>, I find it&rsquo;s caused by <code>Optimization_level</code>, especially <code>floating point math</code>. Please check that and the <a href=https://dreambooker.site/2018/12/07/Installing-libraries-and-automating-WRF-Chem/#Test>test part</a> of this article.</p><p>Edit the path of NetCDF in <code>MEGAN/src/make_util</code> and <code>MOZBC/src/make_mozbc</code>:</p><pre tabindex=0><code>1. setenv FC ifort
+
+2. if( $OP_SYS == &#34;Linux&#34; ) then
+    if( $found_ncf_lib ) then
+      setenv NETCDF_DIR $tst_dir
+    else
+      setenv NETCDF_DIR /HOME/nuist_chenq_2/WORKSPACE/xin/software/netcdf-4.6.2
+    endif
+</code></pre><p>Then <code>./autowrfchem compile >& compile.log &</code> and check the logs in <code>AutoWRFChem-R2SMH/BUILD/COMPLOGS</code>.</p><p>If you have problem with compiling KPP, please check <a href=https://ruc.noaa.gov/wrf/wrf-chem/KPP_yacc_flex_problems.pdf>KPP_yacc_flex_problems.pdf</a> written by Anton Kulchitsky.</p><h3 id=namelists>Namelists</h3><p>Link data of <code>MEGAN, MOZBC,NARR</code> to correct path according to script.</p><p>Copy my namelists to <code>AutoWRFChem-R2SMH/BUILD/CONFIG/NAMELISTS</code>. Then, use the <code>autowrfchem</code> script to generate namelists again.</p><pre tabindex=0><code>$ ./autowrfchem config namelist
+
+What would you like to do?
+   1: Create or modify namelists
+   2: Show help
+   3: Quit
+Enter 1-3: 1
+What namelist would you like to load?
+A empty answer will cancel.
+   1: Load standard templates
+   2: Load existing namelists
+   3: Modify the current namelists
+   4: Quit
+Enter 1-4: 2
+Select the namelist files to use. If there is a discrepancy in the domain, the WPS file
+takes precedence.
+Choose the WRF namelist: 
+A empty answer will cancel.
+   1: Standard template
+   2: namelist.input
+   3: namelist.input.LNOx_US
+..........
+</code></pre><h2 id=job>Job</h2><p>Because all processes of preparing data for WRF-Chem is included in <code>autowrfchem</code>, I just need to edit some for <code>mpirun</code> which is <code>yhrun</code> on TH-2.</p><h3 id=prepinpt>prepinpt</h3><p>Here&rsquo;re scripts in <code>AutoWRFChem-R2SMH/BUILD/PREPINPUT</code>:</p><pre tabindex=0><code>bestemissyear.py  mozbc-chemopt-list.txt  postcheck.py  prepmegan  prepnei_convert       prepwps    splitwps
+metgriblist.py    mozcheck.py             precheck      prepmozbc  prepnei_intermediate  pyncdf.py
+</code></pre><p>Since login nodes of TH-2 are unstable and slow, I need to submit jobs to multiple computing nodes.</p><p>I want to use <strong>24 (24*1) cores</strong> for preparing all input data.</p><p>Because <code>autowrfchem</code> doesn&rsquo;t have the function of setting cores, all <code>./real.exe</code> in scripts should be replaced by <code>yhrun -n 24 -N 1 -p work ./real.exe</code>.</p><p>It&rsquo;s easier to use <code>sed</code>. I find the solution from <a href=https://unix.stackexchange.com/questions/112023/how-can-i-replace-a-string-in-a-files>question_1</a> and <a href=https://stackoverflow.com/questions/19151954/how-to-use-variables-in-a-command-in-sed>question_2</a>.</p><pre tabindex=0><code>$ pattern=&#39;yhrun -n 24 -N 1 -p work&#39;
+$ sed -i -- &#34;s/.\/real.exe/${pattern} .\/real.exe/g; s/.\/geogrid.exe/${pattern} .\/geogrid.exe/g; s/.\/metgrid.exe/${pattern} .\/metgrid.exe/g&#34; prep*
+</code></pre><p>Then, create <code>prep.sh</code> in <code>AutoWRFChem-R2SMH</code> directory:</p><pre tabindex=0><code>#!/bin/bash
+export PATH=~/WORKSPACE/xin/anaconda3/bin:$PATH
+source activate base
+date
+source readlink.sh
+./autowrfchem prepinpt &gt; 2014_prep.log
+date
+</code></pre><p><code>readlink.sh</code> is the script to source <code>readlink</code>:</p><pre tabindex=0><code>#!/bin/sh
+  export OSCPP=/WORK/app/osenv/ln1
+  export PATH=${PATH}:${OSCPP}/usr/local/mpi3-dynamic/bin:${OSCPP}/usr/lib64/qt-3.3/bin:${OSCPP}/usr/kerberos/sbin:${OSCPP}/usr/kerberos/bin:${OSCPP}/usr/local/bin:${OSCPP}/bin:${OSCPP}/usr/bin:${OSCPP}/usr/local/sbin:${OSCPP}/sbin:${OSCPP}/usr/libexec/gcc/x86_64-redhat-linux/3.4.6
+  export LD_LIBRARY_PATH=/lib64:/usr/lib64:${LD_LIBRARY_PATH}:${OSCPP}/usr/local/mpi3-dynamic/lib:${OSCPP}/usr/lib64:${OSCPP}/usr/lib64/mpich2/lib:${OSCPP}/usr/lib64/mysql:${OSCPP}/lib64:${OSCPP}/intel64:${OSCPP}/usr/libexec/gcc/x86_64-redhat-linux/3.4.6:${OSCPP}/usr/local/cuda/lib:${OSCPP}/usr/local/cuda/lib64
+  export GNUPLOT_PS_DIR=${OSCPP}/usr/share/gnuplot/4.2/PostScript
+</code></pre><p>Now, I can submit the job:</p><pre tabindex=0><code>$ yhbatch -n 24 -N 1 -p work ./prep.sh
+</code></pre><h3 id=switch-from-anaconda-to-miniconda>Switch from Anaconda to Miniconda</h3><p>Because the <code>autowrfchem</code> script needs python which has netCDF4 package installed, firstly I install <code>anaconda</code> on my own.</p><p>As TH-2 doesn&rsquo;t have Internet, <a href=https://pypi.org/project/cftime/>crftime</a> and <a href=https://pypi.org/project/netCDF4/>netCDF4</a> should be uploaded and install from source code.</p><p><strong>Note:</strong> Please add <code>CC=gcc</code> before <code>python setup.py install</code>, otherwise you will get error like this:</p><pre tabindex=0><code>&gt;&gt;&gt; from netCDF4 import Dataset as ncdat
+Traceback (most recent call last):
+  File &#34;&lt;stdin&gt;&#34;, line 1, in &lt;module&gt;
+  File &#34;/HOME/nuist_chenq_2/WORKSPACE/xin/anaconda3/lib/python3.7/site-packages/netCDF4-1.4.2-py3.7-linux-x86_64.egg/netCDF4/__init__.py&#34;, line 3, in &lt;module&gt;
+    from ._netCDF4 import *
+  File &#34;netCDF4/_netCDF4.pyx&#34;, line 1111, in init netCDF4._netCDF4
+  File &#34;/HOME/nuist_chenq_2/WORKSPACE/xin/anaconda3/lib/python3.7/site-packages/cftime-1.0.3.4-py3.7-linux-x86_64.egg/cftime/__init__.py&#34;, line 1, in &lt;module&gt;
+    from ._cftime import utime, JulianDayFromDate, DateFromJulianDay
+ImportError: /HOME/nuist_chenq_2/WORKSPACE/xin/anaconda3/lib/python3.7/site-packages/cftime-1.0.3.4-py3.7-linux-x86_64.egg/cftime/_cftime.cpython-37m-x86_64-linux-gnu.so: undefined symbol: __intel_sse2_strchr
+</code></pre><p>The solution is found <a href="https://stackoverflow.com/questions/49524083/importing-any-module-in-cython-file-gives-undefined-symbol-error?noredirect=1&lq=1">here</a>:</p><blockquote><p>The problem was that I used the Intel compiler without running the Intel Python distribution, or otherwise providing the Intel runtime libraries.</p></blockquote><p>However, the <code>hdf5</code> installed by anaconda conflicts with <code>HDF5 1.8.21</code> when using <code>netCDF4</code>:</p><pre tabindex=0><code>Warning! ***HDF5 library version mismatched error***
+The HDF5 header files used to compile this application do not match
+the version used by the HDF5 library to which this application is linked.
+Data corruption or segmentation faults may occur if the application continues.
+This can happen when an application was compiled by one version of HDF5 but
+linked with a different version of static or shared HDF5 library.
+You should recompile the application or check your shared library related
+settings such as &#39;LD_LIBRARY_PATH&#39;.
+You can, at your own risk, disable this warning by setting the environment
+variable &#39;HDF5_DISABLE_VERSION_CHECK&#39; to a value of &#39;1&#39;.
+Setting it to 2 or higher will suppress the warning messages totally.
+Headers are 1.8.21, library is 1.10.2
+</code></pre><p>Since TH-2 has no Internet, I can&rsquo;t create a new environment!</p><p>So, I decided to install <code>miniconda</code> which doesn&rsquo;t have <code>hdf5</code> package and use <code>HDF5 1.8.21</code> directly.</p><p>After the installation of <code>miniconda</code>, <code>numpy, Cython, cftime and netCDF4</code> were uploaded and installed.</p><p>Now, all functions of <code>autowrfchem</code> works fine!</p><h3 id=run>Run</h3><p>The script <code>AutoWRFChem-R2SMH/BUILD/runwrf</code> reads variable <code>ntasks</code> for running wrf.exe by <code>usempi</code>.</p><p>However, the submitting script only has <code>cores</code> and <code>nodes</code>.</p><p>I need to convert <code>ntasks</code> to <code>cores</code> and <code>nodes</code> around line 156:</p><pre tabindex=0><code>elif $usempi; then
+    nodes=$(expr $ntasks / 24 ) 
+    runcmd=&#34;yhrun -n $ntasks -N $nodes -p work ./wrf.exe&#34;
+</code></pre><p>Then, create <code>run.sh</code> for running wrf.exe:</p><pre tabindex=0><code>#!/bin/bash
+export PATH=~/WORKSPACE/xin/miniconda3/bin:$PATH
+source activate base
+date
+source readlink.sh
+./autowrfchem run --ntasks=96 &gt; run.log
+date
+</code></pre><p>Submit job:</p><pre tabindex=0><code>$ yhbatch -n 96 -N 4 -p work ./run.sh
+</code></pre><h2 id=test>Test</h2><p>Here&rsquo;s the test of speed using different option (Just use less cores to test :)):</p><blockquote><p>Option_19: Linux x86_64 i486 i586 i686, ifort compiler with icc (dmpar)
+Option_24: Linux x86_64 i486 i586 i686, Xeon (SNB with AVX mods) ifort compiler with icc (dmpar)</p></blockquote><table><thead><tr><th>Platform</th><th>Optimization_level</th><th>fp-model</th><th>Speed (seconds/time step)</th><th>Cores</th></tr></thead><tbody><tr><td>19</td><td>O2</td><td>precise</td><td>~27</td><td>96</td></tr><tr><td>24</td><td>O1</td><td>fast=1</td><td>~22</td><td>96</td></tr><tr><td>24</td><td>O2</td><td>precise</td><td>~23.5</td><td>96</td></tr></tbody></table><p>If you want to speed up reading/writing, please check my another <a href=https://dreambooker.site/2018/12/02/Speedup-WRF-Chem/>article</a> and use <code>quilting</code>.</p><p>So, it&rsquo;s better to use the last one.</p></div><div class=row><div class=col-md-8><div class=mb-5><div class="li-x div-x post-meta"><li class=pr-0><a href=https://zxdawn.github.io/tags/><i class="fas fa-tags"></i></a></li><div class=tags-sm><li><a href=https://zxdawn.github.io/tags/wrf-chem role=button>WRF-Chem</a></li></div></div></div></div></div><div class="row pt-3"><div class=col-md-6><a href=https://zxdawn.github.io/2018/12/05/tricks-of-th-2-vpn/ class=post-meta>Previous<div class="pt-2 pb-5 d-flex"><i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+<span>Tricks of TH-2 VPN</span></div></a></div><div class="col-md-6 text-right"><a href=https://zxdawn.github.io/2019/01/23/egu2019-%E7%AD%BE%E8%AF%81visa%E7%AF%87/ class=post-meta>Next<div class="pt-2 pb-5 flex-reverse"><i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+<span>EGU2019 签证(VISA)篇</span></div></a></div></div></div></div><div class="col-md-2 pl-0"><div id=page-scrollspy class=toc-nav><ul class="nav nav-pills ml-0"><li class="nav-item pb-3 text-center"><span class="font-weight-bold mb-2">- CATALOG -</span></li><ul class=nav><li class=nav-item><a class=nav-link href=#backgroud>Backgroud</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#prerequisite>Prerequisite</a></li></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#hdf5>HDF5</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#netcdf-c>NetCDF-c</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#netcdf-fortran>NetCDF-fortran</a></li></ul></ul><ul class=nav><li class=nav-item><a class=nav-link href=#wrf-chem>WRF-Chem</a></li></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#configure-and-compile>Configure and compile</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#namelists>Namelists</a></li></ul></ul><ul class=nav><li class=nav-item><a class=nav-link href=#job>Job</a></li></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#prepinpt>prepinpt</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#switch-from-anaconda-to-miniconda>Switch from Anaconda to Miniconda</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#run>Run</a></li></ul></ul><ul class=nav><li class=nav-item><a class=nav-link href=#test>Test</a></li></ul></ul></div></div></div></main><footer class="page-footer text-center font-small mt-4 wow fadeIn"><div class="pb-2 mt-5 pt-5"><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div><div class="copyright py-4"><span>2016 - 2022 &copy; | Theme <a href=https://github.com/EliiseS/AllinOne target=_blank>AllinOne</a></span></div></footer><script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery-3.3.1.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/popper.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/holder.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors-extensions/bootstrap4/bootstrap.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/mdb/mdb.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/main.js></script>
+<script src=https://zxdawn.github.io/js/vendors/highlight.pack.js></script><script>hljs.initHighlightingOnLoad()</script><script type=text/javascript>(new WOW).init()</script></body></html>

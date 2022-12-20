@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>WRF-Chem on Dreambooker</title><link>https://zxdawn.github.io/tags/wrf-chem/</link><description>Recent content in WRF-Chem on Dreambooker</description><generator>Hugo -- gohugo.io</generator><language>zn-Hans</language><lastBuildDate>Wed, 02 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://zxdawn.github.io/tags/wrf-chem/index.xml" rel="self" type="application/rss+xml"/><item><title>Integrated Reaction Rates (Part3)</title><link>https://zxdawn.github.io/2020/12/02/integrated-reaction-rates-part3/</link><pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2020/12/02/integrated-reaction-rates-part3/</guid><description>Generate the yaml file of specific mechanism for PERMM</description></item><item><title>Integrated Reaction Rates (Part2)</title><link>https://zxdawn.github.io/2020/12/01/integrated-reaction-rates-part2/</link><pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2020/12/01/integrated-reaction-rates-part2/</guid><description>Aplication of PERMM for WRF-Chem</description></item><item><title>Integrated Reaction Rates (Part1)</title><link>https://zxdawn.github.io/2020/11/30/integrated-reaction-rates-part1/</link><pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2020/11/30/integrated-reaction-rates-part1/</guid><description>Useful tool: PERMM</description></item><item><title>Using the ERA5 O3 data in the WRF initial condition</title><link>https://zxdawn.github.io/2020/10/26/using-the-era5-o3-data-in-the-wrf-initial-condition/</link><pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2020/10/26/using-the-era5-o3-data-in-the-wrf-initial-condition/</guid><description>How to edit the WRF IC</description></item><item><title>Map MEIC to MOZCART</title><link>https://zxdawn.github.io/2020/03/10/map-meic-to-mozcart/</link><pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2020/03/10/map-meic-to-mozcart/</guid><description>How to map MEIC emission inventories to MOZART in WRF-Chem</description></item><item><title>Initializing the WRF model with ERA5 (pressure level)</title><link>https://zxdawn.github.io/2019/10/03/initializing-the-wrf-model-with-era5-pressure-level/</link><pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2019/10/03/initializing-the-wrf-model-with-era5-pressure-level/</guid><description>Downloading ERA5 pressure level data by Python and initialize WRF model</description></item><item><title>Installing libraries and automating WRF-Chem</title><link>https://zxdawn.github.io/2018/12/13/installing-libraries-and-automating-wrf-chem/</link><pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2018/12/13/installing-libraries-and-automating-wrf-chem/</guid><description>&lt;h2 id="backgroud">Backgroud&lt;/h2>
+&lt;p>NETCDF version (&lt;code>netcdf/4.5.0/02-CF-17-par&lt;/code>) on &lt;a href="https://en.wikipedia.org/wiki/Tianhe-2">TH-2&lt;/a> seems something wrong. This results in error when &lt;strong>NETCDF4&lt;/strong> of WRF-Chem enabled (NETCDF4=1). So, I decide to compile &lt;code>NETCDF&lt;/code> on my own.&lt;/p>
+&lt;h2 id="prerequisite">Prerequisite&lt;/h2>
+&lt;p>According to NetCDF&amp;rsquo;s &lt;a href="https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html">instruction &lt;/a>, we need &lt;a href="http://www.zlib.net/">zlib&lt;/a> and &lt;a href="https://www.hdfgroup.org/downloads/">hdf5&lt;/a> first. For zlib, I use the version &lt;code>zlib/1.2.11-icc17&lt;/code> originally compiled by TH-2.&lt;/p>
+&lt;h3 id="hdf5">HDF5&lt;/h3>
+&lt;p>The newest version is &lt;strong>1.10.4&lt;/strong>.&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ ./configure --prefix=/HOME/nuist_chenq_2/WORKSPACE/xin/software/hdf5-1.10.4 --enable-fortran --enable-static-exec
+&lt;/code>&lt;/pre>&lt;p>But, I got this error:&lt;/p></description></item><item><title>Speedup WRF-Chem</title><link>https://zxdawn.github.io/2018/12/02/speedup-wrf-chem/</link><pubDate>Sun, 02 Dec 2018 20:58:10 +0000</pubDate><guid>https://zxdawn.github.io/2018/12/02/speedup-wrf-chem/</guid><description>&lt;h2 id="background">Background&lt;/h2>
+&lt;p>This is my partial namelist of WRF-Chem:&lt;/p>
+&lt;pre tabindex="0">&lt;code>&amp;amp;time_control
+run_days = 147,
+&amp;amp;domains
+time_step = 72,
+time_step_fract_num = 0,
+time_step_fract_den = 1,
+max_dom = 1,
+e_we = 430,
+e_sn = 345,
+e_vert = 40,
+dx = 12000,
+dy = 12000,
+p_top_requested = 10000,
+&lt;/code>&lt;/pre>&lt;p>I used &lt;code>384&lt;/code> cores to run it and I found the speed of &lt;code>calculation&lt;/code> and &lt;code>writing&lt;/code> is &lt;strong>~5.45 seconds/step&lt;/strong>, &lt;strong>~54.5 s/wrfout_file&lt;/strong> and &lt;strong>~210 s/wrfrst_file&lt;/strong>. The terrible one is the speed of &lt;strong>I/O tasks&lt;/strong>.&lt;/p></description></item><item><title>Set decayed tracer for WRF</title><link>https://zxdawn.github.io/2018/07/31/set-decayed-tracer-for-wrf/</link><pubDate>Tue, 31 Jul 2018 10:09:31 +0000</pubDate><guid>https://zxdawn.github.io/2018/07/31/set-decayed-tracer-for-wrf/</guid><description>&lt;p>Because tracer_opt in WRF-Chem support more functions than WRF, we plan to clone and edit it for WRF (which is much quickier than WRF-Chem).&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Copy &lt;code>/chem/module_input_tracer_data.F&lt;/code> and &lt;code>chem/module_input_tracer.F&lt;/code> into &lt;code>/WRFV3/phys&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>After compile, I get an error about &lt;code>TRACER_TEST1 not found&lt;/code>. It&amp;rsquo;s related to &lt;code>module_state_description.F&lt;/code>&lt;/p>
+&lt;pre>&lt;code>module_state_description.F : ../Registry/$(REGISTRY)
+( cd .. ; tools/registry $(ARCHFLAGS) $(ENVCOMPDEFS) -DNEW_BDYS Registry/$(REGISTRY) ) ;
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Registry/Registry.EM_COMMON&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ol></description></item><item><title>Initializing the WRF model with ERA5</title><link>https://zxdawn.github.io/2018/04/20/initializing-the-wrf-model-with-era5/</link><pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2018/04/20/initializing-the-wrf-model-with-era5/</guid><description>&lt;h2 id="note">Note&lt;/h2>
+&lt;p>This is the tutorial of using WRF with &lt;strong>ERA5 model level&lt;/strong> (138 vertical levels) data.&lt;/p>
+&lt;p>If you prefer &lt;strong>pressure level&lt;/strong> (38 vertical levels), please check another &lt;a href="https://dreambooker.site/2019/10/03/Initializing-the-WRF-model-with-ERA5-pressure-level/">tutorial&lt;/a>.&lt;/p>
+&lt;p>I recommend the pressure level data, because the download speed is much faster.&lt;/p>
+&lt;p>If you don’t have cdsapi, please check this official &lt;a href="https://cds.climate.copernicus.eu/api-how-to">tutorial&lt;/a>.&lt;/p>
+&lt;h2 id="summarization">Summarization&lt;/h2>
+&lt;ol>
+&lt;li>Download&lt;/li>
+&lt;li>Preprocess&lt;/li>
+&lt;li>Automation&lt;/li>
+&lt;li>Geogrid&lt;/li>
+&lt;li>Ungrib&lt;/li>
+&lt;li>Produce additional intermediate files&lt;/li>
+&lt;li>Metgrid&lt;/li>
+&lt;/ol></description></item><item><title>BEHR_OMINO2 Guide for non_Berkeley</title><link>https://zxdawn.github.io/2018/03/11/behr_omino2-guide-for-non_berkeley/</link><pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2018/03/11/behr_omino2-guide-for-non_berkeley/</guid><description>&lt;h1 id="behr_omino2-guide-for-non_berkeley">BEHR_OMINO2 Guide for non_Berkeley&lt;/h1>
+&lt;h2 id="clone-behr_corehttpsgithubcomcohenberkeleylabbehr-coregit-and-other-repositories">Clone &lt;a href="https://github.com/CohenBerkeleyLab/BEHR-core.git">BEHR_Core&lt;/a> and other repositories&lt;/h2>
+&lt;pre tabindex="0">&lt;code>mkdir BEHR
+cd BEHR
+git clone https://github.com/CohenBerkeleyLab/BEHR-core.git
+cd BEHR-core
+./setup.sh # if you want to use develop branch, add --develop
+&lt;/code>&lt;/pre></description></item><item><title>Initializing the WRF model with ECMWF ERA-Interim reanalysis</title><link>https://zxdawn.github.io/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</link><pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</guid><description>&lt;h2 id="summarization">Summarization&lt;/h2>
+&lt;blockquote>
+&lt;p>To summarise, you need three separate data files from the reanalysis data:&lt;/p>
+&lt;ol>
+&lt;li>Pressure level data (or model levels)&lt;/li>
+&lt;li>Surface variable data&lt;/li>
+&lt;li>Fixed data.&lt;/li>
+&lt;/ol>
+&lt;/blockquote></description></item><item><title>WRF-Chem (MOZCART) and WRF_tips</title><link>https://zxdawn.github.io/2017/12/10/wrf-chem-mozcart-and-wrf_tips/</link><pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2017/12/10/wrf-chem-mozcart-and-wrf_tips/</guid><description>&lt;h2 id="wps">WPS&lt;/h2>
+&lt;h3 id="namelist">namelist&lt;/h3>
+&lt;h4 id="i_parent_start-and-j_parent_start">i_parent_start and j_parent_start&lt;/h4></description></item><item><title>How to compile WRF-Chem</title><link>https://zxdawn.github.io/2017/10/02/how-to-compile-wrf-chem/</link><pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2017/10/02/how-to-compile-wrf-chem/</guid><description>&lt;p>&lt;strong>This is the basic one about WRF-Chem. You can check &lt;a href="https://dreambooker.site/2018/12/07/Installing-libraries-and-automating-WRF-Chem/">this one&lt;/a> for more information.&lt;/strong>&lt;/p>
+&lt;h1 id="requirements">Requirements&lt;/h1>
+&lt;h2 id="flex253">flex(2.5.3)&lt;/h2></description></item></channel></rss>

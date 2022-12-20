@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Dreambooker</title><link>https://zxdawn.github.io/tags/linux/</link><description>Recent content in Linux on Dreambooker</description><generator>Hugo -- gohugo.io</generator><language>zn-Hans</language><lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://zxdawn.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting up my Elementary OS</title><link>https://zxdawn.github.io/2020/12/04/setting-up-my-elementary-os/</link><pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2020/12/04/setting-up-my-elementary-os/</guid><description>Enjoy the beautiful Linux system: Elementary OS</description></item><item><title>Run sublimetext in WSL</title><link>https://zxdawn.github.io/2020/03/24/run-sublimetext-in-wsl/</link><pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2020/03/24/run-sublimetext-in-wsl/</guid><description>Enjoy sublime text in WSL</description></item><item><title>X11 forwarding Chrome of internal PC</title><link>https://zxdawn.github.io/2020/03/11/x11-forwarding-chrome-of-internal-pc/</link><pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2020/03/11/x11-forwarding-chrome-of-internal-pc/</guid><description>Access the internal resource by proxy</description></item><item><title>Tricks of TH-2 VPN</title><link>https://zxdawn.github.io/2018/12/05/tricks-of-th-2-vpn/</link><pubDate>Wed, 05 Dec 2018 13:22:09 +0000</pubDate><guid>https://zxdawn.github.io/2018/12/05/tricks-of-th-2-vpn/</guid><description>&lt;h2 id="install-vpnc">Install vpnc&lt;/h2>
+&lt;h3 id="link">Link&lt;/h3>
+&lt;p>&lt;a href="https://pkgs.org/download/vpnc">https://pkgs.org/download/vpnc&lt;/a>&lt;/p>
+&lt;h3 id="edit-vpnc-config-file">Edit vpnc config file&lt;/h3>
+&lt;p>&lt;code>/etc/vpnc/default.conf&lt;/code>&lt;/p>
+&lt;pre tabindex="0">&lt;code>IPSec gateway vpn2.nscc-gz.cn
+IPSec ID VPN
+IPSec secret gzcszx@123
+#IKE Authmode hybrid
+Xauth username vpn_username
+Xauth password vpn_password
+&lt;/code>&lt;/pre></description></item><item><title>Send e-mail when file modified</title><link>https://zxdawn.github.io/2018/11/18/send-e-mail-when-file-modified/</link><pubDate>Sun, 18 Nov 2018 22:00:48 +0000</pubDate><guid>https://zxdawn.github.io/2018/11/18/send-e-mail-when-file-modified/</guid><description>&lt;h2 id="mailx">mailx&lt;/h2>
+&lt;p>Download &lt;code>mailx&lt;/code> (&lt;a href="https://software.opensuse.org/package/mailx">openSUSE&lt;/a> is the distribution of my server) and install it.&lt;/p>
+&lt;pre tabindex="0">&lt;code>$ make PREFIX=/public/home/zhangxin/softwares/mailx SYSCONFDIR=/public/home/zhangxin/softwares/mailx/etc
+$ make install UCBINSTALL=/usr/bin/install PREFIX=/public/home/zhangxin/softwares/mailx SYSCONFDIR=/public/home/zhangxin/softwares/mailx/etc
+&lt;/code>&lt;/pre>&lt;p>Get your authorization code and edit &lt;code>mailx/etc/nail.rc&lt;/code>&lt;/p>
+&lt;pre tabindex="0">&lt;code>set from=&amp;#34;363910399@qq.com&amp;#34;
+set smtp=smtp.qq.com
+set smtp-auth-user=&amp;#34;363910399@qq.com&amp;#34;
+set smtp-auth-password=&amp;#34;authorization_code&amp;#34;
+set smtp-auth=login
+&lt;/code>&lt;/pre></description></item><item><title>Create RAID 5</title><link>https://zxdawn.github.io/2018/09/10/create-raid-5/</link><pubDate>Mon, 10 Sep 2018 09:25:21 +0000</pubDate><guid>https://zxdawn.github.io/2018/09/10/create-raid-5/</guid><description>&lt;p>Reference: &lt;a href="https://www.tecmint.com/create-raid-5-in-linux/">https://www.tecmint.com/create-raid-5-in-linux/&lt;/a>&lt;/p>
+&lt;h2 id="install-mdadm-and-verify-drives">Install mdadm and verify drives&lt;/h2>
+&lt;p>&lt;code>yum install mdadm&lt;/code>&lt;/p>
+&lt;p>&lt;code>mdadm -E /dev/sd[b-h]&lt;/code>&lt;/p>
+&lt;pre tabindex="0">&lt;code>mdadm: No md superblock detected on /dev/sdc.
+mdadm: No md superblock detected on /dev/sdb.
+mdadm: No md superblock detected on /dev/sdd.
+mdadm: No md superblock detected on /dev/sde.
+mdadm: No md superblock detected on /dev/sdf.
+mdadm: No md superblock detected on /dev/sdg.
+mdadm: No md superblock detected on /dev/sdh.
+&lt;/code>&lt;/pre>&lt;h2 id="partitioning-the-disks-for-raid">Partitioning the Disks for RAID&lt;/h2>
+&lt;p>&lt;strong>Actually this is optional. If you want to partition first, you should make sure you&amp;rsquo;re using gpt or others which support larger than 2T.&lt;/strong>&lt;/p>
+&lt;h5 id="create-devsdb-partition">Create /dev/sdb Partition&lt;/h5>
+&lt;p>Please follow the below instructions to create partition on &lt;strong>/dev/sdb&lt;/strong> drive.&lt;/p>
+&lt;p>&lt;code>fdisk /dev/sdb&lt;/code>&lt;/p></description></item><item><title>Mount ntfs and start nfs</title><link>https://zxdawn.github.io/2018/09/04/mount-ntfs-and-start-nfs/</link><pubDate>Tue, 04 Sep 2018 15:01:00 +0000</pubDate><guid>https://zxdawn.github.io/2018/09/04/mount-ntfs-and-start-nfs/</guid><description>&lt;h2 id="mount-and-start-nfs">Mount and start NFS&lt;/h2>
+&lt;p>If the type of disk is ntfs, you need to install &lt;code>ntfs-3g&lt;/code>.&lt;/p>
+&lt;pre tabindex="0">&lt;code>mount -t ntfs-3g /dev/??? /new_dir
+#start the nfs server service.
+service nfsserver start
+&lt;/code>&lt;/pre>&lt;h2 id="exporting-directories-on-the-server">Exporting Directories on the Server&lt;/h2></description></item><item><title>The cycle of download and move</title><link>https://zxdawn.github.io/2018/07/11/the-cycle-of-download-and-move/</link><pubDate>Wed, 11 Jul 2018 09:27:50 +0000</pubDate><guid>https://zxdawn.github.io/2018/07/11/the-cycle-of-download-and-move/</guid><description>Download files on node_1 and move all of them to node_2 at intervals.</description></item><item><title>Install git and oh-my-zsh without root</title><link>https://zxdawn.github.io/2018/06/28/install-git-and-oh-my-zsh-without-root/</link><pubDate>Thu, 28 Jun 2018 11:57:14 +0000</pubDate><guid>https://zxdawn.github.io/2018/06/28/install-git-and-oh-my-zsh-without-root/</guid><description>&lt;h1 id="git">Git&lt;/h1>
+&lt;p>Check &lt;code>Installing from Source&lt;/code> part of the &lt;a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">guide&lt;/a>.&lt;/p>
+&lt;p>What I do is a little different from it:&lt;/p>
+&lt;h2 id="curl">Curl&lt;/h2>
+&lt;p>Since &lt;code>git&lt;/code> depend on &lt;code>curl&lt;/code>, I installed &lt;code>curl&lt;/code> from source according to this &lt;a href="https://curl.haxx.se/docs/install.html">guide&lt;/a>.&lt;/p>
+&lt;h2 id="git-1">Git&lt;/h2>
+&lt;pre tabindex="0">&lt;code># Download git and uncompress
+$ tar -zxf git-2.18.0.tar.gz
+$ cd git-2.18.0
+$ make configure
+# Define CURLDIR=/public/home/zhangxin/softwares/curl if your curl header and library files are # in /public/home/zhangxin/softwares/curl/include and /public/home/zhangxin/softwares/curl/lib # directories.
+$ ./configure CURLDIR=/public/home/zhangxin/softwares/curl --prefix=/public/home/zhangxin/softwares/git
+# Since we don&amp;#39;t need docs actually, just &amp;#39;make&amp;#39;.
+$ make CURLDIR=/public/home/zhangxin/softwares/curl
+$ make install CURLDIR=/public/home/zhangxin/softwares/curl
+&lt;/code>&lt;/pre></description></item><item><title>Enable auto-login and auto-networking in Debian 9</title><link>https://zxdawn.github.io/2018/06/15/enable-auto-login-and-auto-networking-in-debian-9/</link><pubDate>Fri, 15 Jun 2018 10:42:48 +0000</pubDate><guid>https://zxdawn.github.io/2018/06/15/enable-auto-login-and-auto-networking-in-debian-9/</guid><description>&lt;h1 id="auto-login">Auto-login&lt;/h1>
+&lt;p>&lt;code>sudo nano /usr/share/lightdm/lightdm.conf.d/01_debian.conf&lt;/code>&lt;/p>
+&lt;p>Add these lines below&lt;/p>
+&lt;pre tabindex="0">&lt;code>[SeatDefaults]
+autologin-user=username
+autologin-user-timeout=0
+&lt;/code>&lt;/pre>&lt;h1 id="auto-networking">Auto-networking&lt;/h1>
+&lt;h2 id="python-script">Python script&lt;/h2>
+&lt;p>This is the example (&lt;a href="https://blog.csdn.net/shenhuaifeng/article/details/78333851">python实现校园网自动登录&lt;/a>):&lt;/p></description></item><item><title>Running Win10 Debian Zsh in Cmder</title><link>https://zxdawn.github.io/2018/05/05/running-win10-debian-zsh-in-cmder/</link><pubDate>Sat, 05 May 2018 15:21:53 +0000</pubDate><guid>https://zxdawn.github.io/2018/05/05/running-win10-debian-zsh-in-cmder/</guid><description>&lt;h1 id="references">References&lt;/h1>
+&lt;p>&lt;a href="https://gingter.org/2016/11/16/running-windows-10-ubuntu-bash-in-cmder/">Running Windows 10 Ubuntu Bash in Cmder&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/">How to Install and Use the Linux Bash Shell on Windows 10&lt;/a>&lt;/p>
+&lt;h1 id="prerequisites">Prerequisites&lt;/h1>
+&lt;ol>
+&lt;li>
+&lt;p>Bash on Debian on Windows enabled&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Cmder.&lt;/p>
+&lt;p>If you don’t have that, you can simply follow these instructions:&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>&lt;a href="https://msdn.microsoft.com/de-de/commandline/wsl/install_guide">Install Bash On Ubuntu on Windows&lt;/a> (the same way to install Debian)&lt;/p>
+&lt;p>Download and unzip &lt;a href="http://cmder.net/">Cmder&lt;/a> to a convenient place on your disk. Then start &lt;em>Cmder.exe&lt;/em>.&lt;/p>
+&lt;p>&lt;a href="https://gingter.org/2016/08/17/install-and-run-zsh-on-windows/">Install (Oh-my-) Zsh on Bash on Ubuntu on Windows&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h1 id="set-up-zsh-in-cmder">Set up Zsh in Cmder&lt;/h1></description></item><item><title>ssh内网穿透</title><link>https://zxdawn.github.io/2018/04/29/ssh%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link><pubDate>Sun, 29 Apr 2018 21:20:50 +0000</pubDate><guid>https://zxdawn.github.io/2018/04/29/ssh%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid><description>&lt;p>机房电脑，通过远程端口映射，使得VPS：2222 映射到机房电脑：22：&lt;/p>
+&lt;pre tabindex="0">&lt;code>ssh -N -f -R 2222:127.0.0.1:22 root@vpsIP
+&lt;/code>&lt;/pre>&lt;p>VPS则可以ssh到机房电脑:&lt;/p>
+&lt;pre tabindex="0">&lt;code>ssh -p 2222 username@localhost
+&lt;/code>&lt;/pre>&lt;p>用ssh代理来浏览内网:&lt;/p>
+&lt;p>在校外电脑上，通过本地端口映射，使得校外电脑：2222 映射到VPS: 2222&lt;/p>
+&lt;pre tabindex="0">&lt;code>ssh -N -f -L 2222:127.0.0.1:2222 root@vpsIP
+&lt;/code>&lt;/pre></description></item><item><title>How to compile WRF-Chem</title><link>https://zxdawn.github.io/2017/10/02/how-to-compile-wrf-chem/</link><pubDate>Mon, 02 Oct 2017 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2017/10/02/how-to-compile-wrf-chem/</guid><description>&lt;p>&lt;strong>This is the basic one about WRF-Chem. You can check &lt;a href="https://dreambooker.site/2018/12/07/Installing-libraries-and-automating-WRF-Chem/">this one&lt;/a> for more information.&lt;/strong>&lt;/p>
+&lt;h1 id="requirements">Requirements&lt;/h1>
+&lt;h2 id="flex253">flex(2.5.3)&lt;/h2></description></item></channel></rss>

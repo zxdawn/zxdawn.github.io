@@ -1,0 +1,123 @@
+<!doctype html><html lang=zn-hans><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=1"><meta name=author content="Xin Zhang"><meta name=description content="This is the basic one about WRF-Chem. You can check this one for more information.
+Requirements
+flex(2.5.3)"><meta property="og:title" content="How to compile WRF-Chem"><meta property="og:description" content="This is the basic one about WRF-Chem. You can check this one for more information.
+Requirements
+flex(2.5.3)"><meta property="og:type" content="article"><meta property="og:url" content="https://zxdawn.github.io/2017/10/02/how-to-compile-wrf-chem/"><meta property="article:section" content="sci-tech"><meta property="article:published_time" content="2017-10-02T00:00:00+00:00"><meta property="article:modified_time" content="2017-10-02T00:00:00+00:00"><title>How to compile WRF-Chem | Dreambooker</title><link rel=canonical href=https://zxdawn.github.io/2017/10/02/how-to-compile-wrf-chem/><link href=https://zxdawn.github.io/vendors/fontawesome-free-5.14.0-web/css/all.min.css rel=stylesheet><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600"><link href=https://zxdawn.github.io/css/font.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/bootstrap4/bootstrap.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors-extensions/mdb/mdb.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/mdb/style.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/main.css rel=stylesheet><link rel="shortcut icon" href=https://zxdawn.github.io/img/logo.jpg><style type=text/css>@media(min-width:800px) and (max-width:850px){.navbar:not(.top-nav-collapse){background:#1c2331!important}}</style><link rel=stylesheet href=https://zxdawn.github.io/css/vendors/highlight/github-gist.css></head><body class=bg-light data-spy=scroll data-target=#page-scrollspy data-offset=90><nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class=container><a class=navbar-brand href=https://zxdawn.github.io><img class=avatar src=https://zxdawn.github.io/img/logo.jpg style=width:40px!important;height:auto class="d-inline-block align-top" alt>
+<strong>Xin Zhang</strong></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav mr-auto"><li class=nav-item><a class=nav-link href=https://zxdawn.github.io>Home</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/sci-tech/>Sci-Tech</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/essay/>Essay</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/about/>About</a></li></ul></div></div></nav><div id=site-header class="carousel slide carousel-fade" data-ride=carousel style=height:18rem><div class=carousel-inner role=listbox><div class="carousel-item active"><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides/0.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//1.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//2.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//3.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//4.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div></div><div class="carousel-content text-center white-text wow fadeIn"><div class="row mx-0 headfont mt-3 pt-4"><div class="col-12 col-sm-5 align-middle"><a href=https://zxdawn.github.io><img class="pull-right avatar avatar-md" src=https://zxdawn.github.io/img/me.jpg alt></a></div><div class="col-12 col-sm-7 text-left pl-2"><a href=https://zxdawn.github.io><h1 class="mb-2 h1" style=font-weight:300><strong>Dreambooker</strong></h1></a><div class=mt-2 style=font-size:1rem;color:#fff><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div></div></div></div></div><main class=post-main-wrapper><div class=row><div class=col-md-10><div class="z-depth-1 post-wrapper white-bg single-post dont-break-out"><div class="post-header text-center"><ul class="post-meta li-x"><li><a href=https://zxdawn.github.io/categories/sci-tech><i class="fas fa-folder-open pr-1" aria-hidden=true></i> sci-tech</a></li></ul><div class="px-4 post-heading">How to compile WRF-Chem</div><ul class="post-meta li-x mt-1"><li>Oct 2, 2017</li><li class=middot></li><li>2 minute read</li></ul><div class=view><img src=https://zxdawn.github.io/images/sci-tech/2017-10/wrfchem_logo.png></div></div><div class="post-content markdown"><p><strong>This is the basic one about WRF-Chem. You can check <a href=https://dreambooker.site/2018/12/07/Installing-libraries-and-automating-WRF-Chem/>this one</a> for more information.</strong></p><h1 id=requirements>Requirements</h1><h2 id=flex253>flex(2.5.3)</h2><pre tabindex=0><code>$ cd flex_directory
+$ wget http://www.ncl.ucar.edu/Download/files/flex.tar.gz
+$ tar -xzf flex.tar.gz
+$ cd flex-2.5.3
+$ ./configure --prefix=flex_directory
+$ make
+$ make install
+</code></pre><h2 id=byacc>byacc</h2><pre tabindex=0><code>$ wget https://invisible-island.net/datafiles/release/byacc.tar.gz
+$ tar -xzvf byacc.tar.gz
+$ ./configure --prefix=&lt;byacc_dir&gt;
+$ make
+$ make install
+</code></pre><h1 id=environment-variables>Environment Variables</h1><pre tabindex=0><code>$ vi ~/.bashrc
+</code></pre><pre tabindex=0><code>#for chem
+
+export WRF_CHEM=1
+export WRF_KPP=1
+export PATH=&lt;yacc_dir&gt;:$PATH
+export PATH=&lt;flex_dir&gt;/bin:$PATH
+export YACC=&#39;&lt;yacc_dir&gt;/yacc -d&#39;
+export FLEX=&lt;flex_dir&gt;/bin/flex
+export FLEX_LIB_DIR=&lt;flex_dir&gt;/lib
+source ~/.bash_profile
+</code></pre><h1 id=wrf-chem>WRF-Chem</h1><h2 id=fix-bug>Fix bug</h2><pre tabindex=0><code>In line 82 of chem/KPP/kpp/kpp-2.1/src/Makefile, change 
+	@$(YACC) scan.y
+to 
+	@$(YACC) -d scan.y
+Deleting -ll link:
+Open file chem/KPP/kpp/kpp-2.1/src/Makefile
+delete all (there are two) entrances of -ll there.
+</code></pre><p>There&rsquo;re two issues in module_lightning_driver in the phys/ directory (as mentioned in <a href="https://groups.google.com/a/ucar.edu/forum/?hl=en#!forum/wrf-chem-lightning">wrf-chem lightning forum</a>):</p><blockquote><ol><li>in subroutine lightning_driver, the following line (in my version on line 310):</li></ol><p>IF ( MOD((itimestep * dt - lightning_start_seconds), lightning_dt ) .ne. 0 ) RETURN
+will exit the subroutine if lightning_start_seconds is a multiple of lightning_dt (in the default case where lightning_dt is set to the model time step).</p><ol start=2><li>line 474:</li></ol><p>WRITE(message, * ) &rsquo; lightning_driver: using user-prescribed IC:CG ratio = &lsquo;, iccg_prescribed_num, iccg_prescribed_den
+results in an error because only one variable can be added to the string. Changing this to:
+WRITE(message, * ) &rsquo; lightning_driver: using user-prescribed IC:CG ratio = &lsquo;, iccg_prescribed_num / iccg_prescribed_den
+resolves the issue.</p></blockquote><h2 id=compile>Compile</h2><pre tabindex=0><code>$ cd WRFV3/
+$ ./configure
+(dmpar)   INTEL (ifort/icc)
+basic
+$ vi configure.wrf
+$ ./compile em_real &gt;&amp; compile.log &amp;
+</code></pre><h1 id=wps>WPS</h1><pre tabindex=0><code>$ ./configure
+intel (dmpar)
+./compile &gt; compile.log &amp;
+</code></pre><h1 id=ps>PS:</h1><h2 id=my-environment-variables>My environment variables:</h2><h3 id=hpc-nuist>hpc nuist</h3><pre tabindex=0><code>module unload intel
+module load intel/16.0.1 hdf5 netcdf jasper zlib libpng grib_api ncview ncl openmpi
+
+#for chem
+export WRF_CHEM=1
+export WRF_KPP=1
+export PATH=my_work_path/model/yacc/byacc-20170709:$PATH
+export PATH=my_work_path/model/flex/flex-2.5.3/bin:$PATH
+export YACC=&#39;my_work_path/model/yacc/byacc-20170709/yacc -d&#39;
+export FLEX=my_work_path/model/flex/flex-2.5.3/bin/flex
+export FLEX_LIB_DIR=my_work_path/model/flex/flex-2.5.3/lib
+
+# added by Anaconda3 4.4.0 installer
+#export PATH=&#34;my_home_path/anaconda3/bin:$PATH&#34;
+
+# hdfview
+#export PATH=my_work_path/softwares/hdfview/HDFView-3.0.0-Linux/HDFView/3.0.0:$PATH
+</code></pre><h3 id=dqwl>dqwl</h3><pre tabindex=0><code>## intel
+export OPENMPLIB=/public/software/compiler/composer_xe_2013_sp1.0.080/compiler/lib/intel64
+
+## netcdf and hdf5
+software=/public/home/zhangxin/softwares
+export HDF5=${software}/hdf5-1.8.21
+export NETCDF=${software}/netcdf-4.6.2
+export PATH=&#34;${HDF5}/bin:${NETCDF}/bin:${PATH}&#34;
+export LD_LIBRARY_PATH=&#34;${HDF5}/lib:${NETCDF}/lib:${LD_LIBRARY_PATH}&#34;
+
+## jasper
+export JASPER=/public/software/mathlib/jasper
+export JASPERINC=${JASPER}/include
+export JASPERLIB=${JASPER}/lib
+
+export PATH=${JASPER}/bin:$PATH
+export LD_LIBRARY_PATH=${JASPER}/lib:$LD_LIBRARY_PATH
+export LIBRARY_PATH=${JASPER}/lib:$LIBRARY_PATH
+
+## WRF-Chem
+((EM_CORE=WRF_EM_CORE=WRF_CHEM=WRF_KPP=1))
+((NMM_CORE=WRF_NMM_CORE=0))
+export EM_CORE WRF_EM_CORE WRF_CHEM WRF_KPP
+export NMM_CORE WRF_NMM_CORE
+
+export WRFIO_NCD_LARGE_FILE_SUPPORT=1
+
+export PATH=${software}/byacc-20170709/bin:$PATH
+export PATH=${software}/flex-2.5.3/bin:$PATH
+export YACC=&#34;${software}/byacc-20170709/yacc -d&#34;
+export FLEX=${software}/flex-2.5.3/bin/flex
+export FLEX_LIB_DIR=${software}/flex-2.5.3/lib
+
+
+#hdfview
+export PATH=${software}/HDFView/3.0.0:$PATH
+export PATH=${software}/HDFView/3.0.0/slf4j-1.7.25:$PATH
+
+#ncview
+export PATH=/public/software/mathlib/ncview-2.1.5/bin:$PATH
+</code></pre></div><div class=row><div class=col-md-8><div class=mb-5><div class="li-x div-x post-meta"><li class=pr-0><a href=https://zxdawn.github.io/tags/><i class="fas fa-tags"></i></a></li><div class=tags-sm><li><a href=https://zxdawn.github.io/tags/wrf-chem role=button>WRF-Chem</a></li><li><a href=https://zxdawn.github.io/tags/linux role=button>Linux</a></li></div></div></div></div></div><div class="row pt-3"><div class=col-md-6><a href=https://zxdawn.github.io/2017/10/02/how-to-set-up-hexo/ class=post-meta>Previous<div class="pt-2 pb-5 d-flex"><i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+<span>How to set up Hexo</span></div></a></div><div class="col-md-6 text-right"><a href=https://zxdawn.github.io/2017/12/10/wrf-chem-mozcart-and-wrf_tips/ class=post-meta>Next<div class="pt-2 pb-5 flex-reverse"><i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+<span>WRF-Chem (MOZCART) and WRF_tips</span></div></a></div></div></div></div><div class="col-md-2 pl-0"><div id=page-scrollspy class=toc-nav><ul class="nav nav-pills ml-0"><li class="nav-item pb-3 text-center"><span class="font-weight-bold mb-2">- CATALOG -</span></li><ul class=nav><li class=nav-item><a class=nav-link href=#requirements>Requirements</a></li></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#flex253>flex(2.5.3)</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#byacc>byacc</a></li></ul></ul><ul class=nav><li class=nav-item><a class=nav-link href=#environment-variables>Environment Variables</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#wrf-chem>WRF-Chem</a></li></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#fix-bug>Fix bug</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#compile>Compile</a></li></ul></ul><ul class=nav><li class=nav-item><a class=nav-link href=#wps>WPS</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#ps>PS:</a></li></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#my-environment-variables>My environment variables:</a></li></ul></ul><ul class=nav><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#hpc-nuist>hpc nuist</a></li></ul></ul></ul><ul class=nav><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#dqwl>dqwl</a></li></ul></ul></ul></ul></div></div></div></main><footer class="page-footer text-center font-small mt-4 wow fadeIn"><div class="pb-2 mt-5 pt-5"><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div><div class="copyright py-4"><span>2016 - 2022 &copy; | Theme <a href=https://github.com/EliiseS/AllinOne target=_blank>AllinOne</a></span></div></footer><script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery-3.3.1.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/popper.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/holder.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors-extensions/bootstrap4/bootstrap.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/mdb/mdb.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/main.js></script>
+<script src=https://zxdawn.github.io/js/vendors/highlight.pack.js></script><script>hljs.initHighlightingOnLoad()</script><script type=text/javascript>(new WOW).init()</script></body></html>

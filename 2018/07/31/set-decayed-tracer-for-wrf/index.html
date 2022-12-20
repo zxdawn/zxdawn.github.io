@@ -1,0 +1,102 @@
+<!doctype html><html lang=zn-hans><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=1"><meta name=author content="Xin Zhang"><meta name=description content="Because tracer_opt in WRF-Chem support more functions than WRF, we plan to clone and edit it for WRF (which is much quickier than WRF-Chem).
+
+
+Copy /chem/module_input_tracer_data.F and chem/module_input_tracer.F into /WRFV3/phys.
+
+
+After compile, I get an error about TRACER_TEST1 not found. It&rsquo;s related to module_state_description.F
+module_state_description.F : ../Registry/$(REGISTRY)
+                  ( cd .. ; tools/registry $(ARCHFLAGS) $(ENVCOMPDEFS) -DNEW_BDYS Registry/$(REGISTRY) ) ; 
+
+
+
+Registry/Registry.EM_COMMON
+
+"><meta property="og:title" content="Set decayed tracer for WRF"><meta property="og:description" content="Because tracer_opt in WRF-Chem support more functions than WRF, we plan to clone and edit it for WRF (which is much quickier than WRF-Chem).
+
+
+Copy /chem/module_input_tracer_data.F and chem/module_input_tracer.F into /WRFV3/phys.
+
+
+After compile, I get an error about TRACER_TEST1 not found. It&rsquo;s related to module_state_description.F
+module_state_description.F : ../Registry/$(REGISTRY)
+                  ( cd .. ; tools/registry $(ARCHFLAGS) $(ENVCOMPDEFS) -DNEW_BDYS Registry/$(REGISTRY) ) ; 
+
+
+
+Registry/Registry.EM_COMMON
+
+"><meta property="og:type" content="article"><meta property="og:url" content="https://zxdawn.github.io/2018/07/31/set-decayed-tracer-for-wrf/"><meta property="article:section" content="sci-tech"><meta property="article:published_time" content="2018-07-31T10:09:31+00:00"><meta property="article:modified_time" content="2018-07-31T10:09:31+00:00"><title>Set decayed tracer for WRF | Dreambooker</title><link rel=canonical href=https://zxdawn.github.io/2018/07/31/set-decayed-tracer-for-wrf/><link href=https://zxdawn.github.io/vendors/fontawesome-free-5.14.0-web/css/all.min.css rel=stylesheet><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600"><link href=https://zxdawn.github.io/css/font.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/bootstrap4/bootstrap.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors-extensions/mdb/mdb.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/mdb/style.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/main.css rel=stylesheet><link rel="shortcut icon" href=https://zxdawn.github.io/img/logo.jpg><style type=text/css>@media(min-width:800px) and (max-width:850px){.navbar:not(.top-nav-collapse){background:#1c2331!important}}</style><link rel=stylesheet href=https://zxdawn.github.io/css/vendors/highlight/github-gist.css></head><body class=bg-light data-spy=scroll data-target=#page-scrollspy data-offset=90><nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class=container><a class=navbar-brand href=https://zxdawn.github.io><img class=avatar src=https://zxdawn.github.io/img/logo.jpg style=width:40px!important;height:auto class="d-inline-block align-top" alt>
+<strong>Xin Zhang</strong></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav mr-auto"><li class=nav-item><a class=nav-link href=https://zxdawn.github.io>Home</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/sci-tech/>Sci-Tech</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/essay/>Essay</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/about/>About</a></li></ul></div></div></nav><div id=site-header class="carousel slide carousel-fade" data-ride=carousel style=height:18rem><div class=carousel-inner role=listbox><div class="carousel-item active"><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides/0.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//1.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//2.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//3.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//4.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div></div><div class="carousel-content text-center white-text wow fadeIn"><div class="row mx-0 headfont mt-3 pt-4"><div class="col-12 col-sm-5 align-middle"><a href=https://zxdawn.github.io><img class="pull-right avatar avatar-md" src=https://zxdawn.github.io/img/me.jpg alt></a></div><div class="col-12 col-sm-7 text-left pl-2"><a href=https://zxdawn.github.io><h1 class="mb-2 h1" style=font-weight:300><strong>Dreambooker</strong></h1></a><div class=mt-2 style=font-size:1rem;color:#fff><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div></div></div></div></div><main class=post-main-wrapper><div class=row><div class=col-md-10><div class="z-depth-1 post-wrapper white-bg single-post dont-break-out"><div class="post-header text-center"><ul class="post-meta li-x"><li><a href=https://zxdawn.github.io/categories/sci-tech><i class="fas fa-folder-open pr-1" aria-hidden=true></i> sci-tech</a></li></ul><div class="px-4 post-heading">Set decayed tracer for WRF</div><ul class="post-meta li-x mt-1"><li>Jul 31, 2018</li><li class=middot></li><li>3 minute read</li></ul><div class=view><img src=https://zxdawn.github.io/images/sci-tech/2017-10/wrfchem_logo.png></div></div><div class="post-content markdown"><p>Because tracer_opt in WRF-Chem support more functions than WRF, we plan to clone and edit it for WRF (which is much quickier than WRF-Chem).</p><ol><li><p>Copy <code>/chem/module_input_tracer_data.F</code> and <code>chem/module_input_tracer.F</code> into <code>/WRFV3/phys</code>.</p></li><li><p>After compile, I get an error about <code>TRACER_TEST1 not found</code>. It&rsquo;s related to <code>module_state_description.F</code></p><pre><code>module_state_description.F : ../Registry/$(REGISTRY)
+                  ( cd .. ; tools/registry $(ARCHFLAGS) $(ENVCOMPDEFS) -DNEW_BDYS Registry/$(REGISTRY) ) ; 
+</code></pre></li><li><p><code>Registry/Registry.EM_COMMON</code></p></li></ol><pre tabindex=0><code>  # Lines that start with the word &#39;state&#39; form a table that is
+  # used by the script use_registry to generate module_state_descript.F
+  # and other files.  Also see documentation in use_registry.
+</code></pre><ol start=4><li>Add these lines to <code>Registry/Registry.EM_COMMON</code>:</li></ol><pre tabindex=0><code># Copy WRF-Chem tracers options
+state   real    -          ikjftb  tracer        1         -     -     -
+state   real    smoke      ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;smoke&#34;         &#34;tracing smoke&#34;     &#34;Dimensionless&#34;
+state   real    tr17_1     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr17_1&#34;         &#34;tr17_1&#34;     &#34;Dimensionless&#34;
+state   real    tr17_2     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr17_2&#34;         &#34;tr17_2&#34;     &#34;Dimensionless&#34;
+state   real    tr17_3     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr17_3&#34;         &#34;tr17_3&#34;     &#34;Dimensionless&#34;
+state   real    tr17_4     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr17_4&#34;         &#34;tr17_4&#34;     &#34;Dimensionless&#34;
+state   real    tr17_5     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr17_5&#34;         &#34;tr17_5&#34;     &#34;Dimensionless&#34;
+state   real    tr17_6     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr17_6&#34;         &#34;tr17_6&#34;     &#34;Dimensionless&#34;
+state   real    tr17_7     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr17_7&#34;         &#34;tr17_7&#34;     &#34;Dimensionless&#34;
+state   real    tr17_8     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr17_8&#34;         &#34;tr17_8&#34;     &#34;Dimensionless&#34;
+state   real    tr18_0     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr18_0&#34;         &#34;tr18_0&#34;     &#34;Dimensionless&#34;
+state   real    tr18_1     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr18_1&#34;         &#34;tr18_1&#34;     &#34;Dimensionless&#34;
+state   real    tr18_2     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr18_2&#34;         &#34;tr18_2&#34;     &#34;Dimensionless&#34;
+state   real    tr18_3     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr18_3&#34;         &#34;tr18_3&#34;     &#34;Dimensionless&#34;
+state   real    tr18_4     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr18_4&#34;         &#34;tr18_4&#34;     &#34;Dimensionless&#34;
+state   real    tr18_5     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr18_5&#34;         &#34;tr18_5&#34;     &#34;Dimensionless&#34;
+state   real    tr18_6     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr18_6&#34;         &#34;tr18_6&#34;     &#34;Dimensionless&#34;
+state   real    tr18_7     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr18_7&#34;         &#34;tr18_7&#34;     &#34;Dimensionless&#34;
+state   real    tr18_8     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr18_8&#34;         &#34;tr18_8&#34;     &#34;Dimensionless&#34;
+state   real    tr18_9     ikjftb  tracer        1         -     irhusdf=(bdy_interp:dt)    &#34;tr18_9&#34;         &#34;tr18_9&#34;     &#34;Dimensionless&#34;
+
+
+# tracer options. (smoke) only has one tracer for smoke (has to run with biomassburning).
+#                 (test1) has lateral boundary tracer(1,2), stratospheric tracer(5,6), 
+#                     boundary layer tracer(7,8), surface tracer (3,4)
+#                 (test2) has surface tracer replaced by smoke tracer
+package   tracer_smoke  tracer_opt==1       -             tracer:smoke
+package   tracer_test1  tracer_opt==2       -             tracer:tr17_1,tr17_2,tr17_3,tr17_4,tr17_5,tr17_6,tr17_7,tr17_8
+package   tracer_test2  tracer_opt==3       -             tracer:tr17_1,tr17_2,tr17_3,tr17_4,tr17_5,tr17_6,tr17_7,tr17_8
+package   tracer_test3  tracer_opt==4       -             tracer:tr17_1,tr17_2,tr17_3,tr17_4,tr17_5,tr17_6,tr17_7,tr17_8,tr18_1,tr18_2
+</code></pre><ol start=5><li><p>Add <code>module_input_tracer</code> to <code>dyn_em/solve_em.F</code></p><pre tabindex=0><code>------before------
+!   USE module_diagnostics
+#if (WRF_CHEM == 1)
+   USE module_input_chem_data
+   USE module_input_tracer
+   USE module_chem_utilities
+#endif
+   USE module_first_rk_step_part1
+   USE module_first_rk_step_part2
+------after------
+!   USE module_diagnostics
+#if (WRF_CHEM == 1)
+   USE module_input_chem_data
+   USE module_input_tracer
+   USE module_chem_utilities
+#endif
+   USE module_input_tracer
+   USE module_first_rk_step_part1
+   USE module_first_rk_step_part2
+</code></pre></li><li><p>Add <code>module_input_tracer_data.o</code> and <code>module_input_tracer.o</code> to <code>phys/Makefile</code></p></li></ol></div><div class=row><div class=col-md-8><div class=mb-5><div class="li-x div-x post-meta"><li class=pr-0><a href=https://zxdawn.github.io/tags/><i class="fas fa-tags"></i></a></li><div class=tags-sm><li><a href=https://zxdawn.github.io/tags/wrf-chem role=button>WRF-Chem</a></li></div></div></div></div></div><div class="row pt-3"><div class=col-md-6><a href=https://zxdawn.github.io/2018/07/11/the-cycle-of-download-and-move/ class=post-meta>Previous<div class="pt-2 pb-5 d-flex"><i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+<span>The cycle of download and move</span></div></a></div><div class="col-md-6 text-right"><a href=https://zxdawn.github.io/2018/09/03/set-a-dark-theme-in-texstudio/ class=post-meta>Next<div class="pt-2 pb-5 flex-reverse"><i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+<span>Set a dark theme in Texstudio</span></div></a></div></div></div></div></div></main><footer class="page-footer text-center font-small mt-4 wow fadeIn"><div class="pb-2 mt-5 pt-5"><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div><div class="copyright py-4"><span>2016 - 2022 &copy; | Theme <a href=https://github.com/EliiseS/AllinOne target=_blank>AllinOne</a></span></div></footer><script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery-3.3.1.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/popper.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/holder.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors-extensions/bootstrap4/bootstrap.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/mdb/mdb.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/main.js></script>
+<script src=https://zxdawn.github.io/js/vendors/highlight.pack.js></script><script>hljs.initHighlightingOnLoad()</script><script type=text/javascript>(new WOW).init()</script></body></html>

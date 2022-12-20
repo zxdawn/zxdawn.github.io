@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Dreambooker</title><link>https://zxdawn.github.io/tags/git/</link><description>Recent content in Git on Dreambooker</description><generator>Hugo -- gohugo.io</generator><language>zn-Hans</language><lastBuildDate>Thu, 28 Jun 2018 11:57:14 +0000</lastBuildDate><atom:link href="https://zxdawn.github.io/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Install git and oh-my-zsh without root</title><link>https://zxdawn.github.io/2018/06/28/install-git-and-oh-my-zsh-without-root/</link><pubDate>Thu, 28 Jun 2018 11:57:14 +0000</pubDate><guid>https://zxdawn.github.io/2018/06/28/install-git-and-oh-my-zsh-without-root/</guid><description>&lt;h1 id="git">Git&lt;/h1>
+&lt;p>Check &lt;code>Installing from Source&lt;/code> part of the &lt;a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">guide&lt;/a>.&lt;/p>
+&lt;p>What I do is a little different from it:&lt;/p>
+&lt;h2 id="curl">Curl&lt;/h2>
+&lt;p>Since &lt;code>git&lt;/code> depend on &lt;code>curl&lt;/code>, I installed &lt;code>curl&lt;/code> from source according to this &lt;a href="https://curl.haxx.se/docs/install.html">guide&lt;/a>.&lt;/p>
+&lt;h2 id="git-1">Git&lt;/h2>
+&lt;pre tabindex="0">&lt;code># Download git and uncompress
+$ tar -zxf git-2.18.0.tar.gz
+$ cd git-2.18.0
+$ make configure
+# Define CURLDIR=/public/home/zhangxin/softwares/curl if your curl header and library files are # in /public/home/zhangxin/softwares/curl/include and /public/home/zhangxin/softwares/curl/lib # directories.
+$ ./configure CURLDIR=/public/home/zhangxin/softwares/curl --prefix=/public/home/zhangxin/softwares/git
+# Since we don&amp;#39;t need docs actually, just &amp;#39;make&amp;#39;.
+$ make CURLDIR=/public/home/zhangxin/softwares/curl
+$ make install CURLDIR=/public/home/zhangxin/softwares/curl
+&lt;/code>&lt;/pre></description></item></channel></rss>

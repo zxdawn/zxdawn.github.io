@@ -1,0 +1,163 @@
+<!doctype html><html lang=zn-hans><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no,maximum-scale=1"><meta name=author content="Xin Zhang"><meta name=description content="Predicaments
+If you encounter any problems as follows, you should try to set up a personal Python(Anaconda) mirror:
+
+Deploy a python environment on servers that have no access to the Internet;
+Deploy a python environment which can be used directly by other users on the server;
+Internet speed or connection to cloud mirror is slow.
+
+Steps
+Installation
+Just install Anaconda according to this guide.
+Of course, you can download Anaconda installer archive from here.
+Download(mirror)
+You can use wget to mirror the packages from official Anaconda websites or other mirror websites (TUNA and USTC).
+If your server is located in China, I recommend the later one.
+I&rsquo;ll take the later one as example."><meta property="og:title" content="Set up personal Anaconda mirror"><meta property="og:description" content="Predicaments
+If you encounter any problems as follows, you should try to set up a personal Python(Anaconda) mirror:
+
+Deploy a python environment on servers that have no access to the Internet;
+Deploy a python environment which can be used directly by other users on the server;
+Internet speed or connection to cloud mirror is slow.
+
+Steps
+Installation
+Just install Anaconda according to this guide.
+Of course, you can download Anaconda installer archive from here.
+Download(mirror)
+You can use wget to mirror the packages from official Anaconda websites or other mirror websites (TUNA and USTC).
+If your server is located in China, I recommend the later one.
+I&rsquo;ll take the later one as example."><meta property="og:type" content="article"><meta property="og:url" content="https://zxdawn.github.io/2018/11/16/set-up-personal-anaconda-mirror/"><meta property="article:section" content="sci-tech"><meta property="article:published_time" content="2018-11-16T10:13:08+00:00"><meta property="article:modified_time" content="2018-11-16T10:13:08+00:00"><title>Set up personal Anaconda mirror | Dreambooker</title><link rel=canonical href=https://zxdawn.github.io/2018/11/16/set-up-personal-anaconda-mirror/><link href=https://zxdawn.github.io/vendors/fontawesome-free-5.14.0-web/css/all.min.css rel=stylesheet><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600"><link href=https://zxdawn.github.io/css/font.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/bootstrap4/bootstrap.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors-extensions/mdb/mdb.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/vendors/mdb/style.min.css rel=stylesheet><link href=https://zxdawn.github.io/css/main.css rel=stylesheet><link rel="shortcut icon" href=https://zxdawn.github.io/img/logo.jpg><style type=text/css>@media(min-width:800px) and (max-width:850px){.navbar:not(.top-nav-collapse){background:#1c2331!important}}</style><link rel=stylesheet href=https://zxdawn.github.io/css/vendors/highlight/github-gist.css></head><body class=bg-light data-spy=scroll data-target=#page-scrollspy data-offset=90><nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class=container><a class=navbar-brand href=https://zxdawn.github.io><img class=avatar src=https://zxdawn.github.io/img/logo.jpg style=width:40px!important;height:auto class="d-inline-block align-top" alt>
+<strong>Xin Zhang</strong></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarSupportedContent><ul class="navbar-nav mr-auto"><li class=nav-item><a class=nav-link href=https://zxdawn.github.io>Home</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/sci-tech/>Sci-Tech</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/essay/>Essay</a></li><li class=nav-item><a class=nav-link href=https://zxdawn.github.io/about/>About</a></li></ul></div></div></nav><div id=site-header class="carousel slide carousel-fade" data-ride=carousel style=height:18rem><div class=carousel-inner role=listbox><div class="carousel-item active"><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides/0.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//1.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//2.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//3.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div><div class=carousel-item><div class=view style=background-image:url(https://zxdawn.github.io/img/header-slides//4.jpg);background-repeat:no-repeat;background-size:cover><div class="mask rgba-black-light d-flex justify-content-center align-items-center"></div></div></div></div><div class="carousel-content text-center white-text wow fadeIn"><div class="row mx-0 headfont mt-3 pt-4"><div class="col-12 col-sm-5 align-middle"><a href=https://zxdawn.github.io><img class="pull-right avatar avatar-md" src=https://zxdawn.github.io/img/me.jpg alt></a></div><div class="col-12 col-sm-7 text-left pl-2"><a href=https://zxdawn.github.io><h1 class="mb-2 h1" style=font-weight:300><strong>Dreambooker</strong></h1></a><div class=mt-2 style=font-size:1rem;color:#fff><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div></div></div></div></div><main class=post-main-wrapper><div class=row><div class=col-md-10><div class="z-depth-1 post-wrapper white-bg single-post dont-break-out"><div class="post-header text-center"><ul class="post-meta li-x"><li><a href=https://zxdawn.github.io/categories/sci-tech><i class="fas fa-folder-open pr-1" aria-hidden=true></i> sci-tech</a></li></ul><div class="px-4 post-heading">Set up personal Anaconda mirror</div><ul class="post-meta li-x mt-1"><li>Nov 16, 2018</li><li class=middot></li><li>6 minute read</li></ul><div class=view><img src=https://zxdawn.github.io/images/sci-tech/2018-11/anaconda.png></div></div><div class="post-content markdown"><h2 id=predicaments>Predicaments</h2><p>If you encounter any problems as follows, you should try to set up a personal Python(Anaconda) mirror:</p><ol><li>Deploy a python environment on servers that have no access to the Internet;</li><li>Deploy a python environment which can be used directly by other users on the server;</li><li>Internet speed or connection to cloud mirror is slow.</li></ol><h2 id=steps>Steps</h2><h3 id=installation>Installation</h3><p>Just install Anaconda according to this <a href=https://conda.io/docs/user-guide/install/index.html>guide</a>.</p><p>Of course, you can download Anaconda installer archive from <a href=https://repo.continuum.io/pkgs/>here</a>.</p><h3 id=downloadmirror>Download(mirror)</h3><p>You can use <code>wget</code> to mirror the packages from <a href=https://repo.continuum.io/pkgs/>official Anaconda websites</a> or other mirror websites (<a href=https://mirrors.tuna.tsinghua.edu.cn/anaconda/>TUNA</a> and <a href=https://mirrors.ustc.edu.cn/anaconda>USTC</a>).</p><p>If your server is located in China, I recommend the later one.</p><p>I&rsquo;ll take the later one as example.</p><p>Create your directory for saving packages:</p><pre tabindex=0><code>$ mkdir anaconda
+</code></pre><p>Create two files for downloading packages:</p><pre tabindex=0><code>$ cd anaconda
+$ touch download.sh links.txt
+$ chmod +x download.sh
+</code></pre><p>Save all urls you wanted to <code>links.txt</code>:</p><pre tabindex=0><code>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/linux-64/
+https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/noarch/
+https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/linux-64/
+https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/noarch/
+https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro/linux-64/
+https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro/noarch/
+https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/linux-64/
+https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/noarch/
+</code></pre><p>Then, edit the <code>download.sh</code> file to download all files in each directory:</p><pre tabindex=0><code>#!/bin/bash
+for link in `cat links.txt`; do
+    wget -m -np -nH --cut-dirs=1 -e robots=off -R &#34;index.html*&#34; $link
+done
+</code></pre><p>Explanations of options:</p><pre tabindex=0><code>-m,  --mirror
+    Turn on options suitable for mirroring.  This option turns on
+    recursion and time-stamping, sets infinite recursion depth and
+    keeps FTP directory listings.  It is currently equivalent to 
+    -r -N -l inf --no-remove-listing.
+-np, --no-parent
+    don&#39;t ascend to the parent directory.
+-nH, --no-host-directories
+    Disable generation of host-prefixed directories.
+--cut-dirs=number
+    Ignore number directory components. This is useful for getting a fine-grained control over     the directory where recursive retrieval will be saved.
+-e robots=off
+    ignore robots.txt.
+-R,  --reject=LIST
+    comma-separated list of rejected extensions.
+</code></pre><p><em>PS : <code>conda-forge</code> is much larger than others.</em> Of course, you can just download specific version and packages:</p><pre tabindex=0><code># Reject other versions except Python2.7
+# Beware, not to use something like &#34;only py27&#34; packages.
+# Indeed, many packages in the repo #don&#39;t have version string in their name;
+# and you&#39;ll miss them as dependency.
+# All package information is written in a repodata.json and repodata.json.bz2.
+$ wget -m -np -nH --cut-dirs=2 -e robots=off -R --regex-type pcre --reject-regex &#39;(.*py26.*)|(.*py3[3456].*)&#39; https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/linux-64/
+</code></pre><p><strong>Don&rsquo;t forget to download <code>noarch</code>, otherwise <code>conda</code> won&rsquo;t work correctly.</strong></p><p>Anyway, if your <code>links.txt</code> and <code>download.sh</code> are as same sa mine, you will get this tree of directory:</p><pre tabindex=0><code>└── anaconda
+    ├── cloud
+    │   └── conda-forge
+    │       ├── linux-64
+    │       └── noarch
+    └── pkgs
+        ├── free
+        │   ├── linux-64
+        │   └── noarch
+        ├── main
+        │   ├── linux-64
+        │   └── noarch
+        └── pro
+            ├── linux-64
+            └── noarch
+</code></pre><h3 id=settings>Settings</h3><p>It&rsquo;s more convenient to save all packages in one directory and just using <code>channel_alias</code> for channels.</p><p>Let&rsquo;s move <code>cloud/conda-forge</code> to <code>anaconda/pkgs</code>.</p><pre tabindex=0><code>└── anaconda
+    └── pkgs
+        ├── conda-forge
+        │   ├── linux-64
+        │   └── noarch
+        ├── free
+        │   ├── linux-64
+        │   └── noarch
+        ├── main
+        │   ├── linux-64
+        │   └── noarch
+        └── pro
+            ├── linux-64
+            └── noarch
+</code></pre><p>Now, you can modify the channel_alias and add channels:</p><pre tabindex=0><code>$ conda config --set channel_alias file://Path_to_your_channel/anaconda/pkgs
+$ conda config --add channels free
+$ conda config --add channels pro
+$ conda config --add channels main
+$ conda config --add channels conda-forge
+$ conda config --remove channels defaults
+$ conda config --set offline True
+</code></pre><p>Then, check <code>~/.condarc</code> :</p><pre tabindex=0><code>channels:
+  - conda-forge
+  - main
+  - pro
+  - free
+channel_alias: file://Path_to_your_channel/anaconda/pkgs
+</code></pre><p>If you prefer command line, you can just use <code>conda config --get</code> :</p><pre tabindex=0><code>$ conda config --get
+--set channel_alias file://Path_to_your_channel/anaconda/pkgs
+--add channels &#39;free&#39;   # lowest priority
+--add channels &#39;pro&#39;
+--add channels &#39;main&#39;
+--add channels &#39;conda-forge&#39;   # highest priority
+--set offline True
+</code></pre><p>If you make a mistake during adding channel, you can remove it:</p><pre tabindex=0><code>$ conda config --remove channels &lt;your_mistake&gt;
+</code></pre><blockquote><p>By default, conda now prefers packages from a higher priority channel over any version from a lower priority channel. Therefore, you can now safely put channels at the bottom of your channel list to provide additional packages that are not in the default channels, and still be confident that these channels will not override the core package set.</p></blockquote><p>So, if you want to set the order to free → main → conda-forge, you can rearrange them by terminal or edit the <code>.condarc</code> file directly.</p><p>Anyway, you will get this <code>.condarc</code> file:</p><pre tabindex=0><code>allow_other_channels : false
+channel_alias: file://datadir2/anaconda/pkgs
+channels:
+  - free
+  - main
+  - pro 
+  - conda-forge
+offline: true
+</code></pre><hr><p><strong>Content between these dividing lines are wrong according to this <a href=https://stackoverflow.com/a/37543307/7347925>answer</a>.</strong></p><p>Let&rsquo;s create a new <code>env</code> named <code>test</code> to prepare for next step (Aggregation).</p><pre tabindex=0><code>$ conda create -n test python=3.7
+$ source activate test
+$ conda install conda-build
+</code></pre><h3 id=aggregation><del>Aggregation</del></h3><blockquote><p><strong>What about the &lsquo;anaconda&rsquo; channel on anaconda.org at <a href=https://anaconda.org/anaconda>https://anaconda.org/anaconda</a>?</strong>
+The Anaconda channel on anaconda.org is an aggregated mirror of the packages in <a href=https://repo.continuum.io/pkgs/main>https://repo.continuum.io/pkgs/main</a>, <a href=https://repo.continuum.io/pkgs/free>https://repo.continuum.io/pkgs/free</a>, and <a href=https://repo.continuum.io/pkgs/pro>https://repo.continuum.io/pkgs/pro</a>. If you are using conda&rsquo;s &lsquo;defaults&rsquo; channel, you do not need the &lsquo;anaconda&rsquo; channel.</p></blockquote><p>Although you&rsquo;ve downloaded packages, but if you want to install as usual like <code>conda install -c anaconda netcdf4</code>, you have to aggregate <code>/main</code>, <code>/free</code> and <code>/pro</code>.</p><p>So, you should create a directory named <code>anaconda</code> under <code>anaconda_mirror</code>.</p><p>Then, link all files under each <code>linux-64</code> and <code>noarch</code> of <code>/main</code>, <code>/free</code> and <code>/pro</code> to <code>linux-64</code> and <code>noarch</code> under <code>anaconda</code> directory.</p><p>Now, you can use <code>conda-build</code> to generates a file <code>repodata.json</code>.</p><pre tabindex=0><code>$ conda index Path_to_your_channel/anaconda/pkgs/anaconda/linux-64/ Path_to_your_channel/anaconda/pkgs/anaconda/noarch/
+</code></pre><hr><h3 id=updateinstall>Update/Install</h3><p>Now, you can use <code>conda update/install</code> :</p><pre tabindex=0><code>$ conda install &lt;package&gt;
+$ conda install --channel conda-forge &lt;package&gt;
+</code></pre><p>Don&rsquo;t use <code>anaconda</code> channel anymore, because we just have <code>free</code>, <code>main</code>, <code>pro</code> and <code>conda-forge</code> channels.</p><p>For example, if you want to install <code>netcdf4</code> from <code>anaconda</code> channel, don&rsquo;t specify channel name:</p><pre tabindex=0><code>$ conda install netcdf4
+</code></pre><p>If you have many packaged to install, you can create <code>requirements.txt</code> and install all of them by one command.</p><pre tabindex=0><code>$ while read requirement; do conda install --yes $requirement; done &lt; requirements.txt 2&gt;error.log
+</code></pre><p>Here&rsquo;s one example of <code>requirements.txt</code> :</p><pre tabindex=0><code>netcdf4
+h5py
+matplotlib
+statsmodels
+</code></pre><h2 id=advanced>Advanced</h2><p>If you&rsquo;re the administrator of the server, you can use system <code>.condarc</code> to set a environment for all users.</p><blockquote><p>You can make conda and any number of packages available to a group of 1 or more users, while preventing these users from installing unwanted packages with conda:</p><ol><li>Install conda and the allowed packages, if any, in a location that is under administrator control and accessible to users.</li><li>Create a <a href=https://conda.io/docs/user-guide/configuration/use-condarc.html>.condarc system configuration file</a> in the root directory of the installation. This system-level configuration file will override any user-level configuration files installed by the user.</li></ol><p>Each user accesses the central conda installation, which reads settings from the user <code>.condarc</code>configuration file located in their home directory. The path to the user file is the same as the root environment prefix displayed by <code>conda info</code>, as shown in <a href=https://conda.io/docs/user-guide/configuration/admin-multi-user-install.html#admin-inst-user>User configuration file</a> below. The user<code>.condarc</code> file is limited by the system <code>.condarc</code> file.</p><p>System configuration settings are commonly used in a system <code>.condarc</code> file but may also be used in a user <code>.condarc</code> file. All user configuration settings may also be used in a system <code>.condarc</code> file.</p></blockquote><p>You can just check the official <a href=https://conda.io/docs/user-guide/configuration/admin-multi-user-install.html>document</a> about administrator-controlled installation.</p><p>Here&rsquo;s the example of my system <code>.condarc</code> :</p><pre tabindex=0><code>allow_other_channels : false
+channel_alias: file://Path_to_your_channel/anaconda/pkgs
+channels:
+  - free
+  - main
+  - pro
+  - conda-forge
+offline: true
+</code></pre><h2 id=references>References</h2><ol><li><a href=https://stackoverflow.com/questions/37391824/simply-use-python-anaconda-without-internet-connection>https://stackoverflow.com/questions/37391824/simply-use-python-anaconda-without-internet-connection</a></li><li><a href=http://www.meteoboy.com/conda-without-internet.html#>http://www.meteoboy.com/conda-without-internet.html#</a></li><li><a href=https://conda.io/docs/user-guide/configuration/use-condarc.html>https://conda.io/docs/user-guide/configuration/use-condarc.html</a></li><li><a href=https://conda.io/docs/user-guide/configuration/admin-multi-user-install.html>https://conda.io/docs/user-guide/configuration/admin-multi-user-install.html</a></li><li><a href=https://conda.io/docs/user-guide/tasks/create-custom-channels.html>https://conda.io/docs/user-guide/tasks/create-custom-channels.html</a></li></ol></div><div class=row><div class=col-md-8><div class=mb-5><div class="li-x div-x post-meta"><li class=pr-0><a href=https://zxdawn.github.io/tags/><i class="fas fa-tags"></i></a></li><div class=tags-sm><li><a href=https://zxdawn.github.io/tags/python role=button>Python</a></li></div></div></div></div></div><div class="row pt-3"><div class=col-md-6><a href=https://zxdawn.github.io/2018/10/31/trick-of-pcolormesh/ class=post-meta>Previous<div class="pt-2 pb-5 d-flex"><i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+<span>Trick of pcolormesh</span></div></a></div><div class="col-md-6 text-right"><a href=https://zxdawn.github.io/2018/11/18/send-e-mail-when-file-modified/ class=post-meta>Next<div class="pt-2 pb-5 flex-reverse"><i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+<span>Send e-mail when file modified</span></div></a></div></div></div></div><div class="col-md-2 pl-0"><div id=page-scrollspy class=toc-nav><ul class="nav nav-pills ml-0"><li class="nav-item pb-3 text-center"><span class="font-weight-bold mb-2">- CATALOG -</span></li><ul class=nav><li class=nav-item><a class=nav-link href=#predicaments>Predicaments</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#steps>Steps</a></li></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#installation>Installation</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#downloadmirror>Download(mirror)</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#settings>Settings</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#aggregation>Aggregation</a></li></ul></ul><ul class=nav><ul class=nav><li class=nav-item><a class=nav-link href=#updateinstall>Update/Install</a></li></ul></ul><ul class=nav><li class=nav-item><a class=nav-link href=#advanced>Advanced</a></li></ul><ul class=nav><li class=nav-item><a class=nav-link href=#references>References</a></li></ul></ul></div></div></div></main><footer class="page-footer text-center font-small mt-4 wow fadeIn"><div class="pb-2 mt-5 pt-5"><a href=//github.com/zxdawn target=_blank rel="noopener me"><i class="fab fa-github pr-1" aria-hidden=true></i></a>
+<a href=//twitter.com/zhangxin_dawn target=_blank rel="noopener me"><i class="fab fa-twitter pr-1" aria-hidden=true></i></a>
+<a href=//instagram.com/zhangxin_dawn/ target=_blank rel="noopener me"><i class="fab fa-instagram pr-1" aria-hidden=true></i></a>
+<a href=mailto:xinzhang1215@gmail.com><i class="far fa-envelope-open pr-1" aria-hidden=true></i></a></div><div class="copyright py-4"><span>2016 - 2022 &copy; | Theme <a href=https://github.com/EliiseS/AllinOne target=_blank>AllinOne</a></span></div></footer><script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery-3.3.1.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/popper.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/holder.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors-extensions/bootstrap4/bootstrap.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/vendors/mdb/mdb.min.js></script>
+<script type=text/javascript src=https://zxdawn.github.io/js/main.js></script>
+<script src=https://zxdawn.github.io/js/vendors/highlight.pack.js></script><script>hljs.initHighlightingOnLoad()</script><script type=text/javascript>(new WOW).init()</script></body></html>

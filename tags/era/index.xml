@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ERA on Dreambooker</title><link>https://zxdawn.github.io/tags/era/</link><description>Recent content in ERA on Dreambooker</description><generator>Hugo -- gohugo.io</generator><language>zn-Hans</language><lastBuildDate>Wed, 20 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://zxdawn.github.io/tags/era/index.xml" rel="self" type="application/rss+xml"/><item><title>Initializing the WRF model with ECMWF ERA-Interim reanalysis</title><link>https://zxdawn.github.io/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</link><pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate><guid>https://zxdawn.github.io/2017/12/20/initializing-the-wrf-model-with-ecmwf-era-interim-reanalysis/</guid><description>&lt;h2 id="summarization">Summarization&lt;/h2>
+&lt;blockquote>
+&lt;p>To summarise, you need three separate data files from the reanalysis data:&lt;/p>
+&lt;ol>
+&lt;li>Pressure level data (or model levels)&lt;/li>
+&lt;li>Surface variable data&lt;/li>
+&lt;li>Fixed data.&lt;/li>
+&lt;/ol>
+&lt;/blockquote></description></item></channel></rss>
