@@ -60,7 +60,7 @@ pygmentsuseclasses         = true
   welcome_head             = "Hello, Dreambooker!"
   welcome_word             = "~ Chase your dream ~"
 
-  latestpostscount         = 5                             # how many posts to display on the home page
+  latestpostscount         = 8                             # how many posts to display on the home page
   bloggroupby              = 'month'
   dateform                 = "Jan 2, 2006"
   dateformfull             = "2006-01-02  Monday  15:04:05"
@@ -82,6 +82,14 @@ pygmentsuseclasses         = true
   include_rss              = true                         # include RSS <link> tag in <head> and show RSS icon
 
   # about
+  firstName = "Xin"
+  lastName = "Zhang"
+  address = "Nanjing, CN"
+  phone = "+86 15895938361"
+  contactNote = "Mr."
+  profileImage = "img/portrait.jpg"
+  favicon = "images/favicon.ico"
+
   showSkills = true
   showProjects = false
   showOpenSource = true
@@ -110,3 +118,11 @@ pygmentsuseclasses         = true
 [[params.handles]]
     name = "Facebook"
     link = "https://www.facebook.com/zxdawn"
+
+[params.staticman]
+  endpoint = "https://dreambooker-staticman.herokuapp.com/v3/entry/github"
+  username = "zxdawn"
+  repository = "zxdawn.github.io"
+  branch = "source"
+  githubPullURL = true
+  notifications = true
