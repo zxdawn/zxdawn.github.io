@@ -122,7 +122,7 @@ pygmentsuseclasses         = true
 [params.staticman]
   endpoint = "https://dreambooker-comment.onrender.com/v3/entry/github"
   username = "zxdawn"
-  repository = "staticman"
-  branch = "gh-pages"
+  repository = "zxdawn.github.io"
+  branch = "main"
   githubPullURL = true
   notifications = true
