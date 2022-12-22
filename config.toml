@@ -8,7 +8,7 @@ publishdir                 = "public"
 enableEmoji                = true
 hasCJKLanguage             = true
 summaryLength              = 200
-Paginate                   = 5
+Paginate                   = 6
 
 theme                      = ["AllinOne", "resume"]
 title                      = "Dreambooker"
