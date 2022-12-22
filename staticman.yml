@@ -1,0 +1,74 @@
+# Name of the property. You can have multiple properties with completely
+# different config blocks for different sections of your site.
+# For example, you can have one property to handle comment submission and
+# another one to handle posts.
+comments:
+  # (*) REQUIRED
+  # Names of the fields the form is allowed to submit. If a field that is
+  # not here is part of the request, an error will be thrown.
+  allowedFields: ["name", "email", "body", "reply_to"]
+
+  # When allowedOrigins is defined, only requests sent from one of the domains
+  # listed will be accepted.
+  # allowedOrigins: ["zxdawn.github.io","dreambooker.site"] # TODO: Add your domains
+
+  # (*) REQUIRED
+  #
+  # Name of the branch being used. Must match the one sent in the URL of the
+  # request.
+  branch: "source"
+
+  # Text to use as the commit message or pull request title. Accepts placeholders.
+  commitMessage: "Add new comment in {options.section}/{options.slug}"
+
+  # List of fields to be populated automatically by Staticman and included in
+  # the data file. Keys are the name of the field. The value can be an object
+  # with a `type` property, which configures the generated field, or any value
+  # to be used directly (e.g. a string, number or array)
+  generatedFields:
+    date:
+      type: date
+
+  # The format of the generated data files. Accepted values are "json", "yaml"
+  # or "frontmatter"
+  format: "yaml"
+
+  # Whether entries need to be appproved before they are published to the main
+  # branch. If set to `true`, a pull request will be created for your approval.
+  # Otherwise, entries will be published to the main branch automatically.
+  moderation: true
+
+  # Name of the site. Used in notification emails.
+  name: "dreambooker.site" # TODO: Change this to match your site
+
+  # (*) REQUIRED
+  #
+  # Destination path (directory) for the data files. Accepts placeholders.
+  path: "data/comments/{options.section}/{options.slug}"
+
+  # (*) REQUIRED
+  #
+  # Destination path (filename) for the data files. Accepts placeholders.
+  filename: "comment-{@timestamp}"
+
+  # Names of required files. If any of these isn't in the request or is empty,
+  # an error will be thrown.
+  requiredFields: ["name", "body"]
+
+  # Notification settings. When enabled, users can choose to receive notifications
+  # via email when someone adds a reply or a new comment. This requires an account
+  # with Mailgun, which you can get for free at http://mailgun.com.
+  notifications:
+    enabled: true
+    apiKey: "Y+xmGgse15zokIbHqsE7xCOQ1Tcp751OPstpoNN/L9MmYk+ba6zG3HGCL6I258nOWGEllzfrw4G+U0OHVLvT+B8cuqRxPv4JE+jLEhQifE6bKE24fhqT3Vpi024PcRWaDE/+p0yazOdCwRWhoPk7MNCmDtJQ6AOR+eCkxlnqFxPHdBRloWGFn1dQmNoiZolmwMuUPNDHW1JSZd7Few1FBfwlLMq79Rnn4qO8LHVbvridr6B766eqtQgoR2O0yN6kfv6O9YiN1S1dHZBSbqcXqof5wC3ZfqcAk/qB9FmIfsp6U6owunjeaisjh8azQ/2LqLlgc4A1k3F2zR882bgATQ=="
+    domain: "OjQ3xal+OXiMDTM5TWprYT1r5/JO+NZ+a1Fmdq3wk9h24QRW3AcOWZQzBm0/Ru2WWht7H1nq4JDqGlJ+RiP1qoNyhbX/s+sO8re48gYs7JQSSRCXa8V3jaxRvOFQr2U56zWKQV7e81mMdNQ8tz6o7ku+4Y51Ax+eOS/LrRuDTU5r6yGBytZuXUmhSHX5J32ezn/CaHQQ4i2DpDIvlhQK27cMHwSsCztbdUq8ZQLB1IJbIiyMiKA6+Akir7SgoJeSYj1MJMiivT4oJCAI8XnTZGLzRE+ZoEs1qTZiX1zVG5/eQ3l7RGS8rU9a4/RhWPj4oMC+32+eZ4tnb4Y5chrOlg=="
+
+  # List of transformations to apply to any of the fields supplied. Keys are
+  # the name of the field and values are possible transformation types.
+  transforms:
+    email: md5
+
+  reCaptcha:
+    enabled: true
+    siteKey: "RFtIg5g9LbkEQnTk7S3kxRT1+yXfRiwXT+7LvGgPS/ADqa9oqI0lRRA7uJWnEWZVpuIa/wOzkRQNDsOdF8FHqm1xAqCQxxOdR/jbAHDBQZr3mIxWg2OYbP1Gaq1fO/4sqH9IXhIsTkR+xEc7QU6vGC7yVvagw+lbDH++4t0b/gSTMlKlXcYwJFAZ9p7jqu/AKmPO31yUz4/BS7UB3Wt+LwHooMOaYZaPi9TwLqk/ikwW/JmU1triL3yrCPkcZzeWExB1onb/sqex7BAwJ9E+AUGko3/o7ysOupkG5hwiKJoqmDhIcwfwOOw8vbECJcllWleTuzqsqtjfuqntGDqa4g=="
+    secret: "nbUeeopOxfF63nEyeOS0HN3GFYUUVh0JCZY22VnXgK6ZAfofJo2r4YZbko1knLH/4W9eVGjPLWvJfceDOuxhninCewvYG04uwFHuFVbz/u1/pcevcMJK2swbNHh45s79wYO7EZ4D/bLUhqey9Nxo00B9tznCe58qiZBGHR08DRC32r01nlmnLL8mGhagVECQ2dGTXDpSoXhsYzvuqBIG+mirNtx13Yw2rahidNvZmdZA/mzq1yzcmpg272GWgqpzHvKKh++1QCdxfvg2Fzrmkmb27CF0mdsYV8lkmhWBSGO4MYBF1k2VtQnKkdiujnnk1R6Qlfu8Vu4oXEwIw9wVfg=="
