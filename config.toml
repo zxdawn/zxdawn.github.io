@@ -120,7 +120,7 @@ pygmentsuseclasses         = true
     link = "https://www.facebook.com/zxdawn"
 
 [params.staticman]
-  endpoint = "https://ta1tk27bs2.execute-api.us-east-2.amazonaws.com/prod/v3/entry/github"
+  endpoint = "https://ta1tk27bs2.execute-api.us-east-2.amazonaws.com/prod/v2/entry/github"
   username = "zxdawn"
   repository = "zxdawn.github.io"
   branch = "main"
