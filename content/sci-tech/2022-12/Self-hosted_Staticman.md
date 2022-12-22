@@ -132,7 +132,7 @@ functions:
 `GITHUB_TOKEN` is a personal access token from a GitHub account that has repo permissions on the blog repository. We can create a robot account like below and set it in the repo's Settings later.
 
 1.  Register a new GitHub account to run your Staticman bot and create a [personal access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) for this new account.
-2.  From your main GitHub account, [send your bot a collaboration invite](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository).
+2.  From your main GitHub account, [send your bot a collaboration invite](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository), but **please not accept it manually**. We will let staticman accept it, otherwise it will raise error. 
 
 `RSA_PRIVATE_KEY` is a private key, we can create one like this:
 
@@ -194,7 +194,10 @@ Then, push these codes to robot's repository and check your AWS dashboard (note 
 
 ![Image not found: /images/sci-tech/2022-12/aws_lambda_dashboard.jpg](/images/sci-tech/2022-12/aws_lambda_dashboard.jpg "Image not found: /images/sci-tech/2022-12/aws_lambda_dashboard.jpg")
 
+
 ## Add staticman to blog
+
+### Staticman endpoint
 
 I have asked chatGPT how to get the endpoint of our staticman server. Here's the answer:
 
@@ -210,18 +213,38 @@ To get the Staticman API endpoint for your AWS Lambda function, you can do the f
     
 5.  Copy the endpoint URL and use it as the value for the `staticmanUrl` parameter in your `config.toml` file.
 
-Well, that's  true! I found my API Gateway like `https://***.execute-api.us-east-2.amazonaws.com/prod/****`
+Well, that's  true! I found my API Gateway like `https://***.execute-api.us-east-2.amazonaws.com/prod`. You can visit your  API Gateway in browser and you should see `Hello from Staticman version 3.0.0!`.
 
 ![api](/images/sci-tech/2022-12/api.jpg)
+
+Now we’re ready, it's time to accept the bot as explained by [flyinggrizzly](https://www.flyinggrizzly.net/2017/12/setting-up-staticman-server/):
+
+> programmatically accept that invite by hitting the Staticman API’s `connect` endpoint: `https://[your-staticman-url]/v2/connect/[your-main-github-username]/[your-site-repo]`. You will see `OK!` in your browser.
+>
+> if you see “Invitation not found”, either your user isn’t set up, in the app (check the token), you haven’t invited it to collaborate on the repo, or you already accepted the invite manually (this threw me way off).
+
+### Configure theme
 
 For my [theme](https://github.com/zxdawn/zxdawn.github.io/tree/main/themes), I just need to edit the `config.toml` like this:
 
 ```
 [params.staticman]
-  endpoint = "https://<your_aws_api_above>/v3/entry/github"
+  endpoint = "https://<your_aws_api_above>/v2/entry"
 ```
 
+Actually, I also tried version 3 with GitHub App by setting three variables like this [issue](https://github.com/ka2in/heroku-render-migration/issues/3#issuecomment-1359601593).
+However, I failed … If you figure out how to deploy staticman v3, please leave your comments!
+Note that the endpoint of version 3 is `https://<your_aws_api_above>/v3/entry/github`, because v3 supports both Github and Gitlab.
 
+## Add recaptcha
+
+
+## Version control
+
+| Version | Action                                   | Time       |
+|---------|------------------------------------------|------------|
+| 1.0     | Init                                     | 2022-12-21 |
+| 1.1     | Add the part of setting up own staticman | 2022-12-22 |
 
 
 ## Reference
@@ -229,4 +252,5 @@ For my [theme](https://github.com/zxdawn/zxdawn.github.io/tree/main/themes), I j
 - [Static Comments with Serverless and Staticman](https://www.jpatters.com/2020/12/static-comments-with-serverless-staticman-1/)
 - [Staticman Add Comments to your Static Website for FREE](https://averagelinuxuser.com/staticman-comments/)
 - [Staticman API Dokku Deployment](https://shoreviewanalytics.github.io/Staticman-API-Dokku-Deployment/)
+- [Setting up a Staticman server for comments on Jekyll and static sites](https://www.flyinggrizzly.net/2017/12/setting-up-staticman-server/)
 - [Migrating your Staticman instance from Heroku to Render](https://github.com/ka2in/heroku-render-migration/wiki/Migrating-your-Staticman-instance-from-Heroku-to-Render)
