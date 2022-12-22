@@ -68,7 +68,7 @@ comments:
   transforms:
     email: md5
 
-  reCaptcha:
-    enabled: true
-    siteKey: "RFtIg5g9LbkEQnTk7S3kxRT1+yXfRiwXT+7LvGgPS/ADqa9oqI0lRRA7uJWnEWZVpuIa/wOzkRQNDsOdF8FHqm1xAqCQxxOdR/jbAHDBQZr3mIxWg2OYbP1Gaq1fO/4sqH9IXhIsTkR+xEc7QU6vGC7yVvagw+lbDH++4t0b/gSTMlKlXcYwJFAZ9p7jqu/AKmPO31yUz4/BS7UB3Wt+LwHooMOaYZaPi9TwLqk/ikwW/JmU1triL3yrCPkcZzeWExB1onb/sqex7BAwJ9E+AUGko3/o7ysOupkG5hwiKJoqmDhIcwfwOOw8vbECJcllWleTuzqsqtjfuqntGDqa4g=="
-    secret: "nbUeeopOxfF63nEyeOS0HN3GFYUUVh0JCZY22VnXgK6ZAfofJo2r4YZbko1knLH/4W9eVGjPLWvJfceDOuxhninCewvYG04uwFHuFVbz/u1/pcevcMJK2swbNHh45s79wYO7EZ4D/bLUhqey9Nxo00B9tznCe58qiZBGHR08DRC32r01nlmnLL8mGhagVECQ2dGTXDpSoXhsYzvuqBIG+mirNtx13Yw2rahidNvZmdZA/mzq1yzcmpg272GWgqpzHvKKh++1QCdxfvg2Fzrmkmb27CF0mdsYV8lkmhWBSGO4MYBF1k2VtQnKkdiujnnk1R6Qlfu8Vu4oXEwIw9wVfg=="
+  # reCaptcha:
+  #   enabled: true
+  #   siteKey: "RFtIg5g9LbkEQnTk7S3kxRT1+yXfRiwXT+7LvGgPS/ADqa9oqI0lRRA7uJWnEWZVpuIa/wOzkRQNDsOdF8FHqm1xAqCQxxOdR/jbAHDBQZr3mIxWg2OYbP1Gaq1fO/4sqH9IXhIsTkR+xEc7QU6vGC7yVvagw+lbDH++4t0b/gSTMlKlXcYwJFAZ9p7jqu/AKmPO31yUz4/BS7UB3Wt+LwHooMOaYZaPi9TwLqk/ikwW/JmU1triL3yrCPkcZzeWExB1onb/sqex7BAwJ9E+AUGko3/o7ysOupkG5hwiKJoqmDhIcwfwOOw8vbECJcllWleTuzqsqtjfuqntGDqa4g=="
+  #   secret: "nbUeeopOxfF63nEyeOS0HN3GFYUUVh0JCZY22VnXgK6ZAfofJo2r4YZbko1knLH/4W9eVGjPLWvJfceDOuxhninCewvYG04uwFHuFVbz/u1/pcevcMJK2swbNHh45s79wYO7EZ4D/bLUhqey9Nxo00B9tznCe58qiZBGHR08DRC32r01nlmnLL8mGhagVECQ2dGTXDpSoXhsYzvuqBIG+mirNtx13Yw2rahidNvZmdZA/mzq1yzcmpg272GWgqpzHvKKh++1QCdxfvg2Fzrmkmb27CF0mdsYV8lkmhWBSGO4MYBF1k2VtQnKkdiujnnk1R6Qlfu8Vu4oXEwIw9wVfg=="
