@@ -25,9 +25,9 @@ Luckily, TROPOMI L2 product includes the [Geography Markup Language (GML)](https
 >  </gml:LineString >
 > ```
 
-I found this [answer](https://gis.stackexchange.com/a/444112) using [pygml](https://pypi.org/project/pygml/) to read the GML data. Note that we need to change to `crs` to WSG4326.
+I found this [answer](https://gis.stackexchange.com/a/444112) using [pygml](https://pypi.org/project/pygml/) to read the GML data. Note that we need to change the `crs` to WSG4326.
 
-So, we can generate the polygon easily like this (`poslist` is from the TROPOMI L2 file):
+Then, we can generate the polygon easily (`poslist` is from the TROPOMI L2 file):
 
 ```
 # generate geom
@@ -52,7 +52,7 @@ plt.plot(x_swath, y_swath, c='r')
 
 ### Two cases
 
-Here's whole code of checking whether two points inside the TROPOMI swath
+Here's the full code of checking whether two points inside the TROPOMI swath.
 
 ```python
 import pygml
@@ -108,7 +108,7 @@ for point in [point1, point2]:
 
 ### More cases
 
-Let's test the speed of checking multiple points:
+Let's test the speed of checking multiple points.
 
 ```
 def random_lat_lon(n=1, lat_min=-90., lat_max=90., lon_min=-180., lon_max=180.):
