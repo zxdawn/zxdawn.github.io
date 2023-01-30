@@ -144,6 +144,12 @@ axs.scatter(within_points['longitude'], within_points['latitude'], c='orange4')
 
 ![points](/images/sci-tech/2023-01/points_swath.png)
 
+## Problem
+
+If the swath cross 180 deg line or pole, this method won't work. We need to split the GML into multi polygons.
+
+For TROPOMI, we can download the wkt info from s5phub directly.
+
 
 ## Version control
 
@@ -151,6 +157,3 @@ axs.scatter(within_points['longitude'], within_points['latitude'], c='orange4')
 | ------- | ------ | ---------- |
 | 1.0     | Init   | 2023-01-10 |
 
-## References
-
-- 
