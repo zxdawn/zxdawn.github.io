@@ -97,6 +97,7 @@ pygmentsuseclasses         = true
   showExperience = false
   showEducation = true
   showBlog = true
+  showCV = true
   showQr = true
 
 [[params.handles]]
