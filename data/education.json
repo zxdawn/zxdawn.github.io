@@ -1,14 +1,20 @@
 [
     {
-        "school":"NUIST",
+        "school":"SRON (Netherlands Institute for Space Research)",
+        "degree":"PostDoc",
+        "major":"Satellite Observations",
+        "range":"2023 -"
+    },
+    {
+        "school":"NUIST (Nanjing University of Information Science & Technology)",
+        "degree":"Master/Ph.D.",
+        "major":"Atmospheric Physics and Environment",
+        "range":"2017 - 2023"
+    },
+    {
+        "school":"NUIST (Nanjing University of Information Science & Technology)",
         "degree":"Bachelor",
         "major":"Environmental Science",
         "range":"2013 - 2017"
-    },
-    {
-        "school":"NUIST",
-        "degree":"Master/Ph.D.",
-        "major":"Atmospheric Physics and Environment",
-        "range":"2017 - "
     }
 ]

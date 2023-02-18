@@ -6,9 +6,9 @@
   {
       "grouping":"Modeling & Remote Sensing",
       "skills":[
-          {"name":"WRF-Chem","link":"https://github.com/wrf-model/WRF"},
-          {"name":"Tropospheric NO2 from satellites","link":"http://www.temis.nl/airpollution/no2.html"},
-          {"name":"FY4A","link":"https://github.com/zxdawn/FY-4"}
+          {"name":"WRF-Chem","link":"https://github.com/zxdawn/WRF-Chem-LDA-LFR"},
+          {"name":"Lightning NO2 Retrieval","link":"https://github.com/zxdawn/S5P-LNO2"},
+          {"name":"Streamlit app for lightning NO2","link":"https://arctic-lightning-no2.streamlit.app"}
       ]
   },
   {
