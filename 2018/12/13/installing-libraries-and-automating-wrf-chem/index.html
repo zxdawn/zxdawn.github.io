@@ -132,7 +132,7 @@ To speed up compile times, set the environment variable J to &#34;-j 8&#34; or w
  Forced exit from Rosenbrock due to the following error:
  No of steps exceeds maximum bound
  T=   72.0000000000000      and H=   72.0000000000000
-</code></pre><p>After talking on the <a href="http://forum.mmm.ucar.edu/phpBB3/viewtopic.php?f=83&t=502&sid=396fc1435fec08cb4a0fc7393d230b65#p1576">WRF-Chem forum</a>, I find it&rsquo;s caused by <code>Optimization_level</code>, especially <code>floating point math</code>. Please check that and the <a href=https://dreambooker.site/2018/12/07/Installing-libraries-and-automating-WRF-Chem/#Test>test part</a> of this article.</p><p>Edit the path of NetCDF in <code>MEGAN/src/make_util</code> and <code>MOZBC/src/make_mozbc</code>:</p><pre tabindex=0><code>1. setenv FC ifort
+</code></pre><p>After talking on the <a href="http://forum.mmm.ucar.edu/phpBB3/viewtopic.php?f=83&amp;t=502&amp;sid=396fc1435fec08cb4a0fc7393d230b65#p1576">WRF-Chem forum</a>, I find it&rsquo;s caused by <code>Optimization_level</code>, especially <code>floating point math</code>. Please check that and the <a href=https://dreambooker.site/2018/12/07/Installing-libraries-and-automating-WRF-Chem/#Test>test part</a> of this article.</p><p>Edit the path of NetCDF in <code>MEGAN/src/make_util</code> and <code>MOZBC/src/make_mozbc</code>:</p><pre tabindex=0><code>1. setenv FC ifort
 
 2. if( $OP_SYS == &#34;Linux&#34; ) then
     if( $found_ncf_lib ) then
@@ -188,7 +188,7 @@ Traceback (most recent call last):
   File &#34;/HOME/nuist_chenq_2/WORKSPACE/xin/anaconda3/lib/python3.7/site-packages/cftime-1.0.3.4-py3.7-linux-x86_64.egg/cftime/__init__.py&#34;, line 1, in &lt;module&gt;
     from ._cftime import utime, JulianDayFromDate, DateFromJulianDay
 ImportError: /HOME/nuist_chenq_2/WORKSPACE/xin/anaconda3/lib/python3.7/site-packages/cftime-1.0.3.4-py3.7-linux-x86_64.egg/cftime/_cftime.cpython-37m-x86_64-linux-gnu.so: undefined symbol: __intel_sse2_strchr
-</code></pre><p>The solution is found <a href="https://stackoverflow.com/questions/49524083/importing-any-module-in-cython-file-gives-undefined-symbol-error?noredirect=1&lq=1">here</a>:</p><blockquote><p>The problem was that I used the Intel compiler without running the Intel Python distribution, or otherwise providing the Intel runtime libraries.</p></blockquote><p>However, the <code>hdf5</code> installed by anaconda conflicts with <code>HDF5 1.8.21</code> when using <code>netCDF4</code>:</p><pre tabindex=0><code>Warning! ***HDF5 library version mismatched error***
+</code></pre><p>The solution is found <a href="https://stackoverflow.com/questions/49524083/importing-any-module-in-cython-file-gives-undefined-symbol-error?noredirect=1&amp;lq=1">here</a>:</p><blockquote><p>The problem was that I used the Intel compiler without running the Intel Python distribution, or otherwise providing the Intel runtime libraries.</p></blockquote><p>However, the <code>hdf5</code> installed by anaconda conflicts with <code>HDF5 1.8.21</code> when using <code>netCDF4</code>:</p><pre tabindex=0><code>Warning! ***HDF5 library version mismatched error***
 The HDF5 header files used to compile this application do not match
 the version used by the HDF5 library to which this application is linked.
 Data corruption or segmentation faults may occur if the application continues.
