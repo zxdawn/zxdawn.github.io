@@ -45,6 +45,12 @@ pygmentsuseclasses         = true
     url                    = "essay/"
 
   [[menu.main]]
+    name                   = "Album"
+    weight                 = 5
+    identifier             = "album"
+    url                    = "album/"
+  
+  [[menu.main]]
     name                   = "About"
     weight                 = 9
     identifier             = "about"
@@ -80,6 +86,9 @@ pygmentsuseclasses         = true
   twitter                  = "//twitter.com/zhangxin_dawn"
   instagram                = "//instagram.com/zhangxin_dawn/"
   include_rss              = true                         # include RSS <link> tag in <head> and show RSS icon
+
+  # pdf
+  adobeClientId = "1487aab277454894b9091cd02fe297f4"
 
   # about
   firstName = "Xin"
